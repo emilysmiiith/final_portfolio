@@ -294,50 +294,6 @@ body {
   overflow: hidden;
 }
 
-.gradient-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(50px);
-  opacity: 0.6;
-  animation: float 20s ease-in-out infinite;
-}
-
-.orb-1 {
-  width: 600px;
-  height: 600px;
-  background: linear-gradient(135deg, #A2B1BA, #7A9BA8);
-  top: 5%;
-  left: 5%;
-  animation-delay: 0s;
-}
-
-.orb-2 {
-  width: 700px;
-  height: 700px;
-  background: linear-gradient(135deg, #442B12, #6B4423);
-  top: 30%;
-  right: 5%;
-  animation-delay: 7s;
-}
-
-.orb-3 {
-  width: 500px;
-  height: 500px;
-  background: linear-gradient(135deg, #A2B1BA, #8FAAB7);
-  bottom: 40%;
-  left: 10%;
-  animation-delay: 14s;
-}
-
-.orb-4 {
-  width: 400px;
-  height: 400px;
-  background: linear-gradient(135deg, #442B12, #5D3A1F);
-  bottom: 10%;
-  right: 20%;
-  animation-delay: 21s;
-}
-
 @keyframes float {
   0%, 100% {
     transform: translate(0, 0) scale(1);
@@ -431,12 +387,5 @@ body {
     border-radius: 8px;
   }
   
-  .gradient-orb {
-    filter: blur(40px);
-  }
-  
-  .orb-1, .orb-2, .orb-3, .orb-4 {
-    width: 300px;
-    height: 300px;
-  }
+
 }

@@ -481,3 +481,37 @@ p {
     height: 300px;
   }
 }
+
+/* FINAL ORB OVERRIDES - This will override everything above */
+.about-container .background-effects .gradient-orb.orb-1 {
+  width: 2310px !important;
+  height: 2000px !important;
+  filter: blur(60px) !important;
+  background: #A2B1BA !important;
+  left: -300px !important;
+  top: 500px !important;
+  opacity: 0.9 !important;
+  animation-delay: 0s !important;
+}
+
+.about-container .background-effects .gradient-orb.orb-2 {
+  width: 2000px !important;
+  height: 2800px !important;
+  filter: blur(60px) !important;
+  background: #442B12 !important;
+  right: -1000px !important;
+  top: 40% !important;
+  opacity: 0.8 !important;
+  animation-delay: 7s !important;
+}
+
+.about-container .background-effects .gradient-orb.orb-3 {
+  width: 2100px !important;
+  height: 2100px !important;
+  filter: blur(60px) !important;
+  background: #A2B1BA !important;
+  left: -380px !important;
+  bottom: -500px !important;
+  opacity: 0.9 !important;
+  animation-delay: 14s !important;
+}

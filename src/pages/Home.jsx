@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import '../styles/global.css';
+import imageSvg from '../assets/image.svg';
 
 const Home = () => {
   const svgRef = useRef();
@@ -30,6 +31,8 @@ const Home = () => {
       }
     };
 
+    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     
     // Set initial state
@@ -50,7 +53,7 @@ const Home = () => {
         {/* Animated SVG */}
         <div ref={svgRef} className="svg-scroll">
           <img 
-            src="../assets/image.svg" 
+            src={imageSvg} 
             alt="Animated scroll path"
             className="svg-image"
           />
