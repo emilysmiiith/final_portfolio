@@ -1,0 +1,60 @@
+/* Custom svg Cursor Styles - Updated for cursor.svg */
+
+/* Default cursor for everything */
+* {
+  cursor: url('/cursor.svg'), auto;
+}
+
+/* Pointer cursor for interactive elements */
+a, 
+button, 
+.project-card, 
+.social-icon, 
+.check-more-btn, 
+.tool-tag,
+.timeline-item,
+.detail-section,
+.project-image-container,
+.preview-image,
+.deliverables-list li,
+.stat-item,
+input[type="submit"], 
+input[type="button"], 
+.clickable,
+[role="button"] {
+  cursor: url('/cursor.svg'), pointer;
+}
+
+/* Text cursor for text input areas */
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="search"],
+textarea, 
+[contenteditable] {
+  cursor: url('/cursor.svg'), text;
+}
+
+/* Move cursor for draggable elements */
+[draggable="true"] {
+  cursor: url('/cursor.svg'), move;
+}
+
+/* Help cursor for elements with titles/tooltips */
+[title] {
+  cursor: url('/cursor.svg'), help;
+}
+
+/* Ensure the cursor shows on hover states */
+*:hover {
+  cursor: url('/cursor.svg'), auto;
+}
+
+/* Override for specific interactive hovers */
+a:hover, 
+button:hover, 
+.project-card:hover, 
+.social-icon:hover, 
+.check-more-btn:hover {
+  cursor: url('/cursor.svg'), pointer;
+}
