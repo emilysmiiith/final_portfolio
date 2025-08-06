@@ -74,7 +74,7 @@ const Projects = () => {
             <div className="section-content">
               <div className="section-header">
                 <h2>these are the areas I'm most passionate about and where I'm continuing to grow my skills</h2>
-                <h1>what i love to dodo</h1>
+                <h1>what i love to do</h1>
               </div>
               <div className="section-body">
                 <p>
