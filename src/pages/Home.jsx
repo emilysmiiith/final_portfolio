@@ -6,9 +6,11 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import '../styles/global.css';
 import imageSvg from '../assets/image.svg';
+import homeVideo from '../assets/videos/home.mp4';
 
 const Home = () => {
   const svgRef = useRef();
+  const videoRef = useRef();
 
   useEffect(() => {
     let ticking = false;
@@ -31,8 +33,6 @@ const Home = () => {
       }
     };
 
-    
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     
     // Set initial state
@@ -41,6 +41,33 @@ const Home = () => {
     }
     
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target === videoRef.current) {
+            if (entry.isIntersecting) {
+              videoRef.current?.play();
+            } else {
+              videoRef.current?.pause();
+            }
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
   }, []);
 
   const navigateToProjects = () => {
@@ -99,18 +126,19 @@ const Home = () => {
           <section className="section work-section">
             <div className="section-content">
               <div className="section-header">
-                <h1>nice to meet you</h1>
+                <h2>nice to meet you!</h2>
               </div>
 
                 <div className="video-container">
-                  <div className="video-placeholder">
-                    <div className="play-button">
-                      <span className="play-icon">▶</span>
-                    </div>
-                    <div className="video-overlay">
-                      <p>Emily talking about her work</p>
-                    </div>
-                  </div>
+                  <video
+                    ref={videoRef}
+                    src={homeVideo}
+                    muted
+                    loop
+                    controls
+                    className="home-video"
+                    preload="metadata"
+                  />
                 </div>
               </div>
  
