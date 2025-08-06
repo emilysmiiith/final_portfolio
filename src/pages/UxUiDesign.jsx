@@ -1,6 +1,7 @@
 import React from 'react';
 import './GraphicDesign.css';
 import Footer from '../components/Footer';
+import imageSvg from '../assets/image.svg';
 
 // Graphic Design projects data
 const graphicDesignProjects = [
@@ -8,7 +9,7 @@ const graphicDesignProjects = [
     id: 9,
     title: "Brand Identity Redesign",
     shortDescription: "Complete brand overhaul and visual identity",
-    image: "/images/Redesign_Smith2.png",
+    image: "../assets/images/Redesign_Smith2.png",
     fullDescription: "Comprehensive brand identity redesign including logo, color palette, typography, and brand guidelines for a growing business.",
     tools: ["Illustrator", "Photoshop", "InDesign"],
     year: "2023",
@@ -18,7 +19,7 @@ const graphicDesignProjects = [
     id: 10,
     title: "Digital Marketing Campaign",
     shortDescription: "Social media and digital advertising design",
-    image: "/images/video.png",
+    image: "../assets/images/video.png",
     fullDescription: "Complete digital marketing campaign including social media graphics, web banners, and promotional materials.",
     tools: ["Photoshop", "Illustrator", "After Effects"],
     year: "2023",
@@ -28,7 +29,7 @@ const graphicDesignProjects = [
     id: 13,
     title: "Packaging Design Series",
     shortDescription: "Product packaging and label design",
-    image: "/images/Redesign_Smith2.png",
+    image: "../assets/images/Redesign_Smith2.png",
     fullDescription: "Creative packaging design for a line of organic products, focusing on sustainability messaging and shelf appeal.",
     tools: ["Illustrator", "Photoshop", "Dimension"],
     year: "2024",
@@ -38,7 +39,7 @@ const graphicDesignProjects = [
     id: 14,
     title: "Event Poster Collection",
     shortDescription: "Typography-focused promotional materials",
-    image: "/images/figma.png",
+    image: "../assets/images/figma.png",
     fullDescription: "Series of event posters combining bold typography, vibrant colors, and creative layouts for music festivals.",
     tools: ["Illustrator", "Photoshop", "InDesign"],
     year: "2023",
@@ -48,7 +49,7 @@ const graphicDesignProjects = [
     id: 15,
     title: "Magazine Layout Design",
     shortDescription: "Editorial design and typography",
-    image: "/images/Redesign_Smith2.png",
+    image: "../assets/images/Redesign_Smith2.png",
     fullDescription: "Complete magazine layout design including typography hierarchy, grid systems, and visual storytelling elements.",
     tools: ["InDesign", "Photoshop", "Illustrator"],
     year: "2024",
@@ -58,7 +59,7 @@ const graphicDesignProjects = [
     id: 16,
     title: "Logo Design Portfolio",
     shortDescription: "Brand mark and identity creation",
-    image: "/images/figma.png",
+    image: "../assets/images/figma.png",
     fullDescription: "Collection of logo designs across various industries, focusing on memorable and scalable brand marks.",
     tools: ["Illustrator", "Photoshop", "Sketch"],
     year: "2023-2024",
@@ -70,6 +71,15 @@ const GraphicDesign = () => {
   return (
     <>
       <div className="graphic-container">
+        {/* Static SVG Background */}
+        <div className="svg-static">
+          <img 
+            src={imageSvg}
+            alt="Static decorative path"
+            className="svg-image-static"
+          />
+        </div>
+
         {/* Background Effects */}
         <div className="background-effects">
           <div className="gradient-orb orb-1"></div>

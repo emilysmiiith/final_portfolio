@@ -2,6 +2,7 @@ import React from 'react';
 import './GraphicDesign.css';
 import '../styles/global.css'; // Add this line to test
 import Footer from '../components/Footer';
+import imageSvg from '../assets/image.svg';
 
 const GraphicDesign = () => {
   return (
@@ -10,7 +11,7 @@ const GraphicDesign = () => {
         {/* Static SVG Background */}
         <div className="svg-static">
           <img 
-            src="/image.svg" 
+            src={imageSvg}
             alt="Static decorative path"
             className="svg-image-static"
           />
@@ -58,7 +59,7 @@ const GraphicDesign = () => {
 
                 <div className="project-preview">
                   <div className="preview-image">
-                    <img src="/images/serene-sip.png" alt="Serene Sip Box Design" />
+                    <img src="../assets/images/serene-sip.png" alt="Serene Sip Box Design" />
                     <div className="image-overlay">
                       <div className="tools-preview">
                         <span className="tool-preview">Adobe Photoshop</span>
@@ -148,7 +149,7 @@ const GraphicDesign = () => {
 
                 <div className="project-preview">
                   <div className="preview-image">
-                    <img src="/images/poster-redesign.png" alt="Poster Redesign" />
+                    <img src="../assets/images/poster-redesign.png" alt="Poster Redesign" />
                     <div className="image-overlay">
                       <div className="tools-preview">
                         <span className="tool-preview">Adobe Photoshop</span>

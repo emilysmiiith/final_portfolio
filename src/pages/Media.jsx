@@ -1,6 +1,7 @@
 import React from 'react';
 import './Media.css';
 import Footer from '../components/Footer';
+import imageSvg from '../assets/image.svg';
 
 // Media projects data
 const mediaProjects = [
@@ -8,7 +9,7 @@ const mediaProjects = [
     id: 1,
     title: "Motion Graphics Reel",
     shortDescription: "Dynamic video editing and animation showcase",
-    image: "/images/video.png",
+    image: "../assets/images/video.png",
     fullDescription: "A comprehensive reel showcasing motion graphics, video editing, and animation work across various projects.",
     tools: ["After Effects", "Premiere Pro", "Cinema 4D"],
     year: "2023",
@@ -18,7 +19,7 @@ const mediaProjects = [
     id: 2,
     title: "Animated Explainer Video",
     shortDescription: "Educational animation and storytelling",
-    image: "/images/Redesign_Smith2.png",
+    image: "../assets/images/Redesign_Smith2.png",
     fullDescription: "Animated explainer video combining storytelling, motion graphics, and sound design to communicate complex concepts simply.",
     tools: ["After Effects", "Illustrator", "Audition"],
     year: "2024",
@@ -28,7 +29,7 @@ const mediaProjects = [
     id: 3,
     title: "Documentary Short Film",
     shortDescription: "Cinematic storytelling and post-production",
-    image: "/images/video.png",
+    image: "../assets/images/video.png",
     fullDescription: "Complete post-production workflow for a documentary short film including color grading, sound design, and final edit.",
     tools: ["Premiere Pro", "DaVinci Resolve", "Audition"],
     year: "2023",
@@ -38,7 +39,7 @@ const mediaProjects = [
     id: 4,
     title: "Social Media Content Series",
     shortDescription: "Multi-platform video content creation",
-    image: "/images/Redesign_Smith2.png",
+    image: "../assets/images/Redesign_Smith2.png",
     fullDescription: "Created a series of engaging video content for social media platforms, optimized for different formats and audiences.",
     tools: ["After Effects", "Premiere Pro", "Photoshop"],
     year: "2024",
@@ -48,7 +49,7 @@ const mediaProjects = [
     id: 5,
     title: "Brand Animation Package",
     shortDescription: "Cohesive animated brand elements",
-    image: "/images/figma.png",
+    image: "../assets/images/figma.png",
     fullDescription: "Complete animated brand package including logo animations, transitions, and promotional video content.",
     tools: ["After Effects", "Illustrator", "Premiere Pro"],
     year: "2024",
@@ -58,7 +59,7 @@ const mediaProjects = [
     id: 6,
     title: "Music Video Edit",
     shortDescription: "Creative editing and color grading",
-    image: "/images/video.png",
+    image: "../assets/images/video.png",
     fullDescription: "Music video post-production featuring creative editing techniques, color grading, and visual effects synchronization.",
     tools: ["Premiere Pro", "After Effects", "DaVinci Resolve"],
     year: "2023",
@@ -73,7 +74,7 @@ const Media = () => {
         {/* Static SVG Background */}
         <div className="svg-static">
           <img 
-            src="/image.svg" 
+            src={imageSvg}
             alt="Static decorative path"
             className="svg-image-static"
           />

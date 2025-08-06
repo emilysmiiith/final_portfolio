@@ -5,11 +5,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import '../styles/global.css';
+import imageSvg from '../assets/image.svg';
+import meImage from '../assets/images/me.png';
 
 const About = () => {
   return (
     <>
       <div className="about-container">
+        {/* Static SVG Background */}
+        <div className="svg-static">
+          <img 
+            src={imageSvg}
+            alt="Static decorative path"
+            className="svg-image-static"
+          />
+        </div>
+
         {/* Background effects */}
         <div className="background-effects">
           <div className="gradient-orb orb-1"></div>
@@ -49,7 +60,7 @@ const About = () => {
                 <div className="hero-image">
                   <div className="image-container main-portrait">
                     <img 
-                      src="../assets/images/me.png" 
+                      src={meImage} 
                       alt="Emily Rianna" 
                       className="portrait-image"
                     />
