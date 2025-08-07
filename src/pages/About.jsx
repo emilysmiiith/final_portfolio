@@ -7,6 +7,8 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import '../styles/global.css';
 import imageSvg from '../assets/image.svg';
 import meImage from '../assets/images/me.png';
+import littleMeImage from '../assets/images/littleme.png';
+import travelImage from '../assets/images/travel.png';
 
 const About = () => {
   return (
@@ -93,10 +95,28 @@ const About = () => {
                   </div>
                   <div className="story-images"> 
                     <div className="image-grid">
-                      <img src="../assets/images/me2.png" alt="Emily traveling" className="story-image" />
-                      <img src="../assets/images/me3.png" alt="Emily working" className="story-image" />
+                      <img src={littleMeImage} alt="Emily as a child" className="story-image" />
+                      <img src={travelImage} alt="Emily traveling" className="story-image" />
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+                  {/* My Values Section */}
+          <section className="section values-section">
+            <div className="section-content">
+              <div className="section-header">
+                <h1>my values</h1>
+                <h2>the principles that guide my creative work</h2>
+              </div>
+              
+              <div className="section-body">
+                <div className="values-content">
+                  <p>
+                    I lead every project with empathy, staying curious, and authenticity. These values shape the way I listen, collaborate, and create. I believe design is most powerful when it reflects real human experiences—when it's honest, emotionally aware, and connected to a sense of curiosity and purpose.
+                  </p>
                 </div>
               </div>
             </div>
@@ -183,23 +203,7 @@ const About = () => {
             </div>
           </section>
 
-          {/* My Values Section */}
-          <section className="section values-section">
-            <div className="section-content">
-              <div className="section-header">
-                <h1>my values</h1>
-                <h2>the principles that guide my creative work</h2>
-              </div>
-              
-              <div className="section-body">
-                <div className="values-content">
-                  <p>
-                    I lead every project with empathy, staying curious, and authenticity. These values shape the way I listen, collaborate, and create. I believe design is most powerful when it reflects real human experiences—when it's honest, emotionally aware, and connected to a sense of curiosity and purpose.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
+  
         </main>
       </div>
       

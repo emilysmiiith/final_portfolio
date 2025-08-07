@@ -31,8 +31,8 @@ p {
 
 /* NAVBAR BASE */
 .navbar {
-  background: rgba(255, 253, 241, 0.1); /* Much more transparent */
-  backdrop-filter: blur(20px); /* Simpler blur */
+  background: rgba(255, 253, 241, 0.8);
+  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 1.5rem 2rem;
   border-radius: 40px;
@@ -117,6 +117,11 @@ p {
   line-height: 1;
 }
 
+/* Project pages styling - light yellow text */
+body.project-page .nav-links p {
+  color: #F5E6A3 !important;
+}
+
 /* PROJECTS DROPDOWN */
 .projects-dropdown {
   position: relative;
@@ -164,14 +169,19 @@ p {
   transform: rotate(180deg);
 }
 
-/* DROPDOWN MENU - Simple glass effect */
+/* Project pages styling for dropdown arrow */
+body.project-page .dropdown-arrow {
+  color: #F5E6A3 !important;
+}
+
+/* DROPDOWN MENU */
 .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(-10px);
-  background: rgba(255, 253, 241, 0.1); /* Much more transparent */
-  backdrop-filter: blur(20px); /* Simpler blur */
+  background: rgba(255, 253, 241, 0.8);
+  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(68, 43, 18, 0.15);
@@ -214,6 +224,11 @@ p {
   line-height: 1;
 }
 
+/* Project pages styling for dropdown items */
+body.project-page .dropdown-item p {
+  color: #F5E6A3 !important;
+}
+
 .dropdown-divider {
   height: 1px;
   background: rgba(162, 177, 186, 0.2);
@@ -239,7 +254,12 @@ p {
   background: rgba(162, 177, 186, 0.1);
 }
 
-/* SCROLLED NAVBAR PILL - Simple glass effect */
+/* Project pages styling for social icons */
+body.project-page .nav-icon .icon {
+  color: #F5E6A3 !important;
+}
+
+/* SCROLLED NAVBAR PILL */
 .navbar.scrolled {
   top: 20px;
   right: 20px;
@@ -250,8 +270,8 @@ p {
   padding: 0.75rem 1.25rem;
   border-radius: 50px;
   margin: 0;
-  background: rgba(255, 253, 241, 0.1); /* Much more transparent */
-  backdrop-filter: blur(20px); /* Simpler blur */
+  background: rgba(255, 253, 241, 0.8);
+  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(68, 43, 18, 0.1);
@@ -284,9 +304,9 @@ p {
 
 .navbar.scrolled .nav-links a p {
   font-size: 0.9rem !important;
-  font-weight: 900 !important; /* Matching global p weight */
-  color: #442B12 !important; /* Matching global p color */
-  opacity: 0.5 !important; /* Matching global p opacity */
+  font-weight: 900 !important;
+  color: #442B12 !important;
+  opacity: 0.5 !important;
 }
 
 .navbar.scrolled .nav-links a:hover {
@@ -295,7 +315,7 @@ p {
 
 .navbar.scrolled .nav-links a:hover p {
   color: #A2B1BA !important;
-  opacity: 1 !important; /* Full opacity on hover for visibility */
+  opacity: 1 !important;
 }
 
 .navbar.scrolled .projects-link-container {
@@ -305,20 +325,20 @@ p {
 }
 
 .navbar.scrolled .projects-link-container a p {
-  font-weight: 900 !important; /* Matching global p weight */
-  color: #442B12 !important; /* Matching global p color */
-  opacity: 0.5 !important; /* Matching global p opacity */
+  font-weight: 900 !important;
+  color: #442B12 !important;
+  opacity: 0.5 !important;
 }
 
 .navbar.scrolled .projects-link-container:hover a p {
   color: #A2B1BA !important;
-  opacity: 1 !important; /* Full opacity on hover */
+  opacity: 1 !important;
 }
 
 .navbar.scrolled .dropdown-menu {
-  right: auto; /* Reset right positioning */
-  left: 50%; /* Center relative to projects link */
-  transform: translateX(-50%) translateY(10px); /* Center horizontally, position below */
+  right: auto;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
 }
 
 /* DESKTOP */
@@ -400,8 +420,8 @@ p {
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(255, 253, 241, 0.1); /* Much more transparent */
-    backdrop-filter: blur(20px); /* Simpler blur */
+    background: rgba(255, 253, 241, 0.8);
+    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 16px;
     margin-top: 0.75rem;
@@ -428,9 +448,9 @@ p {
 
   .navbar.scrolled .nav-links a p {
     font-size: 1.1rem !important;
-    font-weight: 900 !important; /* Matching global p weight */
-    color: #442B12 !important; /* Matching global p color */
-    opacity: 0.5 !important; /* Matching global p opacity */
+    font-weight: 900 !important;
+    color: #442B12 !important;
+    opacity: 0.5 !important;
   }
 
   .dropdown-menu {
@@ -454,4 +474,21 @@ p {
     justify-content: space-between;
     width: calc(100% - 2rem);
   }
+}
+
+/* Project pages styling - light yellow text */
+body.project-page .nav-links p {
+  color: #F5E6A3 !important;
+}
+
+body.project-page .dropdown-arrow {
+  color: #F5E6A3 !important;
+}
+
+body.project-page .dropdown-item p {
+  color: #F5E6A3 !important;
+}
+
+body.project-page .nav-icon .icon {
+  color: #F5E6A3 !important;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Projects.css';
 import Footer from '../components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,39 +7,17 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import '../styles/global.css';
 import imageSvg from '../assets/image.svg';
 
-// Project data
-const projectsData = [
-  {
-    id: 1,
-    title: "Motion Graphics Reel",
-    category: "media",
-    shortDescription: "Dynamic video editing and animation showcase",
-    image: "../assets/images/video.png",
-    additionalImages: ["../assets/images/video.png", "../assets/images/Redesign_Smith2.png", "../assets/images/figma.png", "../assets/images/video.png"]
-  },
-  {
-    id: 2,
-    title: "E-Commerce App Design",
-    category: "ux-ui", 
-    shortDescription: "Complete UX/UI design for mobile shopping app",
-    image: "../assets/images/figma.png",
-    additionalImages: ["../assets/images/figma.png", "../assets/images/video.png", "../assets/images/Redesign_Smith2.png", "../assets/images/figma.png"]
-  },
-  {
-    id: 3,
-    title: "Brand Identity Redesign",
-    category: "graphic",
-    shortDescription: "Complete brand overhaul and visual identity",
-    image: "../assets/images/Redesign_Smith2.png",
-    additionalImages: ["../assets/images/Redesign_Smith2.png", "../assets/images/figma.png", "../assets/images/video.png", "../assets/images/Redesign_Smith2.png"]
-  }
-];
+// Import project images
+import mediaImage from '../assets/images/media.png';
+import uxuiImage from '../assets/images/uxui.png';
+import graphicImage from '../assets/images/graphic.png';
 
 const Projects = () => {
-  // Get project by category
-  const getProjectByCategory = (category) => {
-    return projectsData.find(project => project.category === category);
-  };
+  // Add project-page class to body when component mounts
+  useEffect(() => {
+    document.body.classList.add('projects-page');
+    return () => document.body.classList.remove('projects-page');
+  }, []);
 
   return (
     <>
@@ -98,25 +76,15 @@ const Projects = () => {
                 </p>
                 
                 <div className="projects-grid">
-                  {(() => {
-                    const project = getProjectByCategory('media');
-                    return project ? (
-                      <div key={project.id} className="project-card">
-                        <div className="project-image-container">
-                          <img 
-                            src={project.image} 
-                            alt={project.title}
-                            className="project-image"
-                          />
-                          <div className="project-images-grid">
-                            {project.additionalImages.map((img, index) => (
-                              <img key={index} src={img} alt={`${project.title} ${index + 1}`} className="grid-image" />
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    ) : null;
-                  })()}
+                  <div className="project-card">
+                    <div className="project-image-container">
+                      <img 
+                        src={mediaImage} 
+                        alt="Media and Editing Project"
+                        className="project-image"
+                      />
+                    </div>
+                  </div>
                 </div>
                 
                 <div className="check-more-section">
@@ -143,25 +111,15 @@ const Projects = () => {
                 </p>
                 
                 <div className="projects-grid">
-                  {(() => {
-                    const project = getProjectByCategory('ux-ui');
-                    return project ? (
-                      <div key={project.id} className="project-card">
-                        <div className="project-image-container">
-                          <img 
-                            src={project.image} 
-                            alt={project.title}
-                            className="project-image"
-                          />
-                          <div className="project-images-grid">
-                            {project.additionalImages.map((img, index) => (
-                              <img key={index} src={img} alt={`${project.title} ${index + 1}`} className="grid-image" />
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    ) : null;
-                  })()}
+                  <div className="project-card">
+                    <div className="project-image-container">
+                      <img 
+                        src={uxuiImage} 
+                        alt="UX/UI Design Project"
+                        className="project-image"
+                      />
+                    </div>
+                  </div>
                 </div>
                 
                 <div className="check-more-section">
@@ -188,25 +146,15 @@ const Projects = () => {
                 </p>
                 
                 <div className="projects-grid">
-                  {(() => {
-                    const project = getProjectByCategory('graphic');
-                    return project ? (
-                      <div key={project.id} className="project-card">
-                        <div className="project-image-container">
-                          <img 
-                            src={project.image} 
-                            alt={project.title}
-                            className="project-image"
-                          />
-                          <div className="project-images-grid">
-                            {project.additionalImages.map((img, index) => (
-                              <img key={index} src={img} alt={`${project.title} ${index + 1}`} className="grid-image" />
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    ) : null;
-                  })()}
+                  <div className="project-card">
+                    <div className="project-image-container">
+                      <img 
+                        src={graphicImage} 
+                        alt="Graphic Design Project"
+                        className="project-image"
+                      />
+                    </div>
+                  </div>
                 </div>
                 
                 <div className="check-more-section">
