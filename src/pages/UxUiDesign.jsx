@@ -88,7 +88,7 @@ const UxUiDesign = () => {
                         {Array.from({ length: 31 }, (_, i) => (
                           <div key={i + 1} className="slide-container">
                             <img 
-                              src={`../public/slides/insight/slide-${i + 1}.png`} 
+                              src={`./slides/insight/slide-${i + 1}.png`} 
                               alt={`Insight Timer Case Study - Slide ${i + 1}`}
                               className="slide-image"
                               loading="lazy"
@@ -209,7 +209,7 @@ const UxUiDesign = () => {
                         {Array.from({ length: 18 }, (_, i) => (
                           <div key={i + 1} className="slide-container">
                             <img 
-                              src={`../public/slides/pinpal/slide-${i + 1}.png`} 
+                              src={`./slides/pinpal/slide-${i + 1}.png`} 
                               alt={`Pinpal Case Study - Slide ${i + 1}`}
                               className="slide-image"
                               loading="lazy"
