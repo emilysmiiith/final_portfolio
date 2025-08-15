@@ -7,6 +7,12 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import '../styles/global.css';
 import imageSvg from '../assets/image.svg';
 import homeVideo from '../assets/videos/home.mp4';
+import boxImage from '../assets/images/box.png';
+import graphicImage from '../assets/images/graphic.png';
+import mediaImage from '../assets/images/media.png';
+import littleMe2Image from '../assets/images/littleme2.png';
+import littleMeImage from '../assets/images/littleme.png';
+import travelImage from '../assets/images/travel.png';
 
 const Home = () => {
   const svgRef = useRef();
@@ -115,7 +121,7 @@ const Home = () => {
             <div className="section-content">
               <div className="hero-text">
                 <h1>hi!</h1>
-                <p>i'm emily rianna smith</p>
+                <p>i'm emily rianna</p>
                 <h2>i am a creative designer who enjoys bringing emotions to life through art</h2>
                 <p>scroll to explore!</p>
               </div>
@@ -155,9 +161,9 @@ const Home = () => {
               <div className="section-body">
                 <div className="projects-grid">
                   {[
-                    { image: '../assets/images/video.png', title: 'Project One', category: 'Video Design' },
-                    { image: '../assets/images/figma.png', title: 'Project Two', category: 'UI/UX Design' },
-                    { image: '../assets/images/Redesign_Smith2.png', title: 'Project Three', category: 'Brand Design' }
+                    { image: boxImage, title: 'Project One', category: 'Video Design' },
+                    { image: graphicImage, title: 'Project Two', category: 'UI/UX Design' },
+                    { image: mediaImage, title: 'Project Three', category: 'Brand Design' }
                   ].map((project, index) => (
                     <div key={index} className="project-card" onClick={navigateToProjects}>
                       <div className="project-image-container">
@@ -195,7 +201,7 @@ const Home = () => {
                     </p>
                   </div>
                   <div className="about-images">
-                    {['../assets/images/me.png', '../assets/images/me2.png', '../assets/images/me3.png'].map((image, index) => (
+                    {[littleMe2Image, littleMeImage, travelImage].map((image, index) => (
                       <div key={index} className="image-container">
                         <img 
                           src={image} 
