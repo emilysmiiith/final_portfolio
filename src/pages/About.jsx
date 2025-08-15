@@ -84,7 +84,7 @@ const About = () => {
                 <div className="story-grid">
                   <div className="story-text">
                     <p>
-                      My journey began when I moved to the West Coast at just six years old—a shift that forever changed my perspective. Leaving Ontario behind meant saying goodbye to familiar faces and places, but it also opened the door to a world of new emotions, experiences, and ways of seeing.
+                      My journey began when I moved to the West Coast at just six years old, a shift that forever changed my perspective. Leaving Ontario behind meant saying goodbye to familiar faces and places, but it also opened the door to a world of new emotions, experiences, and ways of seeing.
                     </p>
                     <p>
                       I grew up on a small island just off the coast of Vancouver, surrounded by nature and a close-knit community. In the past year, I made the leap to the mainland to further my education and expand my technical skill set at the British Columbia Institute of Technology.
