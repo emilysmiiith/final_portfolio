@@ -3,7 +3,12 @@ import './GraphicDesign.css';
 import '../styles/global.css';
 import Footer from '../components/Footer';
 import imageSvg from '../assets/image.svg';
-
+// Import all the images at the top like in About.js
+import logoboxImage from '../assets/images/logobox.png';
+import boxImage from '../assets/images/box.png';
+import flatImage from '../assets/images/flat.png';
+import badImage from '../assets/images/bad.png';
+import graphicImage from '../assets/images/graphic.png';
 
 const GraphicDesign = () => {
   return (
@@ -63,15 +68,15 @@ const GraphicDesign = () => {
                 <div className="project-preview">
                   <div className="preview-images-grid">
                     <div className="preview-image">
-                      <img src="../assets/images/logobox.png" alt="Serene Sip Logo Design" />
+                      <img src={logoboxImage} alt="Serene Sip Logo Design" />
                       <div className="image-label">Logo Design</div>
                     </div>
                     <div className="preview-image">
-                      <img src="../assets/images/box.png" alt="Serene Sip Box Design" />
+                      <img src={boxImage} alt="Serene Sip Box Design" />
                       <div className="image-label">Box Design</div>
                     </div>
                     <div className="preview-image">
-                      <img src="../assets/images/flat.png" alt="Serene Sip Flat Design" />
+                      <img src={flatImage} alt="Serene Sip Flat Design" />
                       <div className="image-label">Flat Design</div>
                     </div>
                   </div>
@@ -190,11 +195,11 @@ const GraphicDesign = () => {
                 <div className="project-preview">
                   <div className="preview-images-grid">
                     <div className="preview-image">
-                      <img src="../assets/images/bad.png" alt="Original Poster Design" />
+                      <img src={badImage} alt="Original Poster Design" />
                       <div className="image-label">Original Design</div>
                     </div>
                     <div className="preview-image">
-                      <img src="../assets/images/graphic.png" alt="Redesigned Poster" />
+                      <img src={graphicImage} alt="Redesigned Poster" />
                       <div className="image-label">Final Redesign</div>
                     </div>
                   </div>

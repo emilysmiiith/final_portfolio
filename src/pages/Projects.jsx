@@ -46,17 +46,15 @@ const Projects = () => {
           </a>
         </div>
 
-        <div className="projects-content">
-          {/* Intro Section */}
-          <section className="section intro-section">
+                {/* Why These Disciplines Section */}
+          <section className="section">
             <div className="section-content">
               <div className="section-header">
-                <h2>these are the areas I'm most passionate about and where I'm continuing to grow my skills</h2>
-                <h1>what i love to do</h1>
+                <h2>why these disciplines?</h2>
               </div>
               <div className="section-body">
                 <p>
-                  As I explore the world to new levels I am constantly growing and learning what this beautiful design world has to offer
+                Graphic design, UX/UI, and media all share a common relation to me which highlights my ability to express creativity with endless opportunities, allows for storytelling to play a role, and engages audiences in a human-centered way. At the heart of everything I do is a desire to make work that connects — whether that's through a beautifully crafted brand, an intuitive interface, or an engaging piece of media. Leading with empathy, authenticity and collaboration, I'm always learning, always staying curious, and I believe that great design should feel human, warm, and thoughtful.
                 </p>
               </div>
             </div>
@@ -214,23 +212,8 @@ const Projects = () => {
             </div>
           </section>
 
-          {/* Why These Disciplines Section */}
-          <section className="section">
-            <div className="section-content">
-              <div className="section-header">
-                <h2>why these disciplines?</h2>
-              </div>
-              <div className="section-body">
-                <p>
-                  At the heart of everything I do is a desire to make work that connects — whether that's through a beautifully 
-                  crafted brand, an intuitive interface, or an engaging piece of media. I'm always learning, always staying 
-                  curious, and I believe that great design should feel human, warm, and thoughtful. These are the areas where I 
-                  feel most at home creatively — and I'm so excited to keep growing in them.
-                </p>
-              </div>
-            </div>
-          </section>
-        </div>
+  
+        
       </div>
       <Footer />
     </>
