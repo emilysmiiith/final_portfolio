@@ -21,7 +21,7 @@ html {
 
 .projects-container h2 {
   font-family: 'Liu Jian Mao Cao', cursive;
-  font-weight: 400;
+  font-weight: 1000;
   font-size: clamp(1rem, 2.5vw, 1.4rem);
   color: rgba(255, 255, 255, 0.8);
   margin: 0 0 1rem 0;

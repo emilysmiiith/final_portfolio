@@ -175,12 +175,12 @@ body {
 
 /* Color Themes */
 .project-showcase.blue {
-  border-left: 6px solid #6B7FE8;
+  border-left: 6px solid #A2B1BA;
   box-shadow: 
     0 15px 40px rgba(0, 0, 0, 0.1),
     0 6px 16px rgba(0, 0, 0, 0.05),
-    -6px 0 20px rgba(107, 127, 232, 0.15);
-}
+    -6px 0 20px rgba(162, 177, 186, 0.15);
+} 
 
 .project-showcase.blue:hover {
   box-shadow: 
@@ -190,7 +190,7 @@ body {
 }
 
 .project-showcase.amber {
-  border-left: 6px solid #F59E0B;
+  border-left: 6px solid #A2B1BA;
   box-shadow: 
     0 15px 40px rgba(0, 0, 0, 0.1),
     0 6px 16px rgba(0, 0, 0, 0.05),
@@ -314,7 +314,7 @@ body {
   display: block;
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #6B7FE8, #F59E0B);
+  background: linear-gradient#A2B1BA;
   margin: 1rem auto 0;
   border-radius: 2px;
 }
@@ -527,7 +527,7 @@ body {
   display: block;
   width: 80px;
   height: 3px;
-  background: linear-gradient(90deg, #6B7FE8, #F59E0B);
+  background: #A2B1BA;
   margin: 1rem auto 0;
   border-radius: 2px;
 }
@@ -658,7 +658,7 @@ body {
   display: inline-block;
   width: 6px;
   height: 40px;
-  background: linear-gradient(180deg, #6B7FE8, #F59E0B);
+  background: #A2B1BA;
   margin-right: 1rem;
   border-radius: 3px;
   vertical-align: middle;
@@ -678,7 +678,7 @@ body {
   background: rgba(255, 255, 255, 0.1);
   padding: 1.5rem;
   border-radius: 12px;
-  border-left: 4px solid #6B7FE8;
+  border-left: 4px solid #A2B1BA;
   color: #FFFFFF;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -741,7 +741,7 @@ body {
   left: 0;
   width: 35px;
   height: 2px;
-  background: linear-gradient(90deg, #6B7FE8, #F59E0B);
+  background: #A2B1BA;
   border-radius: 1px;
 }
 
@@ -793,7 +793,7 @@ body {
   left: 0.8rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #6B7FE8;
+  color: #A2B1BA;
   font-weight: 600;
   font-size: 1rem;
   transition: all 0.3s ease;

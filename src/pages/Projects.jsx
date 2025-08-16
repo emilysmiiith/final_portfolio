@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Projects.css';
 import Footer from '../components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -46,34 +47,35 @@ const Projects = () => {
           </a>
         </div>
 
-                {/* Why These Disciplines Section */}
-          <section className="section">
-            <div className="section-content">
-              <div className="section-header">
-                <h2>why these disciplines?</h2>
-              </div>
-              <div className="section-body">
-                <p>
-                Graphic design, UX/UI, and media all share a common relation to me which highlights my ability to express creativity with endless opportunities, allows for storytelling to play a role, and engages audiences in a human-centered way. At the heart of everything I do is a desire to make work that connects — whether that's through a beautifully crafted brand, an intuitive interface, or an engaging piece of media. Leading with empathy, authenticity and collaboration, I'm always learning, always staying curious, and I believe that great design should feel human, warm, and thoughtful.
-                </p>
-              </div>
+        {/* Why These Disciplines Section */}
+        <section className="section">
+          <div className="section-content">
+            <div className="section-header">
+              <h2>why these disciplines?</h2>
             </div>
-          </section>
+            <div className="section-body">
+              <p>
+              Graphic design, UX/UI, and media all share a common relation to me which highlights my ability to express creativity with endless opportunities, allows for storytelling to play a role, and engages audiences in a human-centered way. At the heart of everything I do is a desire to make work that connects — whether that's through a beautifully crafted brand, an intuitive interface, or an engaging piece of media. Leading with empathy, authenticity and collaboration, I'm always learning, always staying curious, and I believe that great design should feel human, warm, and thoughtful.
+              </p>
+            </div>
+          </div>
+        </section>
 
-          {/* Media and Editing Section */}
-          <section className="section">
-            <div className="section-content">
-              <div className="section-header">
-                <h1>media and editing</h1>
-              </div>
-              <div className="section-body">
-                <p>
-                  I'm fascinated by how sound, motion, and visuals come together to tell a story. Through editing, 
-                  whether it's video, animation, or motion graphics, I get to bring ideas to life in ways that feel dynamic and 
-                  emotional. It's one of my favorite ways to create something that resonates with an audience on a deeper level.
-                </p>
-                
-                <div className="projects-grid">
+        {/* Media and Editing Section */}
+        <section className="section">
+          <div className="section-content">
+            <div className="section-header">
+              <h1>media and editing</h1>
+            </div>
+            <div className="section-body">
+              <p>
+                I'm fascinated by how sound, motion, and visuals come together to tell a story. Through editing, 
+                whether it's video, animation, or motion graphics, I get to bring ideas to life in ways that feel dynamic and 
+                emotional. It's one of my favorite ways to create something that resonates with an audience on a deeper level.
+              </p>
+              
+              <div className="projects-grid">
+                <Link to="/media" className="project-card-link">
                   <div className="project-card">
                     <div className="project-image-container">
                       <img 
@@ -81,34 +83,42 @@ const Projects = () => {
                         alt="Media and Editing Project"
                         className="project-image"
                       />
+                      <div className="project-overlay">
+                        <div className="overlay-content">
+                          <span className="overlay-text">View Media Projects</span>
+                          <span className="overlay-arrow">→</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                
-                <div className="check-more-section">
-                  <span className="check-more-btn">
-                    check out more of my projects →
-                  </span>
-                </div>
+                </Link>
+              </div>
+              
+              <div className="check-more-section">
+                <Link to="/media" className="check-more-btn">
+                  check out more of my projects →
+                </Link>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* UX/UI Section */}
-          <section className="section">
-            <div className="section-content">
-              <div className="section-header">
-                <h1>ux/ui</h1>
-              </div>
-              <div className="section-body">
-                <p>
-                  I love designing with people in mind — creating experiences that feel natural, clear, and welcoming. For me, 
-                  good UX/UI is all about empathy: understanding how someone will interact with something and making sure that 
-                  experience feels good. I enjoy working on designs that not only look beautiful but also make people's lives a 
-                  little easier.
-                </p>
-                
-                <div className="projects-grid">
+        {/* UX/UI Section */}
+        <section className="section">
+          <div className="section-content">
+            <div className="section-header">
+              <h1>ux/ui</h1>
+            </div>
+            <div className="section-body">
+              <p>
+                I love designing with people in mind — creating experiences that feel natural, clear, and welcoming. For me, 
+                good UX/UI is all about empathy: understanding how someone will interact with something and making sure that 
+                experience feels good. I enjoy working on designs that not only look beautiful but also make people's lives a 
+                little easier.
+              </p>
+              
+              <div className="projects-grid">
+                <Link to="/ux-ui-design" className="project-card-link">
                   <div className="project-card">
                     <div className="project-image-container">
                       <img 
@@ -116,34 +126,42 @@ const Projects = () => {
                         alt="UX/UI Design Project"
                         className="project-image"
                       />
+                      <div className="project-overlay">
+                        <div className="overlay-content">
+                          <span className="overlay-text">View UX/UI Projects</span>
+                          <span className="overlay-arrow">→</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                
-                <div className="check-more-section">
-                  <span className="check-more-btn">
-                    check out more of my projects →
-                  </span>
-                </div>
+                </Link>
+              </div>
+              
+              <div className="check-more-section">
+                <Link to="/ux-ui-design" className="check-more-btn">
+                  check out more of my projects →
+                </Link>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Graphic Design Section */}
-          <section className="section">
-            <div className="section-content">
-              <div className="section-header">
-                <h1>graphic design</h1>
-              </div>
-              <div className="section-body">
-                <p>
-                  Graphic design is where I really get to play and express creativity. Whether it's working on brand identities, 
-                  packaging, print, or digital graphics — I love the challenge of telling a story through visuals. I'm drawn to 
-                  designs that are clean, thoughtful, and full of personality. It's such a great feeling when the right visual can 
-                  really connect with someone.
-                </p>
-                
-                <div className="projects-grid">
+        {/* Graphic Design Section */}
+        <section className="section">
+          <div className="section-content">
+            <div className="section-header">
+              <h1>graphic design</h1>
+            </div>
+            <div className="section-body">
+              <p>
+                Graphic design is where I really get to play and express creativity. Whether it's working on brand identities, 
+                packaging, print, or digital graphics — I love the challenge of telling a story through visuals. I'm drawn to 
+                designs that are clean, thoughtful, and full of personality. It's such a great feeling when the right visual can 
+                really connect with someone.
+              </p>
+              
+              <div className="projects-grid">
+                <Link to="/graphic-design" className="project-card-link">
                   <div className="project-card">
                     <div className="project-image-container">
                       <img 
@@ -151,69 +169,73 @@ const Projects = () => {
                         alt="Graphic Design Project"
                         className="project-image"
                       />
+                      <div className="project-overlay">
+                        <div className="overlay-content">
+                          <span className="overlay-text">View Graphic Design Projects</span>
+                          <span className="overlay-arrow">→</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                </Link>
+              </div>
+              
+              <div className="check-more-section">
+                <Link to="/graphic-design" className="check-more-btn">
+                  check out more of my projects →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* AI Section */}
+        <section className="section ai-section">
+          <div className="section-content">
+            <div className="section-header">
+              <h1>working with AI in design</h1>
+              <h2>the human touch in an AI world</h2>
+            </div>
+            <div className="section-body">
+              <p>
+                With the world turning toward many AI powered tools there is a lot of fear surrounding what this brings for our generation. I am confident in the power of talking from one human to another to create the most authentic version of what my client is looking for. There are certain emotions and nuances that no robot will be able to understand.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Values and Process Section */}
+        <section className="section process-section">
+          <div className="section-content">
+            <div className="section-header">
+              <h1>my approach to every project</h1>
+              <h2>values and steps that guide my work</h2>
+            </div>
+            <div className="section-body">
+              <div className="process-content">
+                <div className="process-step">
+                  <h1>listen</h1>
+                  <p>First I listen to the objective and goal. Understanding my clients values goes a long way for me in knowing how to approach a project.</p>
                 </div>
                 
-                <div className="check-more-section">
-                  <span className="check-more-btn">
-                    check out more of my projects →
-                  </span>
+                <div className="process-step">
+                  <h1>pre planning</h1>
+                  <p>Next is pre planning, creating a mock up or storyboard to get the first idea down.</p>
+                </div>
+                
+                <div className="process-step">
+                  <h1>review and prep</h1>
+                  <p>Then comes review and prep planning to refine the concept and ensure we're on the right track.</p>
+                </div>
+                
+                <div className="process-step">
+                  <h1>final execution</h1>
+                  <p>Finally, the execution phase where everything comes together. Although this varies on the project, it's important for me to make sure my work stands on a secure foundation of understanding.</p>
                 </div>
               </div>
             </div>
-          </section>
-
-          {/* AI Section */}
-          <section className="section ai-section">
-            <div className="section-content">
-              <div className="section-header">
-                <h1>working with AI in design</h1>
-                <h2>the human touch in an AI world</h2>
-              </div>
-              <div className="section-body">
-                <p>
-                  With the world turning toward many AI powered tools there is a lot of fear surrounding what this brings for our generation. I am confident in the power of talking from one human to another to create the most authentic version of what my client is looking for. There are certain emotions and nuances that no robot will be able to understand.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Values and Process Section */}
-          <section className="section process-section">
-            <div className="section-content">
-              <div className="section-header">
-                <h1>my approach to every project</h1>
-                <h2>values and steps that guide my work</h2>
-              </div>
-              <div className="section-body">
-                <div className="process-content">
-                  <div className="process-step">
-                    <h1>listen</h1>
-                    <p>First I listen to the objective and goal. Understanding my clients values goes a long way for me in knowing how to approach a project.</p>
-                  </div>
-                  
-                  <div className="process-step">
-                    <h1>pre planning</h1>
-                    <p>Next is pre planning, creating a mock up or storyboard to get the first idea down.</p>
-                  </div>
-                  
-                  <div className="process-step">
-                    <h1>review and prep</h1>
-                    <p>Then comes review and prep planning to refine the concept and ensure we're on the right track.</p>
-                  </div>
-                  
-                  <div className="process-step">
-                    <h1>final execution</h1>
-                    <p>Finally, the execution phase where everything comes together. Although this varies on the project, it's important for me to make sure my work stands on a secure foundation of understanding.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-  
-        
+          </div>
+        </section>
       </div>
       <Footer />
     </>
