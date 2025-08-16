@@ -321,7 +321,7 @@ const Projects = () => {
           </div>
         </section>
 
-        {/* Structured Data for Portfolio */}
+       
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -385,7 +385,7 @@ const Projects = () => {
           })}
         </script>
 
-        {/* Process Methodology Structured Data */}
+     
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

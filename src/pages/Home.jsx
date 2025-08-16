@@ -351,7 +351,7 @@ const Home = () => {
           </section>
         </main>
 
-        {/* Personal Brand Structured Data */}
+    
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -401,7 +401,7 @@ const Home = () => {
           })}
         </script>
 
-        {/* Website Structured Data */}
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -425,7 +425,7 @@ const Home = () => {
           })}
         </script>
 
-        {/* Introduction Video Structured Data */}
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -452,7 +452,7 @@ const Home = () => {
           })}
         </script>
 
-        {/* Featured Projects Collection */}
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

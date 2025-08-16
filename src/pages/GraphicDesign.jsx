@@ -3,7 +3,7 @@ import './GraphicDesign.css';
 import '../styles/global.css';
 import Footer from '../components/Footer';
 import imageSvg from '../assets/image.svg';
-// Import all the images at the top like in About.js
+
 import logoboxImage from '../assets/images/logobox.png';
 import boxImage from '../assets/images/box.png';
 import flatImage from '../assets/images/flat.png';
@@ -14,7 +14,7 @@ const GraphicDesign = () => {
   return (
     <>
       <div className="graphic-container">
-        {/* Static SVG Background */}
+
         <div className="svg-static">
           <img 
             src={imageSvg}
@@ -24,7 +24,7 @@ const GraphicDesign = () => {
         </div>
 
         <div className="graphic-content">
-          {/* Hero Section */}
+    
           <section className="section hero-section">
             <div className="section-content">
               <div className="section-header">
@@ -171,7 +171,7 @@ const GraphicDesign = () => {
             </div>
           </section>
 
-          {/* Project 2: Redesign Poster */}
+
           <section className="section">
             <div className="section-content">
               <div className="project-showcase blue">

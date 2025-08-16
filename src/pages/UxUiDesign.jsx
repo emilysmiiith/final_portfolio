@@ -412,7 +412,7 @@ const UxUiDesign = () => {
             </div>
           </section>
 
-          {/* Design Philosophy Section */}
+
           <section className="section" aria-labelledby="philosophy-heading">
             <div className="section-content">
               <div className="section-header">
@@ -432,7 +432,7 @@ const UxUiDesign = () => {
             </div>
           </section>
 
-          {/* Structured Data for UX/UI Projects */}
+       
           <script type="application/ld+json">
             {JSON.stringify({
               "@context": "https://schema.org",
@@ -486,7 +486,7 @@ const UxUiDesign = () => {
             })}
           </script>
 
-          {/* Individual Project Structured Data */}
+
           {uxuiProjects.map(project => (
             <script key={project.id} type="application/ld+json">
               {JSON.stringify({
