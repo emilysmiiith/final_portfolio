@@ -11,50 +11,150 @@ import littleMeImage from '../assets/images/littleme.png';
 import travelImage from '../assets/images/travel.png';
 
 const About = () => {
+  // Personal information metadata
+  const personalInfo = {
+    name: "Emily Rianna Smith",
+    jobTitle: "Creative Designer & Visual Storyteller",
+    location: "Vancouver, British Columbia, Canada",
+    education: "British Columbia Institute of Technology",
+    specializations: [
+      "UX/UI Design",
+      "Graphic Design", 
+      "Media Production",
+      "Video Editing",
+      "Brand Identity",
+      "Visual Storytelling",
+      "Documentary Filmmaking"
+    ],
+    coreValues: ["Empathy", "Authenticity", "Collaboration", "Curiosity"],
+    creativeTools: [
+      "Adobe After Effects",
+      "Adobe Photoshop", 
+      "Adobe Illustrator",
+      "Adobe Premiere Pro",
+      "Figma",
+      "Adobe Audition"
+    ],
+    coreStrengths: [
+      "Communication & collaboration",
+      "Passion for meaningful work",
+      "Creative problem solving",
+      "Innovation & adaptability"
+    ]
+  };
+
+  // Images metadata
+  const aboutImages = [
+    {
+      src: meImage,
+      alt: "Professional portrait of Emily Rianna Smith, creative designer and visual storyteller, showing her approachable and empathetic personality",
+      title: "Emily Rianna Smith - Creative Designer",
+      description: "Professional portrait showcasing Emily's creative and empathetic approach to design"
+    },
+    {
+      src: littleMeImage,
+      alt: "Childhood photo of Emily Rianna Smith showing early creative curiosity and artistic exploration that shaped her design journey",
+      title: "Early Creative Years",
+      description: "Childhood moments that sparked lifelong passion for creativity and design"
+    },
+    {
+      src: travelImage,
+      alt: "Emily Rianna Smith traveling through Europe, experiences that influenced her empathetic design approach and global perspective",
+      title: "European Adventure",
+      description: "Solo backpacking trip through Europe that shaped understanding of human connection and cultural empathy"
+    }
+  ];
+
   return (
     <>
+      {/* SEO Metadata */}
+      <head>
+        <title>About Emily Rianna Smith - Creative Designer & Visual Storyteller</title>
+        <meta name="description" content="Learn about Emily Rianna Smith, a creative designer from Vancouver specializing in empathetic, human-centered design. Discover her journey, values, and approach to meaningful creative work." />
+        <meta name="keywords" content="Emily Rianna Smith, about, creative designer, visual storyteller, Vancouver designer, BCIT, empathetic design, human-centered design, UX UI designer, graphic designer, media producer" />
+        <meta name="author" content="Emily Rianna Smith" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="/about" />
+        
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="About Emily Rianna Smith - Creative Designer & Visual Storyteller" />
+        <meta property="og:description" content="Creative designer from Vancouver leading with empathy, authenticity, and collaboration. Specializing in UX/UI, graphic design, and media production." />
+        <meta property="og:type" content="profile" />
+        <meta property="og:url" content="/about" />
+        <meta property="og:image" content="/assets/images/me.png" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="600" />
+        <meta property="og:site_name" content="Emily Rianna Smith Portfolio" />
+        <meta property="og:locale" content="en_CA" />
+        
+        {/* Profile-specific Open Graph */}
+        <meta property="profile:first_name" content="Emily" />
+        <meta property="profile:last_name" content="Smith" />
+        
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Emily Rianna Smith - Creative Designer" />
+        <meta name="twitter:description" content="Creative designer from Vancouver creating meaningful connections through empathetic, human-centered design." />
+        <meta name="twitter:image" content="/assets/images/me.png" />
+        
+        {/* Geographic Meta Tags */}
+        <meta name="geo.region" content="CA-BC" />
+        <meta name="geo.placename" content="Vancouver, British Columbia" />
+        <meta name="geo.position" content="49.2827;-123.1207" />
+        <meta name="ICBM" content="49.2827, -123.1207" />
+      </head>
+
       <div className="about-container">
         {/* Static SVG Background */}
         <div className="svg-static">
           <img 
             src={imageSvg}
-            alt="Static decorative path"
+            alt="Decorative SVG background element representing Emily's creative journey and artistic expression"
             className="svg-image-static"
+            role="presentation"
+            aria-hidden="true"
           />
         </div>
 
         {/* Background effects */}
-        <div className="background-effects">
-          <div className="gradient-orb orb-1"></div>
-          <div className="gradient-orb orb-2"></div>
-          <div className="gradient-orb orb-3"></div>
-          <div className="gradient-orb orb-4"></div>
+        <div className="background-effects" aria-hidden="true">
+          <div className="gradient-orb orb-1" role="presentation"></div>
+          <div className="gradient-orb orb-2" role="presentation"></div>
+          <div className="gradient-orb orb-3" role="presentation"></div>
+          <div className="gradient-orb orb-4" role="presentation"></div>
         </div>
 
         {/* Social Icons */}
-        <div className="social-icons">
+        <div className="social-icons" role="navigation" aria-label="Social media and contact links">
           <a
             href="https://www.linkedin.com/in/your-linkedin-username"
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon"
+            aria-label="Connect with Emily Rianna Smith on LinkedIn"
+            title="LinkedIn Profile - Emily Rianna Smith"
           >
-            <FontAwesomeIcon icon={faLinkedin} />
+            <FontAwesomeIcon icon={faLinkedin} aria-hidden="true" />
           </a>
-          <a href="mailto:emily.smiiith@gmail.com" className="social-icon">
-            <FontAwesomeIcon icon={faEnvelope} />
+          <a 
+            href="mailto:emily.smiiith@gmail.com" 
+            className="social-icon"
+            aria-label="Send email to Emily Rianna Smith"
+            title="Email Emily Rianna Smith"
+          >
+            <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
           </a>
         </div>
 
         {/* Main content */}
         <main className="main-content">
           {/* Hero Section */}
-          <section className="section hero-section">
+          <section className="section hero-section" aria-labelledby="hero-heading">
             <div className="section-content">
               <div className="hero-grid">
                 <div className="hero-text">
-                  <h1>about emily</h1>
-                  <h2>creative designer & visual storyteller</h2>
+                  <h1 id="hero-heading">about emily</h1>
+                  <h2>{personalInfo.jobTitle}</h2>
                   <p>
                     It's the ability to lead with empathy, stay grounded in authenticity, and collaborate with others that fuels my passion for this work.
                   </p>
@@ -62,9 +162,15 @@ const About = () => {
                 <div className="hero-image">
                   <div className="image-container main-portrait">
                     <img 
-                      src={meImage} 
-                      alt="Emily Rianna" 
+                      src={aboutImages[0].src} 
+                      alt={aboutImages[0].alt}
+                      title={aboutImages[0].title}
                       className="portrait-image"
+                      loading="eager"
+                      itemProp="image"
+                      itemScope
+                      itemType="https://schema.org/ImageObject"
+                      data-description={aboutImages[0].description}
                     />
                   </div>
                 </div>
@@ -73,10 +179,10 @@ const About = () => {
           </section>
 
           {/* My Story Section */}
-          <section className="section story-section">
+          <section className="section story-section" aria-labelledby="story-heading">
             <div className="section-content">
               <div className="section-header">
-                <h1>my story</h1>
+                <h1 id="story-heading">my story</h1>
                 <h2>the journey that shaped my creative vision</h2>
               </div>
               
@@ -94,9 +200,29 @@ const About = () => {
                     </p>
                   </div>
                   <div className="story-images"> 
-                    <div className="image-grid">
-                      <img src={littleMeImage} alt="Emily as a child" className="story-image" />
-                      <img src={travelImage} alt="Emily traveling" className="story-image" />
+                    <div className="image-grid" role="img" aria-label="Personal photos showing Emily's creative journey from childhood to world traveler">
+                      <img 
+                        src={aboutImages[1].src} 
+                        alt={aboutImages[1].alt}
+                        title={aboutImages[1].title}
+                        className="story-image"
+                        loading="lazy"
+                        data-description={aboutImages[1].description}
+                        itemProp="image"
+                        itemScope
+                        itemType="https://schema.org/Photograph"
+                      />
+                      <img 
+                        src={aboutImages[2].src} 
+                        alt={aboutImages[2].alt}
+                        title={aboutImages[2].title}
+                        className="story-image"
+                        loading="lazy"
+                        data-description={aboutImages[2].description}
+                        itemProp="image"
+                        itemScope
+                        itemType="https://schema.org/Photograph"
+                      />
                     </div>
                   </div>
                 </div>
@@ -104,11 +230,11 @@ const About = () => {
             </div>
           </section>
 
-                  {/* My Values Section */}
-          <section className="section values-section">
+          {/* My Values Section */}
+          <section className="section values-section" aria-labelledby="values-heading">
             <div className="section-content">
               <div className="section-header">
-                <h1>my values</h1>
+                <h1 id="values-heading">my values</h1>
                 <h2>the principles that guide my creative work</h2>
               </div>
               
@@ -123,10 +249,10 @@ const About = () => {
           </section>
 
           {/* My Process Section */}
-          <section className="section process-section">
+          <section className="section process-section" aria-labelledby="process-heading">
             <div className="section-content">
               <div className="section-header">
-                <h1>my process</h1>
+                <h1 id="process-heading">my process</h1>
                 <h2>how I approach every project</h2>
               </div>
               
@@ -144,10 +270,10 @@ const About = () => {
           </section>
 
           {/* My Skills Section */}
-          <section className="section skills-section">
+          <section className="section skills-section" aria-labelledby="skills-heading">
             <div className="section-content">
               <div className="section-header">
-                <h1>my skills</h1>
+                <h1 id="skills-heading">my skills</h1>
                 <h2>tools and strengths that bring ideas to life</h2>
               </div>
               
@@ -156,17 +282,15 @@ const About = () => {
                   <div className="skills-grid">
                     <div className="skills-column">
                       <h1>creative tools</h1>
-                      <p>After Effects</p>
-                      <p>Photoshop</p>
-                      <p>Illustrator</p>
-                      <p>Premiere Pro</p>
+                      {personalInfo.creativeTools.map((tool, index) => (
+                        <p key={index} data-skill-type="software">{tool}</p>
+                      ))}
                     </div>
                     <div className="skills-column">
                       <h1>core strengths</h1>
-                      <p>Communication & collaboration</p>
-                      <p>Passion for meaningful work</p>
-                      <p>Creative problem solving</p>
-                      <p>Innovation & adaptability</p>
+                      {personalInfo.coreStrengths.map((strength, index) => (
+                        <p key={index} data-skill-type="soft-skill">{strength}</p>
+                      ))}
                     </div>
                   </div>
                   <p>
@@ -178,10 +302,10 @@ const About = () => {
           </section>
 
           {/* Looking Forward Section */}
-          <section className="section forward-section">
+          <section className="section forward-section" aria-labelledby="forward-heading">
             <div className="section-content">
               <div className="section-header">
-                <h1>looking forward</h1>
+                <h1 id="forward-heading">looking forward</h1>
                 <h2>where my journey takes me next</h2>
               </div>
               
@@ -194,7 +318,16 @@ const About = () => {
                     I believe I have a lot to offer—feel free to explore my portfolio and see my work in action.
                   </p>
                   <div className="cta-buttons">
-                    <a href="../assets/resume.pdf" className="cta-button primary" download>
+                    <a 
+                      href="../assets/resume.pdf" 
+                      className="cta-button primary" 
+                      download
+                      aria-label="Download Emily Rianna Smith's resume as PDF"
+                      title="Download Resume - Emily Rianna Smith"
+                      data-file-type="PDF"
+                      data-file-size="2MB"
+                      data-document-type="Resume"
+                    >
                       download resume
                     </a>
                   </div>
@@ -202,9 +335,193 @@ const About = () => {
               </div>
             </div>
           </section>
-
-  
         </main>
+
+        {/* Person Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": personalInfo.name,
+            "jobTitle": personalInfo.jobTitle,
+            "description": "Creative designer and visual storyteller from Vancouver, BC, specializing in empathetic, human-centered design with a focus on meaningful connections and authentic collaboration.",
+            "url": "/about",
+            "image": "/assets/images/me.png",
+            "email": "emily.smiiith@gmail.com",
+            "telephone": "+1-XXX-XXX-XXXX",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Vancouver",
+              "addressRegion": "BC",
+              "addressCountry": "CA"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/in/your-linkedin-username"
+            ],
+            "alumniOf": {
+              "@type": "Organization",
+              "name": "British Columbia Institute of Technology",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Burnaby",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+              }
+            },
+            "knowsAbout": personalInfo.specializations,
+            "hasOccupation": {
+              "@type": "Occupation",
+              "name": "Creative Designer",
+              "description": "Multi-disciplinary designer creating emotional connections through empathetic, human-centered design",
+              "skills": personalInfo.specializations.concat(personalInfo.creativeTools),
+              "occupationLocation": {
+                "@type": "Place",
+                "name": "Vancouver, British Columbia, Canada"
+              }
+            },
+            "birthPlace": {
+              "@type": "Place",
+              "name": "Ontario, Canada"
+            },
+            "homeLocation": {
+              "@type": "Place", 
+              "name": "Vancouver, British Columbia, Canada"
+            },
+            "nationality": "Canadian",
+            "award": [
+              "Peer Recognition for Collaboration",
+              "Team Leadership Excellence"
+            ],
+            "colleague": [
+              {
+                "@type": "Person",
+                "name": "Lily"
+              },
+              {
+                "@type": "Person", 
+                "name": "Qui"
+              },
+              {
+                "@type": "Person",
+                "name": "Dat"
+              },
+              {
+                "@type": "Person",
+                "name": "Yuhan"
+              }
+            ]
+          })}
+        </script>
+
+        {/* Professional Profile Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfilePage",
+            "mainEntity": {
+              "@type": "Person",
+              "name": personalInfo.name
+            },
+            "about": {
+              "@type": "Person",
+              "name": personalInfo.name,
+              "description": "Creative designer specializing in empathetic, human-centered design"
+            },
+            "significantLink": [
+              "https://www.linkedin.com/in/your-linkedin-username",
+              "/projects",
+              "/ux-ui-design",
+              "/media",
+              "/graphic-design"
+            ],
+            "relatedLink": [
+              "../assets/resume.pdf"
+            ]
+          })}
+        </script>
+
+        {/* Resume Document Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "DigitalDocument",
+            "name": "Emily Rianna Smith - Resume",
+            "description": "Professional resume of Emily Rianna Smith, creative designer and visual storyteller specializing in UX/UI design, graphic design, and media production.",
+            "url": "../assets/resume.pdf",
+            "fileFormat": "application/pdf",
+            "creator": {
+              "@type": "Person",
+              "name": personalInfo.name
+            },
+            "dateModified": "2025-01-15",
+            "genre": "Resume",
+            "keywords": [
+              "resume",
+              "CV",
+              "creative designer",
+              "UX/UI designer",
+              "graphic designer",
+              "media producer"
+            ],
+            "about": {
+              "@type": "Person",
+              "name": personalInfo.name
+            }
+          })}
+        </script>
+
+        {/* Educational Background Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EducationalOccupationalCredential",
+            "name": "Technical Education in Design",
+            "description": "Technical skill development in creative design and media production",
+            "credentialCategory": "Certificate",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "British Columbia Institute of Technology"
+            },
+            "about": personalInfo.specializations,
+            "holder": {
+              "@type": "Person",
+              "name": personalInfo.name
+            }
+          })}
+        </script>
+
+        {/* Skills and Competencies Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Emily Rianna Smith - Professional Skills",
+            "description": "Comprehensive list of creative, technical, and soft skills",
+            "numberOfItems": personalInfo.creativeTools.length + personalInfo.coreStrengths.length,
+            "itemListElement": [
+              ...personalInfo.creativeTools.map((tool, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": {
+                  "@type": "DefinedTerm",
+                  "name": tool,
+                  "description": `Proficiency in ${tool} for creative design work`,
+                  "inDefinedTermSet": "Creative Software Tools"
+                }
+              })),
+              ...personalInfo.coreStrengths.map((strength, index) => ({
+                "@type": "ListItem",
+                "position": personalInfo.creativeTools.length + index + 1,
+                "item": {
+                  "@type": "DefinedTerm",
+                  "name": strength,
+                  "description": `Core professional strength: ${strength}`,
+                  "inDefinedTermSet": "Professional Competencies"
+                }
+              }))
+            ]
+          })}
+        </script>
       </div>
       
       <Footer />

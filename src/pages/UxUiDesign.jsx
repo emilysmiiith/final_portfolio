@@ -4,27 +4,86 @@ import Footer from '../components/Footer';
 import imageSvg from '../assets/image.svg';
 
 const UxUiDesign = () => {
+  // Project metadata
+  const uxuiProjects = [
+    {
+      id: 'insight-timer',
+      title: 'Insight Timer Redesign',
+      subtitle: 'Meditation App UX/UI Enhancement',
+      description: 'Redesigned the Insight Timer meditation app to simplify navigation, improve search flow, and enhance personalized content delivery for a calmer, more intuitive user experience.',
+      duration: '51 hours',
+      timeline: 'May 20 - May 29, 2025',
+      tools: ['Figma', 'Illustrator'],
+      type: 'Independent Project',
+      category: 'Mobile App Redesign',
+      methodology: ['User Research', 'Competitive Analysis', 'Wireframing', 'Prototyping', 'User Testing'],
+      problemSolved: 'Chaotic navigation and cognitive overload in meditation app',
+      targetAudience: 'Busy professionals seeking mindfulness solutions',
+      slideCount: 31,
+      slidePath: './slides/insight/',
+      pdfPath: '../assets/slides/insight.pdf',
+      keyFeatures: ['Simplified navigation', 'Guided search flow', 'Unified saved content', 'Daily intention setting']
+    },
+    {
+      id: 'pinpal',
+      title: 'Pinpal Travel App',
+      subtitle: 'Social Travel Connection Platform',
+      description: 'Create an app concept that helps travelers find local events and connect with like-minded people before attending. The goal was to design a tool that makes forming meaningful connections while traveling easier and safer.',
+      duration: '23 hours',
+      timeline: 'Feb 14 - Apr 15, 2025',
+      tools: ['Figma', 'Illustrator'],
+      type: 'UX/UI Strategy Course',
+      category: 'Mobile App Concept',
+      methodology: ['User Interviews', 'Concept Development', 'Visual Design', 'Prototyping'],
+      problemSolved: 'Difficulty forming meaningful connections while traveling',
+      targetAudience: 'Solo travelers seeking authentic local experiences',
+      slideCount: 18,
+      slidePath: './slides/pinpal/',
+      pdfPath: '../assets/slides/pinpal.pdf',
+      keyFeatures: ['Event discovery', 'Pre-event interaction', 'Trust & safety features', 'Community building']
+    }
+  ];
+
   return (
     <>
+      {/* SEO Metadata */}
+      <head>
+        <title>UX/UI Design Projects - Emily Rianna Smith | Human-Centered Design</title>
+        <meta name="description" content="UX/UI design portfolio featuring Insight Timer app redesign and Pinpal travel app concept. Human-centered design solutions focused on empathy, research, and user experience." />
+        <meta name="keywords" content="UX UI design, user experience, interface design, mobile app design, user research, wireframing, prototyping, Figma, meditation app, travel app, human-centered design" />
+        <meta name="author" content="Emily Rianna Smith" />
+        <meta property="og:title" content="UX/UI Design Portfolio - Emily Rianna Smith" />
+        <meta property="og:description" content="Human-centered UX/UI design projects solving real problems for real people through research, empathy, and thoughtful design." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="./slides/insight/slide-1.png" />
+        <meta property="og:url" content="/ux-ui-design" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="UX/UI Design Projects - Emily Rianna Smith" />
+        <meta name="twitter:description" content="Mobile app redesigns and concepts focused on improving user experience through research and empathetic design." />
+        <meta name="twitter:image" content="./slides/insight/slide-1.png" />
+      </head>
+
       <div className="uxui-container">
         {/* Static SVG Background */}
         <div className="svg-static">
           <img 
             src={imageSvg}
-            alt="Static decorative path"
+            alt="Decorative SVG background element for visual design enhancement"
             className="svg-image-static"
+            role="presentation"
+            aria-hidden="true"
           />
         </div>
 
         <div className="uxui-content">
           {/* Hero Section */}
-          <section className="section hero-section">
+          <section className="section hero-section" aria-labelledby="hero-heading">
             <div className="section-content">
               <div className="section-header">
                 <h2 className="section-subtitle" style={{ fontFamily: "'Liu Jian Mao Cao', cursive" }}>
                   human-centered design
                 </h2>
-                <h1 className="section-title">ux/ui design</h1>
+                <h1 id="hero-heading" className="section-title">ux/ui design</h1>
               </div>
               <div className="section-body">
                 <p className="journey-text">
@@ -39,22 +98,22 @@ const UxUiDesign = () => {
           </section>
 
           {/* Project 1: Insight Timer */}
-          <section className="section">
+          <section className="section" aria-labelledby="insight-timer-heading">
             <div className="section-content">
-              <div className="project-showcase blue">
+              <div className="project-showcase blue" itemScope itemType="https://schema.org/CreativeWork">
                 <div className="project-header">
                   <div className="project-number">#1</div>
                   <div className="project-meta">
-                    <h2 className="project-title">Insight Timer Redesign</h2>
-                    <p className="project-subtitle">Meditation App UX/UI Enhancement</p>
+                    <h2 id="insight-timer-heading" className="project-title" itemProp="name">Insight Timer Redesign</h2>
+                    <p className="project-subtitle" itemProp="genre">Meditation App UX/UI Enhancement</p>
                     <div className="project-stats">
-                      <span className="stat-item">51 hours</span>
+                      <span className="stat-item" itemProp="timeRequired">51 hours</span>
                       <span className="stat-divider">•</span>
-                      <span className="stat-item">May 20 - May 29, 2025</span>
+                      <span className="stat-item" itemProp="dateCreated">May 20 - May 29, 2025</span>
                       <span className="stat-divider">•</span>
                       <span className="stat-item">Independent Project</span>
                       <span className="stat-divider">•</span>
-                      <span className="stat-item">Emily Rianna Smith</span>
+                      <span className="stat-item" itemProp="creator">Emily Rianna Smith</span>
                     </div>
                   </div>
                 </div>
@@ -63,7 +122,7 @@ const UxUiDesign = () => {
                 <div className="project-overview">
                   <div className="overview-content">
                     <h3 className="overview-title">Project Goal</h3>
-                    <p className="overview-description">
+                    <p className="overview-description" itemProp="description">
                       Redesigned the Insight Timer meditation app to simplify navigation, improve search flow, and enhance personalized content delivery for a calmer, more intuitive user experience.
                     </p>
                     
@@ -84,20 +143,55 @@ const UxUiDesign = () => {
 
                     <div className="presentation-section">
                       <h4 className="presentation-title">📄 Complete Case Study</h4>
-                      <div className="slides-gallery">
+                      <div className="slides-gallery" role="img" aria-label="Insight Timer case study presentation slides">
                         {Array.from({ length: 31 }, (_, i) => (
                           <div key={i + 1} className="slide-container">
                             <img 
                               src={`./slides/insight/slide-${i + 1}.png`} 
-                              alt={`Insight Timer Case Study - Slide ${i + 1}`}
+                              alt={`Insight Timer UX/UI redesign case study slide ${i + 1} of 31, showing ${
+                                i === 0 ? 'project overview and goals' :
+                                i < 5 ? 'user research and problem definition' :
+                                i < 10 ? 'competitive analysis and user personas' :
+                                i < 15 ? 'wireframing and information architecture' :
+                                i < 20 ? 'visual design and interaction patterns' :
+                                i < 25 ? 'prototyping and user testing results' :
+                                'final designs and project outcomes'
+                              }`}
+                              title={`Slide ${i + 1}: ${
+                                i === 0 ? 'Project Overview' :
+                                i < 5 ? 'User Research Phase' :
+                                i < 10 ? 'Analysis & Personas' :
+                                i < 15 ? 'Wireframing' :
+                                i < 20 ? 'Visual Design' :
+                                i < 25 ? 'Prototyping & Testing' :
+                                'Final Designs'
+                              }`}
                               className="slide-image"
-                              loading="lazy"
+                              loading={i < 3 ? "eager" : "lazy"}
+                              itemProp="image"
+                              data-slide-number={i + 1}
+                              data-slide-topic={
+                                i === 0 ? 'overview' :
+                                i < 5 ? 'research' :
+                                i < 10 ? 'analysis' :
+                                i < 15 ? 'wireframes' :
+                                i < 20 ? 'design' :
+                                i < 25 ? 'testing' :
+                                'results'
+                              }
                             />
                             <div className="slide-number">{i + 1} / 31</div>
                           </div>
                         ))}
                         <div className="pdf-controls">
-                          <a href="../assets/slides/insight.pdf" target="_blank" rel="noopener noreferrer" className="pdf-download">
+                          <a 
+                            href="../assets/slides/insight.pdf" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="pdf-download"
+                            aria-label="Download complete Insight Timer case study PDF"
+                            title="Download complete case study as PDF"
+                          >
                             Download Complete PDF ↗
                           </a>
                         </div>
@@ -160,22 +254,22 @@ const UxUiDesign = () => {
           </section>
 
           {/* Project 2: Pinpal */}
-          <section className="section">
+          <section className="section" aria-labelledby="pinpal-heading">
             <div className="section-content">
-              <div className="project-showcase amber">
+              <div className="project-showcase amber" itemScope itemType="https://schema.org/CreativeWork">
                 <div className="project-header">
                   <div className="project-number">#2</div>
                   <div className="project-meta">
-                    <h2 className="project-title">Pinpal Travel App</h2>
-                    <p className="project-subtitle">Social Travel Connection Platform</p>
+                    <h2 id="pinpal-heading" className="project-title" itemProp="name">Pinpal Travel App</h2>
+                    <p className="project-subtitle" itemProp="genre">Social Travel Connection Platform</p>
                     <div className="project-stats">
-                      <span className="stat-item">23 hours</span>
+                      <span className="stat-item" itemProp="timeRequired">23 hours</span>
                       <span className="stat-divider">•</span>
-                      <span className="stat-item">Feb 14 - Apr 15, 2025</span>
+                      <span className="stat-item" itemProp="dateCreated">Feb 14 - Apr 15, 2025</span>
                       <span className="stat-divider">•</span>
                       <span className="stat-item">UX/UI Strategy Course</span>
                       <span className="stat-divider">•</span>
-                      <span className="stat-item">Emily Rianna Smith</span>
+                      <span className="stat-item" itemProp="creator">Emily Rianna Smith</span>
                     </div>
                   </div>
                 </div>
@@ -184,7 +278,7 @@ const UxUiDesign = () => {
                 <div className="project-overview">
                   <div className="overview-content">
                     <h3 className="overview-title">Project Goal</h3>
-                    <p className="overview-description">
+                    <p className="overview-description" itemProp="description">
                       Create an app concept that helps travelers find local events and connect with like-minded people before attending. The goal was to design a tool that makes forming meaningful connections while traveling easier and safer.
                     </p>
                     
@@ -205,20 +299,55 @@ const UxUiDesign = () => {
 
                     <div className="presentation-section">
                       <h4 className="presentation-title">📄 Complete Case Study</h4>
-                      <div className="slides-gallery">
+                      <div className="slides-gallery" role="img" aria-label="Pinpal travel app case study presentation slides">
                         {Array.from({ length: 18 }, (_, i) => (
                           <div key={i + 1} className="slide-container">
                             <img 
                               src={`./slides/pinpal/slide-${i + 1}.png`} 
-                              alt={`Pinpal Case Study - Slide ${i + 1}`}
+                              alt={`Pinpal travel app concept case study slide ${i + 1} of 18, showing ${
+                                i === 0 ? 'project overview and concept introduction' :
+                                i < 3 ? 'problem definition and user research' :
+                                i < 6 ? 'concept development and feature planning' :
+                                i < 9 ? 'visual design and branding' :
+                                i < 12 ? 'user interface design and wireframes' :
+                                i < 15 ? 'app features and user flow' :
+                                'final prototype and project results'
+                              }`}
+                              title={`Slide ${i + 1}: ${
+                                i === 0 ? 'Project Overview' :
+                                i < 3 ? 'Problem & Research' :
+                                i < 6 ? 'Concept Development' :
+                                i < 9 ? 'Visual Design' :
+                                i < 12 ? 'Interface Design' :
+                                i < 15 ? 'App Features' :
+                                'Final Prototype'
+                              }`}
                               className="slide-image"
-                              loading="lazy"
+                              loading={i < 3 ? "eager" : "lazy"}
+                              itemProp="image"
+                              data-slide-number={i + 1}
+                              data-slide-topic={
+                                i === 0 ? 'overview' :
+                                i < 3 ? 'research' :
+                                i < 6 ? 'concept' :
+                                i < 9 ? 'design' :
+                                i < 12 ? 'interface' :
+                                i < 15 ? 'features' :
+                                'prototype'
+                              }
                             />
                             <div className="slide-number">{i + 1} / 18</div>
                           </div>
                         ))}
                         <div className="pdf-controls">
-                          <a href="../assets/slides/pinpal.pdf" target="_blank" rel="noopener noreferrer" className="pdf-download">
+                          <a 
+                            href="../assets/slides/pinpal.pdf" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="pdf-download"
+                            aria-label="Download complete Pinpal case study PDF"
+                            title="Download complete case study as PDF"
+                          >
                             Download Complete PDF ↗
                           </a>
                         </div>
@@ -284,10 +413,10 @@ const UxUiDesign = () => {
           </section>
 
           {/* Design Philosophy Section */}
-          <section className="section">
+          <section className="section" aria-labelledby="philosophy-heading">
             <div className="section-content">
               <div className="section-header">
-                <h2 className="section-subtitle" style={{ fontFamily: "'Liu Jian Mao Cao', cursive" }}>
+                <h2 id="philosophy-heading" className="section-subtitle" style={{ fontFamily: "'Liu Jian Mao Cao', cursive" }}>
                   design philosophy
                 </h2>
               </div>
@@ -302,6 +431,89 @@ const UxUiDesign = () => {
               </div>
             </div>
           </section>
+
+          {/* Structured Data for UX/UI Projects */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              "name": "UX/UI Design Portfolio - Emily Rianna Smith",
+              "description": "Human-centered UX/UI design projects featuring mobile app redesigns and concepts focused on user research, empathy, and problem-solving.",
+              "url": "/ux-ui-design",
+              "creator": {
+                "@type": "Person",
+                "name": "Emily Rianna Smith",
+                "jobTitle": "UX/UI Designer",
+                "knowsAbout": ["User Experience Design", "Interface Design", "User Research", "Prototyping", "Wireframing"]
+              },
+              "mainEntity": uxuiProjects.map(project => ({
+                "@type": "CreativeWork",
+                "name": project.title,
+                "description": project.description,
+                "creator": {
+                  "@type": "Person",
+                  "name": "Emily Rianna Smith"
+                },
+                "dateCreated": project.timeline,
+                "genre": project.category,
+                "keywords": project.methodology.concat(project.keyFeatures),
+                "timeRequired": project.duration,
+                "tool": project.tools,
+                "audience": {
+                  "@type": "Audience",
+                  "audienceType": project.targetAudience
+                },
+                "about": {
+                  "@type": "Thing",
+                  "name": project.problemSolved,
+                  "description": project.description
+                }
+              })),
+              "keywords": [
+                "UX design",
+                "UI design", 
+                "user experience",
+                "interface design",
+                "mobile app design",
+                "user research",
+                "wireframing",
+                "prototyping",
+                "Figma",
+                "human-centered design",
+                "meditation app",
+                "travel app"
+              ]
+            })}
+          </script>
+
+          {/* Individual Project Structured Data */}
+          {uxuiProjects.map(project => (
+            <script key={project.id} type="application/ld+json">
+              {JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "DigitalDocument",
+                "name": `${project.title} Case Study`,
+                "description": project.description,
+                "creator": {
+                  "@type": "Person",
+                  "name": "Emily Rianna Smith"
+                },
+                "dateCreated": project.timeline,
+                "genre": "UX/UI Case Study",
+                "fileFormat": "PDF",
+                "url": project.pdfPath,
+                "thumbnailUrl": `${project.slidePath}slide-1.png`,
+                "numberOfPages": project.slideCount,
+                "keywords": project.methodology.concat(project.keyFeatures),
+                "about": {
+                  "@type": "SoftwareApplication",
+                  "name": project.title,
+                  "applicationCategory": "Mobile Application",
+                  "operatingSystem": "iOS, Android"
+                }
+              })}
+            </script>
+          ))}
         </div>
       </div>
       <Footer />

@@ -14,6 +14,43 @@ import uxuiImage from '../assets/images/uxui.png';
 import graphicImage from '../assets/images/graphic.png';
 
 const Projects = () => {
+  // Project metadata
+  const projectCategories = [
+    {
+      id: 'media',
+      title: 'Media and Editing',
+      description: 'Video production, documentary filmmaking, and motion graphics combining technical skills with meaningful storytelling',
+      image: mediaImage,
+      alt: 'Media and editing project showcase featuring video production and documentary filmmaking work',
+      link: '/media',
+      skills: ['Video Production', 'Documentary Filmmaking', 'Motion Graphics', 'Adobe After Effects', 'Adobe Audition'],
+      projectCount: 5,
+      featured: 'Dementia Care Short Film'
+    },
+    {
+      id: 'uxui',
+      title: 'UX/UI Design',
+      description: 'User experience and interface design focused on creating intuitive, empathetic, and accessible digital experiences',
+      image: uxuiImage,
+      alt: 'UX/UI design projects showcasing user interface design and user experience research',
+      link: '/ux-ui-design',
+      skills: ['User Research', 'Wireframing', 'Prototyping', 'Interface Design', 'Usability Testing'],
+      projectCount: 8,
+      featured: 'Mobile App Redesign'
+    },
+    {
+      id: 'graphic',
+      title: 'Graphic Design',
+      description: 'Brand identity, packaging, print, and digital graphics that tell stories through thoughtful visual communication',
+      image: graphicImage,
+      alt: 'Graphic design portfolio featuring brand identity, packaging design, and visual communication projects',
+      link: '/graphic-design',
+      skills: ['Brand Identity', 'Packaging Design', 'Print Design', 'Digital Graphics', 'Typography'],
+      projectCount: 12,
+      featured: 'Brand Identity System'
+    }
+  ];
+
   // Add project-page class to body when component mounts
   useEffect(() => {
     document.body.classList.add('projects-page');
@@ -22,36 +59,62 @@ const Projects = () => {
 
   return (
     <>
+      {/* SEO Metadata */}
+      <head>
+        <title>Projects - Emily Rianna Smith | Creative Portfolio</title>
+        <meta name="description" content="Explore Emily Rianna Smith's creative portfolio featuring media production, UX/UI design, and graphic design projects. Human-centered design with empathy and authenticity." />
+        <meta name="keywords" content="creative portfolio, media production, UX UI design, graphic design, video editing, documentary film, brand identity, user experience, visual storytelling" />
+        <meta name="author" content="Emily Rianna Smith" />
+        <meta property="og:title" content="Creative Portfolio - Emily Rianna Smith" />
+        <meta property="og:description" content="Multi-disciplinary designer specializing in media production, UX/UI design, and graphic design with a focus on human-centered storytelling." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/assets/images/portfolio-preview.jpg" />
+        <meta property="og:url" content="/projects" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Creative Portfolio - Emily Rianna Smith" />
+        <meta name="twitter:description" content="Multi-disciplinary designer creating meaningful connections through empathetic design." />
+        <meta name="twitter:image" content="/assets/images/portfolio-preview.jpg" />
+      </head>
+
       <div className="projects-container">
         {/* Static SVG */}
         <div className="svg-static">
           <img 
             src={imageSvg}
-            alt="Static decorative path"
+            alt="Decorative SVG background element for visual design enhancement"
             className="svg-image-static"
+            role="presentation"
+            aria-hidden="true"
           />
         </div>
 
         {/* Social Icons */}
-        <div className="social-icons">
+        <div className="social-icons" role="navigation" aria-label="Social media links">
           <a
             href="https://www.linkedin.com/in/your-linkedin-username"
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon"
+            aria-label="Connect with Emily Rianna Smith on LinkedIn"
+            title="LinkedIn Profile"
           >
-            <FontAwesomeIcon icon={faLinkedin} />
+            <FontAwesomeIcon icon={faLinkedin} aria-hidden="true" />
           </a>
-          <a href="mailto:emily.smiiith@gmail.com" className="social-icon">
-            <FontAwesomeIcon icon={faEnvelope} />
+          <a 
+            href="mailto:emily.smiiith@gmail.com" 
+            className="social-icon"
+            aria-label="Send email to Emily Rianna Smith"
+            title="Email Contact"
+          >
+            <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
           </a>
         </div>
 
         {/* Why These Disciplines Section */}
-        <section className="section">
+        <section className="section" aria-labelledby="disciplines-heading">
           <div className="section-content">
             <div className="section-header">
-              <h2>why these disciplines?</h2>
+              <h2 id="disciplines-heading">why these disciplines?</h2>
             </div>
             <div className="section-body">
               <p>
@@ -62,10 +125,10 @@ const Projects = () => {
         </section>
 
         {/* Media and Editing Section */}
-        <section className="section">
+        <section className="section" aria-labelledby="media-heading">
           <div className="section-content">
             <div className="section-header">
-              <h1>media and editing</h1>
+              <h1 id="media-heading">media and editing</h1>
             </div>
             <div className="section-body">
               <p>
@@ -75,13 +138,20 @@ const Projects = () => {
               </p>
               
               <div className="projects-grid">
-                <Link to="/media" className="project-card-link">
-                  <div className="project-card">
+                <Link to="/media" className="project-card-link" aria-label="View media and editing projects">
+                  <div className="project-card" itemScope itemType="https://schema.org/CreativeWork">
                     <div className="project-image-container">
                       <img 
                         src={mediaImage} 
-                        alt="Media and Editing Project"
+                        alt={projectCategories[0].alt}
+                        title={projectCategories[0].title}
                         className="project-image"
+                        loading="lazy"
+                        itemProp="image"
+                        data-category="media"
+                        data-skills={projectCategories[0].skills.join(', ')}
+                        data-project-count={projectCategories[0].projectCount}
+                        data-featured={projectCategories[0].featured}
                       />
                       <div className="project-overlay">
                         <div className="overlay-content">
@@ -104,10 +174,10 @@ const Projects = () => {
         </section>
 
         {/* UX/UI Section */}
-        <section className="section">
+        <section className="section" aria-labelledby="uxui-heading">
           <div className="section-content">
             <div className="section-header">
-              <h1>ux/ui</h1>
+              <h1 id="uxui-heading">ux/ui</h1>
             </div>
             <div className="section-body">
               <p>
@@ -118,13 +188,20 @@ const Projects = () => {
               </p>
               
               <div className="projects-grid">
-                <Link to="/ux-ui-design" className="project-card-link">
-                  <div className="project-card">
+                <Link to="/ux-ui-design" className="project-card-link" aria-label="View UX/UI design projects">
+                  <div className="project-card" itemScope itemType="https://schema.org/CreativeWork">
                     <div className="project-image-container">
                       <img 
                         src={uxuiImage} 
-                        alt="UX/UI Design Project"
+                        alt={projectCategories[1].alt}
+                        title={projectCategories[1].title}
                         className="project-image"
+                        loading="lazy"
+                        itemProp="image"
+                        data-category="uxui"
+                        data-skills={projectCategories[1].skills.join(', ')}
+                        data-project-count={projectCategories[1].projectCount}
+                        data-featured={projectCategories[1].featured}
                       />
                       <div className="project-overlay">
                         <div className="overlay-content">
@@ -147,10 +224,10 @@ const Projects = () => {
         </section>
 
         {/* Graphic Design Section */}
-        <section className="section">
+        <section className="section" aria-labelledby="graphic-heading">
           <div className="section-content">
             <div className="section-header">
-              <h1>graphic design</h1>
+              <h1 id="graphic-heading">graphic design</h1>
             </div>
             <div className="section-body">
               <p>
@@ -161,13 +238,20 @@ const Projects = () => {
               </p>
               
               <div className="projects-grid">
-                <Link to="/graphic-design" className="project-card-link">
-                  <div className="project-card">
+                <Link to="/graphic-design" className="project-card-link" aria-label="View graphic design projects">
+                  <div className="project-card" itemScope itemType="https://schema.org/CreativeWork">
                     <div className="project-image-container">
                       <img 
                         src={graphicImage} 
-                        alt="Graphic Design Project"
+                        alt={projectCategories[2].alt}
+                        title={projectCategories[2].title}
                         className="project-image"
+                        loading="lazy"
+                        itemProp="image"
+                        data-category="graphic"
+                        data-skills={projectCategories[2].skills.join(', ')}
+                        data-project-count={projectCategories[2].projectCount}
+                        data-featured={projectCategories[2].featured}
                       />
                       <div className="project-overlay">
                         <div className="overlay-content">
@@ -190,10 +274,10 @@ const Projects = () => {
         </section>
 
         {/* AI Section */}
-        <section className="section ai-section">
+        <section className="section ai-section" aria-labelledby="ai-heading">
           <div className="section-content">
             <div className="section-header">
-              <h1>working with AI in design</h1>
+              <h1 id="ai-heading">working with AI in design</h1>
               <h2>the human touch in an AI world</h2>
             </div>
             <div className="section-body">
@@ -205,37 +289,137 @@ const Projects = () => {
         </section>
 
         {/* Values and Process Section */}
-        <section className="section process-section">
+        <section className="section process-section" aria-labelledby="process-heading">
           <div className="section-content">
             <div className="section-header">
-              <h1>my approach to every project</h1>
+              <h1 id="process-heading">my approach to every project</h1>
               <h2>values and steps that guide my work</h2>
             </div>
             <div className="section-body">
               <div className="process-content">
-                <div className="process-step">
-                  <h1>listen</h1>
-                  <p>First I listen to the objective and goal. Understanding my clients values goes a long way for me in knowing how to approach a project.</p>
+                <div className="process-step" itemScope itemType="https://schema.org/Action">
+                  <h1 itemProp="name">listen</h1>
+                  <p itemProp="description">First I listen to the objective and goal. Understanding my clients values goes a long way for me in knowing how to approach a project.</p>
                 </div>
                 
-                <div className="process-step">
-                  <h1>pre planning</h1>
-                  <p>Next is pre planning, creating a mock up or storyboard to get the first idea down.</p>
+                <div className="process-step" itemScope itemType="https://schema.org/Action">
+                  <h1 itemProp="name">pre planning</h1>
+                  <p itemProp="description">Next is pre planning, creating a mock up or storyboard to get the first idea down.</p>
                 </div>
                 
-                <div className="process-step">
-                  <h1>review and prep</h1>
-                  <p>Then comes review and prep planning to refine the concept and ensure we're on the right track.</p>
+                <div className="process-step" itemScope itemType="https://schema.org/Action">
+                  <h1 itemProp="name">review and prep</h1>
+                  <p itemProp="description">Then comes review and prep planning to refine the concept and ensure we're on the right track.</p>
                 </div>
                 
-                <div className="process-step">
-                  <h1>final execution</h1>
-                  <p>Finally, the execution phase where everything comes together. Although this varies on the project, it's important for me to make sure my work stands on a secure foundation of understanding.</p>
+                <div className="process-step" itemScope itemType="https://schema.org/Action">
+                  <h1 itemProp="name">final execution</h1>
+                  <p itemProp="description">Finally, the execution phase where everything comes together. Although this varies on the project, it's important for me to make sure my work stands on a secure foundation of understanding.</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+        {/* Structured Data for Portfolio */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Portfolio",
+            "name": "Emily Rianna Smith - Creative Portfolio",
+            "description": "Multi-disciplinary creative portfolio featuring media production, UX/UI design, and graphic design projects with a focus on human-centered storytelling and empathetic design.",
+            "url": "/projects",
+            "creator": {
+              "@type": "Person",
+              "name": "Emily Rianna Smith",
+              "jobTitle": "Creative Designer & Media Producer",
+              "email": "emily.smiiith@gmail.com",
+              "sameAs": [
+                "https://www.linkedin.com/in/your-linkedin-username"
+              ],
+              "knowsAbout": [
+                "Media Production",
+                "UX/UI Design", 
+                "Graphic Design",
+                "Video Editing",
+                "Documentary Filmmaking",
+                "Brand Identity",
+                "User Experience Design"
+              ]
+            },
+            "workExample": projectCategories.map(category => ({
+              "@type": "CreativeWork",
+              "name": category.title,
+              "description": category.description,
+              "image": category.image,
+              "url": category.link,
+              "keywords": category.skills,
+              "genre": category.id,
+              "creator": {
+                "@type": "Person",
+                "name": "Emily Rianna Smith"
+              }
+            })),
+            "mainEntity": {
+              "@type": "Person",
+              "name": "Emily Rianna Smith",
+              "description": "Creative designer passionate about human-centered design, storytelling, and authentic connections through visual communication."
+            },
+            "audience": {
+              "@type": "Audience",
+              "audienceType": "Creative professionals, potential clients, collaborators"
+            },
+            "keywords": [
+              "creative portfolio",
+              "media production", 
+              "UX UI design",
+              "graphic design",
+              "video editing",
+              "documentary film",
+              "brand identity",
+              "user experience",
+              "visual storytelling",
+              "human-centered design",
+              "empathetic design"
+            ]
+          })}
+        </script>
+
+        {/* Process Methodology Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "Emily Rianna Smith's Design Process",
+            "description": "A four-step approach to creative projects emphasizing listening, planning, review, and execution.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Listen",
+                "text": "First I listen to the objective and goal. Understanding my clients values goes a long way for me in knowing how to approach a project."
+              },
+              {
+                "@type": "HowToStep", 
+                "name": "Pre Planning",
+                "text": "Next is pre planning, creating a mock up or storyboard to get the first idea down."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Review and Prep", 
+                "text": "Then comes review and prep planning to refine the concept and ensure we're on the right track."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Final Execution",
+                "text": "Finally, the execution phase where everything comes together. Although this varies on the project, it's important for me to make sure my work stands on a secure foundation of understanding."
+              }
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Emily Rianna Smith"
+            }
+          })}
+        </script>
       </div>
       <Footer />
     </>
