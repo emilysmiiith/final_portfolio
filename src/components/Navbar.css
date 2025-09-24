@@ -492,3 +492,75 @@ body.project-page .dropdown-item p {
 body.project-page .nav-icon .icon {
   color: #F5E6A3 !important;
 }
+
+
+
+/* MOBILE HAMBURGER MENU SIMPLIFIED */
+@media (max-width: 767px) {
+  .nav-links {
+    display: none !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    width: 100% !important;
+    background: rgba(255, 253, 241, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    margin-top: 0.5rem !important;
+    padding: 0 !important;
+    box-shadow: 0 8px 16px rgba(68, 43, 18, 0.1) !important;
+  }
+
+  .nav-links.active {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .nav-links li {
+    width: 100% !important;
+  }
+
+  .nav-links a {
+    display: block !important;
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    text-align: left !important;
+    background: transparent !important;
+  }
+
+  .nav-links a:hover {
+    background: rgba(68, 43, 18, 0.05) !important;
+    transform: none !important;
+  }
+
+  /* Remove nested dropdown transforms for mobile */
+  .dropdown-menu {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    min-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .dropdown-item {
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    border-left: none !important;
+  }
+
+  .projects-link-container {
+    width: 100% !important;
+    justify-content: flex-start !important;
+    padding: 0 !important;
+  }
+
+  .dropdown-arrow {
+    display: none !important; /* remove arrow on mobile */
+  }
+}
