@@ -627,3 +627,128 @@ p {
   }
 }
 
+/* -----------------------------
+   FIX: Responsive featured projects grid + cards
+   Paste this at the *end* of Home.css
+   ----------------------------- */
+
+/* Ensure container doesn't overflow and has breathing room */
+.projects-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;               /* mobile default: 1 column */
+  gap: clamp(0.75rem, 2.5vw, 1.5rem) !important;
+  width: 100% !important;
+  max-width: 1200px !important;                        /* keep content readable on large screens */
+  margin: 0 auto !important;
+  padding: 0 clamp(1rem, 3vw, 2rem) !important;        /* side padding to avoid touching viewport edges */
+  box-sizing: border-box !important;
+  align-items: start !important;
+  overflow: visible !important;
+}
+
+/* Small devices -> allow two columns when space allows */
+@media (min-width: 576px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Medium screens / tablets -> two columns (can be adjusted to 3 at larger screens) */
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    max-width: 1100px !important;
+  }
+}
+
+/* Desktop -> three columns */
+@media (min-width: 992px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: clamp(1rem, 2vw, 2rem) !important;
+    max-width: 1200px !important;
+  }
+}
+
+/* Extra wide screens -> keep everything centered */
+@media (min-width: 1400px) {
+  .projects-grid {
+    max-width: 1400px !important;
+    padding: 0 clamp(1.5rem, 2.5vw, 3rem) !important;
+  }
+}
+
+/* Card: fluid, contained, no fixed px widths */
+.project-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  border-radius: clamp(10px, 2vw, 16px) !important;
+  overflow: hidden !important;           /* keep images inside card */
+  box-sizing: border-box !important;
+  display: block !important;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Image container: maintain aspect ratio so cards have consistent height */
+.project-image-container {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 10 !important;   /* pick a landscape aspect ratio that fits (16:10 can be changed) */
+  position: relative !important;
+  overflow: hidden !important;
+  transform: none !important;         /* disable previous 3D transforms that caused overflow */
+}
+
+/* Image: always fill the container without overflowing */
+.project-image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  border-radius: 0 !important;
+}
+
+/* Disable flip transform (if earlier rule rotates card) */
+.project-card:hover .project-image-container,
+.project-card:focus .project-image-container {
+  transform: none !important;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.12) !important;
+}
+
+/* Simpler overlay: fade in at bottom */
+.project-overlay {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  padding: clamp(0.75rem, 1.5vw, 1rem) !important;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.5) 100%) !important;
+  color: #fff !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  opacity: 0 !important;
+  transition: opacity 0.22s ease !important;
+}
+
+/* show overlay on hover / focus (keyboard accessible) */
+.project-card:hover .project-overlay,
+.project-card:focus .project-overlay {
+  opacity: 1 !important;
+}
+
+/* Prevent any horizontal scroll caused by inside elements */
+.home-container, .main-content, .projects-grid, .project-card, .project-image-container {
+  -webkit-overflow-scrolling: touch !important;
+  overflow-x: hidden !important;
+}
+
+/* Accessibility: ensure focus visible and keyboard usable */
+.project-card:focus {
+  outline: 3px solid rgba(162,177,186,0.6) !important;
+  outline-offset: 4px !important;
+}
