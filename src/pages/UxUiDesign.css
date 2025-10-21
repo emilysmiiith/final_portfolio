@@ -24,7 +24,6 @@ body {
   min-height: 100vh;
   position: relative;
   background: #442B12;
-  will-change: scroll-position;
 }
 
 .uxui-content {
@@ -36,7 +35,7 @@ body {
   padding: 0 2rem;
 }
 
-/* Static SVG Background */
+/* Static SVG Background - OPTIMIZED */
 .svg-static {
   position: fixed;
   top: -50vh;
@@ -45,12 +44,13 @@ body {
   height: 150vh;
   z-index: 2;
   pointer-events: none;
+  will-change: transform;
 }
 
 .svg-image-static {
   position: absolute;
-  width: 500vw;
-  height: 500vh;
+  width: 200vw; /* Reduced from 500vw */
+  height: 200vh; /* Reduced from 500vh */
   left: 50%;
   top: 0;
   transform: translateX(-50%);
@@ -58,7 +58,7 @@ body {
   opacity: 0.6;
 }
 
-/* Section Layout System */
+/* Section Layout System - OPTIMIZED */
 .section {
   min-height: 100vh;
   display: flex;
@@ -72,24 +72,20 @@ body {
   width: 100%;
   max-width: 1200px;
   background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(20px);
+  /* REMOVED backdrop-filter - huge performance gain */
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 24px;
   padding: 4rem;
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.1),
-    0 8px 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  /* Only transition transform and box-shadow, not 'all' */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   z-index: 5;
 }
 
 .section-content:hover {
   transform: translateY(-5px);
-  box-shadow: 
-    0 30px 80px rgba(0, 0, 0, 0.15),
-    0 12px 30px rgba(0, 0, 0, 0.08);
-  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
 }
 
 .section-header {
@@ -148,63 +144,37 @@ body {
   padding-top: 8rem;
 }
 
-/* Project Showcase Container */
+/* Project Showcase Container - OPTIMIZED */
 .project-showcase {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
+  /* REMOVED backdrop-filter */
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   padding: 0;
-  transition: all 0.3s ease;
+  /* Only transition specific properties */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative;
   overflow: hidden;
   margin-bottom: 0;
-  box-shadow: 
-    0 15px 40px rgba(0, 0, 0, 0.1),
-    0 6px 16px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
 .project-showcase:hover {
   transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 25px 60px rgba(0, 0, 0, 0.15),
-    0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
 }
 
 /* Color Themes */
 .project-showcase.blue {
   border-left: 6px solid #A2B1BA;
-  box-shadow: 
-    0 15px 40px rgba(0, 0, 0, 0.1),
-    0 6px 16px rgba(0, 0, 0, 0.05),
-    -6px 0 20px rgba(162, 177, 186, 0.15);
 } 
-
-.project-showcase.blue:hover {
-  box-shadow: 
-    0 25px 60px rgba(0, 0, 0, 0.15),
-    0 10px 25px rgba(0, 0, 0, 0.08),
-    -8px 0 30px rgba(107, 127, 232, 0.2);
-}
 
 .project-showcase.amber {
   border-left: 6px solid #A2B1BA;
-  box-shadow: 
-    0 15px 40px rgba(0, 0, 0, 0.1),
-    0 6px 16px rgba(0, 0, 0, 0.05),
-    -6px 0 20px rgba(245, 158, 11, 0.15);
 }
 
-.project-showcase.amber:hover {
-  box-shadow: 
-    0 25px 60px rgba(0, 0, 0, 0.15),
-    0 10px 25px rgba(0, 0, 0, 0.08),
-    -8px 0 30px rgba(245, 158, 11, 0.2);
-}
-
-/* Project Header */
+/* Project Header - OPTIMIZED */
 .project-header {
   display: flex;
   align-items: flex-start;
@@ -271,8 +241,9 @@ body {
   padding: 0.4rem 1rem;
   background: rgba(107, 127, 232, 0.2);
   border-radius: 20px;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  /* REMOVED backdrop-filter */
+  /* Specific transitions only */
+  transition: transform 0.3s ease, background-color 0.3s ease;
   border: 1px solid rgba(107, 127, 232, 0.3);
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
@@ -280,7 +251,6 @@ body {
 .stat-item:hover {
   background: rgba(107, 127, 232, 0.3);
   transform: translateY(-2px);
-  border-color: rgba(107, 127, 232, 0.4);
 }
 
 .stat-divider {
@@ -289,7 +259,7 @@ body {
   opacity: 0.6;
 }
 
-/* Project Overview Section */
+/* Project Overview Section - OPTIMIZED */
 .project-overview {
   padding: 3rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -314,7 +284,7 @@ body {
   display: block;
   width: 60px;
   height: 3px;
-  background: linear-gradient#A2B1BA;
+  background: #A2B1BA;
   margin: 1rem auto 0;
   border-radius: 2px;
 }
@@ -345,15 +315,14 @@ body {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  /* REMOVED backdrop-filter */
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   min-width: 110px;
 }
 
 .timeline-item:hover {
   background: rgba(255, 255, 255, 0.15);
   transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -374,7 +343,7 @@ body {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* Presentation Section with Image Gallery */
+/* Presentation Section - OPTIMIZED */
 .presentation-section {
   margin-top: 2rem;
   padding-top: 2rem;
@@ -395,14 +364,14 @@ body {
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 
-    0 15px 40px rgba(0, 0, 0, 0.1),
-    0 6px 16px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   max-height: 70vh;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+  /* Performance optimization for scrolling */
+  -webkit-overflow-scrolling: touch;
 }
 
 .slides-gallery::-webkit-scrollbar {
@@ -424,43 +393,36 @@ body {
 
 .slides-gallery:hover {
   border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 20px 50px rgba(0, 0, 0, 0.15),
-    0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 .slide-container {
   position: relative;
   margin-bottom: 1rem;
   padding: 1rem;
-  transition: all 0.3s ease;
+  /* Removed transition for better scroll performance */
 }
 
 .slide-container:last-of-type {
   margin-bottom: 0;
 }
 
-.slide-container:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
-
+/* Only apply hover effect to specific elements, not container */
 .slide-image {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 12px;
-  box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.15),
-    0 3px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: #fff;
+  /* Performance hint */
+  will-change: transform;
 }
 
 .slide-image:hover {
   transform: scale(1.02);
-  box-shadow: 
-    0 12px 35px rgba(0, 0, 0, 0.2),
-    0 5px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
 }
 
 .slide-number {
@@ -473,7 +435,7 @@ body {
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
-  backdrop-filter: blur(10px);
+  /* REMOVED backdrop-filter */
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -485,7 +447,7 @@ body {
   justify-content: center;
   position: sticky;
   bottom: 0;
-  backdrop-filter: blur(10px);
+  /* REMOVED backdrop-filter */
 }
 
 .pdf-download {
@@ -497,13 +459,12 @@ body {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .pdf-download:hover {
   background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -554,23 +515,20 @@ body {
   order: 1;
 }
 
-/* Step Image */
+/* Step Image - OPTIMIZED */
 .step-image {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 
-    0 20px 50px rgba(0, 0, 0, 0.2),
-    0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s ease;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   background: rgba(255, 255, 255, 0.05);
+  will-change: transform;
 }
 
 .step-image:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 
-    0 30px 70px rgba(0, 0, 0, 0.25),
-    0 12px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
 }
 
 .step-image img {
@@ -584,7 +542,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Prototype Container Special Styling */
+/* Prototype Container */
 .prototype-container {
   position: relative;
 }
@@ -597,7 +555,7 @@ body {
   bottom: 0;
   background: linear-gradient(135deg, rgba(107, 127, 232, 0.9), rgba(245, 158, 11, 0.9));
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -619,9 +577,9 @@ body {
   padding: 1rem 2rem;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50px;
-  backdrop-filter: blur(10px);
+  /* REMOVED backdrop-filter */
   border: 2px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .prototype-link:hover {
@@ -682,7 +640,7 @@ body {
   color: #FFFFFF;
   font-size: 0.95rem;
   line-height: 1.6;
-  backdrop-filter: blur(10px);
+  /* REMOVED backdrop-filter */
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
@@ -691,7 +649,7 @@ body {
   font-weight: 600;
 }
 
-/* Project Details Section */
+/* Project Details Section - OPTIMIZED */
 .project-details {
   margin-top: 0;
   padding: 3rem;
@@ -710,14 +668,13 @@ body {
   padding: 2.5rem;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  /* REMOVED backdrop-filter */
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   position: relative;
 }
 
 .detail-section:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
@@ -773,7 +730,7 @@ body {
   padding-left: 2.5rem;
   font-size: 0.9rem;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   font-weight: 400;
   opacity: 0.9;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -781,7 +738,6 @@ body {
 
 .deliverables-list li:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
   transform: translateX(5px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   opacity: 1;
@@ -796,7 +752,7 @@ body {
   color: #A2B1BA;
   font-weight: 600;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .deliverables-list li:hover::before {
@@ -902,11 +858,10 @@ body {
   }
   
   .svg-image-static {
-    width: 400vw;
-    height: 400vh;
+    width: 200vw; /* Already optimized */
+    height: 200vh;
   }
   
-  /* Slides gallery mobile styles */
   .slides-gallery {
     max-height: 60vh;
   }
@@ -967,7 +922,6 @@ body {
     padding: 0.8rem 1rem;
   }
   
-  /* Slides gallery mobile styles */
   .slides-gallery {
     max-height: 50vh;
   }

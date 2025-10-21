@@ -294,159 +294,85 @@ body.projects-page {
   box-shadow: 0 10px 20px rgba(162, 177, 186, 0.3);
 }
 
-
-
-/* 📱 Small Mobile - 375px */
-@media (max-width: 375px) {
-  .projects-container .section-content {
-    padding: 1.5rem 1rem;
-    margin: 0 0.5rem;
-  }
-
-  .projects-container .intro-section {
-    padding-top: 4rem;
-  }
-
+/* Responsive Design */
+@media (max-width: 1024px) {
   .project-card {
-    width: 260px;
-    height: 180px;
+    width: 350px;
+    height: 280px;
   }
-
-  .check-more-btn {
-    padding: 0.7rem 1.5rem;
-    font-size: 0.85rem;
-  }
-
-  .projects-container .social-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 0.9rem;
-  }
-}
-
-/* 📱 Mobile - 576px */
-@media (max-width: 576px) {
-  .projects-container .section {
-    padding: 3rem 0;
-  }
-
-  .projects-container .section-content {
-    padding: 2rem 1.2rem;
-  }
-
-  .project-card {
-    width: 280px;
-    height: 200px;
-  }
-}
-
-/* 📱 Mobile Landscape - 568px–812px */
-@media (min-width: 568px) and (max-width: 812px) {
-  .project-card {
-    width: 320px;
-    height: 220px;
-  }
-
+  
   .process-content {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
     text-align: center;
   }
 }
 
-/* 📲 Tablet Portrait - 768px */
 @media (max-width: 768px) {
   .projects-content {
     padding: 0 1rem;
   }
-
-  .projects-container .section-content {
-    padding: 2rem 1.5rem;
+  
+  .projects-container .section {
+    min-height: auto;
+    padding: 3rem 0;
   }
-
+  
+  .projects-container .section-content {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .projects-container .intro-section {
+    padding-top: 6rem;
+  }
+  
   .project-card {
     width: 300px;
     height: 240px;
   }
-
+  
   .process-step {
     padding: 1.5rem;
   }
-
+  
+  .projects-container .social-icons {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .projects-container .social-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+  
   .svg-image-static {
     width: 400vw;
     height: 400vh;
   }
 }
 
-/* 💻 Tablet Landscape - 1024px–1112px */
-@media (min-width: 1024px) and (max-width: 1112px) {
-  .process-content {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-
-  .project-card {
-    width: 380px;
-    height: 260px;
-  }
-}
-
-/* 💻 Standard Desktop - 992px */
-@media (max-width: 992px) {
-  .project-card {
-    width: 350px;
-    height: 250px;
-  }
-
-  .process-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: center;
-  }
-}
-
-/* 🖥 Large Desktop - 1200px */
-@media (max-width: 1200px) {
-  .projects-content {
-    max-width: 1100px;
-  }
-}
-
-/* 🖥 Extra Large Desktop - 1400px */
-@media (max-width: 1400px) {
-  .projects-content {
-    max-width: 1300px;
-  }
-}
-
-/* Base spacing for all boxes */
-.projects-container .section-content {
-  margin: 0 auto; /* keeps centered */
-  padding: 4rem;
-  width: 100%;
-  max-width: 1200px;
-}
-
-/* Small screens - give breathing room from edges */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .projects-container .section-content {
-    padding: 2rem 1.5rem;
-    margin: 0 1rem; /* ⬅️ adds side space */
+    padding: 2rem 1rem;
+    margin: 0 0.5rem;
   }
-}
-
-/* Extra small (phones) */
-@media (max-width: 576px) {
-  .projects-container .section-content {
+  
+  .projects-container .intro-section {
+    padding-top: 4rem;
+  }
+  
+  .project-card {
+    width: 280px;
+    height: 200px;
+  }
+  
+  .check-more-btn {
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+  }
+  
+  .process-step {
     padding: 1.5rem 1rem;
-    margin: 0 0.8rem; /* ⬅️ more space on sides */
-  }
-}
-
-@media (max-width: 375px) {
-  .projects-container .section-content {
-    padding: 1.2rem 0.8rem;
-    margin: 0 0.5rem; /* ⬅️ prevents touching edges */
   }
 }

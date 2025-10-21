@@ -8,7 +8,7 @@ const Media = () => {
   const climbingPhotos = [
     {
       id: 1,
-      src: "assets/images/squamish/photo-1.jpg",
+      src: "/public/assets/images/squamish/photo-1.jpg",
       alt: "Rock climber ascending granite wall in Squamish, British Columbia",
       title: "Granite Ascent",
       description: "A climber navigating the challenging granite faces of Squamish's world-renowned climbing routes",
@@ -19,7 +19,7 @@ const Media = () => {
     },
     {
       id: 2,
-      src: "/assets/images/squamish/photo-2.jpg",
+      src: "/public/assets/images/squamish/photo-2.jpg",
       alt: "Panoramic view of Squamish climbing area with mountain backdrop",
       title: "Squamish Vista",
       description: "Breathtaking panoramic view showcasing the natural grandeur of Squamish's climbing landscape",
@@ -30,7 +30,7 @@ const Media = () => {
     },
     {
       id: 3,
-      src: "/assets/images/squamish/photo-3.jpg",
+      src: "/public/assets/images/squamish/photo-3.jpg",
       alt: "Close-up detail of climber's hands gripping rock holds",
       title: "Precision Grip",
       description: "Detailed capture of the technical precision required in rock climbing, focusing on grip technique",
@@ -41,7 +41,7 @@ const Media = () => {
     },
     {
       id: 4,
-      src: "/assets/images/squamish/photo-4.jpg",
+      src: "/public/assets/images/squamish/photo-4.jpg",
       alt: "Silhouette of climber against dramatic sky during golden hour",
       title: "Golden Hour Ascent",
       description: "Dramatic silhouette photography capturing the intersection of human determination and natural beauty",
@@ -52,7 +52,7 @@ const Media = () => {
     },
     {
       id: 5,
-      src: "/assets/images/squamish/photo-5.jpg",
+      src: "/public/assets/images/squamish/photo-5.jpg",
       alt: "Wide shot of climbing route with safety equipment and rope systems",
       title: "Safety Systems",
       description: "Documentation of climbing safety equipment and rope systems used in multi-pitch climbing",
@@ -63,7 +63,7 @@ const Media = () => {
     },
     {
       id: 6,
-      src: "/assets/images/squamish/photo-6.jpg",
+      src: "/public/assets/images/squamish/photo-6.jpg",
       alt: "Climber celebrating successful completion of challenging route",
       title: "Summit Success",
       description: "Capturing the joy and accomplishment of completing a challenging climbing route in Squamish",

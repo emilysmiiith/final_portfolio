@@ -3,6 +3,38 @@ import './UxUiDesign.css';
 import Footer from '../components/Footer';
 import imageSvg from '../assets/image.svg';
 
+// Memoized slide component for better performance
+const SlideImage = React.memo(({ index, total, path, projectName }) => (
+  <div className="slide-container">
+    <img 
+      src={`${path}slide-${index}.png`} 
+      alt={`${projectName} case study slide ${index} of ${total}, showing ${
+        index === 1 ? 'project overview and goals' :
+        index <= 5 ? 'user research and problem definition' :
+        index <= 10 ? 'competitive analysis and user personas' :
+        index <= 15 ? 'wireframing and information architecture' :
+        index <= 20 ? 'visual design and interaction patterns' :
+        index <= 25 ? 'prototyping and user testing results' :
+        'final designs and project outcomes'
+      }`}
+      title={`Slide ${index}: ${
+        index === 1 ? 'Project Overview' :
+        index <= 5 ? 'User Research Phase' :
+        index <= 10 ? 'Analysis & Personas' :
+        index <= 15 ? 'Wireframing' :
+        index <= 20 ? 'Visual Design' :
+        index <= 25 ? 'Prototyping & Testing' :
+        'Final Designs'
+      }`}
+      className="slide-image"
+      loading={index <= 2 ? "eager" : "lazy"}
+      itemProp="image"
+      data-slide-number={index}
+    />
+    <div className="slide-number">{index} / {total}</div>
+  </div>
+));
+
 const UxUiDesign = () => {
   // Project metadata
   const uxuiProjects = [
@@ -145,43 +177,13 @@ const UxUiDesign = () => {
                       <h4 className="presentation-title">📄 Complete Case Study</h4>
                       <div className="slides-gallery" role="img" aria-label="Insight Timer case study presentation slides">
                         {Array.from({ length: 31 }, (_, i) => (
-                          <div key={i + 1} className="slide-container">
-                            <img 
-                              src={`./slides/insight/slide-${i + 1}.png`} 
-                              alt={`Insight Timer UX/UI redesign case study slide ${i + 1} of 31, showing ${
-                                i === 0 ? 'project overview and goals' :
-                                i < 5 ? 'user research and problem definition' :
-                                i < 10 ? 'competitive analysis and user personas' :
-                                i < 15 ? 'wireframing and information architecture' :
-                                i < 20 ? 'visual design and interaction patterns' :
-                                i < 25 ? 'prototyping and user testing results' :
-                                'final designs and project outcomes'
-                              }`}
-                              title={`Slide ${i + 1}: ${
-                                i === 0 ? 'Project Overview' :
-                                i < 5 ? 'User Research Phase' :
-                                i < 10 ? 'Analysis & Personas' :
-                                i < 15 ? 'Wireframing' :
-                                i < 20 ? 'Visual Design' :
-                                i < 25 ? 'Prototyping & Testing' :
-                                'Final Designs'
-                              }`}
-                              className="slide-image"
-                              loading={i < 3 ? "eager" : "lazy"}
-                              itemProp="image"
-                              data-slide-number={i + 1}
-                              data-slide-topic={
-                                i === 0 ? 'overview' :
-                                i < 5 ? 'research' :
-                                i < 10 ? 'analysis' :
-                                i < 15 ? 'wireframes' :
-                                i < 20 ? 'design' :
-                                i < 25 ? 'testing' :
-                                'results'
-                              }
-                            />
-                            <div className="slide-number">{i + 1} / 31</div>
-                          </div>
+                          <SlideImage 
+                            key={i + 1}
+                            index={i + 1}
+                            total={31}
+                            path="./slides/insight/"
+                            projectName="Insight Timer UX/UI redesign"
+                          />
                         ))}
                         <div className="pdf-controls">
                           <a 
@@ -301,43 +303,13 @@ const UxUiDesign = () => {
                       <h4 className="presentation-title">📄 Complete Case Study</h4>
                       <div className="slides-gallery" role="img" aria-label="Pinpal travel app case study presentation slides">
                         {Array.from({ length: 18 }, (_, i) => (
-                          <div key={i + 1} className="slide-container">
-                            <img 
-                              src={`./slides/pinpal/slide-${i + 1}.png`} 
-                              alt={`Pinpal travel app concept case study slide ${i + 1} of 18, showing ${
-                                i === 0 ? 'project overview and concept introduction' :
-                                i < 3 ? 'problem definition and user research' :
-                                i < 6 ? 'concept development and feature planning' :
-                                i < 9 ? 'visual design and branding' :
-                                i < 12 ? 'user interface design and wireframes' :
-                                i < 15 ? 'app features and user flow' :
-                                'final prototype and project results'
-                              }`}
-                              title={`Slide ${i + 1}: ${
-                                i === 0 ? 'Project Overview' :
-                                i < 3 ? 'Problem & Research' :
-                                i < 6 ? 'Concept Development' :
-                                i < 9 ? 'Visual Design' :
-                                i < 12 ? 'Interface Design' :
-                                i < 15 ? 'App Features' :
-                                'Final Prototype'
-                              }`}
-                              className="slide-image"
-                              loading={i < 3 ? "eager" : "lazy"}
-                              itemProp="image"
-                              data-slide-number={i + 1}
-                              data-slide-topic={
-                                i === 0 ? 'overview' :
-                                i < 3 ? 'research' :
-                                i < 6 ? 'concept' :
-                                i < 9 ? 'design' :
-                                i < 12 ? 'interface' :
-                                i < 15 ? 'features' :
-                                'prototype'
-                              }
-                            />
-                            <div className="slide-number">{i + 1} / 18</div>
-                          </div>
+                          <SlideImage 
+                            key={i + 1}
+                            index={i + 1}
+                            total={18}
+                            path="./slides/pinpal/"
+                            projectName="Pinpal travel app concept"
+                          />
                         ))}
                         <div className="pdf-controls">
                           <a 
@@ -412,7 +384,6 @@ const UxUiDesign = () => {
             </div>
           </section>
 
-
           <section className="section" aria-labelledby="philosophy-heading">
             <div className="section-content">
               <div className="section-header">
@@ -432,7 +403,6 @@ const UxUiDesign = () => {
             </div>
           </section>
 
-       
           <script type="application/ld+json">
             {JSON.stringify({
               "@context": "https://schema.org",
@@ -485,7 +455,6 @@ const UxUiDesign = () => {
               ]
             })}
           </script>
-
 
           {uxuiProjects.map(project => (
             <script key={project.id} type="application/ld+json">

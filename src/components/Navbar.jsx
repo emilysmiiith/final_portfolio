@@ -72,6 +72,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-header">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+          {/* Logo element is here */}
           <img src={logo} alt="Emily Rianna Logo" className="logo-img" />
         </Link>
         
@@ -87,12 +88,12 @@ const Navbar = () => {
       <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
         <li>
           <Link to="/" onClick={closeMobileMenu}>
-            <p>home</p>
+            <p>Home</p>
           </Link>
         </li>
         <li>
           <Link to="/about" onClick={closeMobileMenu}>
-            <p>about</p>
+            <p>About</p>
           </Link>
         </li>
         
@@ -103,7 +104,7 @@ const Navbar = () => {
         >
           <div className="projects-link-container">
             <Link to="/projects" onClick={closeMobileMenu}>
-              <p>projects</p>
+              <p>Projects</p>
             </Link>
             <button
               className="dropdown-toggle"
@@ -140,19 +141,24 @@ const Navbar = () => {
           </div>
         </li>
 
-        {/* Social icons for desktop */}
+        {/* Social icons are kept in separate list items but styled as small pills via CSS */}
         <li className="nav-icon">
           <a
             href="https://www.linkedin.com/in/your-linkedin-username"
             target="_blank"
             rel="noopener noreferrer"
             className="icon"
+            aria-label="LinkedIn profile"
           >
             <FontAwesomeIcon icon={faLinkedin} />
           </a>
         </li>
         <li className="nav-icon">
-          <a href="mailto:emily.smiiith@gmail.com" className="icon">
+          <a 
+            href="mailto:emily.smiiith@gmail.com" 
+            className="icon"
+            aria-label="Email Emily Rianna Smith"
+          >
             <FontAwesomeIcon icon={faEnvelope} />
           </a>
         </li>

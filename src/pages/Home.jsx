@@ -1,11 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './Home.css';
 import Footer from '../components/Footer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import '../styles/global.css';
-import imageSvg from '../assets/image.svg';
 import homeVideo from '../assets/videos/home.mp4';
 import boxImage from '../assets/images/box.png';
 import graphicImage from '../assets/images/graphic.png';
@@ -14,8 +10,13 @@ import littleMe2Image from '../assets/images/littleme2.png';
 import littleMeImage from '../assets/images/littleme.png';
 import travelImage from '../assets/images/travel.png';
 
+// Import the NEW image
+import metopImage from '../assets/metop.png'; 
+
+// Import the new Navbar component (Ensure path is correct)
+import Navbar from '../components/Navbar'; 
+
 const Home = () => {
-  const svgRef = useRef();
   const videoRef = useRef();
 
   // Project showcase metadata
@@ -70,37 +71,6 @@ const Home = () => {
       description: 'Travel experiences that shaped design philosophy and cultural understanding'
     }
   ];
-
-  useEffect(() => {
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          if (svgRef.current) {
-            const scrollTop = window.pageYOffset;
-            const windowHeight = window.innerHeight;
-            const maxScroll = windowHeight * 0.8;
-            const progress = Math.min(1, Math.max(0, scrollTop / maxScroll));
-            
-            const clipHeight = progress * 100;
-            svgRef.current.style.clipPath = `inset(0 0 ${100 - clipHeight}% 0)`;
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    // Set initial state
-    if (svgRef.current) {
-      svgRef.current.style.clipPath = `inset(0 0 85% 0)`;
-    }
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -158,9 +128,9 @@ const Home = () => {
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Emily Rianna Smith - Creative Designer" />
-        <meta name="twitter:description" content="Creative designer bringing emotions to life through empathetic, human-centered design." />
-        <meta name="twitter:image" content="/assets/images/emily-portfolio-preview.jpg" />
-        <meta name="twitter:creator" content="@emilyrianna" />
+        <meta property="twitter:description" content="Creative designer bringing emotions to life through empathetic, human-centered design." />
+        <meta property="twitter:image" content="/assets/images/emily-portfolio-preview.jpg" />
+        <meta property="twitter:creator" content="@emilyrianna" />
         
         {/* Additional Meta Tags */}
         <meta name="theme-color" content="#000000" />
@@ -169,44 +139,14 @@ const Home = () => {
       </head>
 
       <div className="home-container">
-        {/* Animated SVG */}
-        <div ref={svgRef} className="svg-scroll">
-          <img 
-            src={imageSvg} 
-            alt="Animated decorative path element that reveals on scroll, representing the creative journey"
-            className="svg-image"
-            role="presentation"
-            aria-hidden="true"
-          />
-        </div>
-
+        
+        {/* --- NAVBAR INSERTION --- */}
+        <Navbar /> 
+        
         {/* Background effects */}
         <div className="background-effects" aria-hidden="true">
           <div className="gradient-orb orb-1" role="presentation"></div>
-          <div className="gradient-orb orb-2" role="presentation"></div>
           <div className="gradient-orb orb-3" role="presentation"></div>
-        </div>
-
-        {/* Social Icons */}
-        <div className="social-icons" role="navigation" aria-label="Social media links">
-          <a
-            href="https://www.linkedin.com/in/your-linkedin-username"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon"
-            aria-label="Connect with Emily Rianna Smith on LinkedIn"
-            title="LinkedIn Profile - Emily Rianna Smith"
-          >
-            <FontAwesomeIcon icon={faLinkedin} aria-hidden="true" />
-          </a>
-          <a 
-            href="mailto:emily.smiiith@gmail.com" 
-            className="social-icon"
-            aria-label="Send email to Emily Rianna Smith"
-            title="Email Emily Rianna Smith"
-          >
-            <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
-          </a>
         </div>
 
         {/* Main content */}
@@ -214,12 +154,36 @@ const Home = () => {
           {/* Hero Section */}
           <section className="section hero-section" aria-labelledby="hero-heading">
             <div className="section-content">
-              <div className="hero-text">
-                <h1 id="hero-heading">hi!</h1>
-                <p>i'm emily rianna</p>
-                <h2>i am a creative designer who enjoys bringing emotions to life through art</h2>
-                <p>scroll to explore!</p>
-              </div>
+              
+              <div className="hero-content-wrapper"> {/* NEW WRAPPER for side-by-side */}
+                
+                {/* Text Side (Left) */}
+                <div className="hero-left-column">
+                  {/* 1. SCROLL PROMPT */}
+                  <div className="hero-scroll-prompt">
+                    <p></p>
+                  </div>
+
+                  {/* 2. MAIN HEADING */}
+                  <div className="hero-text">
+                    <h1 id="hero-heading" style={{display: 'none'}}>Emily Rianna Smith Creative Designer</h1> 
+                    <h2>Hi, my name is Emily Rianna Smith</h2>
+                  </div>
+                </div> {/* End hero-left-column */}
+                
+                {/* Image Side (Right) */}
+                <div className="hero-right-column">
+                  {/* 3. IMAGE CONTAINER */}
+                  <div className="hero-image-container">
+                    <img 
+                      src={metopImage} 
+                      alt="A stylish portrait of Emily Rianna Smith for the top of the page" 
+                      className="metop-image"
+                    />
+                  </div>
+                </div> {/* End hero-right-column */}
+
+              </div> {/* End hero-content-wrapper */}
             </div>
           </section>
 
@@ -351,7 +315,7 @@ const Home = () => {
           </section>
         </main>
 
-    
+        {/* JSON-LD Scripts remain the same */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
