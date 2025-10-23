@@ -145,12 +145,11 @@ const Home = () => {
         {/* --- NAVBAR INSERTION --- */}
         <Navbar /> 
         
-        {/* 2. EXISTING LINE BANNER IMAGE INSERTION (Controlled by CSS) */}
-        <div 
-          className="top-banner-image-container"
-          aria-hidden="true" 
-        >
-        </div>
+      {/* 2. RESPONSIVE LINE BANNER IMAGE (Aligned with Content Width) */}
+<div className="top-banner-wrapper" aria-hidden="true">
+  <div className="top-banner-image-container"></div>
+</div>
+
 
         
         {/* Background effects */}
@@ -210,6 +209,8 @@ const Home = () => {
               </div> {/* End hero-content-wrapper */}
             </div>
           </section>
+
+
 
           {/* Work Section */}
           <section className="section work-section" aria-labelledby="intro-heading">
@@ -310,6 +311,32 @@ const Home = () => {
   </div>
 </section>
 
+          {/* ===== RESUME DOWNLOAD SECTION ===== */}
+<section className="section resume-section" aria-labelledby="resume-heading">
+  <div className="section-content">
+    <div className="resume-card">
+      <div className="resume-text">
+        <h1 id="resume-heading">download my resume</h1>
+        <h2>take a closer look at my creative journey</h2>
+        <p>
+          Explore my experience, design philosophy, and creative approach — all in one beautifully crafted document.
+        </p>
+      </div>
+
+      <div className="resume-download">
+        <a 
+          href="/assets/files/Emily-Rianna-Smith-Resume.pdf" 
+          download 
+          className="resume-button"
+          aria-label="Download Emily Rianna Smith's resume in PDF format"
+        >
+          <p>download pdf</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
         </main>
 
         {/* JSON-LD Scripts remain the same */}
@@ -335,4 +362,4 @@ const Home = () => {
 // The script tag below won't execute in a React component file, 
 // but the CSS global style `html { scroll-behavior: smooth; }` handles this.
 
-export default Home;
+export default Home; 

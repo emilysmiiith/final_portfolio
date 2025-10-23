@@ -2,17 +2,18 @@
 
 /* Base container for the style shown in the image */
 .footer-image-style {
-  background: #FFFDF1;
+   background: linear-gradient(135deg, #FFFDF1 0%, #F8F6E8 100%); /* same as home-container */
   color: #442B12;
   /* INCREASED PADDING: Changed from 3rem 4rem to 6rem 4rem for more height */
   padding: 6rem 4rem; 
   /* Increased top margin to give more breathing room above the section */
-  margin-top: 8rem; 
+   margin-top: -2rem; /* remove the visual gap */
   position: relative;
   z-index: 10;
   border-radius: 40px 40px 0 0;
   border-top: 1px solid #442B12; 
 }
+
 
 .footer-content-image-style {
   max-width: 1200px;
