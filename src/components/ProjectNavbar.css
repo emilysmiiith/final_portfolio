@@ -1,0 +1,283 @@
+/* =======================================================
+   PROJECT NAVBAR (Same layout as main navbar)
+   ======================================================= */
+.project-navbar {
+  background: #442B12;
+  color: #FFFDF1;
+  padding: 1rem 2rem;
+  border-radius: 40px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200; /* match .navbar */
+  transition: all 0.4s ease;
+  max-width: 1200px;
+  width: calc(100% - 2rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+}
+
+/* Add border accent to match unified frame */
+.project-navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid #FFFDF1;
+  border-radius: 40px;
+  z-index: -1;
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 100%,
+    95% 100%, 95% calc(100% - 1px),
+    60% calc(100% - 1px), 60% 100%, 0% 100%
+  );
+}
+
+/* =======================================================
+   SCROLLED STATE (identical to .navbar.scrolled layout)
+   ======================================================= */
+.project-navbar.scrolled {
+  top: 20px;
+  right: 20px;
+  left: auto;
+  width: auto;
+  min-width: 320px;
+  border-radius: 50px;
+  background: rgba(68, 43, 18, 0.95);
+  border: 1px solid #FFFDF1;
+  box-shadow: none;
+  justify-content: center;
+  align-items: center;
+  transform: none;
+  padding: 0.75rem 1.25rem;
+}
+
+/* =======================================================
+   LOGO + HEADER
+   ======================================================= */
+.project-navbar .navbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-navbar .navbar-logo img {
+  height: 50px;
+}
+
+.project-navbar .menu-toggle {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #FFFDF1;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.project-navbar .menu-toggle:hover {
+  background: rgba(255, 253, 241, 0.1);
+  transform: scale(1.05);
+}
+
+/* =======================================================
+   NAV LINKS
+   ======================================================= */
+.project-navbar .nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-navbar .nav-links.active {
+  display: flex;
+}
+
+.project-navbar .nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.project-navbar .nav-links a {
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-navbar .nav-links a:hover {
+  background: rgba(255, 253, 241, 0.1);
+  transform: translateY(-1px);
+}
+
+.project-navbar .nav-links a p {
+  color: #FFFDF1;
+  opacity: 0.85;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.project-navbar .nav-links a:hover p {
+  opacity: 1;
+}
+
+/* =======================================================
+   PROJECTS DROPDOWN
+   ======================================================= */
+.project-navbar .projects-dropdown {
+  position: relative;
+}
+
+.project-navbar .projects-link-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.project-navbar .projects-link-container:hover {
+  background: rgba(255, 253, 241, 0.1);
+  transform: translateY(-1px);
+}
+
+.project-navbar .projects-link-container a {
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.project-navbar .dropdown-arrow {
+  font-size: 0.8rem;
+  color: #FFFDF1;
+  transition: transform 0.3s ease;
+}
+
+.project-navbar .dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.project-navbar .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #442B12;
+  border: 1px solid #FFFDF1;
+  border-radius: 16px;
+  min-width: 250px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.project-navbar .dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.project-navbar .dropdown-item {
+  padding: 0.75rem 1.5rem;
+  display: block;
+  color: #FFFDF1;
+  transition: all 0.3s ease;
+}
+
+.project-navbar .dropdown-item:hover {
+  background: rgba(255, 253, 241, 0.1);
+  padding-left: 1.75rem;
+}
+
+.project-navbar .dropdown-divider {
+  height: 1px;
+  background: rgba(255, 253, 241, 0.3);
+  margin: 0.5rem 1rem;
+}
+
+/* =======================================================
+   ICONS
+   ======================================================= */
+.project-navbar .nav-icon .icon {
+  font-size: 1.2rem;
+  color: #FFFDF1;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.project-navbar .nav-icon .icon:hover {
+  background: rgba(255, 253, 241, 0.1);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* =======================================================
+   RESPONSIVE
+   ======================================================= */
+@media (min-width: 768px) {
+  .project-navbar .menu-toggle {
+    display: none;
+  }
+
+  .project-navbar:not(.scrolled) {
+    margin-top: 2rem;
+  }
+
+  .project-navbar .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .project-navbar .projects-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .project-navbar .dropdown-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .project-navbar {
+    top: 0;
+    margin-top: 1rem;
+    width: calc(100% - 2rem);
+    max-width: 600px;
+  }
+
+  .project-navbar.scrolled {
+    top: 15px;
+    right: 15px;
+    left: 15px;
+    padding: 0.5rem 1rem;
+  }
+
+  .project-navbar .nav-links a {
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    width: calc(100% - 2rem);
+    justify-content: flex-start;
+  }
+
+  .project-navbar .projects-link-container {
+    border-radius: 12px;
+    width: calc(100% - 2rem);
+    justify-content: space-between;
+  }
+}

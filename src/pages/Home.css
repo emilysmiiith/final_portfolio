@@ -86,31 +86,32 @@ p {
    RESPONSIVE LINE BANNER SETTINGS
    =============================== */
 
-/* Wrapper keeps it centered and sized like main content */
 .top-banner-wrapper {
-  position: absolute;
+  position: fixed;           /* ✅ Stays pinned to the top of the viewport */
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: clamp(320px, 85vw, 1400px); /* matches your main-content width */
-  height: 100%;
-  z-index: 2;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;                /* Behind main content but above background */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.top-banner-image-container {
+  width: 100%;
+  height: 100vh;             /* ✅ Fills one screen height exactly */
+  background-image: url('../assets/images/line_pages-01.png');
+  background-repeat: no-repeat;   /* ✅ Never repeats */
+  background-size: cover;         /* ✅ Fills screen once */
+  background-position: center top;/* ✅ Stays anchored */
+  background-attachment: fixed;   /* ✅ Keeps image locked while scrolling */
+  opacity: 1;
   pointer-events: none;
 }
 
-/* Banner image scales relative to the content width */
-.top-banner-image-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-image: url('../assets/images/line_pages-01.png');
-  background-repeat: repeat-y;
-  background-size: contain; /* preserves proportions */
-  background-position: top center;
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0.9; /* optional aesthetic tweak */
-}
+
+
+
 
 /* ====== RESPONSIVE BREAKPOINTS ====== */
 
@@ -223,7 +224,7 @@ p {
 }
 
 .hero-section h2 {
-  font-size: clamp(1.8rem, 4vw, 2.2rem);
+font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   text-align: left;
   white-space: normal;
   margin: 0 auto;
@@ -497,84 +498,65 @@ p {
   object-fit: cover;
 }
 
-/* GRADIENT ORBS (UPDATED) */
+/* ==========================================
+   GRADIENT ORBS — Less Blurred, More Visible
+   ========================================== */
 .gradient-orb {
   position: absolute;
   border-radius: 50%;
-  /* Significantly softer and larger blur */
-  filter: blur(250px); 
-  /* Set consistent transparency here */
-  opacity: 0.35; 
-  z-index: 1; /* Lowest background layer */
+  filter: blur(120px); /* ↓ reduced from 250px for sharper edges */
+  opacity: 0.7; /* ↑ increased from 0.4 for more visibility */
+  z-index: 1;
 }
 
-/* GRADIENT ORBS (UPDATED TO 40% OPACITY) */
-.gradient-orb {
-  position: absolute;
-  border-radius: 50%;
-  /* Significantly softer and larger blur (kept from last revision) */
-  filter: blur(250px); 
-  /* CHANGE: Set consistent transparency to 40% (0.4) */
-  opacity: 0.4; 
-  z-index: 1; 
-}
-
-/* Staggered downward alternating layout (Retaining position and gradient fade) */
 .gradient-orb.orb-1 {
-  /* Bigger size */
-  width: 1200px; 
+  width: 1200px;
   height: 1200px;
-  /* Use radial-gradient for a soft, borderless glow */
   background: radial-gradient(
-    circle at center, 
-    rgba(162, 177, 186, 0.9) 0%, 
-    rgba(162, 177, 186, 0) 70%   
-  ); 
+    circle at center,
+    rgba(162, 177, 186, 0.9) 0%,
+    rgba(162, 177, 186, 0) 70%
+  );
   top: 600px;
-  right: -30%; 
+  right: -30%;
 }
 
 .gradient-orb.orb-2 {
-  /* Bigger size */
   width: 1400px;
   height: 1400px;
-  /* Use radial-gradient for a soft, borderless glow */
   background: radial-gradient(
-    circle at center, 
-    rgba(162, 177, 186, 0.9) 0%, 
+    circle at center,
+    rgba(162, 177, 186, 0.9) 0%,
     rgba(162, 177, 186, 0) 70%
   );
   top: 1800px;
-  left: -40%; 
+  left: -40%;
 }
 
 .gradient-orb.orb-3 {
-  /* Bigger size */
   width: 1300px;
   height: 1300px;
-  /* Use radial-gradient for a soft, borderless glow */
   background: radial-gradient(
-    circle at center, 
-    rgba(162, 177, 186, 0.9) 0%, 
+    circle at center,
+    rgba(162, 177, 186, 0.9) 0%,
     rgba(162, 177, 186, 0) 70%
   );
   top: 3000px;
-  right: -35%; 
+  right: -35%;
 }
 
 .gradient-orb.orb-4 {
-  /* Bigger size */
   width: 1400px;
   height: 1400px;
-  /* Use radial-gradient for a soft, borderless glow */
   background: radial-gradient(
-    circle at center, 
-    rgba(162, 177, 186, 0.9) 0%, 
+    circle at center,
+    rgba(162, 177, 186, 0.9) 0%,
     rgba(162, 177, 186, 0) 70%
   );
   top: 4600px;
-  left: -25%; 
+  left: -25%;
 }
+
 
 /* MEDIA QUERIES */
 @media (max-width: 1200px) {
@@ -750,17 +732,20 @@ p {
 }
 
 /* ===============================
-   RESUME DOWNLOAD SECTION
+   RESUME DOWNLOAD SECTION (LIFTED HIGHER)
    =============================== */
+
 .resume-section {
   position: relative;
-  padding: clamp(6rem, 12vw, 10rem) 0;
+  padding-top: clamp(2rem, 6vw, 4rem);   /* ⬇️ Less top space */
+  padding-bottom: clamp(8rem, 14vw, 12rem); /* ⬆️ More bottom space */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   background: none;
 }
+
 
 .resume-card {
   background: rgba(255, 253, 241, 0.8);
@@ -809,7 +794,6 @@ p {
   line-height: 1.6;
 }
 
-/* DOWNLOAD BUTTON */
 .resume-download {
   display: flex;
   justify-content: center;
@@ -844,6 +828,19 @@ p {
 .resume-button:hover p {
   opacity: 1;
 }
+
+@media (max-width: 768px) {
+  .resume-card {
+    border-radius: 30px;
+    padding: clamp(1.5rem, 5vw, 3rem);
+  }
+
+  .resume-section {
+    padding: clamp(2rem, 6vw, 4rem) 0; /* smaller for mobile too */
+    margin-top: clamp(4rem, 8vh, 6rem);
+  }
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {

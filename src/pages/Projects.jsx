@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Projects.css';
-import Footer from '../components/Footer';
+import ProjectNavbar from '../components/ProjectNavbar';
+import ProjectFooter from '../components/ProjectFooter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import '../styles/global.css';
 import imageSvg from '../assets/image.svg';
+import repeatingBackgroundImage from '../assets/images/background.png'; // <-- NEW IMAGE IMPORT
+
 
 // Import project images
 import mediaImage from '../assets/images/media.png';
@@ -76,17 +79,11 @@ const Projects = () => {
         <meta name="twitter:image" content="/assets/images/portfolio-preview.jpg" />
       </head>
 
+      <ProjectNavbar />
+
+
       <div className="projects-container">
-        {/* Static SVG */}
-        <div className="svg-static">
-          <img 
-            src={imageSvg}
-            alt="Decorative SVG background element for visual design enhancement"
-            className="svg-image-static"
-            role="presentation"
-            aria-hidden="true"
-          />
-        </div>
+ 
 
         {/* Social Icons */}
         <div className="social-icons" role="navigation" aria-label="Social media links">
@@ -109,6 +106,8 @@ const Projects = () => {
             <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
           </a>
         </div>
+
+        
 
         {/* Why These Disciplines Section */}
         <section className="section" aria-labelledby="disciplines-heading">
@@ -421,7 +420,8 @@ const Projects = () => {
           })}
         </script>
       </div>
-      <Footer />
+      <ProjectFooter />
+
     </>
   );
 };

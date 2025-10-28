@@ -14,13 +14,13 @@ import travelImage from '../assets/images/travel.png';
 import topBannerImage from '../assets/images/line_pages-01.png'; 
 import repeatingBackgroundImage from '../assets/images/background.png'; // <-- NEW IMAGE IMPORT
 
-// Import the new Navbar component (Ensure path is correct)
+// Import the new Navbar component
 import Navbar from '../components/Navbar'; 
 
 const Home = () => {
   const videoRef = useRef();
 
-  // Project showcase metadata
+  // Featured projects metadata
   const featuredProjects = [
     {
       id: 'project-one',
@@ -39,8 +39,7 @@ const Home = () => {
       description: 'User interface and experience design focused on human-centered solutions',
       alt: 'UI/UX design project showing user interface mockups and user experience design process',
       keywords: ['UI design', 'UX design', 'user interface', 'user experience', 'human-centered design']
-    }
-    ,
+    },
     {
       id: 'project-three',
       image: mediaImage,
@@ -74,6 +73,7 @@ const Home = () => {
     }
   ];
 
+  // Video autoplay observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -90,14 +90,9 @@ const Home = () => {
       { threshold: 0.5 }
     );
 
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
-
+    if (videoRef.current) observer.observe(videoRef.current);
     return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
+      if (videoRef.current) observer.unobserve(videoRef.current);
     };
   }, []);
 
@@ -142,75 +137,52 @@ const Home = () => {
 
       <div className="home-container">
         
-        {/* --- NAVBAR INSERTION --- */}
+        {/* Navbar */}
         <Navbar /> 
         
-      {/* 2. RESPONSIVE LINE BANNER IMAGE (Aligned with Content Width) */}
-<div className="top-banner-wrapper" aria-hidden="true">
-  <div className="top-banner-image-container"></div>
-</div>
+        {/* Top line banner */}
+        <div className="top-banner-wrapper" aria-hidden="true">
+          <div className="top-banner-image-container"></div>
+        </div>
 
-
-        
-        {/* Background effects */}
+        {/* ✅ FIXED: Background effects (only once, full width) */}
         <div className="background-effects" aria-hidden="true">
-          
-          {/* --- NEW REPEATING BACKGROUND LAYER (ABOVE ORBS) --- */}
+          {/* Repeating pattern layer */}
           <div 
             className="repeating-background-layer"
-            style={{ backgroundImage: `url(${repeatingBackgroundImage})` }} // Apply image URL
+            style={{ backgroundImage: `url(${repeatingBackgroundImage})` }}
             role="presentation"
           ></div>
-          {/* --------------------------------------------------- */}
           
+          {/* Gradient blobs */}
           <div className="gradient-orb orb-1" role="presentation"></div>
+          <div className="gradient-orb orb-2" role="presentation"></div>
           <div className="gradient-orb orb-3" role="presentation"></div>
+          <div className="gradient-orb orb-4" role="presentation"></div>
         </div>
 
         {/* Main content */}
         <main className="main-content">
           {/* Hero Section */}
-          <div class="background-effects">
-  <div class="gradient-orb orb-1"></div>
-  <div class="gradient-orb orb-2"></div>
-  <div class="gradient-orb orb-3"></div>
-</div>
-
-
-     <section className="section hero-section" aria-labelledby="hero-heading">
+          <section className="section hero-section" aria-labelledby="hero-heading">
             <div className="section-content"> 
-              
               <div className="hero-content-wrapper"> 
-
-                {/* Text Side (Center) */}
                 <div className="hero-left-column">
-                  
                   <div className="hero-heading-and-prompt-wrapper">
-                      
-                      {/* 1. SCROLL PROMPT (Left/Top Position) */}
-                      <div className="hero-scroll-prompt">
-                        {/* The stacked text content */}
-                        <p>Swipe</p>
-                        <p>to</p>
-                        <p>explore</p>
-                      </div>
-
-                      {/* 2. MAIN HEADING (Right/Bottom Position) */}
-                      <div className="hero-text">
-                        <h1 id="hero-heading" style={{display: 'none'}}>Emily Rianna Smith Creative Designer</h1> 
-                        <h2>Hi, my name is Emily Rianna Smith</h2>
-                      </div>
-                      
+                    <div className="hero-scroll-prompt">
+                      <p>Swipe</p>
+                      <p>to</p>
+                      <p>explore</p>
+                    </div>
+                    <div className="hero-text">
+                      <h1 id="hero-heading" style={{display: 'none'}}>Emily Rianna Smith Creative Designer</h1> 
+                      <h2>Hi, my name is Emily Rianna Smith</h2>
+                    </div>
                   </div>
-                  
-                </div> {/* End hero-left-column */}
-                
-                
-              </div> {/* End hero-content-wrapper */}
+                </div>
+              </div>
             </div>
           </section>
-
-
 
           {/* Work Section */}
           <section className="section work-section" aria-labelledby="intro-heading">
@@ -230,14 +202,6 @@ const Home = () => {
                   preload="metadata"
                   title="Emily Rianna Smith - Creative Designer Introduction Video"
                   aria-label="Introduction video showcasing Emily's creative work and design philosophy"
-                  data-title="Creative Designer Introduction"
-                  data-description="Personal introduction video showcasing creative journey and design philosophy"
-                  data-creator="Emily Rianna Smith"
-                  data-type="Introduction Video"
-                  data-duration="2:30"
-                  itemProp="video"
-                  itemScope
-                  itemType="https://schema.org/VideoObject"
                 >
                   <track 
                     kind="captions" 
@@ -252,114 +216,94 @@ const Home = () => {
           </section>
 
           {/* Features Section */}
- {/* Features Section (Artistic Collage Layout) */}
-<section className="section features-section" aria-labelledby="features-heading">
-  <div className="section-content">
-    <div className="section-header">
-      <h1 id="features-heading">features</h1>
-      <h2>check out my latest</h2>
-    </div>
+          <section className="section features-section" aria-labelledby="features-heading">
+            <div className="section-content">
+              <div className="section-header">
+                <h1 id="features-heading">features</h1>
+                <h2>check out my latest</h2>
+              </div>
 
-    <div className="features-collage" role="group" aria-label="Artistic project collage">
-      {featuredProjects.map((project, index) => (
-        <div
-          key={project.id}
-          className={`feature-image feature-${index + 1}`}
-          onClick={navigateToProjects}
-          role="button"
-          tabIndex="0"
-          aria-label={`View ${project.title} - ${project.category}`}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') navigateToProjects();
-          }}
-        >
-          <img
-            src={project.image}
-            alt={project.alt}
-            title={project.title}
-            className="collage-img"
-            loading={index === 0 ? 'eager' : 'lazy'}
-          />
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+              <div className="features-collage" role="group" aria-label="Artistic project collage">
+                {featuredProjects.map((project, index) => (
+                  <div
+                    key={project.id}
+                    className={`feature-image feature-${index + 1}`}
+                    onClick={navigateToProjects}
+                    role="button"
+                    tabIndex="0"
+                    aria-label={`View ${project.title} - ${project.category}`}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') navigateToProjects();
+                    }}
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.alt}
+                      title={project.title}
+                      className="collage-img"
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
 
+          {/* About Section */}
+          <section className="section about-section" aria-labelledby="about-heading">
+            <div className="section-content">
+              <div className="section-header">
+                <h1 id="about-heading" className="about-title">A bit about me</h1>
+                <h2 className="about-subtitle">from a small island to a big city</h2>
+              </div>
 
-       {/* About Section (Artistic Collage Layout) */}
-<section className="section about-section" aria-labelledby="about-heading">
-  <div className="section-content">
-    <div className="section-header">
-      <h1 id="about-heading" className="about-title">A bit about me</h1>
-      <h2 className="about-subtitle">from a small island to a big city</h2>
-    </div>
+              <div className="about-collage" role="group" aria-label="Personal photos showing Emily's creative journey">
+                {personalImages.map((image, index) => (
+                  <div key={index} className={`about-image-wrapper about-${index + 1}`}>
+                    <img 
+                      src={image.src}
+                      alt={image.alt}
+                      title={image.title}
+                      className="about-image"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
 
-    <div className="about-collage" role="group" aria-label="Personal photos showing Emily's creative journey">
-      {personalImages.map((image, index) => (
-        <div key={index} className={`about-image-wrapper about-${index + 1}`}>
-          <img 
-            src={image.src}
-            alt={image.alt}
-            title={image.title}
-            className="about-image"
-            loading="lazy"
-          />
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+          {/* Resume Section */}
+          <section className="section resume-section" aria-labelledby="resume-heading">
+            <div className="section-content">
+              <div className="resume-card">
+                <div className="resume-text">
+                  <h1 id="resume-heading">download my resume</h1>
+                  <h2>take a closer look at my creative journey</h2>
+                  <p>
+                    Explore my experience, design philosophy, and creative approach — all in one beautifully crafted document.
+                  </p>
+                </div>
 
-          {/* ===== RESUME DOWNLOAD SECTION ===== */}
-<section className="section resume-section" aria-labelledby="resume-heading">
-  <div className="section-content">
-    <div className="resume-card">
-      <div className="resume-text">
-        <h1 id="resume-heading">download my resume</h1>
-        <h2>take a closer look at my creative journey</h2>
-        <p>
-          Explore my experience, design philosophy, and creative approach — all in one beautifully crafted document.
-        </p>
-      </div>
-
-      <div className="resume-download">
-        <a 
-          href="/assets/files/Emily-Rianna-Smith-Resume.pdf" 
-          download 
-          className="resume-button"
-          aria-label="Download Emily Rianna Smith's resume in PDF format"
-        >
-          <p>download pdf</p>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
+                <div className="resume-download">
+                  <a 
+                    href="/assets/files/Emily-Rianna-Smith-Resume.pdf" 
+                    download 
+                    className="resume-button"
+                    aria-label="Download Emily Rianna Smith's resume in PDF format"
+                  >
+                    <p>download pdf</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
         </main>
-
-        {/* JSON-LD Scripts remain the same */}
-        <script type="application/ld+json">
-          {/* ... (JSON-LD scripts remain here) ... */}
-        </script>
-        <script type="application/ld+json">
-          {/* ... (JSON-LD scripts remain here) ... */}
-        </script>
-        <script type="application/ld+json">
-          {/* ... (JSON-LD scripts remain here) ... */}
-        </script>
-        <script type="application/ld+json">
-          {/* ... (JSON-LD scripts remain here) ... */}
-        </script>
       </div>
-      
+
       <Footer />
     </>
   );
 };
 
-// The script tag below won't execute in a React component file, 
-// but the CSS global style `html { scroll-behavior: smooth; }` handles this.
-
-export default Home; 
+export default Home;

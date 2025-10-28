@@ -1,4 +1,6 @@
-/* UNIFIED TYPOGRAPHY - Matching the new styles */
+/* =======================================================
+   UNIFIED TYPOGRAPHY (unchanged)
+   ======================================================= */
 h1 {
   font-family: 'Roboto', sans-serif;
   font-weight: 1000;
@@ -29,80 +31,61 @@ p {
   opacity: 0.5;
 }
 
-/* NAVBAR BASE (Floating, Split-Border at Bottom, No Inner Strokes) */
+/* =======================================================
+   NAVBAR BASE
+   ======================================================= */
 .navbar {
   background: rgba(255, 253, 241, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 1rem 2rem;
   border-radius: 40px;
-  box-shadow: none; 
-  border: none; /* Border handled by ::before */
   position: fixed;
-  
-  /* POSITIONING: Pinned top: 0, but uses margin-top (in media query) to achieve the float */
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  
-  z-index: 100;
+  z-index: 200;
   transition: all 0.4s ease;
   max-width: 1200px;
   width: calc(100% - 2rem);
-  
-  /* Desktop Layout for non-scrolled state */
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  /* Custom Border with Split (Non-scrolled state) */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 1px solid #442B12; /* Stroke Color */
-    border-radius: 40px;
-    z-index: -1; 
-    
-    /* Clip-path for the wide bottom-right split (60% to 95%) */
-    clip-path: polygon(
-      0% 0%,             /* Top-Left */
-      100% 0%,            /* Top-Right */
-      100% 100%,          /* Bottom-Right (main corner) */
-
-      /* START OF GAP: 95% from left edge, 100% (bottom) */
-      95% 100%, 
-      95% calc(100% - 1px), /* Vertical segment start */
-      
-      /* END OF GAP: 60% from left edge, 100% (bottom) */
-      60% calc(100% - 1px), /* Vertical segment end */
-      60% 100%, 
-      
-      0% 100%             /* Bottom-Left (main corner) */
-    );
-  }
+  border: none;
 }
 
-/* HIDE the custom border when SCROLLED */
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid #442B12;
+  border-radius: 40px;
+  z-index: -1;
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 100%,
+    95% 100%, 95% calc(100% - 1px),
+    60% calc(100% - 1px), 60% 100%, 0% 100%
+  );
+}
+
 .navbar.scrolled::before {
-    display: none;
+  display: none;
 }
 
-/* NAVBAR HEADER */
+/* =======================================================
+   HEADER
+   ======================================================= */
 .navbar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.navbar-logo img {
+.navbar .navbar-logo img {
   height: 50px;
 }
 
-.menu-toggle {
+.navbar .menu-toggle {
   background: none;
   border: none;
   font-size: 2rem;
@@ -113,240 +96,190 @@ p {
   transition: all 0.3s ease;
 }
 
-.menu-toggle:hover {
+.navbar .menu-toggle:hover {
   background: rgba(68, 43, 18, 0.05);
   transform: scale(1.05);
 }
 
-/* NAVIGATION LINKS (No individual strokes, simple hover background) */
-.nav-links {
+/* =======================================================
+   NAV LINKS
+   ======================================================= */
+.navbar .nav-links {
   list-style: none;
   padding: 0;
   margin: 0;
   display: none;
   flex-direction: column;
-  gap: 1rem; 
-  text-align: center;
   align-items: center;
+  gap: 1rem;
 }
 
-.nav-links.active {
+.navbar .nav-links.active {
   display: flex;
 }
 
-.nav-links li {
+.navbar .nav-links li {
   display: flex;
   align-items: center;
 }
 
-/* LINK STYLING (No individual strokes) */
-.nav-links a {
+.navbar .nav-links a {
   text-decoration: none;
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
-  border: none; 
   background: none;
-  box-shadow: none;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
 }
 
-.nav-links a:hover {
+.navbar .nav-links a:hover {
   background: rgba(68, 43, 18, 0.05);
   transform: translateY(-1px);
 }
 
-.nav-links a:hover p {
-  color: #442B12 !important;
-  opacity: 1 !important;
-}
-
-.nav-links a p {
+.navbar .nav-links a p {
+  color: #442B12;
+  opacity: 0.5;
   margin: 0;
-  line-height: 1;
+  transition: all 0.3s ease;
 }
 
-/* Project pages styling - light yellow text */
-body.project-page .nav-links p {
-  color: #442B12 !important;
+.navbar .nav-links a:hover p {
+  color: #442B12;
+  opacity: 1;
 }
 
-/* PROJECTS DROPDOWN */
-.projects-dropdown {
+/* =======================================================
+   PROJECTS DROPDOWN (FIXED double-pill issue)
+   ======================================================= */
+.navbar .projects-dropdown {
   position: relative;
-  display: flex;
-  align-items: center;
-  width: auto;
 }
 
-.projects-link-container {
+.navbar .projects-link-container {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.5rem;
-  margin: 0;
-  padding: 0.5rem 1.5rem;
   border-radius: 50px;
-  border: none; 
+  padding: 0.5rem 1.5rem;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
-.projects-link-container:hover {
+.navbar .projects-link-container:hover {
   background: rgba(68, 43, 18, 0.05);
   transform: translateY(-1px);
 }
 
-.projects-link-container:hover .dropdown-arrow {
-  color: #442B12;
-}
-
-.projects-link-container:hover a p {
-  color: #442B12 !important;
-  opacity: 1 !important;
-}
-
-.projects-link-container a {
-  border: none;
+/* remove inner pill from the link itself */
+.navbar .projects-link-container a {
   padding: 0 !important;
-  background: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
   transform: none !important;
 }
 
-.dropdown-arrow {
+/* stop anchor hover from adding its own pill */
+.navbar .projects-link-container a:hover {
+  background: transparent !important;
+  transform: none !important;
+}
+
+.navbar .dropdown-arrow {
   font-size: 0.8rem;
   color: #A2B1BA;
   transition: transform 0.3s ease;
 }
 
-.dropdown-arrow.open {
+.navbar .dropdown-arrow.open {
   transform: rotate(180deg);
 }
 
-/* Project pages styling for dropdown arrow */
-body.project-page .dropdown-arrow {
-  color: #F5E6A3 !important;
+.navbar .dropdown-toggle {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
 }
 
-/* DROPDOWN MENU (Non-scrolled state) */
-.dropdown-menu {
+.navbar .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   background: rgba(255, 253, 241, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid #442B12;
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(68, 43, 18, 0.15); /* Shadow kept on non-scrolled for depth */
-  border: 1px solid #442B12; /* Dark stroke */
   min-width: 250px;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
   z-index: 1000;
-  margin-top: 0.5rem;
+  box-shadow: 0 8px 32px rgba(68, 43, 18, 0.15);
 }
 
-.dropdown-menu.show {
+.navbar .dropdown-menu.show {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
 
-.dropdown-content {
-  padding: 1rem 0;
-}
-
-.dropdown-item {
-  display: flex;
-  align-items: center;
+.navbar .dropdown-item {
   padding: 0.75rem 1.5rem;
   text-decoration: none;
+  display: block;
+  color: #442B12;
   transition: all 0.3s ease;
-  border-left: 3px solid transparent;
 }
 
-.dropdown-item:hover {
+.navbar .dropdown-item:hover {
   background: rgba(162, 177, 186, 0.1);
-  border-left-color: #A2B1BA;
   padding-left: 1.75rem;
 }
 
-.dropdown-item p {
-  margin: 0;
-  line-height: 1;
-  opacity: 1;
-}
-
-/* Project pages styling for dropdown items */
-body.project-page .dropdown-item p {
-  color: #442B12 !important;
-}
-
-.dropdown-divider {
+.navbar .dropdown-divider {
   height: 1px;
   background: rgba(162, 177, 186, 0.2);
   margin: 0.5rem 1rem;
 }
 
-.view-all:hover {
-  background: rgba(162, 177, 186, 0.1);
-}
-
-/* SOCIAL ICONS (No individual strokes) */
-.nav-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.nav-icon .icon {
+/* =======================================================
+   ICONS
+   ======================================================= */
+.navbar .nav-icon .icon {
   font-size: 1.2rem;
   color: #333;
-  transition: all 0.3s ease;
   padding: 0.5rem;
   border-radius: 50%;
-  border: none; /* REMOVED INDIVIDUAL STROKE */
+  transition: all 0.3s ease;
 }
 
-.nav-icon .icon:hover {
-  color: #442B12;
+.navbar .nav-icon .icon:hover {
   background: rgba(68, 43, 18, 0.05);
+  color: #442B12;
   transform: translateY(-2px) scale(1.05);
 }
 
-/* Project pages styling for social icons */
-body.project-page .nav-icon .icon {
-  color: #F5E6A3 !important;
-}
-
-/* SCROLLED NAVBAR PILL (Pinned to top-right with dark stroke) */
+/* =======================================================
+   SCROLLED STATE
+   ======================================================= */
 .navbar.scrolled {
-  top: 20px; 
+  top: 20px;
   right: 20px;
-  left: auto; 
+  left: auto;
   width: auto;
-  max-width: 500px;
   min-width: 320px;
-  padding: 0.75rem 1.25rem;
   border-radius: 50px;
-  margin: 0;
   background: rgba(255, 253, 241, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  
-  /* PULLING DARK STROKE AND REMOVING SHADOW */
-  border: 1px solid #442B12; 
-  box-shadow: none; 
-  
-  display: flex;
+  border: 1px solid #442B12;
+  box-shadow: none;
   justify-content: center;
   align-items: center;
-  transform: none; 
+  transform: none;
+  padding: 0.75rem 1.25rem;
 }
 
 .navbar.scrolled .navbar-header {
@@ -359,18 +292,9 @@ body.project-page .nav-icon .icon {
 .navbar.scrolled .nav-links {
   display: flex !important;
   flex-direction: row;
-  margin: 0;
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
-}
-
-.navbar.scrolled .nav-links a {
-  margin: 0;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  border: none; 
-  background: none;
 }
 
 .navbar.scrolled .nav-links a p {
@@ -380,95 +304,48 @@ body.project-page .nav-icon .icon {
   opacity: 0.5 !important;
 }
 
-.navbar.scrolled .nav-links a:hover {
-  background: rgba(162, 177, 186, 0.1);
-}
-
 .navbar.scrolled .nav-links a:hover p {
   color: #A2B1BA !important;
   opacity: 1 !important;
 }
 
 .navbar.scrolled .projects-link-container {
-  margin: 0;
   padding: 0.5rem 1rem;
-  border-radius: 25px;
-  border: none; 
 }
 
-.navbar.scrolled .projects-link-container a p {
-  font-weight: 900 !important;
-  color: #442B12 !important;
-  opacity: 0.5 !important;
-}
-
-.navbar.scrolled .projects-link-container:hover a p {
-  color: #A2B1BA !important;
-  opacity: 1 !important;
-}
-
-/* SCROLLED DROPDOWN MENU OVERRIDE (Fixing the pill dropdown) */
-.navbar.scrolled .dropdown-menu {
-  right: auto;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  
-  /* KEY FIX 2: Explicitly set the dark stroke, even though base may have it, 
-     to override any unintentional cascade/conflict */
-  border: 1px solid #442B12; 
-  box-shadow: none; /* Ensure no shadow */
-}
-
-/* DESKTOP (Floating Position) */
+/* =======================================================
+   RESPONSIVE
+   ======================================================= */
 @media (min-width: 768px) {
-  .menu-toggle {
+  .navbar .menu-toggle {
     display: none;
   }
 
   .navbar:not(.scrolled) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* FLOATING MARGIN: Pushes the pinned navbar down */
-    margin-top: 2rem; 
+    margin-top: 2rem;
   }
 
-  .nav-links:not(.scrolled) {
+  .navbar .nav-links {
     display: flex !important;
     flex-direction: row;
-    gap: 1rem; 
+    gap: 1rem;
   }
 
-  .nav-links a {
-    margin: 0;
-  }
-
-  .projects-link-container {
-    margin: 0;
-  }
-  
-  .projects-dropdown:hover .dropdown-menu {
+  .navbar .projects-dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
   }
-  
-  .projects-dropdown:hover .dropdown-arrow {
-    transform: rotate(180deg);
-  }
 
-  .dropdown-toggle {
+  .navbar .dropdown-toggle {
     display: none;
   }
 }
 
-/* MOBILE (Floating Position) */
 @media (max-width: 767px) {
-  .navbar:not(.scrolled) {
-    top: 0; /* Pinned */
-    margin-top: 1rem; /* FLOATING MARGIN for mobile */
-    left: 50%;
-    transform: translateX(-50%);
+  .navbar {
+    top: 0;
+    margin-top: 1rem;
     width: calc(100% - 2rem);
     max-width: 600px;
   }
@@ -477,76 +354,19 @@ body.project-page .nav-icon .icon {
     top: 15px;
     right: 15px;
     left: 15px;
-    max-width: none;
     padding: 0.5rem 1rem;
-    justify-content: center;
   }
-  
-  /* Mobile Link Overrides (No borders) */
-  .nav-links a {
-    border: none; 
+
+  .navbar .nav-links a {
     border-radius: 12px;
     padding: 0.75rem 1rem;
     width: calc(100% - 2rem);
-    margin: 0 1rem;
     justify-content: flex-start;
   }
 
-  .nav-links a:hover {
-    background: rgba(68, 43, 18, 0.05);
-  }
-  
-  .nav-links a:hover p {
-    color: #442B12 !important;
-    opacity: 1 !important;
-  }
-  
-  .projects-link-container {
-    border: none; 
+  .navbar .projects-link-container {
     border-radius: 12px;
-    padding: 0.75rem 1rem;
     width: calc(100% - 2rem);
-    margin: 0 1rem;
     justify-content: space-between;
   }
-  
-  .nav-icon {
-    justify-content: center;
-  }
-  
-  .nav-icon .icon {
-    border: none;
-    padding: 0.5rem;
-  }
-
-}
-
-/* Project pages styling - light yellow text */
-body.project-page .navbar::before { /* Target the pseudo-element for project page border */
-  border: 1px solid #F5E6A3;
-}
-
-body.project-page .nav-links a:hover {
-  background: rgba(245, 230, 163, 0.1);
-}
-
-body.project-page .nav-links a:hover p {
-  color: #F5E6A3 !important;
-}
-
-body.project-page .nav-icon .icon {
-  color: #F5E6A3 !important;
-}
-
-body.project-page .nav-icon .icon:hover {
-  background: rgba(245, 230, 163, 0.1);
-  color: #F5E6A3 !important;
-}
-
-body.project-page .projects-link-container:hover {
-  background: rgba(245, 230, 163, 0.1);
-}
-
-body.project-page .projects-link-container:hover .dropdown-arrow {
-  color: #F5E6A3;
 }

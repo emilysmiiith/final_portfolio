@@ -1,0 +1,82 @@
+.project-footer {
+  background: #442B12;
+  color: #FFFDF1;
+  padding: 6rem 4rem;
+  margin-top: 8rem;
+  border-radius: 40px 40px 0 0;
+  border-top: 1px solid #FFFDF1;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.footer-name {
+  font-family: 'Liu Jian Mao Cao', cursive;
+  font-size: 2.5rem;
+  color: #FFFDF1;
+  margin: 0;
+}
+
+.footer-section-links {
+  display: flex;
+  gap: 6rem;
+  justify-content: flex-end;
+}
+
+.footer-links-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-link {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 1rem;
+  color: #FFFDF1;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section-links {
+    justify-content: center;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-footer {
+    padding: 3rem 1.5rem;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .footer-name {
+    font-size: 1.8rem;
+  }
+
+  .footer-section-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}

@@ -6,13 +6,12 @@
 html {
   scroll-behavior: smooth;
 }
-
-/* SCOPED TYPOGRAPHY - Only applies to projects page */
+/* SCOPED TYPOGRAPHY - Updated to match main site style */
 .projects-container h1 {
   font-family: 'Roboto', sans-serif;
   font-weight: 1000;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: #FFFFFF;
+  color: #FFFDF1;
   margin: 0 0 1rem 0;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -21,9 +20,9 @@ html {
 
 .projects-container h2 {
   font-family: 'Liu Jian Mao Cao', cursive;
-  font-weight: 1000;
+  font-weight: 900;
   font-size: clamp(1rem, 2.5vw, 1.4rem);
-  color: rgba(255, 255, 255, 0.8);
+  color: #FFFDF1; /* Warm brown, same as main site */
   margin: 0 0 1rem 0;
   line-height: 1.4;
 }
@@ -32,18 +31,19 @@ html {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   font-size: clamp(0.9rem, 1.5vw, 1rem);
-  color: rgba(255, 255, 255, 0.7);
+  color: #FFFDF1;
   margin: 0 0 1rem 0;
   line-height: 1.6;
   opacity: 0.5;
 }
+
 
 /* Ensure body background only applies when projects page is loaded */
 body.projects-page {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  background: #442B12;
+  background:#FFFDF1;
   overflow-x: hidden;
 }
 
@@ -375,4 +375,5 @@ body.projects-page {
   .process-step {
     padding: 1.5rem 1rem;
   }
-}
+} 
+
