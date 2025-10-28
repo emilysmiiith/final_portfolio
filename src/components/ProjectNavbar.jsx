@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import './ProjectNavbar.css';
-import logo from '../assets/emilylogo.png';
+import logo from '../assets/emilylogolight.png';
 
 const ProjectNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);

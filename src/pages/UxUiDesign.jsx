@@ -1,6 +1,7 @@
 import React from 'react';
 import './UxUiDesign.css';
 import Footer from '../components/Footer';
+import ProjectNavbar from '../components/ProjectNavbar'; // ✅ Import Navbar
 import imageSvg from '../assets/image.svg';
 
 const SlideImage = React.memo(({ index, total, path, projectName }) => (
@@ -51,12 +52,18 @@ const UxUiDesign = () => {
 
   return (
     <>
+      {/* ✅ Navbar appears on all project pages */}
+      <ProjectNavbar />
+
       <div className="uxui-container">
+        {/* Static SVG Background */}
         <div className="svg-static">
           <img src={imageSvg} alt="" className="svg-image-static" aria-hidden="true" />
         </div>
 
+        {/* Page Content */}
         <div className="uxui-content">
+          {/* Hero Section */}
           <section className="section hero-section">
             <div className="section-content">
               <h2 className="section-subtitle">human-centered design</h2>
@@ -67,6 +74,7 @@ const UxUiDesign = () => {
             </div>
           </section>
 
+          {/* Projects */}
           {uxuiProjects.map((p, idx) => (
             <section key={p.id} className="section">
               <div className="section-content">
@@ -113,6 +121,7 @@ const UxUiDesign = () => {
             </section>
           ))}
 
+          {/* Design Philosophy Section */}
           <section className="section">
             <div className="section-content">
               <h2 className="section-subtitle">design philosophy</h2>
@@ -123,6 +132,8 @@ const UxUiDesign = () => {
           </section>
         </div>
       </div>
+
+      {/* Footer */}
       <Footer />
     </>
   );

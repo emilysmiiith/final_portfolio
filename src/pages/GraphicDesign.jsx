@@ -1,6 +1,7 @@
 import React from 'react';
 import './GraphicDesign.css';
 import '../styles/global.css';
+import ProjectNavbar from '../components/ProjectNavbar';
 import Footer from '../components/Footer';
 import imageSvg from '../assets/image.svg';
 
@@ -13,34 +14,34 @@ import graphicImage from '../assets/images/graphic.png';
 const GraphicDesign = () => {
   return (
     <>
-      <div className="graphic-container">
+      {/* ✅ Global Navbar */}
+      <ProjectNavbar />
 
+      <div className="graphic-container">
+        {/* Decorative Background */}
         <div className="svg-static">
           <img 
             src={imageSvg}
-            alt="Static decorative path"
+            alt=""
             className="svg-image-static"
+            aria-hidden="true"
           />
         </div>
 
         <div className="graphic-content">
-    
+          {/* Hero Section */}
           <section className="section hero-section">
             <div className="section-content">
-              <div className="section-header">
-                <h2 className="section-subtitle" style={{ fontFamily: "'Liu Jian Mao Cao', cursive" }}>
-                  visual storytelling
-                </h2>
-                <h1 className="section-title">graphic design</h1>
-              </div>
-              <div className="section-body">
-                <p className="journey-text">
-                  Graphic design is where I really get to play and express creativity. Whether it's working on 
-                  brand identities, packaging, print, or digital graphics — I love the challenge of telling a 
-                  story through visuals. I'm drawn to designs that are clean, thoughtful, and full of personality. 
-                  It's such a great feeling when the right visual can really connect with someone.
-                </p>
-              </div>
+              <h2 className="section-subtitle" style={{ fontFamily: "'Liu Jian Mao Cao', cursive" }}>
+                visual storytelling
+              </h2>
+              <h1 className="section-title">graphic design</h1>
+              <p className="journey-text">
+                Graphic design is where I really get to play and express creativity. Whether it’s working on
+                brand identities, packaging, print, or digital graphics — I love the challenge of telling a
+                story through visuals. I’m drawn to designs that are clean, thoughtful, and full of personality.
+                It’s such a great feeling when the right visual can really connect with someone.
+              </p>
             </div>
           </section>
 
@@ -54,13 +55,7 @@ const GraphicDesign = () => {
                     <h2 className="project-title">Serene Sip – Box/Brand Design</h2>
                     <p className="project-subtitle">Packaging Design & Motion Graphics</p>
                     <div className="project-stats">
-                      <span className="stat-item">30 hours</span>
-                      <span className="stat-divider">•</span>
-                      <span className="stat-item">Nov 15 - Dec 15, 2024</span>
-                      <span className="stat-divider">•</span>
-                      <span className="stat-item">Independent Project</span>
-                      <span className="stat-divider">•</span>
-                      <span className="stat-item">Emily Rianna Smith</span>
+                      <span>30 hours</span> • <span>Nov 15 - Dec 15, 2024</span> • <span>Independent Project</span> • <span>Emily Rianna Smith</span>
                     </div>
                   </div>
                 </div>
@@ -80,37 +75,26 @@ const GraphicDesign = () => {
                       <div className="image-label">Flat Design</div>
                     </div>
                   </div>
-                  
+
                   <div className="preview-content">
                     <h3 className="preview-title">Project Goal</h3>
-                    <p className="preview-description">
-                      The goal of this project was to create a packaged box design using Adobe Photoshop and Adobe After Effects. The goal was to showcase both graphic and motion design skills through cohesive branding and presentation.
+                    <p>
+                      The goal of this project was to create a packaged box design using Adobe Photoshop and Adobe After Effects,
+                      showcasing both graphic and motion design skills through cohesive branding and presentation.
                     </p>
-                    
+
                     <div className="preview-timeline">
-                      <div className="timeline-item">
-                        <span className="timeline-label">Start Date</span>
-                        <span className="timeline-value">Nov 15, 2024</span>
-                      </div>
-                      <div className="timeline-item">
-                        <span className="timeline-label">End Date</span>
-                        <span className="timeline-value">Dec 15, 2024</span>
-                      </div>
-                      <div className="timeline-item">
-                        <span className="timeline-label">Total Hours</span>
-                        <span className="timeline-value">30 hours</span>
-                      </div>
-                      <div className="timeline-item">
-                        <span className="timeline-label">Designer</span>
-                        <span className="timeline-value">Emily Rianna Smith</span>
-                      </div>
+                      <div><strong>Start Date:</strong> Nov 15, 2024</div>
+                      <div><strong>End Date:</strong> Dec 15, 2024</div>
+                      <div><strong>Total Hours:</strong> 30</div>
+                      <div><strong>Designer:</strong> Emily Rianna Smith</div>
                     </div>
 
                     <div className="tools-section">
                       <h4 className="tools-title">Technical Tools</h4>
                       <div className="tools-preview">
-                        <span className="tool-preview">Adobe Photoshop</span>
-                        <span className="tool-preview">Adobe After Effects</span>
+                        <span>Adobe Photoshop</span>
+                        <span>Adobe After Effects</span>
                       </div>
                     </div>
                   </div>
@@ -119,50 +103,56 @@ const GraphicDesign = () => {
                 <div className="project-details">
                   <div className="details-grid">
                     <div className="detail-section">
-                      <h4 className="detail-title">Narrative</h4>
-                      <p className="detail-text">
-                        For this project, I designed a product box for an original espresso machine by a fictional company called Serene Sip. The project was created in Adobe Photoshop, with an animated component in Adobe After Effects to bring the packaging to life.
+                      <h4>Narrative</h4>
+                      <p>
+                        For this project, I designed packaging for a fictional espresso machine brand called Serene Sip.
+                        Created in Adobe Photoshop with animation in After Effects, the goal was to bring the design to life
+                        while maintaining brand consistency and visual storytelling.
                       </p>
                     </div>
-                    
+
                     <div className="detail-section">
-                      <h4 className="detail-title">Objective</h4>
-                      <p className="detail-text">
-                        This independent project aimed to demonstrate my ability to create product packaging and translate it into a dynamic visual experience. The design had to represent a fictional brand, reflect product identity, and be suitable for display in both static and animated formats.
+                      <h4>Objective</h4>
+                      <p>
+                        Demonstrate packaging and motion design skills through a fictional brand concept that conveys calm,
+                        modern design and visual appeal suitable for both print and digital display.
                       </p>
                     </div>
-                    
+
                     <div className="detail-section">
-                      <h4 className="detail-title">Research and Concept</h4>
-                      <p className="detail-text">
-                        I began by researching coffee machine packaging and branding trends to better understand the visual language of the industry. I then created a fictional company, Serene Sip, intended to convey calm, quality, and modernity. Using this concept, I developed a full branding package including name, logo, colour palette, and supporting content.
+                      <h4>Research & Concept</h4>
+                      <p>
+                        I researched coffee packaging trends, created a brand identity, and developed a color palette and
+                        logo system that evoke serenity and quality. From there, I created a full layout and motion piece
+                        simulating a 3D product reveal.
                       </p>
                     </div>
-                    
+
                     <div className="detail-section">
-                      <h4 className="detail-title">Design Approach</h4>
-                      <p className="detail-text">
-                        I started with brand development, including naming, logo creation, and color selection. I then designed the box layout and supporting materials like a business card and product artboard. To enhance the visual storytelling, I created a 3D mockup and brought it into After Effects to animate the final presentation. The animation simulates a product reveal, highlighting both the design and the product's branding.
+                      <h4>Design Approach</h4>
+                      <p>
+                        I combined cohesive branding with minimal design and clean typography. The animation emphasized
+                        motion and depth, focusing on how visual design enhances perception and emotional engagement.
                       </p>
                     </div>
-                    
+
                     <div className="detail-section">
-                      <h4 className="detail-title">Project Timeline</h4>
-                      <ul className="deliverables-list">
-                        <li><strong>Nov 15:</strong> Researching coffee machines (4.0 hours)</li>
-                        <li><strong>Nov 18:</strong> Choosing name and product (0.5 hours)</li>
-                        <li><strong>Nov 20:</strong> Picking color palette (0.5 hours)</li>
-                        <li><strong>Nov 23:</strong> Working on logo (6.0 hours)</li>
-                        <li><strong>Nov 28:</strong> Business card design (2.0 hours)</li>
-                        <li><strong>Dec 2:</strong> Artboard layout and development (10.0 hours)</li>
-                        <li><strong>Dec 10:</strong> Creating and refining 3D mockup (7.0 hours)</li>
+                      <h4>Project Timeline</h4>
+                      <ul>
+                        <li><strong>Nov 15:</strong> Research (4h)</li>
+                        <li><strong>Nov 18:</strong> Name + concept (0.5h)</li>
+                        <li><strong>Nov 23:</strong> Logo design (6h)</li>
+                        <li><strong>Nov 28:</strong> Business card (2h)</li>
+                        <li><strong>Dec 2:</strong> Layout (10h)</li>
+                        <li><strong>Dec 10:</strong> 3D mockup + animation (7h)</li>
                       </ul>
                     </div>
-                    
+
                     <div className="detail-section">
-                      <h4 className="detail-title">Takeaways</h4>
-                      <p className="detail-text">
-                        This project helped solidify my skills in both Photoshop and After Effects. I gained experience in creating consistent visual branding, understanding the packaging workflow, and transitioning static designs into animated sequences. It emphasized the importance of storytelling and clarity in product-focused design.
+                      <h4>Takeaways</h4>
+                      <p>
+                        This project solidified my understanding of brand systems and packaging workflows.
+                        I learned how motion can elevate static design, helping to tell a product’s story through immersive visuals.
                       </p>
                     </div>
                   </div>
@@ -171,7 +161,7 @@ const GraphicDesign = () => {
             </div>
           </section>
 
-
+          {/* Project 2: Redesign Poster */}
           <section className="section">
             <div className="section-content">
               <div className="project-showcase blue">
@@ -181,13 +171,7 @@ const GraphicDesign = () => {
                     <h2 className="project-title">Redesign Poster</h2>
                     <p className="project-subtitle">Event Poster Redesign & Visual Communication</p>
                     <div className="project-stats">
-                      <span className="stat-item">11 hours</span>
-                      <span className="stat-divider">•</span>
-                      <span className="stat-item">Nov 4 - Nov 15, 2024</span>
-                      <span className="stat-divider">•</span>
-                      <span className="stat-item">BCIT Course Project</span>
-                      <span className="stat-divider">•</span>
-                      <span className="stat-item">Emily Rianna Smith</span>
+                      <span>11 hours</span> • <span>Nov 4 - Nov 15, 2024</span> • <span>BCIT Course Project</span> • <span>Emily Rianna Smith</span>
                     </div>
                   </div>
                 </div>
@@ -203,36 +187,24 @@ const GraphicDesign = () => {
                       <div className="image-label">Final Redesign</div>
                     </div>
                   </div>
-                  
+
                   <div className="preview-content">
-                    <h3 className="preview-title">Project Goal</h3>
-                    <p className="preview-description">
-                      The goal of this project was to redesign an existing poster to better capture an audience and more effectively communicate its message and purpose.
+                    <h3>Project Goal</h3>
+                    <p>
+                      Redesign an existing poster to better attract its intended audience and communicate the event message more effectively.
                     </p>
-                    
+
                     <div className="preview-timeline">
-                      <div className="timeline-item">
-                        <span className="timeline-label">Start Date</span>
-                        <span className="timeline-value">Nov 4, 2024</span>
-                      </div>
-                      <div className="timeline-item">
-                        <span className="timeline-label">End Date</span>
-                        <span className="timeline-value">Nov 15, 2024</span>
-                      </div>
-                      <div className="timeline-item">
-                        <span className="timeline-label">Total Hours</span>
-                        <span className="timeline-value">11 hours</span>
-                      </div>
-                      <div className="timeline-item">
-                        <span className="timeline-label">Designer</span>
-                        <span className="timeline-value">Emily Rianna Smith</span>
-                      </div>
+                      <div><strong>Start:</strong> Nov 4, 2024</div>
+                      <div><strong>End:</strong> Nov 15, 2024</div>
+                      <div><strong>Total Hours:</strong> 11</div>
+                      <div><strong>Designer:</strong> Emily Rianna Smith</div>
                     </div>
 
                     <div className="tools-section">
-                      <h4 className="tools-title">Technical Tools</h4>
+                      <h4>Technical Tools</h4>
                       <div className="tools-preview">
-                        <span className="tool-preview">Adobe Photoshop</span>
+                        <span>Adobe Photoshop</span>
                       </div>
                     </div>
                   </div>
@@ -241,50 +213,32 @@ const GraphicDesign = () => {
                 <div className="project-details">
                   <div className="details-grid">
                     <div className="detail-section">
-                      <h4 className="detail-title">Narrative</h4>
-                      <p className="detail-text">
-                        For this project, I redesigned a poster found on the BCIT Burnaby campus to better communicate its message and attract its intended audience. The original promoted a pancake breakfast celebrating BCIT's 60th anniversary with a 60s dress-up theme. The redesign was done entirely in Adobe Photoshop.
+                      <h4>Narrative</h4>
+                      <p>
+                        I redesigned a BCIT poster for a 60s-themed pancake breakfast, transforming a flat design into one
+                        that captured warmth, fun, and nostalgia while keeping it clear and visually balanced.
                       </p>
                     </div>
-                    
+
                     <div className="detail-section">
-                      <h4 className="detail-title">Objective</h4>
-                      <p className="detail-text">
-                        Part of the Photoshop course (MDIA-2185-PM – 45799), the assignment challenged us to find a real poster and improve its design to better connect with viewers and reflect its purpose.
+                      <h4>Objective</h4>
+                      <p>
+                        Improve hierarchy, color, and tone to better engage the audience and align with the event’s 60s theme and Halloween date.
                       </p>
                     </div>
-                    
+
                     <div className="detail-section">
-                      <h4 className="detail-title">Research and Concept</h4>
-                      <p className="detail-text">
-                        I chose a poster aimed at students and instructors for a pancake breakfast event. While it used BCIT's blue and yellow colors, it lacked warmth and didn't effectively highlight the fun, nostalgic theme. Since the event was also on Halloween, I felt a more playful and visually inviting approach would be more engaging.
+                      <h4>Design Approach</h4>
+                      <p>
+                        Used warm tones (orange, brown) to evoke appetite and Halloween spirit. Simplified layout and emphasized “pancakes” as the focal point, using typography and contrast to enhance readability.
                       </p>
                     </div>
-                    
+
                     <div className="detail-section">
-                      <h4 className="detail-title">Design Approach</h4>
-                      <p className="detail-text">
-                        To create a stronger emotional connection, I used warm tones like orange and brown to evoke appetite and tie into Halloween. I simplified the layout, reduced the text, and made "pancakes" the main focus. Emphasizing the 60s theme visually made the poster more fun and eye-catching, encouraging people to read more.
-                      </p>
-                    </div>
-                    
-                    <div className="detail-section">
-                      <h4 className="detail-title">Project Timeline</h4>
-                      <ul className="deliverables-list">
-                        <li><strong>Nov 4:</strong> Research and poster selection (1 hour)</li>
-                        <li><strong>Nov 5:</strong> Brainstorming and concept planning (1 hour)</li>
-                        <li><strong>Nov 6:</strong> Sketching layout ideas on iPad (1 hour)</li>
-                        <li><strong>Nov 7:</strong> Gathering inspiration and starting Photoshop layout (1 hour)</li>
-                        <li><strong>Nov 9:</strong> Design development and refining text layout (2 hours)</li>
-                        <li><strong>Nov 11:</strong> Finalizing visuals, adjusting colors and hierarchy (2 hours)</li>
-                        <li><strong>Nov 15:</strong> Final polish, tweaks, and export (3 hours)</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="detail-section">
-                      <h4 className="detail-title">Takeaways</h4>
-                      <p className="detail-text">
-                        As one of my first design projects, this taught me how color, layout, and tone affect audience perception. It helped me understand the value of designing with mood, clarity, and relevance in mind—especially for themed events like this one.
+                      <h4>Takeaways</h4>
+                      <p>
+                        This early project taught me how layout, tone, and color psychology affect audience engagement.
+                        It also reinforced the importance of designing for clarity and emotional connection.
                       </p>
                     </div>
                   </div>
@@ -293,26 +247,22 @@ const GraphicDesign = () => {
             </div>
           </section>
 
-          {/* Philosophy Section */}
+          {/* Design Philosophy */}
           <section className="section">
             <div className="section-content">
-              <div className="section-header">
-                <h2 className="section-subtitle" style={{ fontFamily: "'Liu Jian Mao Cao', cursive" }}>
-                  design philosophy
-                </h2>
-              </div>
-              <div className="section-body">
-                <p className="journey-text">
-                  Great graphic design should communicate instantly and emotionally. I believe in finding the 
-                  perfect balance between function and beauty, creating visuals that not only catch the eye but 
-                  also serve their purpose effectively. Every color, typeface, and element choice is intentional 
-                  and serves the greater story we're trying to tell.
-                </p>
-              </div>
+              <h2 className="section-subtitle" style={{ fontFamily: "'Liu Jian Mao Cao', cursive" }}>
+                design philosophy
+              </h2>
+              <p className="journey-text">
+                Great graphic design communicates instantly and emotionally. I believe in balancing function with beauty —
+                every color, typeface, and element choice serves a purpose in telling a cohesive, human story.
+              </p>
             </div>
           </section>
         </div>
       </div>
+
+      {/* ✅ Global Footer */}
       <Footer />
     </>
   );
