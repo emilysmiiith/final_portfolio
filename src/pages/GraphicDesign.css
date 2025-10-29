@@ -872,3 +872,47 @@ button:hover,
 .stat-item:hover {
   cursor: url('/cursor.png'), pointer !important;
 }
+
+/* === FIX: make all text bright white for legibility on dark brown background === */
+.section-title,
+.section-subtitle,
+.journey-text,
+.project-title,
+.project-subtitle,
+.project-number,
+.preview-title,
+.preview-description,
+.detail-title,
+.detail-text,
+.deliverables-list li,
+.timeline-item,
+.timeline-label,
+.timeline-value,
+.tools-title,
+.stat-item,
+.stat-divider,
+.tool-preview,
+.project-header,
+.section-body,
+.section-header,
+.detail-section,
+.preview-content,
+.project-details,
+.project-showcase,
+.section-content,
+body,
+html {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* ensure overlays and captions are visible */
+.image-label,
+.photo-caption {
+  color: #ffffff !important;
+}
+
+/* optional: soften bright white if you prefer */
+:root {
+  --text-light: #ffffff;
+}

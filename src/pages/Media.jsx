@@ -4,8 +4,9 @@ import ProjectNavbar from '../components/ProjectNavbar';
 import Footer from '../components/Footer';
 import imageSvg from '../assets/image.svg';
 
-// ✅ Correctly import your video from src
+// Videos (from src/assets/videos)
 import dementiaVideo from '../assets/videos/Smith_ProjectB.mp4';
+import beyondRidesVideo from '../assets/videos/beyondrides.mp4';
 
 const Media = () => {
   const climbingPhotos = [
@@ -19,17 +20,16 @@ const Media = () => {
 
   return (
     <>
-      {/* Navbar */}
       <ProjectNavbar />
 
       <div className="media-container">
-        {/* Decorative SVG Background */}
-        <div className="svg-static">
-          <img src={imageSvg} alt="" className="svg-image-static" aria-hidden="true" />
+        {/* Background SVG (decorative) */}
+        <div className="svg-static" aria-hidden="true">
+          <img src={imageSvg} alt="" className="svg-image-static" />
         </div>
 
         <div className="media-content">
-          {/* Hero Section */}
+          {/* Hero */}
           <section className="section hero-section">
             <div className="section-content">
               <h2 className="section-subtitle" style={{ fontFamily: "'Liu Jian Mao Cao', cursive" }}>
@@ -37,13 +37,13 @@ const Media = () => {
               </h2>
               <h1 className="section-title">media & film</h1>
               <p className="journey-text">
-                Media production is where I combine technical skills with meaningful storytelling. 
+                Media production is where I combine technical skills with meaningful storytelling.
                 Every story begins with empathy and curiosity.
               </p>
             </div>
           </section>
 
-          {/* 🎥 Video Section */}
+          {/* Project #1 — Dementia Care */}
           <section className="section">
             <div className="section-content">
               <div className="project-showcase featured">
@@ -55,7 +55,6 @@ const Media = () => {
                   </div>
                 </div>
 
-                {/* ✅ Fixed: Using imported video */}
                 <div className="video-showcase">
                   <video
                     className="featured-video"
@@ -65,14 +64,13 @@ const Media = () => {
                     title="Dementia Care Short Film by Emily Rianna Smith"
                   >
                     <source src={dementiaVideo} type="video/mp4" />
-                    Your browser does not support the video tag.
                   </video>
                 </div>
 
                 <div className="project-overview">
                   <h3 className="overview-title">Project Overview</h3>
                   <p>
-                    Created in collaboration with Denise Devlin — this PSA raises awareness about empathy in dementia care 
+                    Created in collaboration with Denise Devlin — this PSA raises awareness about empathy in dementia care
                     through a first-person narrative. The goal was to evoke understanding and compassion through immersive storytelling.
                   </p>
                   <div className="overview-timeline">
@@ -85,12 +83,54 @@ const Media = () => {
             </div>
           </section>
 
-          {/* 🧗 Photography Grid Section */}
+          {/* Project #2 — Beyond Rides */}
+          <section className="section">
+            <div className="section-content">
+              <div className="project-showcase featured">
+                <div className="project-header">
+                  <div className="project-number">#2</div>
+                  <div className="project-meta">
+                    <h2 className="project-title">Beyond Rides</h2>
+                    <p className="project-subtitle">Short Film • Featuring Lily Taylor &amp; Kaveen</p>
+                  </div>
+                </div>
+
+                <div className="video-showcase">
+                  <video
+                    className="featured-video"
+                    controls
+                    playsInline
+                    muted
+                    title="Beyond Rides — Short Film by Emily Rianna Smith"
+                  >
+                    <source src={beyondRidesVideo} type="video/mp4" />
+                  </video>
+                </div>
+
+                <div className="project-overview">
+                  <h3 className="overview-title">Project Overview</h3>
+                  <p>
+                    <strong>Beyond Rides</strong> is a music-driven narrative featuring <strong>Lily Taylor</strong> and <strong>Kaveen</strong>.
+                    Edited in <strong>Adobe Premiere Pro</strong> with audio in <strong>Audition</strong> and <strong>GarageBand</strong>.
+                    Original music by Emily Rianna Smith. All clips set up and assembled by me to emphasize atmosphere and emotion.
+                  </p>
+                  <div className="overview-timeline">
+                    <div><strong>Type:</strong> Short Film / Music-Driven Narrative</div>
+                    <div><strong>Year:</strong> 2024</div>
+                    <div><strong>Tools:</strong> Premiere Pro, Audition, GarageBand</div>
+                    <div><strong>Role:</strong> Editor, Composer, Producer</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Project #3 — Squamish Photography (grid) */}
           <section className="section">
             <div className="section-content">
               <div className="project-showcase photography">
                 <div className="project-header">
-                  <div className="project-number">#2</div>
+                  <div className="project-number">#3</div>
                   <div className="project-meta">
                     <h2 className="project-title">Squamish Climbing Photography</h2>
                     <p className="project-subtitle">Adventure Photography • Personal Project</p>
@@ -108,7 +148,7 @@ const Media = () => {
 
                 <div className="photography-description">
                   <p>
-                    Capturing the raw beauty and adrenaline of climbing in Squamish, BC — documenting the 
+                    Capturing the raw beauty and adrenaline of climbing in Squamish, BC — documenting the
                     connection between human perseverance and nature’s scale through light, motion, and emotion.
                   </p>
                 </div>
@@ -116,14 +156,14 @@ const Media = () => {
             </div>
           </section>
 
-          {/* ✨ Philosophy Section */}
+          {/* Philosophy */}
           <section className="section">
             <div className="section-content">
               <h2 className="section-subtitle" style={{ fontFamily: "'Liu Jian Mao Cao', cursive" }}>
                 creative philosophy
               </h2>
               <p className="journey-text">
-                Whether I’m directing, designing, or editing, my work starts with empathy and curiosity. 
+                Whether I’m directing, designing, or editing, my work starts with empathy and curiosity.
                 Every project is a collaboration that brings human stories to life with care and creativity.
               </p>
             </div>
@@ -131,7 +171,6 @@ const Media = () => {
         </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </>
   );
