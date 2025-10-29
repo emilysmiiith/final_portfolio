@@ -83,70 +83,66 @@ p {
 
 
 /* ===============================
-   RESPONSIVE LINE BANNER SETTINGS
+   RESPONSIVE LINE BANNER SETTINGS (FIXED + SCALED + MOVED DOWN 80PX)
    =============================== */
 
 .top-banner-wrapper {
-  position: fixed;           /* ✅ Stays pinned to the top of the viewport */
+  position: fixed;           /* ✅ Keeps the line drawing pinned to the top */
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
-  z-index: 1;                /* Behind main content but above background */
+  height: 100vh;             /* ✅ Full viewport height for parallax effect */
+  z-index: 1;
   pointer-events: none;
-  overflow: hidden;
+  overflow: hidden;          /* hides overflow edges cleanly */
 }
 
+/* ✅ FIXED LINE DRAWING IMAGE THAT SCALES + IS MOVED DOWN */
 .top-banner-image-container {
   width: 100%;
-  height: 100vh;             /* ✅ Fills one screen height exactly */
+  height: 100%;
   background-image: url('../assets/images/line_pages-01.png');
-  background-repeat: no-repeat;   /* ✅ Never repeats */
-  background-size: cover;         /* ✅ Fills screen once */
-  background-position: center top;/* ✅ Stays anchored */
-  background-attachment: fixed;   /* ✅ Keeps image locked while scrolling */
+  background-repeat: no-repeat;
+
+  /* 👇 moves the image down by 80px */
+  background-position: center 80px;
+
+  background-attachment: fixed;
+  background-size: calc(100vw * 0.8) auto;
+
+  /* ✅ subtle scale for smaller visual footprint */
+  transform: scale(0.9);
+  transform-origin: center top;
+
   opacity: 1;
   pointer-events: none;
 }
 
-
-
-
-
 /* ====== RESPONSIVE BREAKPOINTS ====== */
-
 @media (max-width: 1200px) {
-  .top-banner-wrapper {
-    width: 90vw;
-  }
-}
-
-@media (max-width: 1024px) {
-  .top-banner-wrapper {
-    width: 92vw;
-  }
   .top-banner-image-container {
-    background-size: contain;
+    background-size: calc(100vw * 0.9) auto; /* slightly larger for smaller screens */
+    background-position: center 60px; /* reduce offset a bit on mid screens */
+    transform: scale(0.95);
   }
 }
 
 @media (max-width: 768px) {
-  .top-banner-wrapper {
-    width: 95vw;
-  }
   .top-banner-image-container {
-    background-size: cover; /* fills a bit more when space is tight */
+    background-size: cover; /* fills on mobile for best visibility */
+    background-position: center 40px; /* smaller offset on phones */
+    transform: none;
   }
 }
 
 @media (max-width: 480px) {
-  .top-banner-wrapper {
-    width: 96vw;
-  }
   .top-banner-image-container {
     background-size: cover;
+    background-position: center 30px;
+    transform: none;
   }
 }
+
 
 
 /* NEW: Style for the repeating background layer (Z-index 3) */
@@ -156,9 +152,8 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-repeat: repeat-y; 
-  background-size: 100% auto;
-  background-position: top center;
+  background-size: 140% 140%;
+  background-position: center 80px;
   z-index: 3; /* Above the line image (z-index 2) and orbs (z-index 1) */
   pointer-events: none;
 }
@@ -232,7 +227,7 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
 
 .hero-section .hero-scroll-prompt p {
   font-family: 'Roboto', sans-serif;
-  font-weight: 900;
+  font-weight: 100;
   font-size: clamp(1rem, 2.5vw, 1.4rem);
   color: #442B12;
   line-height: 1.6;
@@ -767,7 +762,7 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
 
 .resume-text h1 {
   font-family: 'Roboto', sans-serif;
-  font-weight: 1000;
+  font-weight: 100;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   color: #000;
   margin-bottom: 0.5rem;
