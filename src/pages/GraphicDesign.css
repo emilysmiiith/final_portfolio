@@ -917,25 +917,25 @@ html {
   --text-light: #ffffff;
 }
 
-/* === Descriptive text: force pure white for readability === */
-p,
-.journey-text,
-.preview-description,
-.detail-text,
-.project-subtitle,
-.project-details p,
-.detail-section p,
-.deliverables-list li,
-.timeline-label,
-.timeline-value,
-.image-label,
-.photo-caption {
+/* === Descriptive text (scoped to portfolio pages only) === */
+.graphic-container p,
+.graphic-container .journey-text,
+.graphic-container .preview-description,
+.graphic-container .detail-text,
+.graphic-container .project-subtitle,
+.graphic-container .project-details p,
+.graphic-container .detail-section p,
+.graphic-container .deliverables-list li,
+.graphic-container .timeline-label,
+.graphic-container .timeline-value,
+.graphic-container .image-label,
+.graphic-container .photo-caption {
   color: #ffffff !important;
   opacity: 1 !important;
   text-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
-/* Optional: if your pill tags count as descriptive text, include this */
-.tools-preview .tool-preview {
+/* If tool tags need brightening, also scoped */
+.graphic-container .tools-preview .tool-preview {
   color: #ffffff !important;
 }
