@@ -176,9 +176,10 @@ const About = () => {
               </p>
               <div className="cta-buttons">
                 <a
-                  href="/assets/files/Emily-Rianna-Smith-Resume.pdf"
+                  href="/files/Emily-Rianna-Smith-Resume.pdf"
                   download
                   className="cta-button primary"
+                  aria-label="Download Emily Rianna Smith's resume PDF"
                 >
                   download resume
                 </a>

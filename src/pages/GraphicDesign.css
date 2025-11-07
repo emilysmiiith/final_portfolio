@@ -873,7 +873,7 @@ button:hover,
   cursor: url('/cursor.png'), pointer !important;
 }
 
-/* === FIX: make all text bright white for legibility on dark brown background === */
+/* === FULL TEXT VISIBILITY FIX (ALL TEXT PURE WHITE) === */
 .section-title,
 .section-subtitle,
 .journey-text,
@@ -915,4 +915,27 @@ html {
 /* optional: soften bright white if you prefer */
 :root {
   --text-light: #ffffff;
+}
+
+/* === Descriptive text: force pure white for readability === */
+p,
+.journey-text,
+.preview-description,
+.detail-text,
+.project-subtitle,
+.project-details p,
+.detail-section p,
+.deliverables-list li,
+.timeline-label,
+.timeline-value,
+.image-label,
+.photo-caption {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Optional: if your pill tags count as descriptive text, include this */
+.tools-preview .tool-preview {
+  color: #ffffff !important;
 }
