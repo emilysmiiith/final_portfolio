@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import './Home.css';
 import Footer from '../components/Footer';
 import '../styles/global.css';
-import homeVideo from '../assets/videos/home.mp4';
 import boxImage from '../assets/images/box.png';
 import graphicImage from '../assets/images/graphic.png';
 import mediaImage from '../assets/images/media.png';
@@ -12,7 +11,7 @@ import travelImage from '../assets/images/travel.png';
 
 // 1. ADD NEW IMAGE IMPORTS HERE
 import topBannerImage from '../assets/images/line_pages-01.png'; 
-import repeatingBackgroundImage from '../assets/images/background.png'; // <-- NEW IMAGE IMPORT
+import repeatingBackgroundImage from '../assets/images/background.png';
 
 // Import the new Navbar component
 import Navbar from '../components/Navbar'; 
@@ -110,63 +109,51 @@ const Home = () => {
         <meta name="author" content="Emily Rianna Smith" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="/" />
-        
-        {/* Open Graph Meta Tags */}
+
+        {/* Open Graph */}
         <meta property="og:title" content="Emily Rianna Smith - Creative Designer" />
         <meta property="og:description" content="Creative designer bringing emotions to life through art. Specializing in UX/UI, media production, and graphic design with empathy and authenticity." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/" />
         <meta property="og:image" content="/assets/images/emily-portfolio-preview.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:site_name" content="Emily Rianna Smith Portfolio" />
-        <meta property="og:locale" content="en_US" />
-        
-        {/* Twitter Card Meta Tags */}
+
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Emily Rianna Smith - Creative Designer" />
         <meta property="twitter:description" content="Creative designer bringing emotions to life through empathetic, human-centered design." />
-        <meta property="twitter:image" content="/assets/images/emily-portfolio-preview.jpg" />
-        <meta property="twitter:creator" content="@emilyrianna" />
-        
-        {/* Additional Meta Tags */}
-        <meta name="theme-color" content="#000000" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
 
       <div className="home-container">
-        
+
         {/* Navbar */}
         <Navbar /> 
-        
+
         {/* Top line banner */}
         <div className="top-banner-wrapper" aria-hidden="true">
           <div className="top-banner-image-container"></div>
         </div>
 
-        {/* ✅ FIXED: Background effects (only once, full width) */}
+        {/* Background effects */}
         <div className="background-effects" aria-hidden="true">
-          {/* Repeating pattern layer */}
           <div 
             className="repeating-background-layer"
             style={{ backgroundImage: `url(${repeatingBackgroundImage})` }}
             role="presentation"
           ></div>
           
-          {/* Gradient blobs */}
-          <div className="gradient-orb orb-1" role="presentation"></div>
-          <div className="gradient-orb orb-2" role="presentation"></div>
-          <div className="gradient-orb orb-3" role="presentation"></div>
-          <div className="gradient-orb orb-4" role="presentation"></div>
+          <div className="gradient-orb orb-1"></div>
+          <div className="gradient-orb orb-2"></div>
+          <div className="gradient-orb orb-3"></div>
+          <div className="gradient-orb orb-4"></div>
         </div>
 
         {/* Main content */}
         <main className="main-content">
+
           {/* Hero Section */}
           <section className="section hero-section" aria-labelledby="hero-heading">
-            <div className="section-content"> 
-              <div className="hero-content-wrapper"> 
+            <div className="section-content">
+              <div className="hero-content-wrapper">
                 <div className="hero-left-column">
                   <div className="hero-heading-and-prompt-wrapper">
                     <div className="hero-scroll-prompt">
@@ -175,7 +162,7 @@ const Home = () => {
                       <p>explore</p>
                     </div>
                     <div className="hero-text">
-                      <h1 id="hero-heading" style={{display: 'none'}}>Emily Rianna Smith Creative Designer</h1> 
+                      <h1 id="hero-heading" style={{display: 'none'}}>Emily Rianna Smith Creative Designer</h1>
                       <h2>Hi, my name is Emily Rianna Smith</h2>
                     </div>
                   </div>
@@ -194,14 +181,12 @@ const Home = () => {
               <div className="video-container">
                 <video
                   ref={videoRef}
-                  src={homeVideo}
+                  src="/videos/home.mp4"
                   muted
                   loop
                   controls
                   className="home-video"
                   preload="metadata"
-                  title="Emily Rianna Smith - Creative Designer Introduction Video"
-                  aria-label="Introduction video showcasing Emily's creative work and design philosophy"
                 >
                   <track 
                     kind="captions" 
@@ -209,7 +194,6 @@ const Home = () => {
                     srcLang="en" 
                     label="English Captions"
                   />
-                  Your browser does not support the video tag.
                 </video>
               </div>
             </div>
@@ -223,7 +207,7 @@ const Home = () => {
                 <h2>check out my latest</h2>
               </div>
 
-              <div className="features-collage" role="group" aria-label="Artistic project collage">
+              <div className="features-collage">
                 {featuredProjects.map((project, index) => (
                   <div
                     key={project.id}
@@ -231,17 +215,12 @@ const Home = () => {
                     onClick={navigateToProjects}
                     role="button"
                     tabIndex="0"
-                    aria-label={`View ${project.title} - ${project.category}`}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') navigateToProjects();
-                    }}
                   >
                     <img
                       src={project.image}
                       alt={project.alt}
                       title={project.title}
                       className="collage-img"
-                      loading={index === 0 ? 'eager' : 'lazy'}
                     />
                   </div>
                 ))}
@@ -257,7 +236,7 @@ const Home = () => {
                 <h2 className="about-subtitle">from a small island to a big city</h2>
               </div>
 
-              <div className="about-collage" role="group" aria-label="Personal photos showing Emily's creative journey">
+              <div className="about-collage">
                 {personalImages.map((image, index) => (
                   <div key={index} className={`about-image-wrapper about-${index + 1}`}>
                     <img 
@@ -273,7 +252,7 @@ const Home = () => {
             </div>
           </section>
 
-          {/* Resume Section */}
+          {/* ✅ FIXED Resume Section */}
           <section className="section resume-section" aria-labelledby="resume-heading">
             <div className="section-content">
               <div className="resume-card">
@@ -287,10 +266,9 @@ const Home = () => {
 
                 <div className="resume-download">
                   <a 
-                    href="/assets/files/Emily-Rianna-Smith-Resume.pdf" 
-                    download 
+                    href="/files/Emily-Rianna-Smith-Resume.pdf"
+                    download
                     className="resume-button"
-                    aria-label="Download Emily Rianna Smith's resume in PDF format"
                   >
                     <p>download pdf</p>
                   </a>
@@ -298,6 +276,7 @@ const Home = () => {
               </div>
             </div>
           </section>
+
         </main>
       </div>
 

@@ -4,10 +4,6 @@ import ProjectNavbar from '../components/ProjectNavbar';
 import Footer from '../components/Footer';
 import imageSvg from '../assets/image.svg';
 
-// Videos (from src/assets/videos)
-import dementiaVideo from '../assets/videos/Smith_ProjectB.mp4';
-import beyondRidesVideo from '../assets/videos/beyondrides.mp4';
-
 const Media = () => {
   const climbingPhotos = [
     { id: 1, src: "/assets/images/squamish/photo-1.jpg", alt: "Rock climber ascending granite wall", title: "Granite Ascent" },
@@ -63,7 +59,7 @@ const Media = () => {
                     muted
                     title="Dementia Care Short Film by Emily Rianna Smith"
                   >
-                    <source src={dementiaVideo} type="video/mp4" />
+                    <source src="/videos/Smith_ProjectB.mp4" type="video/mp4" />
                   </video>
                 </div>
 
@@ -103,7 +99,7 @@ const Media = () => {
                     muted
                     title="Beyond Rides — Short Film by Emily Rianna Smith"
                   >
-                    <source src={beyondRidesVideo} type="video/mp4" />
+                    <source src="/videos/beyondrides.mp4" type="video/mp4" />
                   </video>
                 </div>
 
@@ -125,7 +121,7 @@ const Media = () => {
             </div>
           </section>
 
-          {/* Project #3 — Squamish Photography (grid) */}
+          {/* Project #3 — Squamish Photography */}
           <section className="section">
             <div className="section-content">
               <div className="project-showcase photography">
