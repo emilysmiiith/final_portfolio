@@ -14,7 +14,10 @@ import topBannerImage from '../assets/images/line_pages-01.png';
 import repeatingBackgroundImage from '../assets/images/background.png';
 
 // Import the new Navbar component
-import Navbar from '../components/Navbar'; 
+import Navbar from '../components/Navbar';
+
+
+
 
 const Home = () => {
   const videoRef = useRef();

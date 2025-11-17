@@ -11,6 +11,9 @@ import imageSvg from '../assets/image.svg';
 import repeatingBackgroundImage from '../assets/images/background.png'; // <-- NEW IMAGE IMPORT
 
 
+
+
+
 // Import project images
 import mediaImage from '../assets/images/media.png';
 import uxuiImage from '../assets/images/uxui.png';
