@@ -1,30 +1,58 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Media.css';
 import ProjectNavbar from '../components/ProjectNavbar';
-import Footer from '../components/Footer';
+import Footer from '../components/ProjectFooter';
 import imageSvg from '../assets/image.svg';
 
 const Media = () => {
+  // ============================
+  // PAGE-SPECIFIC META TAGS
+  // ============================
+  useEffect(() => {
+    document.title = "Media & Film – Emily Rianna Smith | Creative Designer";
+
+    const desc =
+      "Media production portfolio of Emily Rianna Smith featuring cinematic short films, editing work, and adventure photography.";
+    const image = "https://www.yourwebsite.com/og/og-media.jpg";
+
+    document.querySelector("meta[name='description']")?.setAttribute("content", desc);
+    document
+      .querySelector("meta[property='og:title']")
+      ?.setAttribute("content", "Media & Film – Emily Rianna Smith");
+    document
+      .querySelector("meta[property='og:description']")
+      ?.setAttribute("content", desc);
+    document
+      .querySelector("meta[property='og:image']")
+      ?.setAttribute("content", image);
+  }, []);
+
+  // FIXED PATHS FOR GITHUB PAGES + HOSTPAPA
+  const base = import.meta.env.BASE_URL;
+
   const climbingPhotos = [
-    { id: 1, src: "/assets/images/squamish/photo-1.jpg", alt: "Rock climber ascending granite wall", title: "Granite Ascent" },
-    { id: 2, src: "/assets/images/squamish/photo-2.jpg", alt: "Panoramic view of Squamish climbing area", title: "Squamish Vista" },
-    { id: 3, src: "/assets/images/squamish/photo-3.jpg", alt: "Climber's hands gripping rock holds", title: "Precision Grip" },
-    { id: 4, src: "/assets/images/squamish/photo-4.jpg", alt: "Silhouette of climber against sky", title: "Golden Hour Ascent" },
-    { id: 5, src: "/assets/images/squamish/photo-5.jpg", alt: "Climbing route with rope systems", title: "Safety Systems" },
-    { id: 6, src: "/assets/images/squamish/photo-6.jpg", alt: "Climber celebrating at summit", title: "Summit Success" }
+    { id: 1, src: `${base}assets/images/squamish/photo-1.jpg`, alt: "Rock climber ascending granite wall", title: "Granite Ascent" },
+    { id: 2, src: `${base}assets/images/squamish/photo-2.jpg`, alt: "Panoramic view of Squamish climbing area", title: "Squamish Vista" },
+    { id: 3, src: `${base}assets/images/squamish/photo-3.jpg`, alt: "Climber's hands gripping rock holds", title: "Precision Grip" },
+    { id: 4, src: `${base}assets/images/squamish/photo-4.jpg`, alt: "Silhouette of climber against sky", title: "Golden Hour Ascent" },
+    { id: 5, src: `${base}assets/images/squamish/photo-5.jpg`, alt: "Climbing route with rope systems", title: "Safety Systems" },
+    { id: 6, src: `${base}assets/images/squamish/photo-6.jpg`, alt: "Climber celebrating at summit", title: "Summit Success" }
   ];
 
   return (
     <>
+      {/* Navbar */}
       <ProjectNavbar />
 
       <div className="media-container">
-        {/* Background SVG (decorative) */}
+
+        {/* Background SVG */}
         <div className="svg-static" aria-hidden="true">
           <img src={imageSvg} alt="" className="svg-image-static" />
         </div>
 
         <div className="media-content">
+
           {/* Hero */}
           <section className="section hero-section">
             <div className="section-content">
@@ -39,7 +67,7 @@ const Media = () => {
             </div>
           </section>
 
-          {/* Project #1 — Dementia Care */}
+          {/* Project #1 */}
           <section className="section">
             <div className="section-content">
               <div className="project-showcase featured">
@@ -59,7 +87,7 @@ const Media = () => {
                     muted
                     title="Dementia Care Short Film by Emily Rianna Smith"
                   >
-                    <source src="/videos/Smith_ProjectB.mp4" type="video/mp4" />
+                    <source src={`${base}videos/Smith_ProjectB.mp4`} type="video/mp4" />
                   </video>
                 </div>
 
@@ -67,7 +95,7 @@ const Media = () => {
                   <h3 className="overview-title">Project Overview</h3>
                   <p>
                     Created in collaboration with Denise Devlin — this PSA raises awareness about empathy in dementia care
-                    through a first-person narrative. The goal was to evoke understanding and compassion through immersive storytelling.
+                    through a first-person narrative.
                   </p>
                   <div className="overview-timeline">
                     <div><strong>Type:</strong> Short Film / PSA</div>
@@ -79,7 +107,7 @@ const Media = () => {
             </div>
           </section>
 
-          {/* Project #2 — Beyond Rides */}
+          {/* Project #2 */}
           <section className="section">
             <div className="section-content">
               <div className="project-showcase featured">
@@ -99,29 +127,27 @@ const Media = () => {
                     muted
                     title="Beyond Rides — Short Film by Emily Rianna Smith"
                   >
-                    <source src="/videos/beyondrides.mp4" type="video/mp4" />
+                    <source src={`${base}videos/beyondrides.mp4`} type="video/mp4" />
                   </video>
                 </div>
 
                 <div className="project-overview">
                   <h3 className="overview-title">Project Overview</h3>
                   <p>
-                    <strong>Beyond Rides</strong> is a music-driven narrative featuring <strong>Lily Taylor</strong> and <strong>Kaveen</strong>.
-                    Edited in <strong>Adobe Premiere Pro</strong> with audio in <strong>Audition</strong> and <strong>GarageBand</strong>.
-                    Original music by Emily Rianna Smith. All clips set up and assembled by me to emphasize atmosphere and emotion.
+                    Music-driven narrative featuring Lily Taylor and Kaveen. Edited in Premiere Pro with
+                    custom audio work and original music.
                   </p>
                   <div className="overview-timeline">
-                    <div><strong>Type:</strong> Short Film / Music-Driven Narrative</div>
+                    <div><strong>Type:</strong> Short Film</div>
                     <div><strong>Year:</strong> 2024</div>
-                    <div><strong>Tools:</strong> Premiere Pro, Audition, GarageBand</div>
-                    <div><strong>Role:</strong> Editor, Composer, Producer</div>
+                    <div><strong>Tools:</strong> Premiere Pro, Audition</div>
                   </div>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Project #3 — Squamish Photography */}
+          {/* Project #3 */}
           <section className="section">
             <div className="section-content">
               <div className="project-showcase photography">
@@ -144,15 +170,15 @@ const Media = () => {
 
                 <div className="photography-description">
                   <p>
-                    Capturing the raw beauty and adrenaline of climbing in Squamish, BC — documenting the
-                    connection between human perseverance and nature’s scale through light, motion, and emotion.
+                    Capturing the beauty and adrenaline of climbing in Squamish, BC — documenting the
+                    connection between perseverance and nature.
                   </p>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Philosophy */}
+          {/* Creative Philosophy */}
           <section className="section">
             <div className="section-content">
               <h2 className="section-subtitle" style={{ fontFamily: "'Liu Jian Mao Cao', cursive" }}>
@@ -160,10 +186,10 @@ const Media = () => {
               </h2>
               <p className="journey-text">
                 Whether I’m directing, designing, or editing, my work starts with empathy and curiosity.
-                Every project is a collaboration that brings human stories to life with care and creativity.
               </p>
             </div>
           </section>
+
         </div>
       </div>
 

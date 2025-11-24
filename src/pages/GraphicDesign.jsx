@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './GraphicDesign.css';
 import '../styles/global.css';
 import ProjectNavbar from '../components/ProjectNavbar';
-import Footer from '../components/Footer';
+import Footer from '../components/ProjectFooter';
 import imageSvg from '../assets/image.svg';
 
 import logoboxImage from '../assets/images/logobox.png';
@@ -12,23 +12,41 @@ import badImage from '../assets/images/bad.png';
 import graphicImage from '../assets/images/graphic.png';
 
 const GraphicDesign = () => {
+
+  // ✅ PAGE-SPECIFIC SEO METADATA
+  useEffect(() => {
+    document.title = "Graphic Design – Emily Rianna Smith | Brand, Print & Packaging";
+
+    const desc =
+      "Explore the graphic design work of Emily Rianna Smith — packaging design, brand identity, print graphics, motion-enhanced visuals, and thoughtful visual storytelling.";
+    
+    const image = "https://www.yourwebsite.com/og/og-graphic-design.jpg";
+
+    document.querySelector("meta[name='description']")?.setAttribute("content", desc);
+    document.querySelector("meta[property='og:title']")?.setAttribute("content", "Graphic Design – Emily Rianna Smith");
+    document.querySelector("meta[property='og:description']")?.setAttribute("content", desc);
+    document.querySelector("meta[property='og:image']")?.setAttribute("content", image);
+
+  }, []);
+
   return (
     <>
-      {/* ✅ Global Navbar */}
+      {/* Global Navbar */}
       <ProjectNavbar />
 
       <div className="graphic-container">
+
         {/* Decorative Background */}
-        <div className="svg-static">
+        <div className="svg-static" aria-hidden="true">
           <img 
             src={imageSvg}
             alt=""
             className="svg-image-static"
-            aria-hidden="true"
           />
         </div>
 
         <div className="graphic-content">
+
           {/* Hero Section */}
           <section className="section hero-section">
             <div className="section-content">
@@ -84,8 +102,8 @@ const GraphicDesign = () => {
                     </p>
 
                     <div className="preview-timeline">
-                      <div><strong>Start Date:</strong> Nov 15, 2024</div>
-                      <div><strong>End Date:</strong> Dec 15, 2024</div>
+                      <div><strong>Start:</strong> Nov 15, 2024</div>
+                      <div><strong>End:</strong> Dec 15, 2024</div>
                       <div><strong>Total Hours:</strong> 30</div>
                       <div><strong>Designer:</strong> Emily Rianna Smith</div>
                     </div>
@@ -115,44 +133,29 @@ const GraphicDesign = () => {
                       <h4>Objective</h4>
                       <p>
                         Demonstrate packaging and motion design skills through a fictional brand concept that conveys calm,
-                        modern design and visual appeal suitable for both print and digital display.
+                        modern design and visual appeal.
                       </p>
                     </div>
 
                     <div className="detail-section">
                       <h4>Research & Concept</h4>
                       <p>
-                        I researched coffee packaging trends, created a brand identity, and developed a color palette and
-                        logo system that evoke serenity and quality. From there, I created a full layout and motion piece
-                        simulating a 3D product reveal.
+                        I researched coffee packaging trends and built a cohesive identity system meant to feel modern, warm,
+                        and calm.
                       </p>
                     </div>
 
                     <div className="detail-section">
                       <h4>Design Approach</h4>
                       <p>
-                        I combined cohesive branding with minimal design and clean typography. The animation emphasized
-                        motion and depth, focusing on how visual design enhances perception and emotional engagement.
+                        I combined cohesive branding with clean layout, subtle color palettes, and minimal typography.
                       </p>
-                    </div>
-
-                    <div className="detail-section">
-                      <h4>Project Timeline</h4>
-                      <ul>
-                        <li><strong>Nov 15:</strong> Research (4h)</li>
-                        <li><strong>Nov 18:</strong> Name + concept (0.5h)</li>
-                        <li><strong>Nov 23:</strong> Logo design (6h)</li>
-                        <li><strong>Nov 28:</strong> Business card (2h)</li>
-                        <li><strong>Dec 2:</strong> Layout (10h)</li>
-                        <li><strong>Dec 10:</strong> 3D mockup + animation (7h)</li>
-                      </ul>
                     </div>
 
                     <div className="detail-section">
                       <h4>Takeaways</h4>
                       <p>
-                        This project solidified my understanding of brand systems and packaging workflows.
-                        I learned how motion can elevate static design, helping to tell a product’s story through immersive visuals.
+                        This project strengthened my understanding of brand systems and how motion can elevate packaging design.
                       </p>
                     </div>
                   </div>
@@ -191,7 +194,7 @@ const GraphicDesign = () => {
                   <div className="preview-content">
                     <h3>Project Goal</h3>
                     <p>
-                      Redesign an existing poster to better attract its intended audience and communicate the event message more effectively.
+                      Redesign an existing poster to improve visual hierarchy, clarity, and theme alignment.
                     </p>
 
                     <div className="preview-timeline">
@@ -201,11 +204,9 @@ const GraphicDesign = () => {
                       <div><strong>Designer:</strong> Emily Rianna Smith</div>
                     </div>
 
-                    <div className="tools-section">
-                      <h4>Technical Tools</h4>
-                      <div className="tools-preview">
-                        <span>Adobe Photoshop</span>
-                      </div>
+                    <h4>Tools</h4>
+                    <div className="tools-preview">
+                      <span>Adobe Photoshop</span>
                     </div>
                   </div>
                 </div>
@@ -215,30 +216,29 @@ const GraphicDesign = () => {
                     <div className="detail-section">
                       <h4>Narrative</h4>
                       <p>
-                        I redesigned a BCIT poster for a 60s-themed pancake breakfast, transforming a flat design into one
-                        that captured warmth, fun, and nostalgia while keeping it clear and visually balanced.
+                        I redesigned a BCIT poster for a 60s-themed pancake breakfast, transforming a flat design
+                        into one that felt warm, inviting, and nostalgic.
                       </p>
                     </div>
 
                     <div className="detail-section">
                       <h4>Objective</h4>
                       <p>
-                        Improve hierarchy, color, and tone to better engage the audience and align with the event’s 60s theme and Halloween date.
+                        Improve layout, color, and readability while creating stronger emotional engagement.
                       </p>
                     </div>
 
                     <div className="detail-section">
                       <h4>Design Approach</h4>
                       <p>
-                        Used warm tones (orange, brown) to evoke appetite and Halloween spirit. Simplified layout and emphasized “pancakes” as the focal point, using typography and contrast to enhance readability.
+                        Used warm tones and typographic contrast to strengthen focus and hierarchy.
                       </p>
                     </div>
 
                     <div className="detail-section">
                       <h4>Takeaways</h4>
                       <p>
-                        This early project taught me how layout, tone, and color psychology affect audience engagement.
-                        It also reinforced the importance of designing for clarity and emotional connection.
+                        Showed me how color psychology and layout decisions significantly improve visual clarity.
                       </p>
                     </div>
                   </div>
@@ -254,15 +254,16 @@ const GraphicDesign = () => {
                 design philosophy
               </h2>
               <p className="journey-text">
-                Great graphic design communicates instantly and emotionally. I believe in balancing function with beauty —
-                every color, typeface, and element choice serves a purpose in telling a cohesive, human story.
+                Great design communicates instantly and emotionally. I balance function with beauty, ensuring
+                every element holds meaning and purpose.
               </p>
             </div>
           </section>
+
         </div>
       </div>
 
-      {/* ✅ Global Footer */}
+      {/* Global Footer */}
       <Footer />
     </>
   );

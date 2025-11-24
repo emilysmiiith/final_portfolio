@@ -1,7 +1,10 @@
-// src/App.jsx - CORRECTED VERSION
+// src/App.jsx — FIXED VERSION
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
+import ProjectNavbar from './components/ProjectNavbar';
+
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -10,12 +13,27 @@ import GraphicDesign from './pages/GraphicDesign';
 import UxUiDesign from './pages/UxUiDesign';
 
 function App() {
+  const location = useLocation();
+
+  // Routes that should use ProjectNavbar instead of regular Navbar
+  const projectPages = [
+    "/projects",
+    "/media",
+    "/graphic-design",
+    "/ux-ui-design"
+  ];
+
+  const useProjectNavbar = projectPages.includes(location.pathname);
+
   return (
     <>
-      <Navbar />
+      {useProjectNavbar ? <ProjectNavbar /> : <Navbar />}
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        
+        {/* project pages */}
         <Route path="/projects" element={<Projects />} />
         <Route path="/media" element={<Media />} />
         <Route path="/graphic-design" element={<GraphicDesign />} />

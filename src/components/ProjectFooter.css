@@ -1,15 +1,17 @@
+/* INVERTED FOOTER — solid dark brown background */
+
 .project-footer {
-  background: #442B12;
+  background: #442B12; /* ← SOLID ONLY */
   color: #FFFDF1;
   padding: 6rem 4rem;
-  margin-top: 8rem;
-  border-radius: 40px 40px 0 0;
-  border-top: 1px solid #FFFDF1;
+  margin-top: -2rem;
   position: relative;
   z-index: 10;
+  border-radius: 40px 40px 0 0;
+  border-top: 1px solid #FFFDF1;
 }
 
-.footer-content {
+.project-footer-content {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -18,47 +20,68 @@
   gap: 4rem;
 }
 
-.footer-name {
-  font-family: 'Liu Jian Mao Cao', cursive;
-  font-size: 2.5rem;
-  color: #FFFDF1;
-  margin: 0;
+/* Left */
+.project-footer-section-name {
+  flex-basis: 50%;
 }
 
-.footer-section-links {
-  display: flex;
+.project-footer-name {
+  font-family: 'Liu Jian Mao Cao', cursive;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 0;
+  color: #FFFDF1;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* Right */
+.project-footer-section-links {
+  flex-basis: 50%;
   gap: 6rem;
+  display: flex;
   justify-content: flex-end;
 }
 
-.footer-links-column {
+.project-footer-links-column {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 }
 
-.footer-link {
+.project-footer-link {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   font-size: 1rem;
   color: #FFFDF1;
+  opacity: 1;
   text-decoration: none;
   transition: opacity 0.3s ease;
+  line-height: 1.5;
 }
 
-.footer-link:hover {
-  opacity: 0.6;
+.project-footer-link:hover {
+  opacity: 0.5;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .project-footer {
+    padding: 4rem 3rem;
   }
 
-  .footer-section-links {
+  .project-footer-content {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .project-footer-section-name {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .project-footer-section-links {
     justify-content: center;
     gap: 3rem;
   }
@@ -70,13 +93,17 @@
     border-radius: 24px 24px 0 0;
   }
 
-  .footer-name {
+  .project-footer-name {
     font-size: 1.8rem;
   }
 
-  .footer-section-links {
+  .project-footer-section-links {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+  }
+
+  .project-footer-links-column {
+    text-align: center;
   }
 }

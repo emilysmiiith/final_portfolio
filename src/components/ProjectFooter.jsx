@@ -4,21 +4,36 @@ import './ProjectFooter.css';
 const ProjectFooter = () => {
   return (
     <footer className="project-footer">
-      <div className="footer-content">
-        <div className="footer-section-name">
-          <h2 className="footer-name">Emily Rianna Smith</h2>
+      <div className="project-footer-content">
+
+        {/* LEFT NAME */}
+        <div className="project-footer-section-name">
+          <h2 className="project-footer-name">Emily Rianna Smith</h2>
         </div>
-        <div className="footer-section-links">
-          <div className="footer-links-column">
-            <a href="/about" className="footer-link">About</a>
-            <a href="/projects" className="footer-link">Projects</a>
-            <a href="/contact" className="footer-link">Contact</a>
+
+        {/* RIGHT LINKS */}
+        <div className="project-footer-section-links">
+          <div className="project-footer-links-column">
+            <a
+              href="https://www.linkedin.com/in/your-linkedin-username"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-footer-link"
+            >
+              <span>Linkedin</span>
+            </a>
+            <a href="mailto:emily.smiiith@gmail.com" className="project-footer-link">
+              <span>Email</span>
+            </a>
           </div>
-          <div className="footer-links-column">
-            <a href="mailto:emily.smiiith@gmail.com" className="footer-link">Email</a>
-            <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" rel="noopener noreferrer" className="footer-link">LinkedIn</a>
+
+          <div className="project-footer-links-column">
+            <a href="/" className="project-footer-link"><span>Home</span></a>
+            <a href="/about" className="project-footer-link"><span>About</span></a>
+            <a href="/projects" className="project-footer-link"><span>Projects</span></a>
           </div>
         </div>
+
       </div>
     </footer>
   );

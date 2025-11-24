@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './About.css';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import '../styles/global.css';
+
 import meImage from '../assets/images/me.png';
 import littleMeImage from '../assets/images/littleme.png';
 import travelImage from '../assets/images/travel.png';
 import repeatingBackgroundImage from '../assets/images/background.png';
-import topBannerImage from '../assets/images/line_pages-01.png';
 
 const About = () => {
+
+  /* -----------------------------------------
+      🔥 PAGE-SPECIFIC METADATA
+     ----------------------------------------- */
+  useEffect(() => {
+    const title = "About – Emily Rianna Smith | Creative Designer & Storyteller";
+    const desc =
+      "Learn more about Emily Rianna Smith — a creative designer focused on emotional storytelling, UX/UI, media, and graphic design. From island beginnings to a passion-driven career.";
+    const image = "https://www.yourwebsite.com/og/og-about.jpg";
+
+    document.title = title;
+    document.querySelector("meta[name='description']")?.setAttribute("content", desc);
+    document.querySelector("meta[property='og:title']")?.setAttribute("content", title);
+    document.querySelector("meta[property='og:description']")?.setAttribute("content", desc);
+    document.querySelector("meta[property='og:image']")?.setAttribute("content", image);
+  }, []);
+  /* ----------------------------------------- */
+
   const aboutImages = [
     {
       src: littleMeImage,
@@ -25,14 +43,6 @@ const About = () => {
 
   return (
     <>
-      <head>
-        <title>About — Emily Rianna Smith | Creative Designer</title>
-        <meta
-          name="description"
-          content="Get to know Emily Rianna Smith — a creative designer blending empathy, art, and storytelling into her design philosophy."
-        />
-      </head>
-
       <div className="about-container">
         <Navbar />
 
@@ -53,6 +63,7 @@ const About = () => {
         </div>
 
         <main className="main-content">
+          
           {/* HERO SECTION */}
           <section className="section hero-section" aria-labelledby="hero-heading">
             <div className="section-content">
@@ -68,11 +79,12 @@ const About = () => {
                     </p>
                   </div>
                 </div>
+
                 <div className="hero-right-column">
                   <div className="hero-image-container">
                     <img
                       src={meImage}
-                      alt="Emily Rianna Smith portrait"
+                      alt="Portrait of Emily Rianna Smith"
                       className="metop-image"
                     />
                   </div>
@@ -88,6 +100,7 @@ const About = () => {
                 <h1 id="story-heading">my story</h1>
                 <h2>from a small island to a creative journey</h2>
               </div>
+
               <div
                 className="about-collage"
                 role="group"
@@ -105,6 +118,7 @@ const About = () => {
                   </div>
                 ))}
               </div>
+
               <div className="story-text">
                 <p>
                   I grew up on a small island off the coast of Vancouver, where creativity
@@ -127,6 +141,7 @@ const About = () => {
                 <h1 id="values-heading">values</h1>
                 <h2>what drives my creative work</h2>
               </div>
+
               <p>
                 Empathy, authenticity, and curiosity — these three guide my design process.
                 They remind me to listen deeply, to create with intention, and to approach
@@ -142,6 +157,7 @@ const About = () => {
                 <h1 id="skills-heading">skills</h1>
                 <h2>tools that bring stories to life</h2>
               </div>
+
               <div className="skills-grid">
                 <div className="skills-column">
                   <h1>creative tools</h1>
@@ -151,6 +167,7 @@ const About = () => {
                   <p>Adobe Premiere Pro</p>
                   <p>Figma</p>
                 </div>
+
                 <div className="skills-column">
                   <h1>core strengths</h1>
                   <p>Creative problem-solving</p>
@@ -169,11 +186,13 @@ const About = () => {
                 <h1 id="forward-heading">looking ahead</h1>
                 <h2>continuing the journey</h2>
               </div>
+
               <p>
                 I’m inspired by human stories and emotional design — always striving to
                 create something that resonates deeply with others. Let’s make something
                 meaningful together.
               </p>
+
               <div className="cta-buttons">
                 <a
                   href="/files/Emily-Rianna-Smith-Resume.pdf"
@@ -186,6 +205,7 @@ const About = () => {
               </div>
             </div>
           </section>
+
         </main>
 
         <Footer />

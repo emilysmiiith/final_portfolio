@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './UxUiDesign.css';
-import Footer from '../components/Footer';
-import ProjectNavbar from '../components/ProjectNavbar'; // ✅ Import Navbar
+import Footer from '../components/ProjectFooter';
+import ProjectNavbar from '../components/ProjectNavbar';
 import imageSvg from '../assets/image.svg';
 
 const SlideImage = React.memo(({ index, total, path, projectName }) => (
   <div className="slide-container">
-    <img 
-      src={`${path}slide-${index}.png`} 
+    <img
+      src={`${path}slide-${index}.png`}
       alt={`${projectName} slide ${index}`}
       className="slide-image"
       loading={index <= 2 ? "eager" : "lazy"}
@@ -17,6 +17,28 @@ const SlideImage = React.memo(({ index, total, path, projectName }) => (
 ));
 
 const UxUiDesign = () => {
+
+  // ⭐⭐⭐ PAGE-SPECIFIC METADATA (correct placement)
+  useEffect(() => {
+    const title = "UX/UI Design – Emily Rianna Smith | Human-Centered Digital Design";
+    const desc =
+      "Explore UX/UI case studies by Emily Rianna Smith — including app redesigns, research-led workflows, and human-centered interface design.";
+    const image = "https://www.yourwebsite.com/og/og-uxui.jpg";
+
+    document.title = title;
+    document.querySelector("meta[name='description']")?.setAttribute("content", desc);
+
+    document.querySelector("meta[property='og:title']")?.setAttribute("content", title);
+    document.querySelector("meta[property='og:description']")?.setAttribute("content", desc);
+    document.querySelector("meta[property='og:image']")?.setAttribute("content", image);
+
+    document.querySelector("meta[name='twitter:title']")?.setAttribute("content", title);
+    document.querySelector("meta[name='twitter:description']")?.setAttribute("content", desc);
+    document.querySelector("meta[name='twitter:image']")?.setAttribute("content", image);
+  }, []);
+  // ⭐⭐⭐ END METADATA
+
+
   const uxuiProjects = [
     {
       id: 'insight-timer',
@@ -47,34 +69,32 @@ const UxUiDesign = () => {
       slideCount: 18,
       slidePath: './slides/pinpal/',
       pdfPath: '../assets/slides/pinpal.pdf',
-    },
+    }
   ];
 
   return (
     <>
-      {/* ✅ Navbar appears on all project pages */}
       <ProjectNavbar />
 
       <div className="uxui-container">
-        {/* Static SVG Background */}
-        <div className="svg-static">
+
+        <div className="svg-static" aria-hidden="true">
           <img src={imageSvg} alt="" className="svg-image-static" aria-hidden="true" />
         </div>
 
-        {/* Page Content */}
         <div className="uxui-content">
-          {/* Hero Section */}
+
           <section className="section hero-section">
             <div className="section-content">
               <h2 className="section-subtitle">human-centered design</h2>
               <h1 className="section-title">ux/ui design</h1>
               <p className="journey-text">
-                UX/UI design lets me solve real problems for real people — turning complex user journeys into effortless experiences through research and empathy.
+                UX/UI design lets me solve real problems for real people — turning complex user journeys
+                into effortless experiences through research and empathy.
               </p>
             </div>
           </section>
 
-          {/* Projects */}
           {uxuiProjects.map((p, idx) => (
             <section key={p.id} className="section">
               <div className="section-content">
@@ -93,12 +113,14 @@ const UxUiDesign = () => {
                   <div className="project-overview">
                     <h3 className="overview-title">Project Goal</h3>
                     <p className="overview-description">{p.description}</p>
+
                     <div className="overview-timeline">
                       <div><strong>Tools:</strong> {p.tools.join(', ')}</div>
                       <div><strong>Category:</strong> {p.category}</div>
                     </div>
 
                     <h4 className="presentation-title">📄 Case Study Slides</h4>
+
                     <div className="slides-gallery">
                       {Array.from({ length: p.slideCount }, (_, i) => (
                         <SlideImage
@@ -109,11 +131,17 @@ const UxUiDesign = () => {
                           projectName={p.title}
                         />
                       ))}
-                      <div className="pdf-controls">
-                        <a href={p.pdfPath} target="_blank" rel="noopener noreferrer" className="pdf-download">
-                          Download PDF ↗
-                        </a>
-                      </div>
+                    </div>
+
+                    <div className="pdf-controls">
+                      <a
+                        href={p.pdfPath}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="pdf-download"
+                      >
+                        Download PDF ↗
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -121,19 +149,19 @@ const UxUiDesign = () => {
             </section>
           ))}
 
-          {/* Design Philosophy Section */}
           <section className="section">
             <div className="section-content">
               <h2 className="section-subtitle">design philosophy</h2>
               <p className="journey-text">
-                Great UX design is invisible — it just works. I design with empathy, research, and iteration, turning complex problems into intuitive, delightful experiences.
+                Great UX design is invisible — it just works. I design with empathy, research, and iteration,
+                turning complex problems into intuitive, delightful experiences.
               </p>
             </div>
           </section>
+
         </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </>
   );
