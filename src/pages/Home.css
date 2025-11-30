@@ -1,76 +1,80 @@
-* {
+/* ===============================
+   BASE STYLES - HOME PAGE ONLY
+   =============================== */
+
+.home-container * {
   box-sizing: border-box;
 }
 
-html {
+.home-container {
   scroll-behavior: smooth;
+  position: relative;
+  background: linear-gradient(135deg, #FFFDF1 0%, #F8F6E8 100%);
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow: visible;
+  padding-top: 120px; /* Reduced from 100px for better spacing */
 }
 
-body {
-  margin: 0;
+/* ===============================
+   TYPOGRAPHY - HOME PAGE
+   =============================== */
+
+.home-main-content h1,
+.home-section h1,
+.home-hero-section h1,
+.home-features-section h1,
+.home-about-section h1,
+.home-resume-section h1 {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem)!important;
+  color: #442B12!important;
+  line-height: 1.2!important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  letter-spacing: 0.17em!important;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
-  background: #FFFDF1;
-  overflow-x: hidden;
-  overflow-x: hidden;
 }
 
-h1 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 1000;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: #000;
-  margin: 0 0 1rem 0;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  text-transform: lowercase;
-}
-
-h2 {
+.home-main-content h2,
+.home-section h2,
+.home-hero-section h2,
+.home-features-section h2,
+.home-about-section h2,
+.home-resume-section h2 {
   font-family: 'Liu Jian Mao Cao', cursive;
   font-weight: 900;
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-size: 2rem;
   color: #442B12;
   margin: 0 0 1rem 0;
   line-height: 1.4;
 }
 
-.work-section .section-header h2 {
+.home-main-content p,
+.home-section p,
+.home-hero-section p,
+.home-features-section p,
+.home-about-section p,
+.home-resume-section p {
   font-family: 'Roboto', sans-serif !important;
-  font-weight: 100 !important;
-  font-size: clamp(0.9rem, 2vw, 1.4rem) !important;
-  text-transform: none !important;
-  color: #000 !important;
-  letter-spacing: 0.05em;
-  max-width: 30ch;
-  margin-left: auto !important;
-  margin-right: 0 !important;
-  text-align: right;
-}
-
-p {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   color: #442B12;
-  margin: 0 0 1rem 0;
-  line-height: 1.6;
-  opacity: 0.5;
-}
-
-.home-container {
-  position: relative;
-  background: linear-gradient(135deg, #FFFDF1 0%, #F8F6E8 100%);
-  width: 100%;
-  max-width: 100vw;
-  min-height: 100vh; /* Always fills screen, expands with content */
-  overflow: visible;
+  line-height: 1.2;
+  opacity: 1 !important;
+  margin: 0 !important;
+  letter-spacing: 0.17em;
+  padding: 0;
 }
 
 
+/* ===============================
+   LAYOUT CONTAINERS
+   =============================== */
 
-/* Keep background-effects full-length but independent */
-.background-effects {
+.home-background-effects {
   position: absolute;
   top: 0;
   left: 0;
@@ -81,110 +85,75 @@ p {
   z-index: 1;
 }
 
-
-/* ===============================
-   RESPONSIVE LINE BANNER SETTINGS (FIXED + SCALED + MOVED DOWN 80PX)
-   =============================== */
-
-.top-banner-wrapper {
-  position: fixed;           /* ✅ Keeps the line drawing pinned to the top */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;             /* ✅ Full viewport height for parallax effect */
-  z-index: 1;
-  pointer-events: none;
-  overflow: hidden;          /* hides overflow edges cleanly */
-}
-
-/* ✅ FIXED LINE DRAWING IMAGE THAT SCALES + IS MOVED DOWN */
-.top-banner-image-container {
-  width: 100%;
-  height: 100%;
-  background-image: url('../assets/images/line_pages-01.png');
-  background-repeat: no-repeat;
-
-  /* 👇 moves the image down by 80px */
-  background-position: center 80px;
-
-  background-attachment: fixed;
-  background-size: calc(100vw * 0.8) auto;
-
-  /* ✅ subtle scale for smaller visual footprint */
-  transform: scale(0.9);
-  transform-origin: center top;
-
-  opacity: 1;
-  pointer-events: none;
-}
-
-/* ====== RESPONSIVE BREAKPOINTS ====== */
-@media (max-width: 1200px) {
-  .top-banner-image-container {
-    background-size: calc(100vw * 0.9) auto; /* slightly larger for smaller screens */
-    background-position: center 60px; /* reduce offset a bit on mid screens */
-    transform: scale(0.95);
-  }
-}
-
-@media (max-width: 768px) {
-  .top-banner-image-container {
-    background-size: cover; /* fills on mobile for best visibility */
-    background-position: center 40px; /* smaller offset on phones */
-    transform: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .top-banner-image-container {
-    background-size: cover;
-    background-position: center 30px;
-    transform: none;
-  }
-}
-
-
-
-/* NEW: Style for the repeating background layer (Z-index 3) */
-.repeating-background-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: 140% 140%;
-  background-position: center 80px;
-  z-index: 3; /* Above the line image (z-index 2) and orbs (z-index 1) */
-  pointer-events: none;
-}
-
-
-/* CONTENT AREA */
-.top-banner-image {
-  display: none;
-}
-
-.main-content {
+.home-main-content {
   position: relative;
-  z-index: 10; /* Highest z-index for content */
+  z-index: 10;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0;
- 
 }
 
-.section {
-  min-height: 80vh;
+/* ===============================
+   GRADIENT ORBS - HOME PAGE
+   =============================== */
+
+.home-gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.home-gradient-orb.home-orb-1 {
+  width: 1200px;
+  height: 1200px;
+  background: radial-gradient(circle at center, rgba(162, 177, 186, 0.9) 0%, rgba(162, 177, 186, 0) 70%);
+  top: 600px;
+  right: -30%;
+}
+
+.home-gradient-orb.home-orb-2 {
+  width: 1400px;
+  height: 1400px;
+  background: radial-gradient(circle at center, rgba(162, 177, 186, 0.9) 0%, rgba(162, 177, 186, 0) 70%);
+  top: 1800px;
+  left: -40%;
+}
+
+.home-gradient-orb.home-orb-3 {
+  width: 1300px;
+  height: 1300px;
+  background: radial-gradient(circle at center, rgba(162, 177, 186, 0.9) 0%, rgba(162, 177, 186, 0) 70%);
+  top: 3000px;
+  right: -35%;
+}
+
+.home-gradient-orb.home-orb-4 {
+  width: 1400px;
+  height: 1400px;
+  background: radial-gradient(circle at center, rgba(162, 177, 186, 0.9) 0%, rgba(162, 177, 186, 0) 70%);
+  top: 4600px;
+  left: -25%;
+}
+
+/* ===============================
+   SECTION STYLES - HOME PAGE
+   =============================== */
+
+.home-section {
+  width: 100%;
+  padding-top: clamp(6rem, 12vh, 10rem); /* Reduced from 18rem */
+  padding-bottom: clamp(6rem, 12vh, 10rem); /* Reduced from 18rem */
+  position: relative;
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(3rem, 8vh, 6rem) 0;
-  position: relative;
-  width: 100%;
 }
 
-.section-content {
+.home-section-content {
   width: 100%;
   max-width: 1200px;
   background: none !important;
@@ -198,92 +167,45 @@ p {
   z-index: 5;
 }
 
-.section-header {
+.home-section-header {
   text-align: center;
-  margin-bottom: clamp(2rem, 5vw, 3rem);
+  margin-bottom: clamp(8rem, 12vw, 10rem);
 }
 
-.section-body {
+.home-section-body {
   text-align: center;
 }
 
-/* HERO SECTION */
-.hero-section {
+/* ===============================
+   HERO SECTION - HOME PAGE
+   =============================== */
+
+.home-hero-section {
+  padding-top: clamp(2rem, 4vh, 4rem); /* Reduced to move content up */
+  padding-bottom: clamp(8rem, 15vh, 12rem);
   min-height: auto;
   align-items: center;
-  padding-top: 0;
 }
 
-.hero-section h1 {
-  font-size: clamp(2.2rem, 8vw, 3.5rem);
-}
-
-.hero-section h2 {
-font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
-  text-align: left;
-  white-space: normal;
-  margin: 0 auto;
-}
-
-.hero-section .hero-scroll-prompt p {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
-  color: #442B12;
-  line-height: 1.6;
-  opacity: 0.7;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-}
-
-.hero-heading-and-prompt-wrapper {
-  display: flex;
-  align-items: flex-end;
-  gap: clamp(1rem, 3vw, 2rem);
-  width: 100%;
-  justify-content: center;
-}
-
-.hero-scroll-prompt {
-  order: 2;
-  align-self: flex-end;
-  margin-right: -1rem;
-  margin-left: 0;
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-  text-align: right;
-  width: 100%;
-}
-
-.hero-text {
-  order: 1;
-  margin-bottom: 0;
-  width: 100%;
-  text-align: left;
-  padding: 0;
-}
-
-.hero-section .hero-scroll-prompt p {
-  font-family: 'Roboto', sans-serif !important;
-  font-weight: 300 !important;
-  font-size: clamp(0.9rem, 2vw, 1.1rem);
-  color: #442B12;
-  line-height: 1.2;
-  opacity: 1 !important;
-  margin: 0 !important;
-  padding: 0;
-  text-align: right;
-}
-
-.hero-section .section-content {
+.home-hero-section .home-section-content {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
 }
 
-.hero-content-wrapper {
+.home-hero-section h1 {
+  font-size: clamp(2.2rem, 8vw, 3.5rem);
+}
+
+.home-hero-section h2 {
+  
+  text-align: left;
+  white-space: nowrap;
+  margin: 0 auto;
+}
+
+.home-hero-content-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -295,17 +217,17 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
-.hero-left-column {
+.home-hero-left-column {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   flex: 1;
-  max-width: 90%;
+  max-width: 100%;
   padding-right: 0;
 }
 
-.hero-right-column {
+.home-hero-right-column {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -314,7 +236,56 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   padding-left: clamp(1rem, 2vw, 2rem);
 }
 
-.hero-image-container {
+.home-hero-heading-and-prompt-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: clamp(1rem, 3vw, 2rem);
+    margin-top: -150px; /* Pull it up - adjust this value */
+}
+
+.home-hero-text {
+  order: 1;
+  flex: 1.6;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.home-hero-line-art {
+  order: 2;
+  flex: 0.6;
+  display: flex;
+  justify-content: flex-end;
+  position: relative; /* Add this */
+   overflow: visible; /* Allow image to overflow */
+}
+
+.home-hero-line-art img {
+  width: clamp(200px, 26vw, 460px);
+  height: auto;
+  margin-top: clamp(1.5rem, 3vw, 3rem);
+  position: relative; /* Add this */
+  top: 100px; /* Adjust this to move it down - increase for lower */
+  left: 10rem; /* Use 'left' instead of 'margin-left' to shift only the image */
+}
+
+.home-hero-scroll-prompt {
+  order: 3;
+  flex: 0.7;
+  text-align: right;
+  position: relative;
+ bottom: -6rem;  /* More negative = further down */
+  left: -2rem;    /* Negative value = move left */
+  margin-top: 0;
+}
+
+.home-hero-section .home-hero-scroll-prompt p {
+  line-height: 2.1 !important;
+  text-align: right;
+}
+
+.home-hero-image-container {
   width: clamp(350px, 45vw, 600px);
   height: clamp(350px, 45vw, 600px);
   flex-shrink: 0;
@@ -322,14 +293,41 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   overflow: visible;
 }
 
-.metop-image {
+.home-metop-image {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-/* VIDEO */
-.video-container {
+/* ===============================
+   WORK SECTION - HOME PAGE
+   =============================== */
+
+.home-work-section {
+  margin-top: clamp(8rem, 15vh, 12rem); /* Reduced from 20rem */
+  margin-bottom: clamp(8rem, 15vh, 12rem); /* Reduced from 22rem */
+}
+
+.home-work-section .home-section-header h2 {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: #442B12;
+  line-height: 1.2;
+  opacity: 1 !important;
+  margin: 0 !important;
+  letter-spacing: 0.17em;
+  padding: 0;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  text-align: right;
+}
+
+/* ===============================
+   VIDEO SECTION - HOME PAGE
+   =============================== */
+
+.home-video-container {
   max-width: 700px;
   margin: 0 auto;
   width: 100%;
@@ -347,8 +345,11 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   display: block;
 }
 
-/* PROJECTS */
-.projects-grid {
+/* ===============================
+   PROJECTS SECTION - HOME PAGE
+   =============================== */
+
+.home-projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: clamp(1.5rem, 4vw, 3rem);
@@ -358,7 +359,7 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
-.project-card {
+.home-project-card {
   position: relative;
   height: clamp(220px, 40vw, 280px);
   border-radius: clamp(12px, 3vw, 16px);
@@ -366,7 +367,7 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   margin: 0 auto;
 }
 
-.project-image-container {
+.home-project-image-container {
   position: relative;
   width: 100%;
   height: 100%;
@@ -374,7 +375,7 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   overflow: hidden;
 }
 
-.project-image {
+.home-project-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -384,24 +385,102 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   border-radius: clamp(12px, 3vw, 16px);
 }
 
-/* ===== ABOUT SECTION ===== */
-.about-section {
+/* ===============================
+   FEATURES SECTION - HOME PAGE
+   =============================== */
+
+.home-features-section {
   position: relative;
-  padding: clamp(6rem, 10vw, 9rem) 0;
+  margin-top: clamp(10rem, 18vh, 16rem); /* Reduced from 22rem */
+  margin-bottom: clamp(10rem, 18vh, 16rem); /* Reduced from 24rem */
+  padding: clamp(3rem, 6vw, 5rem) 0; /* Reduced from 5rem */
   text-align: center;
 }
-.about-title {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 1000;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: #000;
-  text-transform: lowercase;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
+
+.home-features-collage {
+  position: relative;
+  width: clamp(320px, 80vw, 900px);
+  height: clamp(400px, 90vw, 650px);
+  margin: clamp(2rem, 5vw, 3rem) auto 0;
 }
 
-.about-subtitle {
+.home-feature-image {
+  position: absolute;
+  border-radius: clamp(18px, 2vw, 26px);
+  overflow: hidden;
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  animation: homeFloatSoft 12s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.home-collage-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.home-feature-image:hover {
+  transform: translateY(-18px) scale(1.04);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.home-feature-image:hover .home-collage-img {
+  transform: scale(1.08);
+}
+
+.home-feature-1 {
+  width: 45%;
+  height: 55%;
+  top: 5%;
+  left: 8%;
+  z-index: 1;
+}
+
+.home-feature-2 {
+  width: 55%;
+  height: 60%;
+  top: 20%;
+  right: 5%;
+  z-index: 2;
+}
+
+.home-feature-3 {
+  width: 50%;
+  height: 58%;
+  bottom: 5%;
+  left: 20%;
+  z-index: 3;
+}
+
+/* ===============================
+   ABOUT SECTION - HOME PAGE
+   =============================== */
+
+.home-about-section {
+  position: relative;
+  margin-top: clamp(10rem, 18vh, 16rem); /* Reduced from 24rem */
+  margin-bottom: clamp(10rem, 18vh, 16rem); /* Reduced from 26rem */
+  padding: clamp(4rem, 7vw, 6rem) 0; /* Reduced from 6rem */
+  text-align: center;
+}
+
+.home-about-title {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem) !important; 
+  color: #442B12!important;
+  line-height: 1.2!important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  letter-spacing: 0.17em !important;
+  padding: 0;
+}
+
+.home-about-subtitle {
   font-family: 'Liu Jian Mao Cao', cursive;
   font-weight: 900;
   font-size: clamp(1rem, 2.5vw, 1.4rem);
@@ -410,25 +489,24 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   line-height: 1.4;
 }
 
-
-.about-collage {
+.home-about-collage {
   position: relative;
   width: clamp(320px, 85vw, 900px);
   height: clamp(420px, 90vw, 600px);
   margin: 0 auto;
 }
 
-.about-image-wrapper {
+.home-about-image-wrapper {
   position: absolute;
   border-radius: clamp(18px, 2vw, 26px);
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   transition: transform 0.8s ease, box-shadow 0.8s ease;
-  animation: floatSoft 12s ease-in-out infinite;
+  animation: homeFloatSoft 12s ease-in-out infinite;
   cursor: pointer;
 }
 
-.about-image {
+.home-about-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -436,18 +514,17 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   transition: transform 0.8s ease;
 }
 
-.about-image-wrapper:hover {
+.home-about-image-wrapper:hover {
   transform: translateY(-15px) scale(1.04);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
   z-index: 10;
 }
 
-.about-image-wrapper:hover .about-image {
+.home-about-image-wrapper:hover .home-about-image {
   transform: scale(1.08);
 }
 
-/* === Overlapping layout positions === */
-.about-1 {
+.home-about-1 {
   width: 45%;
   height: 55%;
   top: 0;
@@ -455,7 +532,7 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   z-index: 1;
 }
 
-.about-2 {
+.home-about-2 {
   width: 48%;
   height: 58%;
   top: 15%;
@@ -463,7 +540,7 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   z-index: 2;
 }
 
-.about-3 {
+.home-about-3 {
   width: 50%;
   height: 60%;
   bottom: 5%;
@@ -471,15 +548,7 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   z-index: 3;
 }
 
-/* Subtle floating animation reused */
-@keyframes floatSoft {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
-}
-
-
-.image-container {
+.home-image-container {
   position: relative;
   overflow: hidden;
   border-radius: clamp(8px, 2vw, 12px);
@@ -487,253 +556,14 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   width: 100%;
 }
 
-.about-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ==========================================
-   GRADIENT ORBS — Less Blurred, More Visible
-   ========================================== */
-.gradient-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px); /* ↓ reduced from 250px for sharper edges */
-  opacity: 0.7; /* ↑ increased from 0.4 for more visibility */
-  z-index: 1;
-}
-
-.gradient-orb.orb-1 {
-  width: 1200px;
-  height: 1200px;
-  background: radial-gradient(
-    circle at center,
-    rgba(162, 177, 186, 0.9) 0%,
-    rgba(162, 177, 186, 0) 70%
-  );
-  top: 600px;
-  right: -30%;
-}
-
-.gradient-orb.orb-2 {
-  width: 1400px;
-  height: 1400px;
-  background: radial-gradient(
-    circle at center,
-    rgba(162, 177, 186, 0.9) 0%,
-    rgba(162, 177, 186, 0) 70%
-  );
-  top: 1800px;
-  left: -40%;
-}
-
-.gradient-orb.orb-3 {
-  width: 1300px;
-  height: 1300px;
-  background: radial-gradient(
-    circle at center,
-    rgba(162, 177, 186, 0.9) 0%,
-    rgba(162, 177, 186, 0) 70%
-  );
-  top: 3000px;
-  right: -35%;
-}
-
-.gradient-orb.orb-4 {
-  width: 1400px;
-  height: 1400px;
-  background: radial-gradient(
-    circle at center,
-    rgba(162, 177, 186, 0.9) 0%,
-    rgba(162, 177, 186, 0) 70%
-  );
-  top: 4600px;
-  left: -25%;
-}
-
-
-/* MEDIA QUERIES */
-@media (max-width: 1200px) {
-  .main-content { max-width: 100%; padding: 0; }
-  .projects-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-width: 900px; }
-}
-
-@media (max-width: 1024px) {
-  .hero-content-wrapper { flex-direction: column; gap: clamp(2rem, 5vw, 3rem); padding: 0 clamp(2rem, 5vw, 4rem); }
-  .hero-left-column, .hero-right-column { max-width: 100%; padding: 0; align-items: center; text-align: center; }
-  .hero-section .hero-scroll-prompt p, .hero-section h2 { text-align: center; }
-  .hero-image-container { order: 3; margin-top: clamp(2rem, 5vw, 3rem); }
-  .hero-scroll-prompt { order: 1; margin-bottom: clamp(1rem, 2vw, 1.5rem); }
-  .hero-text { order: 2; }
-  .about-grid { grid-template-columns: 1fr; gap: clamp(2rem, 5vw, 3rem); text-align: center; }
-}
-
-@media (max-width: 768px) {
-  .section { min-height: auto; padding: clamp(2rem, 6vh, 4rem) 0; }
-  .hero-section { display: flex; flex-direction: column; align-items: center; }
-  .projects-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); max-width: 500px; }
-  .about-images { grid-template-columns: repeat(2, 1fr); max-width: 400px; }
-  .hero-image-container { width: clamp(250px, 50vw, 400px); height: clamp(250px, 50vw, 400px); }
-}
-
-@media (max-width: 480px) {
-  .projects-grid { grid-template-columns: 1fr; max-width: 300px; }
-  .project-card { height: clamp(180px, 40vw, 220px); }
-  .about-images { grid-template-columns: 1fr; max-width: 250px; }
-  .home-video { height: clamp(200px, 45vw, 250px); }
-}
-
-.features-section {
-  position: relative;
-  padding: clamp(5rem, 10vw, 8rem) 0;
-  text-align: center;
-}
-
-.features-collage {
-  position: relative;
-  width: clamp(320px, 80vw, 900px);
-  height: clamp(400px, 90vw, 650px);
-  margin: clamp(2rem, 5vw, 3rem) auto 0;
-}
-
-/* Each image wrapper */
-.feature-image {
-  position: absolute;
-  border-radius: clamp(18px, 2vw, 26px);
-  overflow: hidden;
-  transition: transform 0.8s ease, box-shadow 0.8s ease;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  animation: floatSoft 12s ease-in-out infinite;
-  cursor: pointer;
-}
-
-/* Image element */
-.collage-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.8s ease;
-}
-
-.feature-image:hover {
-  transform: translateY(-18px) scale(1.04);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
-  z-index: 10;
-}
-
-.feature-image:hover .collage-img {
-  transform: scale(1.08);
-}
-
-/* Staggered collage layout */
-.feature-1 {
-  width: 45%;
-  height: 55%;
-  top: 5%;
-  left: 8%;
-  z-index: 1;
-}
-
-.feature-2 {
-  width: 55%;
-  height: 60%;
-  top: 20%;
-  right: 5%;
-  z-index: 2;
-}
-
-.feature-3 {
-  width: 50%;
-  height: 58%;
-  bottom: 5%;
-  left: 20%;
-  z-index: 3;
-}
-
-/* Subtle float motion */
-@keyframes floatSoft {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
-}
-
-/* ===== ULTRA SPACIOUS SECTION SPACING ===== */
-.section {
-  width: 100%;
-  padding-top: clamp(18rem, 35vh, 30rem);
-  padding-bottom: clamp(18rem, 35vh, 30rem);
-  position: relative;
-  min-height: auto;
-}
-
-/* HERO */
-.hero-section {
-  padding-top: clamp(20rem, 38vh, 34rem);
-  padding-bottom: clamp(20rem, 38vh, 34rem);
-}
-
-/* WORK SECTION */
-.work-section {
-  margin-top: clamp(20rem, 36vh, 32rem);
-  margin-bottom: clamp(22rem, 40vh, 36rem);
-}
-
-/* FEATURES SECTION */
-.features-section {
-  margin-top: clamp(22rem, 40vh, 38rem);
-  margin-bottom: clamp(24rem, 42vh, 40rem);
-}
-
-/* ABOUT SECTION */
-.about-section {
-  margin-top: clamp(24rem, 45vh, 42rem);
-  margin-bottom: clamp(26rem, 48vh, 44rem);
-}
-
-/* Header spacing inside sections */
-.section-header {
-  margin-bottom: clamp(8rem, 12vw, 10rem);
-}
-
-/* ===== MOBILE RESPONSIVE SPACING ===== */
-@media (max-width: 1024px) {
-  .section {
-    padding-top: clamp(10rem, 26vh, 18rem);
-    padding-bottom: clamp(10rem, 26vh, 18rem);
-  }
-
-  .work-section,
-  .features-section,
-  .about-section {
-    margin-top: clamp(10rem, 24vh, 18rem);
-    margin-bottom: clamp(12rem, 28vh, 20rem);
-  }
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding-top: clamp(8rem, 22vh, 14rem);
-    padding-bottom: clamp(8rem, 22vh, 14rem);
-  }
-
-  .features-section,
-  .about-section,
-  .work-section {
-    margin-top: clamp(8rem, 20vh, 14rem);
-    margin-bottom: clamp(9rem, 22vh, 16rem);
-  }
-}
-
 /* ===============================
-   RESUME DOWNLOAD SECTION (LIFTED HIGHER)
+   RESUME SECTION - HOME PAGE
    =============================== */
 
-.resume-section {
+.home-resume-section {
   position: relative;
-  padding-top: clamp(2rem, 6vw, 4rem);   /* ⬇️ Less top space */
-  padding-bottom: clamp(8rem, 14vw, 12rem); /* ⬆️ More bottom space */
+  padding-top: clamp(2rem, 4vw, 3rem); /* Slightly reduced */
+  padding-bottom: clamp(6rem, 10vw, 10rem); /* Reduced from 8rem */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -741,8 +571,7 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   background: none;
 }
 
-
-.resume-card {
+.home-resume-card {
   background: rgba(255, 253, 241, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -755,22 +584,24 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   transition: all 0.4s ease;
 }
 
-.resume-card:hover {
+.home-resume-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 40px rgba(68, 43, 18, 0.25);
 }
 
-.resume-text h1 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: #000;
-  margin-bottom: 0.5rem;
-  text-transform: lowercase;
-  letter-spacing: -0.02em;
+.home-resume-text h1 {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem)!important;
+  color: #442B12!important;
+  line-height: 1.2!important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  letter-spacing: 0.17em!important;
+  padding: 0;
 }
 
-.resume-text h2 {
+.home-resume-text h2 {
   font-family: 'Liu Jian Mao Cao', cursive;
   font-weight: 400;
   font-size: clamp(1rem, 2.5vw, 1.4rem);
@@ -778,23 +609,24 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   margin-bottom: clamp(1.5rem, 4vw, 2rem);
 }
 
-.resume-text p {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
+.home-resume-text p {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   color: #442B12;
-  opacity: 0.5;
-  max-width: 45ch;
-  margin: 0 auto clamp(2rem, 5vw, 3rem);
-  line-height: 1.6;
+  line-height: 1.2;
+  opacity: 1 !important;
+  margin: 0 !important;
+  letter-spacing: 0.17em;
+  padding: 0;
 }
 
-.resume-download {
+.home-resume-download {
   display: flex;
   justify-content: center;
 }
 
-.resume-button {
+.home-resume-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -806,41 +638,172 @@ font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   transition: all 0.3s ease;
 }
 
-.resume-button p {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
+.home-resume-button p {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   color: #442B12;
-  opacity: 0.8;
+  line-height: 1.2;
+  opacity: 1 !important;
+  margin: 0 !important;
+  letter-spacing: 0.17em;
+  padding: 0;
 }
 
-.resume-button:hover {
+.home-resume-button:hover {
   background: rgba(68, 43, 18, 0.1);
   transform: translateY(-2px);
 }
 
-.resume-button:hover p {
+.home-resume-button:hover p {
   opacity: 1;
 }
 
-@media (max-width: 768px) {
-  .resume-card {
-    border-radius: 30px;
-    padding: clamp(1.5rem, 5vw, 3rem);
-  }
+/* ===============================
+   ANIMATIONS - HOME PAGE
+   =============================== */
 
-  .resume-section {
-    padding: clamp(2rem, 6vw, 4rem) 0; /* smaller for mobile too */
-    margin-top: clamp(4rem, 8vh, 6rem);
-  }
+@keyframes homeFloatSoft {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
 }
 
 
-/* Responsive */
+/* ===============================
+   RESPONSIVE MEDIA QUERIES - HOME PAGE
+   =============================== */
+
+@media (max-width: 1024px) {
+  .home-section {
+    padding-top: clamp(12rem, 28vh, 20rem);
+    padding-bottom: clamp(12rem, 28vh, 20rem);
+  }
+
+  .home-work-section,
+  .home-features-section,
+  .home-about-section {
+    margin-top: clamp(12rem, 26vh, 20rem);
+    margin-bottom: clamp(14rem, 30vh, 22rem);
+  }
+
+  .home-projects-grid {
+    max-width: 900px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .home-features-collage,
+  .home-about-collage {
+    transform: scale(0.9);
+  }
+}
+
 @media (max-width: 768px) {
-  .resume-card {
-    border-radius: 30px;
+  .home-hero-heading-and-prompt-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1rem, 4vw, 1.8rem);
+    
+  }
+
+  .home-hero-text {
+    order: 1;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .home-hero-line-art {
+    order: 2;
+    justify-content: center;
+  }
+
+.home-hero-line-art img {
+  width: clamp(150px, 20vw, 350px);  /* Reduced from clamp(200px, 26vw, 460px) */
+  height: auto;
+  margin-top: clamp(1.5rem, 3vw, 3rem);
+  position: relative;
+  left: 3rem;
+}
+
+  .home-hero-scroll-prompt {
+    order: 3;
+    text-align: center;
+    right: 0;
+    margin-top: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .home-section {
+    padding-top: clamp(8rem, 22vh, 14rem);
+    padding-bottom: clamp(8rem, 22vh, 14rem);
+  }
+
+  .home-work-section,
+  .home-features-section,
+  .home-about-section {
+    margin-top: clamp(8rem, 20vh, 14rem);
+    margin-bottom: clamp(10rem, 24vh, 16rem);
+  }
+
+  .home-projects-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+
+  .home-features-collage,
+  .home-about-collage {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .home-feature-image,
+  .home-about-image-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+  }
+
+  .home-collage-img,
+  .home-about-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .home-video {
+    height: clamp(200px, 55vw, 300px);
+  }
+
+  .home-resume-card {
     padding: clamp(1.5rem, 5vw, 3rem);
+    border-radius: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-projects-grid {
+    max-width: 300px;
+  }
+
+  .home-video {
+    height: clamp(180px, 50vw, 240px);
+  }
+
+  .home-features-collage,
+  .home-about-collage {
+    max-width: 280px;
+  }
+
+  .home-hero-line-art img {
+    width: clamp(180px, 75vw, 300px);
   }
 }

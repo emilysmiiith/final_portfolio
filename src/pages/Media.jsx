@@ -6,26 +6,55 @@ import imageSvg from '../assets/image.svg';
 
 const Media = () => {
   // ============================
-  // PAGE-SPECIFIC META TAGS
-  // ============================
-  useEffect(() => {
-    document.title = "Media & Film – Emily Rianna Smith | Creative Designer";
+// PAGE-SPECIFIC META TAGS
+// ============================
+useEffect(() => {
+  const title = "Media & Film – Emily Rianna Smith | Creative Designer";
 
-    const desc =
-      "Media production portfolio of Emily Rianna Smith featuring cinematic short films, editing work, and adventure photography.";
-    const image = "https://www.yourwebsite.com/og/og-media.jpg";
+  const desc =
+    "Media production portfolio of Emily Rianna Smith featuring cinematic short films, editing work, and adventure photography.";
 
-    document.querySelector("meta[name='description']")?.setAttribute("content", desc);
-    document
-      .querySelector("meta[property='og:title']")
-      ?.setAttribute("content", "Media & Film – Emily Rianna Smith");
-    document
-      .querySelector("meta[property='og:description']")
-      ?.setAttribute("content", desc);
-    document
-      .querySelector("meta[property='og:image']")
-      ?.setAttribute("content", image);
-  }, []);
+  const image = "https://www.yourwebsite.com/og/og-media.jpg";
+
+  document.title = title;
+
+  // Description
+  let metaDescription = document.querySelector("meta[name='description']");
+  if (!metaDescription) {
+    metaDescription = document.createElement("meta");
+    metaDescription.setAttribute("name", "description");
+    document.head.appendChild(metaDescription);
+  }
+  metaDescription.setAttribute("content", desc);
+
+  // OG Title
+  let ogTitle = document.querySelector("meta[property='og:title']");
+  if (!ogTitle) {
+    ogTitle = document.createElement("meta");
+    ogTitle.setAttribute("property", "og:title");
+    document.head.appendChild(ogTitle);
+  }
+  ogTitle.setAttribute("content", title);
+
+  // OG Description
+  let ogDesc = document.querySelector("meta[property='og:description']");
+  if (!ogDesc) {
+    ogDesc = document.createElement("meta");
+    ogDesc.setAttribute("property", "og:description");
+    document.head.appendChild(ogDesc);
+  }
+  ogDesc.setAttribute("content", desc);
+
+  // OG Image
+  let ogImage = document.querySelector("meta[property='og:image']");
+  if (!ogImage) {
+    ogImage = document.createElement("meta");
+    ogImage.setAttribute("property", "og:image");
+    document.head.appendChild(ogImage);
+  }
+  ogImage.setAttribute("content", image);
+
+}, []);
 
   // FIXED PATHS FOR GITHUB PAGES + HOSTPAPA
   const base = import.meta.env.BASE_URL;

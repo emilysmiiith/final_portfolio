@@ -17,61 +17,82 @@ const SlideImage = React.memo(({ index, total, path, projectName }) => (
 ));
 
 const UxUiDesign = () => {
+// ⭐⭐⭐ PAGE-SPECIFIC METADATA
+useEffect(() => {
+  const title = "UX/UI Design – Emily Rianna Smith | Human-Centered Digital Design";
 
-  // ⭐⭐⭐ PAGE-SPECIFIC METADATA (correct placement)
-  useEffect(() => {
-    const title = "UX/UI Design – Emily Rianna Smith | Human-Centered Digital Design";
-    const desc =
-      "Explore UX/UI case studies by Emily Rianna Smith — including app redesigns, research-led workflows, and human-centered interface design.";
-    const image = "https://www.yourwebsite.com/og/og-uxui.jpg";
+  const desc =
+    "Explore UX/UI case studies by Emily Rianna Smith — including app redesigns, research-led workflows, and human-centered interface design.";
 
-    document.title = title;
-    document.querySelector("meta[name='description']")?.setAttribute("content", desc);
+  const image = "https://www.yourwebsite.com/og/og-uxui.jpg";
 
-    document.querySelector("meta[property='og:title']")?.setAttribute("content", title);
-    document.querySelector("meta[property='og:description']")?.setAttribute("content", desc);
-    document.querySelector("meta[property='og:image']")?.setAttribute("content", image);
+  document.title = title;
 
-    document.querySelector("meta[name='twitter:title']")?.setAttribute("content", title);
-    document.querySelector("meta[name='twitter:description']")?.setAttribute("content", desc);
-    document.querySelector("meta[name='twitter:image']")?.setAttribute("content", image);
-  }, []);
-  // ⭐⭐⭐ END METADATA
+  // Description
+  let metaDescription = document.querySelector("meta[name='description']");
+  if (!metaDescription) {
+    metaDescription = document.createElement("meta");
+    metaDescription.setAttribute("name", "description");
+    document.head.appendChild(metaDescription);
+  }
+  metaDescription.setAttribute("content", desc);
 
+  // OG Title
+  let ogTitle = document.querySelector("meta[property='og:title']");
+  if (!ogTitle) {
+    ogTitle = document.createElement("meta");
+    ogTitle.setAttribute("property", "og:title");
+    document.head.appendChild(ogTitle);
+  }
+  ogTitle.setAttribute("content", title);
 
-  const uxuiProjects = [
-    {
-      id: 'insight-timer',
-      title: 'Insight Timer Redesign',
-      subtitle: 'Meditation App UX/UI Enhancement',
-      description:
-        'Redesigned the Insight Timer meditation app to simplify navigation, improve search flow, and enhance personalized content delivery.',
-      duration: '51 hours',
-      timeline: 'May 20 - May 29, 2025',
-      tools: ['Figma', 'Illustrator'],
-      type: 'Independent Project',
-      category: 'Mobile App Redesign',
-      slideCount: 31,
-      slidePath: './slides/insight/',
-      pdfPath: '../assets/slides/insight.pdf',
-    },
-    {
-      id: 'pinpal',
-      title: 'Pinpal Travel App',
-      subtitle: 'Social Travel Connection Platform',
-      description:
-        'Created an app concept that helps travelers find local events and connect with like-minded people before attending.',
-      duration: '23 hours',
-      timeline: 'Feb 14 - Apr 15, 2025',
-      tools: ['Figma', 'Illustrator'],
-      type: 'UX/UI Strategy Course',
-      category: 'Mobile App Concept',
-      slideCount: 18,
-      slidePath: './slides/pinpal/',
-      pdfPath: '../assets/slides/pinpal.pdf',
-    }
-  ];
+  // OG Description
+  let ogDesc = document.querySelector("meta[property='og:description']");
+  if (!ogDesc) {
+    ogDesc = document.createElement("meta");
+    ogDesc.setAttribute("property", "og:description");
+    document.head.appendChild(ogDesc);
+  }
+  ogDesc.setAttribute("content", desc);
 
+  // OG Image
+  let ogImage = document.querySelector("meta[property='og:image']");
+  if (!ogImage) {
+    ogImage = document.createElement("meta");
+    ogImage.setAttribute("property", "og:image");
+    document.head.appendChild(ogImage);
+  }
+  ogImage.setAttribute("content", image);
+
+  // Twitter Title
+  let twTitle = document.querySelector("meta[name='twitter:title']");
+  if (!twTitle) {
+    twTitle = document.createElement("meta");
+    twTitle.setAttribute("name", "twitter:title");
+    document.head.appendChild(twTitle);
+  }
+  twTitle.setAttribute("content", title);
+
+  // Twitter Description
+  let twDesc = document.querySelector("meta[name='twitter:description']");
+  if (!twDesc) {
+    twDesc = document.createElement("meta");
+    twDesc.setAttribute("name", "twitter:description");
+    document.head.appendChild(twDesc);
+  }
+  twDesc.setAttribute("content", desc);
+
+  // Twitter Image
+  let twImage = document.querySelector("meta[name='twitter:image']");
+  if (!twImage) {
+    twImage = document.createElement("meta");
+    twImage.setAttribute("name", "twitter:image");
+    document.head.appendChild(twImage);
+  }
+  twImage.setAttribute("content", image);
+
+}, []);
+// ⭐⭐⭐ END METADATA
   return (
     <>
       <ProjectNavbar />

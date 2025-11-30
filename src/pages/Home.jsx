@@ -1,7 +1,7 @@
+// src/pages/Home.jsx
 import React, { useEffect, useRef } from 'react';
 import './Home.css';
 import Footer from '../components/Footer';
-import '../styles/global.css';
 
 import boxImage from '../assets/images/box.png';
 import graphicImage from '../assets/images/graphic.png';
@@ -10,38 +10,61 @@ import littleMe2Image from '../assets/images/littleme2.png';
 import littleMeImage from '../assets/images/littleme.png';
 import travelImage from '../assets/images/travel.png';
 import repeatingBackgroundImage from '../assets/images/background.png';
-
-import Navbar from '../components/Navbar';
+import linePagesImage from '../assets/images/line_page.png';
 
 const Home = () => {
   const videoRef = useRef();
   const base = import.meta.env.BASE_URL;
 
-  /* ======================================================
-     PAGE-SPECIFIC METADATA
-     ====================================================== */
+  /* -----------------------------------------
+     PAGE META
+  ----------------------------------------- */
   useEffect(() => {
     const desc =
       "Welcome to the portfolio of Emily Rianna Smith — a creative designer specializing in UX/UI design, media production, editing, and graphic design.";
 
     document.title = "Home – Emily Rianna Smith | Creative Designer";
 
-    const metaDescription = document.querySelector("meta[name='description']");
-    if (metaDescription) metaDescription.setAttribute("content", desc);
+    // Description
+    let metaDescription = document.querySelector("meta[name='description']");
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute("content", desc);
 
-    const ogTitle = document.querySelector("meta[property='og:title']");
-    if (ogTitle) ogTitle.setAttribute("content", "Home – Emily Rianna Smith");
+    // OG Title
+    let ogTitle = document.querySelector("meta[property='og:title']");
+    if (!ogTitle) {
+      ogTitle = document.createElement("meta");
+      ogTitle.setAttribute("property", "og:title");
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.setAttribute("content", "Home – Emily Rianna Smith");
 
-    const ogDesc = document.querySelector("meta[property='og:description']");
-    if (ogDesc) ogDesc.setAttribute("content", desc);
+    // OG Description
+    let ogDesc = document.querySelector("meta[property='og:description']");
+    if (!ogDesc) {
+      ogDesc = document.createElement("meta");
+      ogDesc.setAttribute("property", "og:description");
+      document.head.appendChild(ogDesc);
+    }
+    ogDesc.setAttribute("content", desc);
 
-    const ogImage = document.querySelector("meta[property='og:image']");
-    if (ogImage) ogImage.setAttribute("content", "https://www.yourwebsite.com/og/og-home.jpg");
+    // OG Image
+    let ogImage = document.querySelector("meta[property='og:image']");
+    if (!ogImage) {
+      ogImage = document.createElement("meta");
+      ogImage.setAttribute("property", "og:image");
+      document.head.appendChild(ogImage);
+    }
+    ogImage.setAttribute("content", "https://www.yourwebsite.com/og/og-home.jpg");
   }, []);
 
-  /* ======================================================
-     AUTOPLAY VIDEO
-     ====================================================== */
+  /* -----------------------------------------
+     AUTOPLAY VIDEO LOGIC
+  ----------------------------------------- */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -97,55 +120,62 @@ const Home = () => {
     <>
       <div className="home-container">
 
-        <Navbar />
-
-        <div className="top-banner-wrapper" aria-hidden="true">
-          <div className="top-banner-image-container"></div>
-        </div>
-
-        <div className="background-effects" aria-hidden="true">
+        {/* 🎨 Background Effects */}
+        <div className="home-background-effects" aria-hidden="true">
           <div
             className="repeating-background-layer"
             style={{ backgroundImage: `url(${repeatingBackgroundImage})` }}
           ></div>
-          <div className="gradient-orb orb-1"></div>
-          <div className="gradient-orb orb-2"></div>
-          <div className="gradient-orb orb-3"></div>
-          <div className="gradient-orb orb-4"></div>
+          <div className="home-gradient-orb home-orb-1"></div>
+          <div className="home-gradient-orb home-orb-2"></div>
+          <div className="home-gradient-orb home-orb-3"></div>
+          <div className="home-gradient-orb home-orb-4"></div>
         </div>
 
-        <main className="main-content">
+        <main className="home-main-content">
 
           {/* HERO SECTION */}
-          <section className="section hero-section">
-            <div className="section-content">
-              <div className="hero-content-wrapper">
-                <div className="hero-left-column">
-                  <div className="hero-heading-and-prompt-wrapper">
-                    <div className="hero-scroll-prompt">
-                      <p>Swipe</p><p>to</p><p>explore</p>
+          <section className="home-section home-hero-section">
+            <div className="home-section-content">
+              <div className="home-hero-content-wrapper">
+                <div className="home-hero-left-column">
+                
+                  <div className="home-hero-heading-and-prompt-wrapper">
+
+                    <div className="home-hero-text">
+                      <h2>
+                        Hi,<br />
+                        my name is Emily Rianna Smith
+                      </h2>
                     </div>
 
-                    <div className="hero-text">
-                      <h2>Hi, my name is Emily Rianna Smith</h2>
+                    <div className="home-hero-line-art">
+                      <img src={linePagesImage} alt="" aria-hidden="true" />
+                    </div>
+
+                    <div className="home-hero-scroll-prompt">
+                      <p>Swipe</p>
+                      <p>to</p>
+                      <p>explore</p>
                     </div>
 
                   </div>
+
                 </div>
               </div>
             </div>
           </section>
 
           {/* INTRO / VIDEO */}
-          <section className="section work-section">
-            <div className="section-content">
-              <div className="section-header">
+          <section className="home-section home-work-section">
+            <div className="home-section-content">
+              <div className="home-section-header">
                 <h2>
                   I am a creative designer who is looking for resonance to provoke curiosity.
                 </h2>
               </div>
 
-              <div className="video-container">
+              <div className="home-video-container">
                 <video
                   ref={videoRef}
                   src={`${base}videos/home.mp4`}
@@ -167,21 +197,21 @@ const Home = () => {
           </section>
 
           {/* FEATURES SECTION */}
-          <section className="section features-section">
-            <div className="section-content">
-              <div className="section-header">
+          <section className="home-section home-features-section">
+            <div className="home-section-content">
+              <div className="home-section-header">
                 <h1>features</h1>
                 <h2>check out my latest</h2>
               </div>
 
-              <div className="features-collage">
+              <div className="home-features-collage">
                 {featuredProjects.map((p, i) => (
                   <div
                     key={p.id}
-                    className={`feature-image feature-${i + 1}`}
+                    className={`home-feature-image home-feature-${i + 1}`}
                     onClick={navigateToProjects}
                   >
-                    <img src={p.image} alt={p.alt} className="collage-img" />
+                    <img src={p.image} alt={p.alt} className="home-collage-img" />
                   </div>
                 ))}
               </div>
@@ -189,17 +219,17 @@ const Home = () => {
           </section>
 
           {/* ABOUT SECTION */}
-          <section className="section about-section">
-            <div className="section-content">
-              <div className="section-header">
-                <h1 className="about-title">A bit about me</h1>
-                <h2 className="about-subtitle">from a small island to a big city</h2>
+          <section className="home-section home-about-section">
+            <div className="home-section-content">
+              <div className="home-section-header">
+                <h1 className="home-about-title">A bit about me</h1>
+                <h2 className="home-about-subtitle">from a small island to a big city</h2>
               </div>
 
-              <div className="about-collage">
+              <div className="home-about-collage">
                 {personalImages.map((img, index) => (
-                  <div key={index} className={`about-image-wrapper about-${index + 1}`}>
-                    <img src={img.src} alt={img.alt} className="about-image" loading="lazy" />
+                  <div key={index} className={`home-about-image-wrapper home-about-${index + 1}`}>
+                    <img src={img.src} alt={img.alt} className="home-about-image" loading="lazy" />
                   </div>
                 ))}
               </div>
@@ -207,10 +237,10 @@ const Home = () => {
           </section>
 
           {/* RESUME DOWNLOAD */}
-          <section className="section resume-section">
-            <div className="section-content">
-              <div className="resume-card">
-                <div className="resume-text">
+          <section className="home-section home-resume-section">
+            <div className="home-section-content">
+              <div className="home-resume-card">
+                <div className="home-resume-text">
                   <h1>download my resume</h1>
                   <h2>take a closer look at my creative journey</h2>
                   <p>
@@ -219,11 +249,11 @@ const Home = () => {
                   </p>
                 </div>
 
-                <div className="resume-download">
+                <div className="home-resume-download">
                   <a
                     href={`${base}files/Emily-Rianna-Smith-Resume.pdf`}
                     download
-                    className="resume-button"
+                    className="home-resume-button"
                   >
                     <p>download pdf</p>
                   </a>

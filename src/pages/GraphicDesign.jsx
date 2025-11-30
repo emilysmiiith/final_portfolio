@@ -13,21 +13,54 @@ import graphicImage from '../assets/images/graphic.png';
 
 const GraphicDesign = () => {
 
-  // ✅ PAGE-SPECIFIC SEO METADATA
-  useEffect(() => {
-    document.title = "Graphic Design – Emily Rianna Smith | Brand, Print & Packaging";
+ // ✅ PAGE-SPECIFIC SEO METADATA
+useEffect(() => {
+  const title = "Graphic Design – Emily Rianna Smith | Brand, Print & Packaging";
 
-    const desc =
-      "Explore the graphic design work of Emily Rianna Smith — packaging design, brand identity, print graphics, motion-enhanced visuals, and thoughtful visual storytelling.";
-    
-    const image = "https://www.yourwebsite.com/og/og-graphic-design.jpg";
+  const desc =
+    "Explore the graphic design work of Emily Rianna Smith — packaging design, brand identity, print graphics, motion-enhanced visuals, and thoughtful visual storytelling.";
 
-    document.querySelector("meta[name='description']")?.setAttribute("content", desc);
-    document.querySelector("meta[property='og:title']")?.setAttribute("content", "Graphic Design – Emily Rianna Smith");
-    document.querySelector("meta[property='og:description']")?.setAttribute("content", desc);
-    document.querySelector("meta[property='og:image']")?.setAttribute("content", image);
+  const image = "https://www.yourwebsite.com/og/og-graphic-design.jpg";
 
-  }, []);
+  document.title = title;
+
+  // Description
+  let metaDescription = document.querySelector("meta[name='description']");
+  if (!metaDescription) {
+    metaDescription = document.createElement("meta");
+    metaDescription.setAttribute("name", "description");
+    document.head.appendChild(metaDescription);
+  }
+  metaDescription.setAttribute("content", desc);
+
+  // OG Title
+  let ogTitle = document.querySelector("meta[property='og:title']");
+  if (!ogTitle) {
+    ogTitle = document.createElement("meta");
+    ogTitle.setAttribute("property", "og:title");
+    document.head.appendChild(ogTitle);
+  }
+  ogTitle.setAttribute("content", title);
+
+  // OG Description
+  let ogDesc = document.querySelector("meta[property='og:description']");
+  if (!ogDesc) {
+    ogDesc = document.createElement("meta");
+    ogDesc.setAttribute("property", "og:description");
+    document.head.appendChild(ogDesc);
+  }
+  ogDesc.setAttribute("content", desc);
+
+  // OG Image
+  let ogImage = document.querySelector("meta[property='og:image']");
+  if (!ogImage) {
+    ogImage = document.createElement("meta");
+    ogImage.setAttribute("property", "og:image");
+    document.head.appendChild(ogImage);
+  }
+  ogImage.setAttribute("content", image);
+
+}, []);
 
   return (
     <>

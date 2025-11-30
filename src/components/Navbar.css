@@ -22,13 +22,15 @@ h2 {
 }
 
 p {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   color: #442B12;
-  margin: 0 0 1rem 0;
-  line-height: 1.6;
-  opacity: 0.5;
+  line-height: 1.2;
+  opacity: 1 !important;
+  margin: 0 !important;
+  letter-spacing: 0.17em;
+  padding: 0;
 }
 
 /* =======================================================
@@ -51,25 +53,11 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: none;
-}
-
-.navbar::before {
-  content: '';
-  position: absolute;
-  inset: 0;
   border: 1px solid #442B12;
-  border-radius: 40px;
-  z-index: -1;
-  clip-path: polygon(
-    0% 0%, 100% 0%, 100% 100%,
-    95% 100%, 95% calc(100% - 1px),
-    60% calc(100% - 1px), 60% 100%, 0% 100%
-  );
 }
 
-.navbar.scrolled::before {
-  display: none;
+.navbar.scrolled {
+  border: 1px solid #442B12;
 }
 
 /* =======================================================
@@ -235,6 +223,18 @@ p {
   transition: all 0.3s ease;
 }
 
+.navbar .dropdown-item p {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+  color: #442B12 !important;
+  line-height: 1.2 !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  letter-spacing: 0.17em !important;
+  padding: 0 !important;
+}
+
 .navbar .dropdown-item:hover {
   background: rgba(162, 177, 186, 0.1);
   padding-left: 1.75rem;
@@ -298,10 +298,15 @@ p {
 }
 
 .navbar.scrolled .nav-links a p {
-  font-size: 0.9rem !important;
-  font-weight: 900 !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
   color: #442B12 !important;
-  opacity: 0.5 !important;
+  line-height: 1.2 !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  letter-spacing: 0.17em !important;
+  padding: 0 !important;
 }
 
 .navbar.scrolled .nav-links a:hover p {

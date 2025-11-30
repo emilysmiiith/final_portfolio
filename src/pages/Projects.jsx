@@ -18,35 +18,68 @@ import graphicImage from '../assets/images/graphic.png';
 
 const Projects = () => {
 
-  // ============================
-  // PAGE-SPECIFIC METADATA
-  // ============================
-  useEffect(() => {
-    document.title = "Projects – Emily Rianna Smith | UX/UI · Media · Graphic Design";
+ // ============================
+// PAGE-SPECIFIC METADATA
+// ============================
+useEffect(() => {
+  const title = "Projects – Emily Rianna Smith | UX/UI · Media · Graphic Design";
 
-    const desc =
-      "Explore the full creative portfolio of Emily Rianna Smith — featuring UX/UI design, media & editing, and graphic design projects focused on emotion-driven storytelling and human-centered design.";
+  const desc =
+    "Explore the full creative portfolio of Emily Rianna Smith — featuring UX/UI design, media & editing, and graphic design projects focused on emotion-driven storytelling and human-centered design.";
 
-    const image = "https://www.yourwebsite.com/og/og-projects.jpg"; // replace later when deployed
+  const image = "https://www.yourwebsite.com/og/og-projects.jpg";
 
-    document.querySelector("meta[name='description']")?.setAttribute("content", desc);
+  const canonical = "https://www.yourwebsite.com/projects";
 
-    document
-      .querySelector("meta[property='og:title']")
-      ?.setAttribute("content", "Projects – Emily Rianna Smith");
+  document.title = title;
 
-    document
-      .querySelector("meta[property='og:description']")
-      ?.setAttribute("content", desc);
+  // Description
+  let metaDescription = document.querySelector("meta[name='description']");
+  if (!metaDescription) {
+    metaDescription = document.createElement("meta");
+    metaDescription.setAttribute("name", "description");
+    document.head.appendChild(metaDescription);
+  }
+  metaDescription.setAttribute("content", desc);
 
-    document
-      .querySelector("meta[property='og:image']")
-      ?.setAttribute("content", image);
+  // OG Title
+  let ogTitle = document.querySelector("meta[property='og:title']");
+  if (!ogTitle) {
+    ogTitle = document.createElement("meta");
+    ogTitle.setAttribute("property", "og:title");
+    document.head.appendChild(ogTitle);
+  }
+  ogTitle.setAttribute("content", title);
 
-    document
-      .querySelector("link[rel='canonical']")
-      ?.setAttribute("href", "https://www.yourwebsite.com/projects");
-  }, []);
+  // OG Description
+  let ogDesc = document.querySelector("meta[property='og:description']");
+  if (!ogDesc) {
+    ogDesc = document.createElement("meta");
+    ogDesc.setAttribute("property", "og:description");
+    document.head.appendChild(ogDesc);
+  }
+  ogDesc.setAttribute("content", desc);
+
+  // OG Image
+  let ogImage = document.querySelector("meta[property='og:image']");
+  if (!ogImage) {
+    ogImage = document.createElement("meta");
+    ogImage.setAttribute("property", "og:image");
+    document.head.appendChild(ogImage);
+  }
+  ogImage.setAttribute("content", image);
+
+  // Canonical
+  let canonicalLink = document.querySelector("link[rel='canonical']");
+  if (!canonicalLink) {
+    canonicalLink = document.createElement("link");
+    canonicalLink.setAttribute("rel", "canonical");
+    document.head.appendChild(canonicalLink);
+  }
+  canonicalLink.setAttribute("href", canonical);
+
+}, []);
+
 
   // Apply projects-page body class
   useEffect(() => {

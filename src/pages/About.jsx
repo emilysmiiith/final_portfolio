@@ -10,23 +10,55 @@ import travelImage from '../assets/images/travel.png';
 import repeatingBackgroundImage from '../assets/images/background.png';
 
 const About = () => {
+/* -----------------------------------------
+    🔥 PAGE-SPECIFIC METADATA
+   ----------------------------------------- */
+useEffect(() => {
+  const title = "About – Emily Rianna Smith | Creative Designer & Storyteller";
+  const desc =
+    "Learn more about Emily Rianna Smith — a creative designer focused on emotional storytelling, UX/UI, media, and graphic design. From island beginnings to a passion-driven career.";
+  const image = "https://www.yourwebsite.com/og/og-about.jpg";
 
-  /* -----------------------------------------
-      🔥 PAGE-SPECIFIC METADATA
-     ----------------------------------------- */
-  useEffect(() => {
-    const title = "About – Emily Rianna Smith | Creative Designer & Storyteller";
-    const desc =
-      "Learn more about Emily Rianna Smith — a creative designer focused on emotional storytelling, UX/UI, media, and graphic design. From island beginnings to a passion-driven career.";
-    const image = "https://www.yourwebsite.com/og/og-about.jpg";
+  document.title = title;
 
-    document.title = title;
-    document.querySelector("meta[name='description']")?.setAttribute("content", desc);
-    document.querySelector("meta[property='og:title']")?.setAttribute("content", title);
-    document.querySelector("meta[property='og:description']")?.setAttribute("content", desc);
-    document.querySelector("meta[property='og:image']")?.setAttribute("content", image);
-  }, []);
-  /* ----------------------------------------- */
+  // Description
+  let metaDescription = document.querySelector("meta[name='description']");
+  if (!metaDescription) {
+    metaDescription = document.createElement("meta");
+    metaDescription.setAttribute("name", "description");
+    document.head.appendChild(metaDescription);
+  }
+  metaDescription.setAttribute("content", desc);
+
+  // OG Title
+  let ogTitle = document.querySelector("meta[property='og:title']");
+  if (!ogTitle) {
+    ogTitle = document.createElement("meta");
+    ogTitle.setAttribute("property", "og:title");
+    document.head.appendChild(ogTitle);
+  }
+  ogTitle.setAttribute("content", title);
+
+  // OG Description
+  let ogDesc = document.querySelector("meta[property='og:description']");
+  if (!ogDesc) {
+    ogDesc = document.createElement("meta");
+    ogDesc.setAttribute("property", "og:description");
+    document.head.appendChild(ogDesc);
+  }
+  ogDesc.setAttribute("content", desc);
+
+  // OG Image
+  let ogImage = document.querySelector("meta[property='og:image']");
+  if (!ogImage) {
+    ogImage = document.createElement("meta");
+    ogImage.setAttribute("property", "og:image");
+    document.head.appendChild(ogImage);
+  }
+  ogImage.setAttribute("content", image);
+
+}, []);
+/* ----------------------------------------- */
 
   const aboutImages = [
     {

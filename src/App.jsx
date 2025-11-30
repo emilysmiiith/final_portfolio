@@ -1,21 +1,22 @@
-// src/App.jsx — FIXED VERSION
-import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+// src/App.jsx
+import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 
-import Navbar from './components/Navbar';
-import ProjectNavbar from './components/ProjectNavbar';
+import Navbar from "./components/Navbar";
+import ProjectNavbar from "./components/ProjectNavbar";
 
-import Home from './pages/Home';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import Media from './pages/Media';
-import GraphicDesign from './pages/GraphicDesign';
-import UxUiDesign from './pages/UxUiDesign';
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Media from "./pages/Media";
+import GraphicDesign from "./pages/GraphicDesign";
+import UxUiDesign from "./pages/UxUiDesign";
 
 function App() {
   const location = useLocation();
+  const pathname = location.pathname.toLowerCase();
 
-  // Routes that should use ProjectNavbar instead of regular Navbar
+  // Pages that use the project-style navbar
   const projectPages = [
     "/projects",
     "/media",
@@ -23,17 +24,27 @@ function App() {
     "/ux-ui-design"
   ];
 
-  const useProjectNavbar = projectPages.includes(location.pathname);
+  // Pages that use the regular navbar
+  const regularPages = [
+    "/",
+    "/about"
+  ];
+
+  // ---- Determine which navbar to show ----
+  const useProjectNavbar = projectPages.includes(pathname);
+  const useRegularNavbar = regularPages.includes(pathname);
 
   return (
     <>
-      {useProjectNavbar ? <ProjectNavbar /> : <Navbar />}
+      {/* Correct Navbar Rendering */}
+      {useProjectNavbar && <ProjectNavbar />}
+      {useRegularNavbar && <Navbar />}
 
+      {/* App Routing */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        
-        {/* project pages */}
+
         <Route path="/projects" element={<Projects />} />
         <Route path="/media" element={<Media />} />
         <Route path="/graphic-design" element={<GraphicDesign />} />
