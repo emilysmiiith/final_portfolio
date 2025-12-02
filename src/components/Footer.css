@@ -58,13 +58,14 @@
 
 .footer-link-image-style {
   font-family: 'Roboto', sans-serif;
-  font-weight: 900; 
-  font-size: 1rem;
+  font-weight: 300; 
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   color: #442B12;
   opacity: 1;
   text-decoration: none;
   transition: opacity 0.3s ease;
-  line-height: 1.5;
+  line-height: 1.2;
+  letter-spacing: 0.17em;
 }
 
 .footer-link-image-style:hover {

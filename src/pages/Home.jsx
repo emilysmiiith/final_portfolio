@@ -9,8 +9,7 @@ import mediaImage from '../assets/images/media.png';
 import littleMe2Image from '../assets/images/littleme2.png';
 import littleMeImage from '../assets/images/littleme.png';
 import travelImage from '../assets/images/travel.png';
-import repeatingBackgroundImage from '../assets/images/background.png';
-import linePagesImage from '../assets/images/line_page.png';
+import repeatingBackgroundImage from '../assets/images/background1.png';
 
 const Home = () => {
   const videoRef = useRef();
@@ -144,17 +143,14 @@ const Home = () => {
 
                     <div className="home-hero-text">
                       <h2>
-                        Hi,<br />
-                        my name is Emily Rianna Smith
+                       Emily Rianna Smith
+                       <br />
+                       ux/ui · media · graphics
                       </h2>
                     </div>
 
-                    <div className="home-hero-line-art">
-                      <img src={linePagesImage} alt="" aria-hidden="true" />
-                    </div>
-
                     <div className="home-hero-scroll-prompt">
-                      <p>Swipe</p>
+                      <p>swipe</p>
                       <p>to</p>
                       <p>explore</p>
                     </div>
@@ -171,7 +167,7 @@ const Home = () => {
             <div className="home-section-content">
               <div className="home-section-header">
                 <h2>
-                  I am a creative designer who is looking for resonance to provoke curiosity.
+                
                 </h2>
               </div>
 

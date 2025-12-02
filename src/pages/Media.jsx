@@ -1,226 +1,302 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Media.css';
 import ProjectNavbar from '../components/ProjectNavbar';
 import Footer from '../components/ProjectFooter';
-import imageSvg from '../assets/image.svg';
 
 const Media = () => {
+  const [activeProject, setActiveProject] = useState(null);
+
   // ============================
-// PAGE-SPECIFIC META TAGS
-// ============================
-useEffect(() => {
-  const title = "Media & Film – Emily Rianna Smith | Creative Designer";
+  // PAGE-SPECIFIC META TAGS
+  // ============================
+  useEffect(() => {
+    const title = "Media & Film – Emily Rianna Smith | Creative Designer";
+    const desc = "Media production portfolio of Emily Rianna Smith featuring cinematic short films, editing work, and adventure photography.";
+    const image = "https://www.yourwebsite.com/og/og-media.jpg";
 
-  const desc =
-    "Media production portfolio of Emily Rianna Smith featuring cinematic short films, editing work, and adventure photography.";
+    document.title = title;
 
-  const image = "https://www.yourwebsite.com/og/og-media.jpg";
+    let metaDescription = document.querySelector("meta[name='description']");
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute("content", desc);
 
-  document.title = title;
+    let ogTitle = document.querySelector("meta[property='og:title']");
+    if (!ogTitle) {
+      ogTitle = document.createElement("meta");
+      ogTitle.setAttribute("property", "og:title");
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.setAttribute("content", title);
 
-  // Description
-  let metaDescription = document.querySelector("meta[name='description']");
-  if (!metaDescription) {
-    metaDescription = document.createElement("meta");
-    metaDescription.setAttribute("name", "description");
-    document.head.appendChild(metaDescription);
-  }
-  metaDescription.setAttribute("content", desc);
+    let ogDesc = document.querySelector("meta[property='og:description']");
+    if (!ogDesc) {
+      ogDesc = document.createElement("meta");
+      ogDesc.setAttribute("property", "og:description");
+      document.head.appendChild(ogDesc);
+    }
+    ogDesc.setAttribute("content", desc);
 
-  // OG Title
-  let ogTitle = document.querySelector("meta[property='og:title']");
-  if (!ogTitle) {
-    ogTitle = document.createElement("meta");
-    ogTitle.setAttribute("property", "og:title");
-    document.head.appendChild(ogTitle);
-  }
-  ogTitle.setAttribute("content", title);
+    let ogImage = document.querySelector("meta[property='og:image']");
+    if (!ogImage) {
+      ogImage = document.createElement("meta");
+      ogImage.setAttribute("property", "og:image");
+      document.head.appendChild(ogImage);
+    }
+    ogImage.setAttribute("content", image);
+  }, []);
 
-  // OG Description
-  let ogDesc = document.querySelector("meta[property='og:description']");
-  if (!ogDesc) {
-    ogDesc = document.createElement("meta");
-    ogDesc.setAttribute("property", "og:description");
-    document.head.appendChild(ogDesc);
-  }
-  ogDesc.setAttribute("content", desc);
+  // Close modal on escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') setActiveProject(null);
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, []);
 
-  // OG Image
-  let ogImage = document.querySelector("meta[property='og:image']");
-  if (!ogImage) {
-    ogImage = document.createElement("meta");
-    ogImage.setAttribute("property", "og:image");
-    document.head.appendChild(ogImage);
-  }
-  ogImage.setAttribute("content", image);
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (activeProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [activeProject]);
 
-}, []);
-
-  // FIXED PATHS FOR GITHUB PAGES + HOSTPAPA
   const base = import.meta.env.BASE_URL;
 
-  const climbingPhotos = [
-    { id: 1, src: `${base}assets/images/squamish/photo-1.jpg`, alt: "Rock climber ascending granite wall", title: "Granite Ascent" },
-    { id: 2, src: `${base}assets/images/squamish/photo-2.jpg`, alt: "Panoramic view of Squamish climbing area", title: "Squamish Vista" },
-    { id: 3, src: `${base}assets/images/squamish/photo-3.jpg`, alt: "Climber's hands gripping rock holds", title: "Precision Grip" },
-    { id: 4, src: `${base}assets/images/squamish/photo-4.jpg`, alt: "Silhouette of climber against sky", title: "Golden Hour Ascent" },
-    { id: 5, src: `${base}assets/images/squamish/photo-5.jpg`, alt: "Climbing route with rope systems", title: "Safety Systems" },
-    { id: 6, src: `${base}assets/images/squamish/photo-6.jpg`, alt: "Climber celebrating at summit", title: "Summit Success" }
+  const projects = [
+    {
+      id: 1,
+      title: "Dementia Care Short Film",
+      subtitle: "PSA • First-Person Perspective Experience",
+      video: `${base}videos/Smith_ProjectB.mp4`,
+      description: "Created in collaboration with Denise Devlin — this PSA raises awareness about empathy in dementia care through a first-person narrative. The film explores the daily challenges faced by those living with dementia and their caregivers, aiming to foster understanding and compassion in viewers.",
+      details: {
+        type: "Short Film / PSA",
+        year: "2024",
+        role: "Director, Editor, Producer",
+        tools: "Premiere Pro, After Effects, Audition",
+        duration: "3:42",
+        collaborators: "Denise Devlin"
+      }
+    },
+    {
+      id: 2,
+      title: "Beyond Rides",
+      subtitle: "Short Film • Featuring Lily Taylor & Kaveen",
+      video: `${base}videos/beyondrides.mp4`,
+      description: "A music-driven narrative featuring Lily Taylor and Kaveen. This piece explores the connection between movement, music, and human expression through carefully choreographed sequences and custom audio work. The film captures raw emotion and the beauty of spontaneous moments.",
+      details: {
+        type: "Short Film",
+        year: "2024",
+        role: "Director, Editor",
+        tools: "Premiere Pro, Audition",
+        duration: "4:15",
+        collaborators: "Lily Taylor, Kaveen"
+      }
+    }
   ];
+
+  const squamishPhotos = [
+    { src: `${base}assets/images/squamish/photo-1.jpg`, alt: "Rock climber ascending granite wall" },
+    { src: `${base}assets/images/squamish/photo-2.jpg`, alt: "Panoramic view of Squamish climbing area" },
+    { src: `${base}assets/images/squamish/photo-3.jpg`, alt: "Climber's hands gripping rock holds" },
+    { src: `${base}assets/images/squamish/photo-4.jpg`, alt: "Silhouette of climber against sky" },
+    { src: `${base}assets/images/squamish/photo-5.jpg`, alt: "Climbing route with rope systems" },
+    { src: `${base}assets/images/squamish/photo-6.jpg`, alt: "Climber celebrating at summit" }
+  ];
+
+  const squamishProject = {
+    id: 'squamish',
+    title: "Squamish Climbing",
+    subtitle: "Adventure Photography",
+    isTextOnly: true,
+    description: "This personal photography project captures the raw beauty and intensity of rock climbing in Squamish, British Columbia. Known as one of the premier climbing destinations in North America, Squamish offers dramatic granite walls set against lush Pacific Northwest forests.",
+    story: "I spent several weekends documenting climbers in their element — the focus before a difficult move, the exhaustion at the end of a long route, and the quiet moments of connection with nature. These images represent both the physical challenge and the meditative quality of climbing.",
+    details: {
+      type: "Photography Series",
+      year: "2024",
+      location: "Squamish, BC",
+      camera: "Sony A7III",
+      editing: "Adobe Lightroom",
+      images: "6 photographs"
+    }
+  };
 
   return (
     <>
-      {/* Navbar */}
       <ProjectNavbar />
 
       <div className="media-container">
-
-        {/* Background SVG */}
-        <div className="svg-static" aria-hidden="true">
-          <img src={imageSvg} alt="" className="svg-image-static" />
-        </div>
-
         <div className="media-content">
 
-          {/* Hero */}
-          <section className="section hero-section">
+          {/* Projects Grid - At Top */}
+          <section className="section intro-section">
             <div className="section-content">
-              <h2 className="section-subtitle" style={{ fontFamily: "'Liu Jian Mao Cao', cursive" }}>
-                visual storytelling
-              </h2>
-              <h1 className="section-title">media & film</h1>
-              <p className="journey-text">
-                Media production is where I combine technical skills with meaningful storytelling.
-                Every story begins with empathy and curiosity.
-              </p>
-            </div>
-          </section>
+              <div className="section-header">
+                <h1>media & film</h1>
+                <h2>click to explore each project</h2>
+              </div>
 
-          {/* Project #1 */}
-          <section className="section">
-            <div className="section-content">
-              <div className="project-showcase featured">
-                <div className="project-header">
-                  <div className="project-number">#1</div>
-                  <div className="project-meta">
-                    <h2 className="project-title">Dementia Care Short Film</h2>
-                    <p className="project-subtitle">PSA • First-Person Perspective Experience</p>
-                  </div>
-                </div>
-
-                <div className="video-showcase">
-                  <video
-                    className="featured-video"
-                    controls
-                    playsInline
-                    muted
-                    title="Dementia Care Short Film by Emily Rianna Smith"
-                  >
-                    <source src={`${base}videos/Smith_ProjectB.mp4`} type="video/mp4" />
-                  </video>
-                </div>
-
-                <div className="project-overview">
-                  <h3 className="overview-title">Project Overview</h3>
-                  <p>
-                    Created in collaboration with Denise Devlin — this PSA raises awareness about empathy in dementia care
-                    through a first-person narrative.
-                  </p>
-                  <div className="overview-timeline">
-                    <div><strong>Type:</strong> Short Film / PSA</div>
-                    <div><strong>Year:</strong> 2024</div>
-                    <div><strong>Role:</strong> Director, Editor, Producer</div>
-                  </div>
+              <div className="section-body">
+                <div className="projects-grid">
+                  {/* Video Projects */}
+                  {projects.map((project) => (
+                    <div 
+                      key={project.id} 
+                      className="project-card"
+                      onClick={() => setActiveProject(project)}
+                    >
+                      <div className="project-card-video">
+                        <video
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                        >
+                          <source src={project.video} type="video/mp4" />
+                        </video>
+                        <div className="project-card-overlay">
+                          <span className="project-card-icon">▶</span>
+                        </div>
+                      </div>
+                      <div className="project-card-info">
+                        <h3>{project.title}</h3>
+                        <p>{project.subtitle}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Project #2 */}
+          {/* Photography Section - Scattered Layout */}
           <section className="section">
-            <div className="section-content">
-              <div className="project-showcase featured">
-                <div className="project-header">
-                  <div className="project-number">#2</div>
-                  <div className="project-meta">
-                    <h2 className="project-title">Beyond Rides</h2>
-                    <p className="project-subtitle">Short Film • Featuring Lily Taylor &amp; Kaveen</p>
-                  </div>
-                </div>
-
-                <div className="video-showcase">
-                  <video
-                    className="featured-video"
-                    controls
-                    playsInline
-                    muted
-                    title="Beyond Rides — Short Film by Emily Rianna Smith"
-                  >
-                    <source src={`${base}videos/beyondrides.mp4`} type="video/mp4" />
-                  </video>
-                </div>
-
-                <div className="project-overview">
-                  <h3 className="overview-title">Project Overview</h3>
-                  <p>
-                    Music-driven narrative featuring Lily Taylor and Kaveen. Edited in Premiere Pro with
-                    custom audio work and original music.
-                  </p>
-                  <div className="overview-timeline">
-                    <div><strong>Type:</strong> Short Film</div>
-                    <div><strong>Year:</strong> 2024</div>
-                    <div><strong>Tools:</strong> Premiere Pro, Audition</div>
-                  </div>
-                </div>
+            <div className="section-content section-content-wide">
+              <div className="section-header">
+                <h1>adventure photography</h1>
+                <h2>squamish, bc</h2>
               </div>
-            </div>
-          </section>
 
-          {/* Project #3 */}
-          <section className="section">
-            <div className="section-content">
-              <div className="project-showcase photography">
-                <div className="project-header">
-                  <div className="project-number">#3</div>
-                  <div className="project-meta">
-                    <h2 className="project-title">Squamish Climbing Photography</h2>
-                    <p className="project-subtitle">Adventure Photography • Personal Project</p>
-                  </div>
-                </div>
-
-                <div className="photo-grid">
-                  {climbingPhotos.map((photo) => (
-                    <div key={photo.id} className="photo-item">
-                      <img src={photo.src} alt={photo.alt} title={photo.title} />
-                      <div className="photo-caption">{photo.title}</div>
+              <div className="section-body">
+                <div className="scattered-gallery">
+                  {squamishPhotos.map((photo, index) => (
+                    <div key={index} className={`scattered-photo photo-${index + 1}`}>
+                      <div className="photo-frame">
+                        <img src={photo.src} alt={photo.alt} />
+                      </div>
                     </div>
                   ))}
                 </div>
 
-                <div className="photography-description">
-                  <p>
-                    Capturing the beauty and adrenaline of climbing in Squamish, BC — documenting the
-                    connection between perseverance and nature.
-                  </p>
+                <div className="gallery-cta">
+                  <button 
+                    className="gallery-btn"
+                    onClick={() => setActiveProject(squamishProject)}
+                  >
+                    about this project →
+                  </button>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Creative Philosophy */}
+          {/* About Section */}
           <section className="section">
             <div className="section-content">
-              <h2 className="section-subtitle" style={{ fontFamily: "'Liu Jian Mao Cao', cursive" }}>
-                creative philosophy
-              </h2>
-              <p className="journey-text">
-                Whether I’m directing, designing, or editing, my work starts with empathy and curiosity.
-              </p>
+              <div className="section-header">
+                <h1>visual storytelling</h1>
+                <h2>about my work</h2>
+              </div>
+              <div className="section-body">
+                <p>
+                  Media production is where I combine technical skills with meaningful storytelling.
+                  Every story begins with empathy and curiosity.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Philosophy Section */}
+          <section className="section">
+            <div className="section-content">
+              <div className="section-header">
+                <h1>creative philosophy</h1>
+                <h2>empathy drives everything</h2>
+              </div>
+              <div className="section-body">
+                <p>
+                  Whether I'm directing, designing, or editing, my work starts with empathy and curiosity.
+                  I believe the best stories come from truly understanding the human experience.
+                </p>
+              </div>
             </div>
           </section>
 
         </div>
       </div>
+
+      {/* Modal Popup */}
+      {activeProject && (
+        <div className="modal-overlay" onClick={() => setActiveProject(null)}>
+          <div className={`modal ${activeProject.isTextOnly ? '' : 'modal-large'}`} onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="modal-close" 
+              onClick={() => setActiveProject(null)}
+              aria-label="Close modal"
+            >
+              ×
+            </button>
+
+            <div className="modal-content">
+              <div className="modal-header">
+                <h2>{activeProject.title}</h2>
+                <p className="modal-subtitle">{activeProject.subtitle}</p>
+              </div>
+
+              {/* Video for film projects */}
+              {activeProject.video && (
+                <div className="modal-media">
+                  <video
+                    className="modal-video"
+                    controls
+                    autoPlay
+                    playsInline
+                  >
+                    <source src={activeProject.video} type="video/mp4" />
+                  </video>
+                </div>
+              )}
+
+              <div className="modal-body">
+                <p className="modal-description">{activeProject.description}</p>
+                
+                {activeProject.story && (
+                  <p className="modal-description">{activeProject.story}</p>
+                )}
+                
+                <div className="modal-details">
+                  {Object.entries(activeProject.details).map(([key, value]) => (
+                    <div key={key} className="modal-detail-item">
+                      <span className="modal-detail-label">{key}</span>
+                      <span className="modal-detail-value">{value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </>

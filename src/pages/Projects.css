@@ -1,4 +1,7 @@
-/* Reset and Base Styles */
+/* ===============================
+   BASE STYLES - PROJECTS PAGE
+   =============================== */
+
 * {
   box-sizing: border-box;
 }
@@ -6,123 +9,143 @@
 html {
   scroll-behavior: smooth;
 }
-/* SCOPED TYPOGRAPHY - Updated to match main site style */
-.projects-container h1 {
+
+body.projects-page {
+  margin: 0;
+  padding: 0;
   font-family: 'Roboto', sans-serif;
-  font-weight: 1000;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: #FFFDF1;
-  margin: 0 0 1rem 0;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  text-transform: lowercase;
+  background: #442B12;
+  overflow-x: hidden;
+}
+
+.projects-container {
+  min-height: 100vh;
+  position: relative;
+  background: #442B12;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  padding-top: 120px;
+}
+
+/* ===============================
+   BACKGROUND EFFECTS - PROJECTS PAGE
+   =============================== */
+
+.projects-background-effects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.projects-repeating-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  background-size: 600px;
+  background-position: top left;
+  z-index: 1;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* ===============================
+   TYPOGRAPHY - PROJECTS PAGE
+   =============================== */
+
+.projects-container h1 {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+  color: #FFFDF1 !important;
+  line-height: 1.2 !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  letter-spacing: 0.17em !important;
+  padding: 0;
 }
 
 .projects-container h2 {
   font-family: 'Liu Jian Mao Cao', cursive;
-  font-weight: 900;
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
-  color: #FFFDF1; /* Warm brown, same as main site */
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  color: #FFFDF1;
   margin: 0 0 1rem 0;
   line-height: 1.4;
 }
 
 .projects-container p {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   color: #FFFDF1;
-  margin: 0 0 1rem 0;
-  line-height: 1.6;
-  opacity: 0.5;
-}
-
-
-/* Ensure body background only applies when projects page is loaded */
-body.projects-page {
-  margin: 0;
+  line-height: 1.7;
+  opacity: 1 !important;
+  margin: 0 !important;
+  letter-spacing: 0.17em;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
-  background:#FFFDF1;
-  overflow-x: hidden;
 }
 
-/* Main Container */
-.projects-container {
-  min-height: 100vh;
-  position: relative;
-  background: #442B12;
-  will-change: scroll-position;
-}
+/* ===============================
+   LAYOUT - PROJECTS PAGE
+   =============================== */
 
 .projects-content {
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 clamp(3rem, 8vw, 8rem);
 }
 
-/* Static SVG */
-.svg-static {
-  position: fixed;
-  top: -50vh;
-  left: 0;
-  width: 100vw;
-  height: 150vh;
-  z-index: 2;
-  pointer-events: none;
-}
+/* ===============================
+   SECTIONS - PROJECTS PAGE
+   =============================== */
 
-.svg-image-static {
-  position: absolute;
-  width: 500vw;
-  height: 500vh;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-  object-fit: none;
-  opacity: 0.6;
-}
-
-/* Section Layout System */
 .projects-container .section {
-  min-height: 100vh;
+  width: 100%;
+  padding: clamp(6rem, 12vh, 10rem) 0;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 0;
-  position: relative;
+}
+
+.projects-container .intro-section {
+  padding-top: clamp(6rem, 12vh, 10rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
 }
 
 .projects-container .section-content {
   width: 100%;
-  max-width: 1200px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 40px;
-  padding: 4rem;
-  box-shadow: 
-    0 20px 60px rgba(68, 43, 18, 0.05),
-    0 8px 20px rgba(68, 43, 18, 0.02);
-  transition: all 0.3s ease;
+  max-width: 900px;
+  background: none !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
   position: relative;
   z-index: 5;
-}
-
-.projects-container .section-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 
-    0 30px 80px rgba(68, 43, 18, 0.08),
-    0 12px 30px rgba(68, 43, 18, 0.04);
-  background: rgba(255, 255, 255, 0.15);
+  margin: 0 auto;
 }
 
 .projects-container .section-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.projects-container .section-header h1 {
+  margin-bottom: 0.75rem !important;
 }
 
 .projects-container .section-body {
@@ -132,57 +155,328 @@ body.projects-page {
   align-items: center;
 }
 
-/* Hero Section Specific Sizing */
-.projects-container .intro-section h1 {
-  font-size: clamp(2.2rem, 6vw, 3.5rem);
+.projects-container .section-body > p {
+  max-width: 550px;
+  margin-bottom: clamp(2rem, 4vw, 3rem) !important;
 }
 
-.projects-container .intro-section h2 {
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
+/* ===============================
+   ART COLLAGE - HERO SECTION
+   =============================== */
+
+.hero-collage-section {
+  padding-top: clamp(4rem, 8vh, 6rem) !important;
+  padding-bottom: clamp(4rem, 8vh, 6rem) !important;
 }
 
-.projects-container .intro-section {
-  min-height: 100vh;
+.section-content-full {
+  max-width: 1000px !important;
+}
+
+.art-collage {
+  position: relative;
+  width: 100%;
+  height: clamp(450px, 65vw, 600px);
+  margin: 0 auto;
+}
+
+.collage-item {
+  position: absolute;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1;
+}
+
+.collage-item:hover {
+  z-index: 20;
+  transform: scale(1.08) rotate(0deg) !important;
+}
+
+.collage-frame {
+  width: 100%;
+  height: 100%;
+  border-radius: clamp(12px, 2vw, 20px);
+  overflow: hidden;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 2px solid rgba(255, 253, 241, 0.1);
+}
+
+.collage-item:hover .collage-frame {
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.4),
+    0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 253, 241, 0.2);
+}
+
+.collage-frame img,
+.collage-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.collage-item:hover .collage-frame img,
+.collage-item:hover .collage-frame video {
+  transform: scale(1.05);
+}
+
+/* Individual collage item positions - asymmetrical artistic layout */
+.item-1 {
+  width: clamp(160px, 22vw, 220px);
+  aspect-ratio: 3/4;
+  top: 5%;
+  left: 0;
+  transform: rotate(-6deg);
+  z-index: 3;
+}
+
+.item-2 {
+  width: clamp(180px, 26vw, 260px);
+  aspect-ratio: 16/9;
+  top: 0;
+  left: 25%;
+  transform: rotate(2deg);
+  z-index: 5;
+}
+
+.item-3 {
+  width: clamp(140px, 18vw, 180px);
+  aspect-ratio: 1/1;
+  top: 8%;
+  right: 8%;
+  transform: rotate(5deg);
+  z-index: 2;
+}
+
+.item-4 {
+  width: clamp(130px, 16vw, 160px);
+  aspect-ratio: 4/5;
+  top: 38%;
+  left: 8%;
+  transform: rotate(4deg);
+  z-index: 4;
+}
+
+.item-5 {
+  width: clamp(170px, 24vw, 240px);
+  aspect-ratio: 16/9;
+  top: 45%;
+  left: 30%;
+  transform: rotate(-3deg);
+  z-index: 6;
+}
+
+.item-6 {
+  width: clamp(150px, 20vw, 200px);
+  aspect-ratio: 3/4;
+  top: 35%;
+  right: 5%;
+  transform: rotate(-4deg);
+  z-index: 3;
+}
+
+.item-7 {
+  width: clamp(120px, 15vw, 150px);
+  aspect-ratio: 1/1;
+  bottom: 5%;
+  left: 18%;
+  transform: rotate(7deg);
+  z-index: 2;
+}
+
+/* Decorative accents */
+.collage-accent {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.accent-1 {
+  width: clamp(200px, 30vw, 350px);
+  height: clamp(200px, 30vw, 350px);
+  background: radial-gradient(circle, rgba(162, 177, 186, 0.15) 0%, transparent 70%);
+  top: 20%;
+  left: 10%;
+  filter: blur(40px);
+}
+
+.accent-2 {
+  width: clamp(250px, 35vw, 400px);
+  height: clamp(250px, 35vw, 400px);
+  background: radial-gradient(circle, rgba(255, 253, 241, 0.08) 0%, transparent 70%);
+  bottom: 10%;
+  right: 5%;
+  filter: blur(50px);
+}
+
+/* ===============================
+   DISCIPLINES GRID - SIDE BY SIDE
+   =============================== */
+
+.disciplines-section {
+  padding-top: clamp(2rem, 4vh, 3rem) !important;
+}
+
+.section-content-wide {
+  max-width: 1000px !important;
+}
+
+.disciplines-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  width: 100%;
+}
+
+.discipline-card {
+  text-decoration: none;
+  border-radius: clamp(16px, 3vw, 24px);
+  overflow: hidden;
+  background: rgba(255, 253, 241, 0.03);
+  border: 1px solid rgba(255, 253, 241, 0.08);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.discipline-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 253, 241, 0.06);
+  border-color: rgba(255, 253, 241, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.discipline-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.discipline-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.discipline-card:hover .discipline-image img {
+  transform: scale(1.08);
+}
+
+.discipline-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 50%,
+    rgba(68, 43, 18, 0.6) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.discipline-card:hover .discipline-overlay {
+  opacity: 1;
+}
+
+.discipline-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 253, 241, 0.95);
+  color: #442B12;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 8rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  transition: transform 0.3s ease;
 }
 
-/* Projects Grid - Single Project per Section */
+.discipline-card:hover .discipline-arrow {
+  transform: translateX(4px);
+}
+
+.discipline-info {
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.discipline-info h3 {
+  font-family: 'Liu Jian Mao Cao', cursive;
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2.8vw, 1.6rem);
+  color: #FFFDF1;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.discipline-info p {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.8rem, 1.4vw, 0.9rem) !important;
+  color: #FFFDF1 !important;
+  opacity: 0.65 !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.1em !important;
+  margin: 0 !important;
+}
+
+/* ===============================
+   PROJECTS GRID
+   =============================== */
+
 .projects-grid {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem auto;
   width: 100%;
-  min-height: 300px;
 }
 
-/* Project Cards - Single clean image display */
+.projects-grid a {
+  text-decoration: none;
+  width: 100%;
+  max-width: 550px;
+}
+
+/* ===============================
+   PROJECT CARDS
+   =============================== */
+
 .project-card {
   position: relative;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: clamp(12px, 2.5vw, 20px);
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.2),
-    0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 600px;
-  height: 250px;
-  margin: 0 auto;
-  flex-shrink: 0;
+  background: rgba(255, 253, 241, 0.05);
+  border: 1px solid rgba(255, 253, 241, 0.1);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  aspect-ratio: 16/9;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 
-    0 20px 50px rgba(0, 0, 0, 0.3),
-    0 8px 20px rgba(0, 0, 0, 0.15);
-  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-8px) scale(1.01);
+  background: rgba(255, 253, 241, 0.08);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 253, 241, 0.15);
 }
 
 .project-image-container {
@@ -190,7 +484,6 @@ body.projects-page {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 20px;
 }
 
 .project-image {
@@ -198,182 +491,325 @@ body.projects-page {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: all 0.3s ease;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .project-card:hover .project-image {
   transform: scale(1.05);
 }
 
-/* Check Out More Button */
+/* ===============================
+   CHECK MORE BUTTON
+   =============================== */
+
 .check-more-section {
-  margin-top: 3rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
   text-align: center;
 }
 
 .check-more-btn {
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  text-transform: lowercase;
-  transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  backdrop-filter: blur(10px);
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 253, 241, 0.2);
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: #FFFDF1;
+  letter-spacing: 0.17em;
   cursor: pointer;
 }
 
 .check-more-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 253, 241, 0.4);
+  background: rgba(255, 253, 241, 0.05);
+  transform: translateY(-2px);
 }
 
-/* Process Section */
+/* ===============================
+   PROCESS SECTION
+   =============================== */
+
 .process-content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-  max-width: 1000px;
+  gap: clamp(1.5rem, 3vw, 2rem);
+  max-width: 700px;
   margin: 0 auto;
   text-align: left;
 }
 
 .process-step {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  background: rgba(255, 253, 241, 0.03);
+  border-radius: clamp(12px, 2.5vw, 20px);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid rgba(255, 253, 241, 0.08);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .process-step:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 253, 241, 0.06);
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Social Icons */
-.projects-container .social-icons {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  z-index: 100;
+.process-step h1 {
+  margin-bottom: 0.75rem !important;
 }
 
-.projects-container .social-icon {
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #2D2D2D;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+.process-step p {
+  opacity: 0.8 !important;
+  line-height: 1.6 !important;
 }
 
-.projects-container .social-icon:hover {
-  background: #A2B1BA;
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(162, 177, 186, 0.3);
-}
+/* ===============================
+   RESPONSIVE - PROJECTS PAGE
+   =============================== */
 
-/* Responsive Design */
 @media (max-width: 1024px) {
-  .project-card {
-    width: 350px;
-    height: 280px;
-  }
-  
   .process-content {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    max-width: 400px;
     text-align: center;
+  }
+
+  /* Adjust collage for smaller screens */
+  .art-collage {
+    height: clamp(400px, 80vw, 550px);
+  }
+
+  .item-1 {
+    width: clamp(120px, 28vw, 180px);
+    left: 2%;
+  }
+
+  .item-2 {
+    width: clamp(140px, 32vw, 220px);
+    left: 30%;
+  }
+
+  .item-3 {
+    width: clamp(100px, 22vw, 150px);
+    right: 5%;
+  }
+
+  .item-4 {
+    width: clamp(100px, 22vw, 140px);
+  }
+
+  .item-5 {
+    width: clamp(130px, 30vw, 200px);
+  }
+
+  .item-6 {
+    width: clamp(110px, 25vw, 170px);
+  }
+
+  .item-7 {
+    width: clamp(90px, 20vw, 130px);
+  }
+
+  /* Disciplines grid adjusts */
+  .disciplines-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .projects-content {
+    padding: 0 clamp(2rem, 6vw, 5rem);
+  }
+
+  .disciplines-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+    gap: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .discipline-card {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .discipline-image {
+    width: 40%;
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+
+  .discipline-info {
+    width: 60%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .projects-content {
+    padding: 0 clamp(2rem, 6vw, 5rem);
   }
 }
 
 @media (max-width: 768px) {
   .projects-content {
-    padding: 0 1rem;
+    padding: 0 clamp(1.5rem, 5vw, 3rem);
   }
-  
+
   .projects-container .section {
-    min-height: auto;
-    padding: 3rem 0;
+    padding: clamp(5rem, 10vh, 8rem) 0;
   }
-  
-  .projects-container .section-content {
-    padding: 2.5rem 1.5rem;
+
+  .projects-container .hero-collage-section {
+    padding-top: clamp(3rem, 6vh, 5rem) !important;
   }
-  
+
+  /* Stack collage into grid on mobile */
+  .art-collage {
+    position: relative;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(0.75rem, 2vw, 1rem);
+  }
+
+  .collage-item {
+    position: relative !important;
+    width: 100% !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+  }
+
+  .collage-item:nth-child(odd) {
+    transform: rotate(-2deg) !important;
+  }
+
+  .collage-item:nth-child(even) {
+    transform: rotate(2deg) !important;
+  }
+
+  .collage-item:hover {
+    transform: scale(1.03) rotate(0deg) !important;
+  }
+
+  .collage-frame {
+    aspect-ratio: 1/1;
+  }
+
+  /* Hide 7th item on mobile for cleaner grid */
+  .item-7 {
+    display: none;
+  }
+
+  .collage-accent {
+    display: none;
+  }
+
+  /* Disciplines stacked horizontally on tablet */
+  .disciplines-grid {
+    max-width: 400px;
+  }
+
+  .discipline-card {
+    flex-direction: row;
+  }
+
+  .discipline-image {
+    width: 35%;
+  }
+
+  .discipline-info {
+    width: 65%;
+    padding: clamp(1rem, 2vw, 1.25rem);
+  }
+
   .projects-container .intro-section {
-    padding-top: 6rem;
+    padding-top: clamp(4rem, 8vh, 6rem);
   }
-  
-  .project-card {
-    width: 300px;
-    height: 240px;
+
+  .projects-grid a {
+    max-width: 400px;
   }
-  
+
   .process-step {
-    padding: 1.5rem;
-  }
-  
-  .projects-container .social-icons {
-    bottom: 1rem;
-    right: 1rem;
-  }
-  
-  .projects-container .social-icon {
-    width: 45px;
-    height: 45px;
-    font-size: 1rem;
-  }
-  
-  .svg-image-static {
-    width: 400vw;
-    height: 400vh;
+    padding: clamp(1.25rem, 3vw, 1.75rem);
   }
 }
 
 @media (max-width: 480px) {
-  .projects-container .section-content {
-    padding: 2rem 1rem;
-    margin: 0 0.5rem;
+  .projects-content {
+    padding: 0 clamp(1.25rem, 4vw, 2rem);
   }
-  
-  .projects-container .intro-section {
-    padding-top: 4rem;
-  }
-  
-  .project-card {
-    width: 280px;
-    height: 200px;
-  }
-  
-  .check-more-btn {
-    padding: 0.8rem 2rem;
-    font-size: 0.9rem;
-  }
-  
-  .process-step {
-    padding: 1.5rem 1rem;
-  }
-} 
 
+  .projects-container .intro-section {
+    padding-top: clamp(3rem, 6vh, 5rem);
+  }
+
+  .projects-container .hero-collage-section {
+    padding-top: clamp(2rem, 4vh, 3rem) !important;
+  }
+
+  .art-collage {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(0.5rem, 1.5vw, 0.75rem);
+  }
+
+  /* Disciplines stack vertically on small mobile */
+  .disciplines-grid {
+    max-width: 280px;
+  }
+
+  .discipline-card {
+    flex-direction: column;
+  }
+
+  .discipline-image {
+    width: 100%;
+    aspect-ratio: 16/10;
+  }
+
+  .discipline-info {
+    width: 100%;
+  }
+
+  .projects-grid a {
+    max-width: 300px;
+  }
+
+  .check-more-btn {
+    padding: 0.75rem 1.75rem;
+  }
+
+  .process-step {
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+  }
+}
+
+/* ===============================
+   REDUCED MOTION
+   ===============================  */
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card:hover,
+  .process-step:hover,
+  .check-more-btn:hover,
+  .collage-item:hover,
+  .discipline-card:hover {
+    transform: none;
+  }
+
+  .project-image,
+  .collage-frame img,
+  .collage-frame video,
+  .discipline-image img {
+    transition: none;
+  }
+}

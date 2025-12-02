@@ -17,22 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: none;
-}
-
-/* Add border accent to match unified frame */
-.project-navbar::before {
-  content: '';
-  position: absolute;
-  inset: 0;
   border: 1px solid #FFFDF1;
-  border-radius: 40px;
-  z-index: -1;
-  clip-path: polygon(
-    0% 0%, 100% 0%, 100% 100%,
-    95% 100%, 95% calc(100% - 1px),
-    60% calc(100% - 1px), 60% 100%, 0% 100%
-  );
 }
 
 /* =======================================================
@@ -52,10 +37,6 @@
   align-items: center;
   transform: none;
   padding: 0.75rem 1.25rem;
-}
-
-.project-navbar.scrolled::before {
-  display: none;
 }
 
 .project-navbar.scrolled .navbar-header {

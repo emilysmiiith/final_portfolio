@@ -7,58 +7,53 @@ import '../styles/global.css';
 import meImage from '../assets/images/me.png';
 import littleMeImage from '../assets/images/littleme.png';
 import travelImage from '../assets/images/travel.png';
-import repeatingBackgroundImage from '../assets/images/background.png';
+import repeatingBackgroundImage from '../assets/images/background1.png';
 
 const About = () => {
-/* -----------------------------------------
-    🔥 PAGE-SPECIFIC METADATA
-   ----------------------------------------- */
-useEffect(() => {
-  const title = "About – Emily Rianna Smith | Creative Designer & Storyteller";
-  const desc =
-    "Learn more about Emily Rianna Smith — a creative designer focused on emotional storytelling, UX/UI, media, and graphic design. From island beginnings to a passion-driven career.";
-  const image = "https://www.yourwebsite.com/og/og-about.jpg";
+  const base = import.meta.env.BASE_URL;
 
-  document.title = title;
+  /* -----------------------------------------
+      PAGE-SPECIFIC METADATA
+     ----------------------------------------- */
+  useEffect(() => {
+    const title = "About – Emily Rianna Smith | Creative Designer & Storyteller";
+    const desc = "Learn more about Emily Rianna Smith — a creative designer focused on emotional storytelling, UX/UI, media, and graphic design. From island beginnings to a passion-driven career.";
+    const image = "https://www.yourwebsite.com/og/og-about.jpg";
 
-  // Description
-  let metaDescription = document.querySelector("meta[name='description']");
-  if (!metaDescription) {
-    metaDescription = document.createElement("meta");
-    metaDescription.setAttribute("name", "description");
-    document.head.appendChild(metaDescription);
-  }
-  metaDescription.setAttribute("content", desc);
+    document.title = title;
 
-  // OG Title
-  let ogTitle = document.querySelector("meta[property='og:title']");
-  if (!ogTitle) {
-    ogTitle = document.createElement("meta");
-    ogTitle.setAttribute("property", "og:title");
-    document.head.appendChild(ogTitle);
-  }
-  ogTitle.setAttribute("content", title);
+    let metaDescription = document.querySelector("meta[name='description']");
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute("content", desc);
 
-  // OG Description
-  let ogDesc = document.querySelector("meta[property='og:description']");
-  if (!ogDesc) {
-    ogDesc = document.createElement("meta");
-    ogDesc.setAttribute("property", "og:description");
-    document.head.appendChild(ogDesc);
-  }
-  ogDesc.setAttribute("content", desc);
+    let ogTitle = document.querySelector("meta[property='og:title']");
+    if (!ogTitle) {
+      ogTitle = document.createElement("meta");
+      ogTitle.setAttribute("property", "og:title");
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.setAttribute("content", title);
 
-  // OG Image
-  let ogImage = document.querySelector("meta[property='og:image']");
-  if (!ogImage) {
-    ogImage = document.createElement("meta");
-    ogImage.setAttribute("property", "og:image");
-    document.head.appendChild(ogImage);
-  }
-  ogImage.setAttribute("content", image);
+    let ogDesc = document.querySelector("meta[property='og:description']");
+    if (!ogDesc) {
+      ogDesc = document.createElement("meta");
+      ogDesc.setAttribute("property", "og:description");
+      document.head.appendChild(ogDesc);
+    }
+    ogDesc.setAttribute("content", desc);
 
-}, []);
-/* ----------------------------------------- */
+    let ogImage = document.querySelector("meta[property='og:image']");
+    if (!ogImage) {
+      ogImage = document.createElement("meta");
+      ogImage.setAttribute("property", "og:image");
+      document.head.appendChild(ogImage);
+    }
+    ogImage.setAttribute("content", image);
+  }, []);
 
   const aboutImages = [
     {
@@ -71,6 +66,16 @@ useEffect(() => {
       alt: 'Emily traveling and discovering new perspectives',
       title: 'Exploration & Growth',
     },
+  ];
+
+  // Personal life media - update these paths to your actual images/videos
+  const personalMedia = [
+    { type: 'image', src: `${base}assets/images/personal/singing.jpg`, alt: 'Emily singing' },
+    { type: 'image', src: `${base}assets/images/personal/friends.jpg`, alt: 'Time with friends' },
+    { type: 'image', src: `${base}assets/images/personal/travel-1.jpg`, alt: 'Backpacking adventure' },
+    { type: 'image', src: `${base}assets/images/personal/travel-2.jpg`, alt: 'Exploring new places' },
+    { type: 'image', src: `${base}assets/images/personal/nature.jpg`, alt: 'In nature' },
+    { type: 'image', src: `${base}assets/images/personal/adventure.jpg`, alt: 'Adventure moments' },
   ];
 
   return (
@@ -102,12 +107,10 @@ useEffect(() => {
               <div className="hero-content-wrapper">
                 <div className="hero-left-column">
                   <div className="hero-text">
-                    <h1 id="hero-heading">about me</h1>
                     <h2>creative designer & storyteller</h2>
                     <p>
-                      I’m Emily — a designer driven by empathy, emotion, and connection.
-                      I believe design is more than visuals; it’s an opportunity to make
-                      people feel seen, understood, and inspired.
+                      I'm a creator who loves turning visions into something real.
+                      I lead with empathy, and I deliver work infused with care and authenticity.
                     </p>
                   </div>
                 </div>
@@ -129,38 +132,70 @@ useEffect(() => {
           <section className="section story-section" aria-labelledby="story-heading">
             <div className="section-content">
               <div className="section-header">
-                <h1 id="story-heading">my story</h1>
-                <h2>from a small island to a creative journey</h2>
+                <h1 id="story-heading">My story</h1>
+                <h2>from a small island to the big city</h2>
+              </div>
+              <div className="story-text">
+                <p>
+                  I grew up on a small island off the coast of Vancouver, where creativity
+                  was part of everyday life. I have always been drawn to creating things that resonate with people.
+                  It means a lot to me when I can make something that tells a story or sparks an emotion.
+                </p>
+                <div
+                  className="about-collage"
+                  role="group"
+                  aria-label="Images from Emily's journey"
+                >
+                  {aboutImages.map((image, index) => (
+                    <div key={index} className={`about-image-wrapper about-${index + 1}`}>
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        title={image.title}
+                        className="about-image"
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                <p>
+                  I moved to the mainland for design school at BCIT, which gave me the technical
+                  foundation to bring those stories to life - blending empathy,
+                  storytelling, and visual expression into my crafts.
+                </p>
+              </div> 
+            </div>
+          </section>
+
+          {/* PERSONAL LIFE SECTION */}
+          <section className="section personal-section" aria-labelledby="personal-heading">
+            <div className="section-content section-content-wide">
+              <div className="section-header">
+                <h1 id="personal-heading">beyond design</h1>
+                <h2>life outside the screen</h2>
               </div>
 
-              <div
-                className="about-collage"
-                role="group"
-                aria-label="Images from Emily's journey"
-              >
-                {aboutImages.map((image, index) => (
-                  <div key={index} className={`about-image-wrapper about-${index + 1}`}>
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      title={image.title}
-                      className="about-image"
-                      loading="lazy"
-                    />
+              <div className="scattered-gallery">
+                {personalMedia.map((item, index) => (
+                  <div key={index} className={`scattered-photo photo-${index + 1}`}>
+                    <div className="photo-frame">
+                      {item.type === 'video' ? (
+                        <video autoPlay muted loop playsInline>
+                          <source src={item.src} type="video/mp4" />
+                        </video>
+                      ) : (
+                        <img src={item.src} alt={item.alt} />
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
 
-              <div className="story-text">
+              <div className="personal-text">
                 <p>
-                  I grew up on a small island off the coast of Vancouver, where creativity
-                  was part of everyday life — painting driftwood, recording videos, and
-                  exploring how stories could connect people.
-                </p>
-                <p>
-                  Moving to the mainland for design school at BCIT gave me the technical
-                  foundation to bring those stories to life — blending empathy,
-                  storytelling, and visual expression into my craft.
+                  I love to express myself with singing, spending time with people closest to me, and exploring 
+                  the world with just me and my backpack.
                 </p>
               </div>
             </div>
@@ -220,20 +255,13 @@ useEffect(() => {
               </div>
 
               <p>
-                I’m inspired by human stories and emotional design — always striving to
-                create something that resonates deeply with others. Let’s make something
+                I'm inspired by human stories and emotional design - always striving to
+                create something that resonates deeply with others. Let's make something
                 meaningful together.
               </p>
 
               <div className="cta-buttons">
-                <a
-                  href="/files/Emily-Rianna-Smith-Resume.pdf"
-                  download
-                  className="cta-button primary"
-                  aria-label="Download Emily Rianna Smith's resume PDF"
-                >
-                  download resume
-                </a>
+        
               </div>
             </div>
           </section>
