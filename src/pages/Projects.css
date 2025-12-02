@@ -43,19 +43,6 @@ body.projects-page {
   pointer-events: none;
 }
 
-.projects-repeating-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-repeat: repeat;
-  background-size: 600px;
-  background-position: top left;
-  z-index: 1;
-  opacity: 0.04;
-  pointer-events: none;
-}
 
 /* ===============================
    TYPOGRAPHY - PROJECTS PAGE
@@ -160,69 +147,68 @@ body.projects-page {
   margin-bottom: clamp(2rem, 4vw, 3rem) !important;
 }
 
-/* ===============================
-   ART COLLAGE - HERO SECTION
-   =============================== */
+/* ------------------------------
+   Floating Art Museum Gallery
+--------------------------------*/
 
-.hero-collage-section {
-  padding-top: clamp(4rem, 8vh, 6rem) !important;
-  padding-bottom: clamp(4rem, 8vh, 6rem) !important;
-}
-
-.section-content-full {
-  max-width: 1000px !important;
-}
-
-.art-collage {
+.art-gallery-floating {
   position: relative;
   width: 100%;
-  height: clamp(450px, 65vw, 600px);
+  max-width: 1150px;
   margin: 0 auto;
+  padding: 6rem 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 180px;
+  gap: 2rem;
 }
 
-.collage-item {
-  position: absolute;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  z-index: 1;
+.art-piece {
+  position: relative;
+  animation: floatSoft 16s ease-in-out infinite;
 }
 
-.collage-item:hover {
-  z-index: 20;
-  transform: scale(1.08) rotate(0deg) !important;
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
-.collage-frame {
+.art-frame {
   width: 100%;
   height: 100%;
-  border-radius: clamp(12px, 2vw, 20px);
+  padding: 10px;
+  background: #FFFDF6;
+  border-radius: 14px;
+  box-shadow: 
+     0 10px 30px rgba(0,0,0,0.08),
+     0 3px 10px rgba(0,0,0,0.05);
   overflow: hidden;
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.3),
-    0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  border: 2px solid rgba(255, 253, 241, 0.1);
+  border: 1px solid rgba(68, 43, 18, 0.09);
+  transform: rotate(var(--rot));
+  transition: all 0.4s ease;
 }
 
-.collage-item:hover .collage-frame {
-  box-shadow: 
-    0 25px 60px rgba(0, 0, 0, 0.4),
-    0 10px 30px rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 253, 241, 0.2);
+.art-frame:hover {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
 
-.collage-frame img,
-.collage-frame video {
+.art-frame img,
+.art-frame video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.collage-item:hover .collage-frame img,
-.collage-item:hover .collage-frame video {
-  transform: scale(1.05);
-}
+/* Randomized rotations for organic feel */
+.piece-1 { --rot: -2deg; grid-column: span 2; }
+.piece-2 { --rot: 1.5deg; grid-column: span 2; }
+.piece-3 { --rot: -1deg; grid-column: span 2; }
+.piece-4 { --rot: 2deg; grid-column: span 3; }
+.piece-5 { --rot: -1deg; grid-column: span 3; }
+.piece-6 { --rot: 1deg; grid-column: span 2; }
+.piece-7 { --rot: -2deg; grid-column: span 4; }
+
 
 /* Individual collage item positions - asymmetrical artistic layout */
 .item-1 {
@@ -811,5 +797,82 @@ body.projects-page {
   .collage-frame video,
   .discipline-image img {
     transition: none;
+  }
+}
+
+/* ===============================
+   MAGAZINE EDITORIAL SPREAD
+   =============================== */
+
+.editorial-collage {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+}
+
+.editorial-feature {
+  grid-row: span 2;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.editorial-feature img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.editorial-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.editorial-right-top,
+.editorial-right-bottom {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.editorial-right-top img,
+.editorial-right-bottom img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* LOWER ROW */
+.editorial-row {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.editorial-row-item {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.editorial-row-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .editorial-collage {
+    grid-template-columns: 1fr;
+  }
+
+  .editorial-row {
+    grid-template-columns: 1fr;
   }
 }

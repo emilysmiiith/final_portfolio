@@ -8,6 +8,12 @@ import meImage from '../assets/images/me.png';
 import littleMeImage from '../assets/images/littleme.png';
 import travelImage from '../assets/images/travel.png';
 import repeatingBackgroundImage from '../assets/images/background1.png';
+import me1 from '../assets/images/me1.png';
+import me2 from '../assets/images/me2.png';
+import me3 from '../assets/images/me3.png';
+import me4 from '../assets/images/me4.png';
+import me5 from '../assets/images/me5.png';
+import me6 from '../assets/images/me6.png';
 
 const About = () => {
   const base = import.meta.env.BASE_URL;
@@ -69,14 +75,15 @@ const About = () => {
   ];
 
   // Personal life media - update these paths to your actual images/videos
-  const personalMedia = [
-    { type: 'image', src: `${base}assets/images/personal/singing.jpg`, alt: 'Emily singing' },
-    { type: 'image', src: `${base}assets/images/personal/friends.jpg`, alt: 'Time with friends' },
-    { type: 'image', src: `${base}assets/images/personal/travel-1.jpg`, alt: 'Backpacking adventure' },
-    { type: 'image', src: `${base}assets/images/personal/travel-2.jpg`, alt: 'Exploring new places' },
-    { type: 'image', src: `${base}assets/images/personal/nature.jpg`, alt: 'In nature' },
-    { type: 'image', src: `${base}assets/images/personal/adventure.jpg`, alt: 'Adventure moments' },
-  ];
+const personalMedia = [
+  { type: 'image', src: me1, alt: 'Emily photo 1' },
+  { type: 'image', src: me2, alt: 'Emily photo 2' },
+  { type: 'image', src: me3, alt: 'Emily photo 3' },
+  { type: 'image', src: me4, alt: 'Emily photo 4' },
+  { type: 'image', src: me5, alt: 'Emily photo 5' },
+  { type: 'image', src: me6, alt: 'Emily photo 6' },
+];
+
 
   return (
     <>

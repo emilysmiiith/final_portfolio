@@ -142,11 +142,11 @@ const Home = () => {
                   <div className="home-hero-heading-and-prompt-wrapper">
 
                     <div className="home-hero-text">
-                      <h2>
-                       Emily Rianna Smith
-                       <br />
-                       ux/ui · media · graphics
-                      </h2>
+                     <h2>
+  Emily Rianna Smith
+  <br />
+  <span className="hero-subtitle">ux/ui · media · graphics</span>
+</h2>
                     </div>
 
                     <div className="home-hero-scroll-prompt">

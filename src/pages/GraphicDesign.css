@@ -129,6 +129,121 @@ html {
    PROJECTS GRID
    =============================== */
 
+   /* ------------------------------
+   ILLUSTRATION COLLECTION GALLERY
+   ------------------------------ */
+
+.illustration-collection {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.illustration-title {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  letter-spacing: 0.15em;
+  color: #442B12;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.illustration-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.illustration-item {
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 1 / 1;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.illustration-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.illustration-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  opacity: 1;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .illustration-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .illustration-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===============================
+   ILLUSTRATION MODAL — FIXED FOR NAVBAR
+   =============================== */
+
+.illustration-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* <-- Prevent center overlap */
+  padding-top: 120px;      /* <-- Push modal below navbar */
+  z-index: 9000;
+}
+
+.illustration-modal {
+  position: relative;
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 90vw;
+  max-height: calc(90vh - 120px); /* <-- Prevent cutoff */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  animation: fadeIn 0.25s ease;
+}
+
+.illustration-modal-image {
+  max-width: 100%;
+  max-height: calc(85vh - 120px); /* <-- Keeps it fully visible */
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.illustration-modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  line-height: 1;
+}
+
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

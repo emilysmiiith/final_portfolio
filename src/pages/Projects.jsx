@@ -10,6 +10,9 @@ import '../styles/global.css';
 import mediaImage from '../assets/images/media.png';
 import uxuiImage from '../assets/images/uxui.png';
 import graphicImage from '../assets/images/graphic.png';
+import reneighImage from '../assets/images/reneigh.png';
+import tatImage from '../assets/images/tat.png';
+import selinaImage from '../assets/images/selina.png';
 
 // Import additional images for collage - update these to your actual images
 import logoboxImage from '../assets/images/logobox.png';
@@ -81,15 +84,18 @@ const Projects = () => {
   }, []);
 
   // Hero collage media - update these paths to your actual images/videos
-  const heroMedia = [
-    { type: 'image', src: boxImage, alt: 'Packaging design' },
-    { type: 'video', src: `${base}videos/design-reel-1.mp4`, alt: 'Design process video' },
-    { type: 'image', src: graphicImage, alt: 'Poster redesign' },
-    { type: 'image', src: logoboxImage, alt: 'Logo design' },
-    { type: 'video', src: `${base}videos/design-reel-2.mp4`, alt: 'Motion graphics' },
-    { type: 'image', src: flatImage, alt: 'Flat design layout' },
-    { type: 'image', src: uxuiImage, alt: 'UX/UI design' },
-  ];
+const heroMedia = {
+  feature: reneighImage, // Big main hero image
+  rightTop: tatImage,
+  rightBottom: selinaImage,
+
+  row: [
+    boxImage,
+    graphicImage,
+    flatImage
+  ]
+};
+
 
   const disciplines = [
     {
@@ -153,34 +159,36 @@ const Projects = () => {
 
         <div className="projects-content">
 
-          {/* Hero Collage Section */}
-          <section className="section hero-collage-section">
-            <div className="section-content section-content-full">
-              <div className="section-header">
-            
-              </div>
+       
+<div className="editorial-collage">
 
-              <div className="art-collage">
-                {heroMedia.map((item, index) => (
-                  <div key={index} className={`collage-item item-${index + 1}`}>
-                    <div className="collage-frame">
-                      {item.type === 'video' ? (
-                        <video autoPlay muted loop playsInline>
-                          <source src={item.src} type="video/mp4" />
-                        </video>
-                      ) : (
-                        <img src={item.src} alt={item.alt} />
-                      )}
-                    </div>
-                  </div>
-                ))}
-                
-                {/* Decorative elements */}
-                <div className="collage-accent accent-1"></div>
-                <div className="collage-accent accent-2"></div>
-              </div>
-            </div>
-          </section>
+  {/* LEFT — Feature Image */}
+  <div className="editorial-feature">
+    <img src={heroMedia.feature} alt="feature artwork" />
+  </div>
+
+  {/* RIGHT COLUMN */}
+  <div className="editorial-right">
+    <div className="editorial-right-top">
+      <img src={heroMedia.rightTop} alt="art detail 1" />
+    </div>
+    <div className="editorial-right-bottom">
+      <img src={heroMedia.rightBottom} alt="art detail 2" />
+    </div>
+  </div>
+
+  {/* LOWER ROW */}
+  <div className="editorial-row">
+    {heroMedia.row.map((item, index) => (
+      <div key={index} className="editorial-row-item">
+        <img src={item} alt={`row piece ${index + 1}`} />
+      </div>
+    ))}
+  </div>
+
+</div>
+
+
 
           {/* Why These Disciplines */}
           <section className="section">

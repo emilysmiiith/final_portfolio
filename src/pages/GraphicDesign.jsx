@@ -9,9 +9,21 @@ import boxImage from '../assets/images/box.png';
 import flatImage from '../assets/images/flat.png';
 import badImage from '../assets/images/bad.png';
 import graphicImage from '../assets/images/graphic.png';
+import kelp from '../assets/images/kelp.png';
+import graphicassets from '../assets/images/graphicassets.png';
+import tat from '../assets/images/tat.png';
+import logo from '../assets/images/logo.png';
+import tree from '../assets/images/tree.png';
+import up from '../assets/images/up.png';
+import reneigh from '../assets/images/reneigh.png';
+import selina from '../assets/images/selina.png';
+import monk from '../assets/images/monk.png';
+import kid from '../assets/images/kid.png';
+
 
 const GraphicDesign = () => {
   const [activeProject, setActiveProject] = useState(null);
+  const [activeIllustration, setActiveIllustration] = useState(null);
 
   // ============================
   // PAGE-SPECIFIC SEO METADATA
@@ -138,6 +150,45 @@ const GraphicDesign = () => {
 
       <div className="graphic-container">
         <div className="graphic-content">
+
+<div className="illustration-collection">
+  <h3 className="illustration-title">illustration style • procreate linework</h3>
+
+  <div className="illustration-grid">
+    {[kelp, graphicassets, tat, logo, tree, up, reneigh, selina, monk, kid].map((img, index) => (
+      <div 
+        key={index} 
+        className="illustration-item"
+        onClick={() => setActiveIllustration(img)}
+      >
+        <img src={img} alt={`line illustration ${index + 1}`} />
+      </div>
+    ))}
+  </div>
+</div>
+
+{activeIllustration && (
+  <div 
+    className="illustration-modal-overlay"
+    onClick={() => setActiveIllustration(null)}
+  >
+    <div 
+      className="illustration-modal"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button 
+        className="illustration-modal-close"
+        onClick={() => setActiveIllustration(null)}
+      >
+        ×
+      </button>
+
+      <img src={activeIllustration} className="illustration-modal-image" />
+    </div>
+  </div>
+)}
+
+
 
           {/* Projects Grid Section - At Top */}
           <section className="section intro-section">

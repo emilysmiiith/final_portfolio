@@ -5,6 +5,7 @@ import Footer from '../components/ProjectFooter';
 
 const Media = () => {
   const [activeProject, setActiveProject] = useState(null);
+  const [activePhoto, setActivePhoto] = useState(null);
 
   // ============================
   // PAGE-SPECIFIC META TAGS
@@ -74,11 +75,44 @@ const Media = () => {
 
   const projects = [
     {
+      id: 3,
+      title: "POV Reel",
+      subtitle: "Creative POV • Short Vertical Reel",
+      video: `${base}videos/pov.mp4`,
+      description: "A vertical POV reel capturing creative moments, motion, and emotional tone through fast-paced cinematic edits.",
+      details: {
+        type: "Vertical Reel",
+        year: "2024",
+        role: "Director, Editor",
+        tools: "Premiere Pro, After Effects",
+        duration: "0:30",
+        collaborators: "—"
+      }
+    },
+    {
+      id: 4,
+      title: "Tip Reel",
+      subtitle: "Quick Tip • Short Vertical Reel",
+      video: `${base}videos/tip.mp4`,
+      description: "A vertical format tip-style video offering quick insights through engaging visuals and impactful pacing.",
+      details: {
+        type: "Vertical Reel",
+        year: "2024",
+        role: "Director, Editor",
+        tools: "Premiere Pro",
+        duration: "0:20",
+        collaborators: "—"
+      }
+    },
+
+    // Existing Projects Below
+    {
       id: 1,
       title: "Dementia Care Short Film",
       subtitle: "PSA • First-Person Perspective Experience",
       video: `${base}videos/Smith_ProjectB.mp4`,
-      description: "Created in collaboration with Denise Devlin — this PSA raises awareness about empathy in dementia care through a first-person narrative. The film explores the daily challenges faced by those living with dementia and their caregivers, aiming to foster understanding and compassion in viewers.",
+      description:
+        "Created in collaboration with Denise Devlin — this PSA raises awareness about empathy in dementia care...",
       details: {
         type: "Short Film / PSA",
         year: "2024",
@@ -93,7 +127,8 @@ const Media = () => {
       title: "Beyond Rides",
       subtitle: "Short Film • Featuring Lily Taylor & Kaveen",
       video: `${base}videos/beyondrides.mp4`,
-      description: "A music-driven narrative featuring Lily Taylor and Kaveen. This piece explores the connection between movement, music, and human expression through carefully choreographed sequences and custom audio work. The film captures raw emotion and the beauty of spontaneous moments.",
+      description:
+        "A music-driven narrative featuring Lily Taylor and Kaveen...",
       details: {
         type: "Short Film",
         year: "2024",
@@ -103,10 +138,12 @@ const Media = () => {
         collaborators: "Lily Taylor, Kaveen"
       }
     }
-  ];
+];
+
+
 
   const squamishPhotos = [
-    { src: `${base}assets/images/squamish/photo-1.jpg`, alt: "Rock climber ascending granite wall" },
+    { src: `${base}assets/images/squamish/photo-1.png`, alt: "Rock climber ascending granite wall" },
     { src: `${base}assets/images/squamish/photo-2.jpg`, alt: "Panoramic view of Squamish climbing area" },
     { src: `${base}assets/images/squamish/photo-3.jpg`, alt: "Climber's hands gripping rock holds" },
     { src: `${base}assets/images/squamish/photo-4.jpg`, alt: "Silhouette of climber against sky" },
@@ -145,6 +182,7 @@ const Media = () => {
                 <h1>media & film</h1>
                 <h2>click to explore each project</h2>
               </div>
+              
 
               <div className="section-body">
                 <div className="projects-grid">
@@ -164,6 +202,8 @@ const Media = () => {
                         >
                           <source src={project.video} type="video/mp4" />
                         </video>
+
+
                         <div className="project-card-overlay">
                           <span className="project-card-icon">▶</span>
                         </div>
@@ -190,11 +230,14 @@ const Media = () => {
               <div className="section-body">
                 <div className="scattered-gallery">
                   {squamishPhotos.map((photo, index) => (
-                    <div key={index} className={`scattered-photo photo-${index + 1}`}>
-                      <div className="photo-frame">
-                        <img src={photo.src} alt={photo.alt} />
-                      </div>
-                    </div>
+                  <div 
+  key={index} 
+  className={`scattered-photo photo-${index + 1}`}
+  onClick={() => setActivePhoto(photo.src)}
+  style={{ cursor: "pointer" }}
+>
+  <img src={photo.src} alt={photo.alt} />
+</div>
                   ))}
                 </div>
 
@@ -244,6 +287,29 @@ const Media = () => {
 
         </div>
       </div>
+
+
+{/* PHOTO MODAL */}
+{activePhoto && (
+  <div 
+    className="photo-modal-overlay"
+    onClick={() => setActivePhoto(null)}
+  >
+    <div 
+      className="photo-modal"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button 
+        className="photo-modal-close"
+        onClick={() => setActivePhoto(null)}
+      >
+        ×
+      </button>
+
+      <img src={activePhoto} className="photo-modal-image" />
+    </div>
+  </div>
+)}
 
       {/* Modal Popup */}
       {activeProject && (
