@@ -13,7 +13,6 @@ import repeatingBackgroundImage from '../assets/images/background1.png';
 
 const Home = () => {
   const videoRef = useRef();
-  const base = import.meta.env.BASE_URL;
 
   /* -----------------------------------------
      PAGE META
@@ -85,7 +84,7 @@ const Home = () => {
   }, []);
 
   const navigateToProjects = () => {
-    window.location.href = `${base}projects`;
+    window.location.href = '/projects';
   };
 
   const featuredProjects = [
@@ -174,7 +173,7 @@ const Home = () => {
               <div className="home-video-container">
                 <video
                   ref={videoRef}
-                  src={`${base}videos/home.mp4`}
+                  src="/videos/home.mp4"
                   muted
                   loop
                   controls
@@ -183,7 +182,7 @@ const Home = () => {
                 >
                   <track
                     kind="captions"
-                    src={`${base}assets/videos/home-captions.vtt`}
+                    src="/assets/videos/home-captions.vtt"
                     srcLang="en"
                     label="English Captions"
                   />
@@ -247,7 +246,7 @@ const Home = () => {
 
                 <div className="home-resume-download">
                   <a
-                    href={`${base}files/Emily-Rianna-Smith-Resume.pdf`}
+                    href="/files/Emily-Rianna-Smith-Resume.pdf"
                     download
                     className="home-resume-button"
                   >

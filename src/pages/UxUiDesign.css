@@ -1,7 +1,5 @@
 /* ===============================
    BASE STYLES - UX/UI DESIGN PAGE
-   ===============================
-   Matches Media/GraphicDesign pages
    =============================== */
 
 * {
@@ -232,7 +230,7 @@ html {
 }
 
 /* ===============================
-   MODAL
+   MODAL OVERLAY
    =============================== */
 
 .modal-overlay {
@@ -245,10 +243,11 @@ html {
   backdrop-filter: blur(8px);
   z-index: 1000;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: clamp(1rem, 3vw, 2rem);
+  padding: 2rem;
   animation: fadeIn 0.3s ease;
+  overflow-y: auto;
 }
 
 @keyframes fadeIn {
@@ -256,19 +255,23 @@ html {
   to { opacity: 1; }
 }
 
+/* ===============================
+   MODAL - VERTICAL SLIDES LAYOUT
+   =============================== */
+
 .modal {
   position: relative;
   width: 100%;
   max-width: 600px;
-  max-height: 90vh;
   background: #FFFDF1;
-  border-radius: clamp(16px, 3vw, 24px);
+  border-radius: 20px;
   overflow: hidden;
   animation: slideUp 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.modal-large {
+.modal-slides-vertical {
   max-width: 800px;
+  width: 100%;
 }
 
 @keyframes slideUp {
@@ -292,15 +295,16 @@ html {
   border: 1px solid rgba(68, 43, 18, 0.15);
   background: #FFFDF1;
   color: #442B12;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  z-index: 10;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
   line-height: 1;
   padding-bottom: 2px;
+  box-shadow: 0 4px 12px rgba(68, 43, 18, 0.1);
 }
 
 .modal-close:hover {
@@ -310,149 +314,83 @@ html {
 }
 
 .modal-content {
-  max-height: 90vh;
+  max-height: calc(100vh - 4rem);
   overflow-y: auto;
 }
 
+/* Modal Header */
 .modal-header {
-  padding: clamp(2rem, 4vw, 2.5rem);
-  padding-bottom: clamp(1rem, 2vw, 1.5rem);
+  padding: 2rem 2rem 1.5rem 2rem;
   text-align: center;
-  padding-right: 3.5rem;
+  border-bottom: 1px solid rgba(68, 43, 18, 0.08);
 }
 
 .modal-header h2 {
   font-family: 'Liu Jian Mao Cao', cursive;
   font-weight: 400;
-  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-size: clamp(1.6rem, 3vw, 2rem);
   color: #442B12;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.4rem 0;
   line-height: 1.3;
 }
 
 .modal-subtitle {
   font-family: 'Roboto', sans-serif !important;
   font-weight: 300 !important;
-  font-size: clamp(0.8rem, 1.6vw, 0.95rem) !important;
+  font-size: 0.85rem !important;
   color: #442B12 !important;
   opacity: 0.6 !important;
-  letter-spacing: 0.15em !important;
+  letter-spacing: 0.12em !important;
 }
 
-/* Slides Preview */
-.modal-slides {
-  padding: 0 clamp(1.5rem, 3vw, 2.5rem);
-  margin-bottom: clamp(1.5rem, 3vw, 2rem);
-}
-
-.slides-scroll {
-  display: flex;
-  gap: clamp(0.5rem, 1vw, 0.75rem);
-  overflow-x: auto;
-  padding-bottom: 0.75rem;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.slides-scroll::-webkit-scrollbar {
-  height: 6px;
-}
-
-.slides-scroll::-webkit-scrollbar-track {
-  background: rgba(68, 43, 18, 0.05);
-  border-radius: 3px;
-}
-
-.slides-scroll::-webkit-scrollbar-thumb {
-  background: rgba(68, 43, 18, 0.2);
-  border-radius: 3px;
-}
-
-.slide-preview {
-  flex-shrink: 0;
-  width: clamp(140px, 25vw, 180px);
-  aspect-ratio: 16/10;
-  border-radius: clamp(6px, 1.2vw, 10px);
-  overflow: hidden;
-  scroll-snap-align: start;
-  border: 1px solid rgba(68, 43, 18, 0.1);
-}
-
-.slide-preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.slides-count {
-  font-family: 'Roboto', sans-serif !important;
-  font-weight: 300 !important;
-  font-size: clamp(0.75rem, 1.4vw, 0.85rem) !important;
-  color: #442B12 !important;
-  opacity: 0.5 !important;
-  text-align: center;
-  margin-top: 0.75rem !important;
-  letter-spacing: 0.1em !important;
-}
-
-.modal-body {
-  padding: 0 clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 4vw, 2.5rem);
+/* Info Summary Section */
+.modal-info-summary {
+  padding: 1.5rem 2rem;
+  background: rgba(68, 43, 18, 0.02);
+  border-bottom: 1px solid rgba(68, 43, 18, 0.08);
 }
 
 /* Goal Section */
 .modal-goal {
   text-align: center;
-  margin-bottom: clamp(1.5rem, 3vw, 2rem);
-  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem;
   background: rgba(68, 43, 18, 0.04);
-  border-radius: clamp(10px, 2vw, 14px);
+  border-radius: 10px;
   border: 1px solid rgba(68, 43, 18, 0.08);
 }
 
 .modal-goal h3 {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: clamp(0.75rem, 1.4vw, 0.85rem);
+  font-size: 0.75rem;
   color: #442B12;
   opacity: 0.5;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin: 0 0 0.75rem 0;
+  margin: 0 0 0.5rem 0;
 }
 
 .modal-goal p {
   font-family: 'Roboto', sans-serif !important;
   font-weight: 300 !important;
-  font-size: clamp(0.9rem, 1.8vw, 1rem) !important;
+  font-size: 0.9rem !important;
   color: #442B12 !important;
-  line-height: 1.7 !important;
-}
-
-.modal-description {
-  font-family: 'Roboto', sans-serif !important;
-  font-weight: 300 !important;
-  font-size: clamp(0.9rem, 1.8vw, 1rem) !important;
-  color: #442B12 !important;
-  line-height: 1.8 !important;
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto clamp(2rem, 4vw, 2.5rem) auto !important;
+  line-height: 1.6 !important;
 }
 
 /* Details Grid */
 .modal-details {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(0.5rem, 1vw, 0.75rem);
-  margin-bottom: clamp(2rem, 4vw, 2.5rem);
+  gap: 0.5rem;
 }
 
 .modal-detail-item {
   text-align: center;
-  padding: clamp(0.75rem, 1.5vw, 1rem);
+  padding: 0.6rem;
   background: rgba(68, 43, 18, 0.03);
-  border-radius: clamp(6px, 1.2vw, 10px);
+  border-radius: 8px;
   border: 1px solid rgba(68, 43, 18, 0.06);
 }
 
@@ -460,60 +398,150 @@ html {
   display: block;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+  font-size: 0.65rem;
   color: #442B12;
   opacity: 0.5;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
 }
 
 .modal-detail-value {
   display: block;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  font-size: 0.8rem;
   color: #442B12;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
 }
 
-/* Process Sections */
-.modal-sections {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(1rem, 2vw, 1.5rem);
-  margin-bottom: clamp(2rem, 4vw, 2.5rem);
+/* ===============================
+   VERTICAL SLIDES SECTION
+   =============================== */
+
+.modal-slides-vertical-container {
+  padding: 1.5rem 2rem;
 }
 
-.modal-section-item {
-  padding: clamp(1rem, 2vw, 1.25rem);
-  background: rgba(68, 43, 18, 0.02);
-  border-radius: clamp(8px, 1.5vw, 12px);
-  border: 1px solid rgba(68, 43, 18, 0.05);
+.slides-vertical-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(68, 43, 18, 0.1);
 }
 
-.modal-section-item h4 {
-  font-family: 'Roboto', sans-serif;
+.slides-vertical-header h3 {
+  font-family: 'Liu Jian Mao Cao', cursive;
   font-weight: 400;
-  font-size: clamp(0.7rem, 1.3vw, 0.8rem);
+  font-size: 1.3rem;
   color: #442B12;
-  opacity: 0.5;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin: 0 0 0.5rem 0;
+  margin: 0;
 }
 
-.modal-section-item p {
+.slides-vertical-header p {
   font-family: 'Roboto', sans-serif !important;
   font-weight: 300 !important;
-  font-size: clamp(0.85rem, 1.6vw, 0.95rem) !important;
+  font-size: 0.8rem !important;
   color: #442B12 !important;
-  line-height: 1.6 !important;
+  opacity: 0.5 !important;
+  letter-spacing: 0.1em !important;
+}
+
+/* Slide List */
+.slides-vertical-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Individual Slide Row - FIXED LAYOUT */
+.slide-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+/* Slide Image Container - EXPLICIT SIZING */
+.slide-image-large {
+  position: relative;
+  flex: 0 0 420px;
+  width: 420px;
+  max-width: 420px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(68, 43, 18, 0.1);
+  border: 1px solid rgba(68, 43, 18, 0.08);
+  background: #fff;
+}
+
+/* Force image to fit container */
+.slide-image-large img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.slide-number {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 26px;
+  height: 26px;
+  background: #442B12;
+  color: #FFFDF1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  box-shadow: 0 2px 6px rgba(68, 43, 18, 0.2);
+}
+
+/* Slide Note - FIXED WIDTH */
+.slide-note {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 280px;
+  padding: 1rem;
+  background: rgba(68, 43, 18, 0.03);
+  border-radius: 10px;
+  border: 1px solid rgba(68, 43, 18, 0.08);
+}
+
+.slide-note-label {
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  color: #442B12;
+  opacity: 0.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.slide-note p {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 0.85rem !important;
+  color: #442B12 !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0.01em !important;
 }
 
 /* CTA Button */
 .modal-cta {
   text-align: center;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(68, 43, 18, 0.08);
+  background: rgba(68, 43, 18, 0.02);
 }
 
 .modal-btn {
@@ -528,9 +556,9 @@ html {
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   font-family: 'Roboto', sans-serif !important;
   font-weight: 300 !important;
-  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-size: 0.9rem;
   color: #FFFDF1;
-  letter-spacing: 0.17em;
+  letter-spacing: 0.12em;
 }
 
 .modal-btn:hover {
@@ -540,39 +568,56 @@ html {
 }
 
 /* ===============================
-   RESPONSIVE - UX/UI PAGE
+   RESPONSIVE
    =============================== */
 
-@media (max-width: 900px) {
-  .uxui-content {
-    padding: 0 clamp(2rem, 6vw, 5rem);
-  }
-}
-
-@media (max-width: 768px) {
-  .uxui-content {
-    padding: 0 clamp(1.5rem, 5vw, 3rem);
+@media (max-width: 850px) {
+  .slide-image-large {
+    flex: 0 0 320px;
+    width: 320px;
+    max-width: 320px;
   }
 
-  .uxui-container .section {
-    padding: clamp(5rem, 10vh, 8rem) 0;
-  }
-
-  .uxui-container .intro-section {
-    padding-top: clamp(4rem, 8vh, 6rem);
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
+  .slide-note {
+    max-width: 220px;
   }
 
   .modal-details {
     grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .modal-sections {
-    grid-template-columns: 1fr;
+@media (max-width: 700px) {
+  .modal-overlay {
+    padding: 0;
+  }
+
+  .modal-slides-vertical {
+    border-radius: 0;
+    max-width: 100%;
+    min-height: 100vh;
+  }
+
+  /* Stack vertically on mobile */
+  .slide-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .slide-image-large {
+    flex: none;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .slide-note {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .modal-details {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -581,16 +626,21 @@ html {
     padding: 0 clamp(1.25rem, 4vw, 2rem);
   }
 
-  .uxui-container .intro-section {
-    padding-top: clamp(3rem, 6vh, 5rem);
-  }
-
   .projects-grid {
+    grid-template-columns: 1fr;
     max-width: 300px;
   }
 
-  .modal {
-    border-radius: clamp(12px, 2.5vw, 16px);
+  .modal-header {
+    padding: 1.5rem 1.25rem 1rem 1.25rem;
+  }
+
+  .modal-info-summary {
+    padding: 1.25rem;
+  }
+
+  .modal-slides-vertical-container {
+    padding: 1.25rem;
   }
 
   .modal-details {
@@ -600,11 +650,21 @@ html {
   .modal-close {
     width: 36px;
     height: 36px;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
-  .slide-preview {
-    width: 120px;
+  .slides-vertical-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .slide-image-large {
+    max-width: 100%;
+  }
+
+  .slide-note {
+    max-width: 100%;
   }
 }
 

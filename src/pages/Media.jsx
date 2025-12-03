@@ -71,14 +71,12 @@ const Media = () => {
     };
   }, [activeProject]);
 
-  const base = import.meta.env.BASE_URL;
-
   const projects = [
     {
       id: 3,
       title: "POV Reel",
       subtitle: "Creative POV • Short Vertical Reel",
-      video: `${base}videos/pov.mp4`,
+      video: "/videos/pov.mp4",
       description: "A vertical POV reel capturing creative moments, motion, and emotional tone through fast-paced cinematic edits.",
       details: {
         type: "Vertical Reel",
@@ -93,7 +91,7 @@ const Media = () => {
       id: 4,
       title: "Tip Reel",
       subtitle: "Quick Tip • Short Vertical Reel",
-      video: `${base}videos/tip.mp4`,
+      video: "/videos/tip.mp4",
       description: "A vertical format tip-style video offering quick insights through engaging visuals and impactful pacing.",
       details: {
         type: "Vertical Reel",
@@ -110,7 +108,7 @@ const Media = () => {
       id: 1,
       title: "Dementia Care Short Film",
       subtitle: "PSA • First-Person Perspective Experience",
-      video: `${base}videos/Smith_ProjectB.mp4`,
+      video: "/videos/Smith_ProjectB.mp4",
       description:
         "Created in collaboration with Denise Devlin — this PSA raises awareness about empathy in dementia care...",
       details: {
@@ -126,7 +124,7 @@ const Media = () => {
       id: 2,
       title: "Beyond Rides",
       subtitle: "Short Film • Featuring Lily Taylor & Kaveen",
-      video: `${base}videos/beyondrides.mp4`,
+      video: "/videos/beyondrides.mp4",
       description:
         "A music-driven narrative featuring Lily Taylor and Kaveen...",
       details: {
@@ -143,12 +141,12 @@ const Media = () => {
 
 
   const squamishPhotos = [
-    { src: `${base}assets/images/squamish/photo-1.png`, alt: "Rock climber ascending granite wall" },
-    { src: `${base}assets/images/squamish/photo-2.jpg`, alt: "Panoramic view of Squamish climbing area" },
-    { src: `${base}assets/images/squamish/photo-3.jpg`, alt: "Climber's hands gripping rock holds" },
-    { src: `${base}assets/images/squamish/photo-4.jpg`, alt: "Silhouette of climber against sky" },
-    { src: `${base}assets/images/squamish/photo-5.jpg`, alt: "Climbing route with rope systems" },
-    { src: `${base}assets/images/squamish/photo-6.jpg`, alt: "Climber celebrating at summit" }
+    { src: "/assets/images/squamish/photo-1.png", alt: "Rock climber ascending granite wall" },
+    { src: "/assets/images/squamish/photo-2.jpg", alt: "Panoramic view of Squamish climbing area" },
+    { src: "/assets/images/squamish/photo-3.jpg", alt: "Climber's hands gripping rock holds" },
+    { src: "/assets/images/squamish/photo-4.jpg", alt: "Silhouette of climber against sky" },
+    { src: "/assets/images/squamish/photo-5.jpg", alt: "Climbing route with rope systems" },
+    { src: "/assets/images/squamish/photo-6.jpg", alt: "Climber celebrating at summit" }
   ];
 
   const squamishProject = {
