@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Projects.css';
 
@@ -19,11 +19,40 @@ import logoboxImage from '../assets/images/logobox.png';
 import boxImage from '../assets/images/box.png';
 import flatImage from '../assets/images/flat.png';
 
-// Import the repeating background image
+// Import the repeating background image (same as Home page)
 import repeatingBackgroundImage from '../assets/images/background1.png';
 
 const Projects = () => {
   const base = import.meta.env.BASE_URL;
+  const [spinItems, setSpinItems] = useState([]);
+
+  // ============================
+  // GENERATE SPINNING BACKGROUND ITEMS
+  // ============================
+  useEffect(() => {
+    const generateItems = () => {
+      const pageHeight = Math.max(
+        document.documentElement.scrollHeight,
+        document.body.scrollHeight,
+        5000
+      );
+      const pageWidth = window.innerWidth || 1400;
+      
+      const cellSize = 490; // 470px cell + 20px gap
+      const cols = Math.ceil(pageWidth / cellSize) + 2;
+      const rows = Math.ceil(pageHeight / cellSize) + 2;
+      const total = cols * rows;
+      
+      const items = Array.from({ length: total }, (_, i) => ({ id: i }));
+      setSpinItems(items);
+    };
+
+    generateItems();
+    
+    // Regenerate on resize
+    window.addEventListener('resize', generateItems);
+    return () => window.removeEventListener('resize', generateItems);
+  }, []);
 
   // ============================
   // PAGE-SPECIFIC METADATA
@@ -149,12 +178,17 @@ const heroMedia = {
 
       <div className="projects-container">
 
-        {/* 🎨 Background Effects */}
+        {/* 🎨 Background Effects - Spinning images, no orbs */}
         <div className="projects-background-effects" aria-hidden="true">
-          <div
-            className="projects-repeating-background"
-            style={{ backgroundImage: `url(${repeatingBackgroundImage})` }}
-          ></div>
+          <div className="projects-repeating-background">
+            {spinItems.map((item) => (
+              <div
+                key={item.id}
+                className="projects-spin-image"
+                style={{ backgroundImage: `url(${repeatingBackgroundImage})` }}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="projects-content">

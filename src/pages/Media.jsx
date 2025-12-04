@@ -122,7 +122,7 @@ const Media = () => {
     },
     {
       id: 2,
-      title: "Beyond Rides",
+      title: "Trailblaze Appearal",
       subtitle: "Short Film • Featuring Lily Taylor & Kaveen",
       video: "/videos/beyondrides.mp4",
       description:

@@ -1,5 +1,5 @@
 // src/pages/Home.jsx
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Home.css';
 import Footer from '../components/Footer';
 
@@ -13,6 +13,35 @@ import repeatingBackgroundImage from '../assets/images/background1.png';
 
 const Home = () => {
   const videoRef = useRef();
+  const [spinItems, setSpinItems] = useState([]);
+
+  /* -----------------------------------------
+     GENERATE SPINNING BACKGROUND ITEMS
+  ----------------------------------------- */
+  useEffect(() => {
+    const generateItems = () => {
+      const pageHeight = Math.max(
+        document.documentElement.scrollHeight,
+        document.body.scrollHeight,
+        5000
+      );
+      const pageWidth = window.innerWidth || 1400;
+      
+      const cellSize = 138; // 130px cell + 8px gap
+      const cols = Math.ceil(pageWidth / cellSize) + 2;
+      const rows = Math.ceil(pageHeight / cellSize) + 2;
+      const total = cols * rows;
+      
+      const items = Array.from({ length: total }, (_, i) => ({ id: i }));
+      setSpinItems(items);
+    };
+
+    generateItems();
+    
+    // Regenerate on resize
+    window.addEventListener('resize', generateItems);
+    return () => window.removeEventListener('resize', generateItems);
+  }, []);
 
   /* -----------------------------------------
      PAGE META
@@ -120,10 +149,15 @@ const Home = () => {
 
         {/* 🎨 Background Effects */}
         <div className="home-background-effects" aria-hidden="true">
-          <div
-            className="repeating-background-layer"
-            style={{ backgroundImage: `url(${repeatingBackgroundImage})` }}
-          ></div>
+          <div className="repeating-background-layer">
+            {spinItems.map((item) => (
+              <div
+                key={item.id}
+                className="spin-image"
+                style={{ backgroundImage: `url(${repeatingBackgroundImage})` }}
+              />
+            ))}
+          </div>
           <div className="home-gradient-orb home-orb-1"></div>
           <div className="home-gradient-orb home-orb-2"></div>
           <div className="home-gradient-orb home-orb-3"></div>
@@ -144,7 +178,7 @@ const Home = () => {
                      <h2>
   Emily Rianna Smith
   <br />
-  <span className="hero-subtitle">ux/ui · media · graphics</span>
+  <span className="hero-subtitle">media ·graphics</span>
 </h2>
                     </div>
 
