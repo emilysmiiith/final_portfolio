@@ -11,6 +11,8 @@ import littleMeImage from '../assets/images/littleme.png';
 import travelImage from '../assets/images/travel.png';
 import repeatingBackgroundImage from '../assets/images/background1.png';
 
+
+
 const Home = () => {
   const videoRef = useRef();
   const [spinItems, setSpinItems] = useState([]);
@@ -187,13 +189,17 @@ const Home = () => {
                       <p>to</p>
                       <p>explore</p>
                     </div>
+                    
 
                   </div>
 
                 </div>
+                
               </div>
+              
             </div>
           </section>
+          
 
           {/* INTRO / VIDEO */}
           <section className="home-section home-work-section">
