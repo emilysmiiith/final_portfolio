@@ -10,14 +10,6 @@ import '../styles/global.css';
 import mediaImage from '../assets/images/media.png';
 import uxuiImage from '../assets/images/uxui.png';
 import graphicImage from '../assets/images/graphic.png';
-import reneighImage from '../assets/images/reneigh.png';
-import tatImage from '../assets/images/tat.png';
-import selinaImage from '../assets/images/selina.png';
-
-// Import additional images for collage - update these to your actual images
-import logoboxImage from '../assets/images/logobox.png';
-import boxImage from '../assets/images/box.png';
-import flatImage from '../assets/images/flat.png';
 
 // Import the repeating background image (same as Home page)
 import repeatingBackgroundImage from '../assets/images/background1.png';
@@ -112,20 +104,6 @@ const Projects = () => {
     return () => document.body.classList.remove('projects-page');
   }, []);
 
-  // Hero collage media - update these paths to your actual images/videos
-const heroMedia = {
-  feature: reneighImage, // Big main hero image
-  rightTop: tatImage,
-  rightBottom: selinaImage,
-
-  row: [
-    boxImage,
-    graphicImage,
-    flatImage
-  ]
-};
-
-
   const disciplines = [
     {
       id: 'media',
@@ -193,39 +171,8 @@ const heroMedia = {
 
         <div className="projects-content">
 
-       
-<div className="editorial-collage">
-
-  {/* LEFT — Feature Image */}
-  <div className="editorial-feature">
-    <img src={heroMedia.feature} alt="feature artwork" />
-  </div>
-
-  {/* RIGHT COLUMN */}
-  <div className="editorial-right">
-    <div className="editorial-right-top">
-      <img src={heroMedia.rightTop} alt="art detail 1" />
-    </div>
-    <div className="editorial-right-bottom">
-      <img src={heroMedia.rightBottom} alt="art detail 2" />
-    </div>
-  </div>
-
-  {/* LOWER ROW */}
-  <div className="editorial-row">
-    {heroMedia.row.map((item, index) => (
-      <div key={index} className="editorial-row-item">
-        <img src={item} alt={`row piece ${index + 1}`} />
-      </div>
-    ))}
-  </div>
-
-</div>
-
-
-
           {/* Why These Disciplines */}
-          <section className="section">
+          <section className="section intro-section">
             <div className="section-content">
               <div className="section-header">
                 <h1>creative focus</h1>
@@ -285,20 +232,13 @@ const heroMedia = {
           <section className="section">
             <div className="section-content">
               <div className="section-header">
-             {/* AI Section */}
-<section className="section">
-  <div className="section-content">
-    <div className="section-header">
-      <h1>working with AI in design</h1>
-      <h2>the human touch in an AI world</h2>
-    </div>
-    <div className="section-body">
-      <p>
-        With the world turning toward AI-powered tools, I believe the role of a designer becomes even more important. AI can speed up workflows and spark ideas, but it can't replace the empathy, intuition, and intention that a human brings to creative work. I use AI as a collaborator — not a replacement — always ensuring that every project is guided by real understanding, thoughtful decisions, and a personal connection to your vision.
-      </p>
-    </div>
-  </div>
-</section>
+                <h1>working with AI in design</h1>
+                <h2>the human touch in an AI world</h2>
+              </div>
+              <div className="section-body">
+                <p>
+                  With the world turning toward AI-powered tools, I believe the role of a designer becomes even more important. AI can speed up workflows and spark ideas, but it can't replace the empathy, intuition, and intention that a human brings to creative work. I use AI as a collaborator — not a replacement — always ensuring that every project is guided by real understanding, thoughtful decisions, and a personal connection to your vision.
+                </p>
               </div>
             </div>
           </section>

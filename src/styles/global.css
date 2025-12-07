@@ -1,0 +1,11 @@
+/* Hide default cursor globally */
+* {
+  cursor: none !important;
+}
+
+/* Restore cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+}

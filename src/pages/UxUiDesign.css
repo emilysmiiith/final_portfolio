@@ -416,6 +416,153 @@ html {
 }
 
 /* ===============================
+   INTERACTIVE PROTOTYPE SECTION
+   =============================== */
+
+.modal-prototype-section {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(68, 43, 18, 0.08);
+  background: rgba(68, 43, 18, 0.02);
+}
+
+.prototype-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.prototype-header h3 {
+  font-family: 'Liu Jian Mao Cao', cursive;
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: #442B12;
+  margin: 0;
+  text-align: center;
+}
+
+/* Tab Toggle */
+.prototype-tabs {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  background: rgba(68, 43, 18, 0.04);
+  padding: 0.35rem;
+  border-radius: 50px;
+  border: 1px solid rgba(68, 43, 18, 0.08);
+}
+
+.prototype-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.25rem;
+  border: none;
+  border-radius: 50px;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #442B12;
+  opacity: 0.6;
+  letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+}
+
+.prototype-tab:hover {
+  opacity: 0.8;
+}
+
+.prototype-tab.active {
+  background: #442B12;
+  color: #FFFDF1;
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(68, 43, 18, 0.2);
+}
+
+.tab-icon {
+  font-size: 0.7rem;
+}
+
+/* Video Container */
+.prototype-video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.prototype-video {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+  background: #000;
+  box-shadow: 0 8px 30px rgba(68, 43, 18, 0.15);
+  border: 1px solid rgba(68, 43, 18, 0.1);
+}
+
+.prototype-caption {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 0.8rem !important;
+  color: #442B12 !important;
+  opacity: 0.5 !important;
+  letter-spacing: 0.08em !important;
+  text-align: center;
+}
+
+/* Figma Container */
+.prototype-figma-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.figma-embed-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%; /* 4:3 aspect ratio - good for mobile prototypes */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(68, 43, 18, 0.15);
+  border: 1px solid rgba(68, 43, 18, 0.1);
+  background: #f5f5f5;
+}
+
+.figma-embed-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.prototype-figma-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.figma-fullscreen-link {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #442B12;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.figma-fullscreen-link:hover {
+  opacity: 1;
+}
+
+/* ===============================
    VERTICAL SLIDES SECTION
    =============================== */
 
@@ -585,6 +732,10 @@ html {
   .modal-details {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .figma-embed-wrapper {
+    padding-bottom: 85%;
+  }
 }
 
 @media (max-width: 700px) {
@@ -619,6 +770,25 @@ html {
   .modal-details {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Prototype section mobile */
+  .prototype-tabs {
+    flex-direction: column;
+    border-radius: 12px;
+  }
+
+  .prototype-tab {
+    justify-content: center;
+  }
+
+  .prototype-figma-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .figma-embed-wrapper {
+    padding-bottom: 100%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -636,6 +806,10 @@ html {
   }
 
   .modal-info-summary {
+    padding: 1.25rem;
+  }
+
+  .modal-prototype-section {
     padding: 1.25rem;
   }
 
@@ -665,6 +839,10 @@ html {
 
   .slide-note {
     max-width: 100%;
+  }
+
+  .figma-embed-wrapper {
+    padding-bottom: 120%;
   }
 }
 

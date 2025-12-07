@@ -1,0 +1,21 @@
+/* Pen Cursor */
+.pen-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  /* Anchor point at pen tip (top of pen) */
+  transform: translate(0px, 0px);
+}
+
+.pen-icon {
+  width: 24px;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Hide on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .pen-cursor {
+    display: none;
+  }
+}

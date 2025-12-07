@@ -78,7 +78,7 @@ const About = () => {
 const personalMedia = [
   { type: 'image', src: me1, alt: 'Emily photo 1' },
   { type: 'image', src: me2, alt: 'Emily photo 2' },
-  { type: 'image', src: me3, alt: 'Emily photo 3' },
+  { type: 'video', src: '/videos/pov.mp4', alt: 'POV video' },
   { type: 'image', src: me4, alt: 'Emily photo 4' },
   { type: 'image', src: me5, alt: 'Emily photo 5' },
   { type: 'image', src: me6, alt: 'Emily photo 6' },

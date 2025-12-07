@@ -1,7 +1,5 @@
 /* ===============================
    BASE STYLES - GRAPHIC DESIGN PAGE
-   ===============================
-   Matches Projects/Media pages exactly
    =============================== */
 
 * {
@@ -23,7 +21,7 @@ html {
 }
 
 /* ===============================
-   TYPOGRAPHY - GRAPHIC DESIGN PAGE
+   TYPOGRAPHY
    =============================== */
 
 .graphic-container h1 {
@@ -60,7 +58,7 @@ html {
 }
 
 /* ===============================
-   LAYOUT - GRAPHIC DESIGN PAGE
+   LAYOUT
    =============================== */
 
 .graphic-content {
@@ -73,7 +71,7 @@ html {
 }
 
 /* ===============================
-   SECTIONS - GRAPHIC DESIGN PAGE
+   SECTIONS
    =============================== */
 
 .graphic-container .section {
@@ -126,76 +124,109 @@ html {
 }
 
 /* ===============================
-   PROJECTS GRID
+   ILLUSTRATION COLLAGE SECTION
    =============================== */
 
-   /* ------------------------------
-   ILLUSTRATION COLLECTION GALLERY
-   ------------------------------ */
-
-.illustration-collection {
-  margin-bottom: 4rem;
+.illustration-collage-section {
+  padding: 0 0 clamp(4rem, 8vh, 6rem);
   text-align: center;
 }
 
-.illustration-title {
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
-  letter-spacing: 0.15em;
-  color: #442B12;
-  margin-bottom: 1.5rem;
-  opacity: 0.8;
-}
-
-.illustration-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.5rem;
-  justify-items: center;
-}
-
-.illustration-item {
+/* Overlapping Collage Layout */
+.sketch-collage {
+  position: relative;
   width: 100%;
-  max-width: 160px;
-  aspect-ratio: 1 / 1;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  padding: 0.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform .3s ease, box-shadow .3s ease;
+  max-width: 1000px;
+  height: clamp(450px, 55vw, 600px);
+  margin: 0 auto;
 }
 
-.illustration-item img {
+.sketch-item {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
+              z-index 0s;
+}
+
+.sketch-item:hover {
+  transform: scale(1.08) !important;
+  z-index: 50;
+}
+
+.sketch-item img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  opacity: 0.9;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.25));
 }
 
-.illustration-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-  opacity: 1;
+/* Large overlapping layout - bigger pieces */
+.sketch-1 {
+  width: clamp(180px, 28vw, 320px);
+  top: 0;
+  left: 0;
+  transform: rotate(-3deg);
+  z-index: 4;
 }
 
-/* Tablet */
-@media (max-width: 900px) {
-  .illustration-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.sketch-2 {
+  width: clamp(160px, 24vw, 280px);
+  top: 5%;
+  left: 22%;
+  transform: rotate(2deg);
+  z-index: 3;
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-  .illustration-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.sketch-3 {
+  width: clamp(200px, 30vw, 350px);
+  top: -5%;
+  right: 5%;
+  transform: rotate(-1deg);
+  z-index: 5;
+}
+
+.sketch-4 {
+  width: clamp(150px, 22vw, 260px);
+  top: 40%;
+  left: -2%;
+  transform: rotate(4deg);
+  z-index: 2;
+}
+
+.sketch-5 {
+  width: clamp(180px, 26vw, 300px);
+  top: 35%;
+  left: 38%;
+  transform: rotate(-2deg);
+  z-index: 6;
+}
+
+.sketch-6 {
+  width: clamp(140px, 20vw, 240px);
+  top: 30%;
+  right: 0;
+  transform: rotate(3deg);
+  z-index: 1;
+}
+
+.sketch-7 {
+  width: clamp(170px, 25vw, 290px);
+  bottom: -5%;
+  left: 12%;
+  transform: rotate(-4deg);
+  z-index: 7;
+}
+
+.sketch-8 {
+  width: clamp(160px, 23vw, 270px);
+  bottom: 0;
+  right: 15%;
+  transform: rotate(2deg);
+  z-index: 8;
 }
 
 /* ===============================
-   ILLUSTRATION MODAL — FIXED FOR NAVBAR
+   ILLUSTRATION MODAL
    =============================== */
 
 .illustration-modal-overlay {
@@ -204,45 +235,67 @@ html {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(4px);
+  background: rgba(68, 43, 18, 0.95);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* <-- Prevent center overlap */
-  padding-top: 120px;      /* <-- Push modal below navbar */
+  align-items: center;
+  padding: 2rem;
   z-index: 9000;
+  animation: fadeIn 0.3s ease;
 }
 
 .illustration-modal {
   position: relative;
-  background: white;
-  padding: 1rem;
-  border-radius: 12px;
+  background: #FFFDF1;
+  padding: 2rem;
+  border-radius: 16px;
   max-width: 90vw;
-  max-height: calc(90vh - 120px); /* <-- Prevent cutoff */
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  animation: fadeIn 0.25s ease;
+  max-height: 90vh;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+  animation: slideUp 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .illustration-modal-image {
   max-width: 100%;
-  max-height: calc(85vh - 120px); /* <-- Keeps it fully visible */
+  max-height: 80vh;
   object-fit: contain;
   border-radius: 8px;
+  /* Reset animation for modal */
+  opacity: 1;
+  animation: none;
 }
 
 .illustration-modal-close {
   position: absolute;
-  top: 0.5rem;
-  right: 0.75rem;
-  font-size: 2rem;
-  background: none;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  background: #442B12;
   border: none;
+  border-radius: 50%;
   cursor: pointer;
-  color: #333;
+  color: #FFFDF1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
   line-height: 1;
 }
 
+.illustration-modal-close:hover {
+  background: #5a3a1a;
+  transform: scale(1.05);
+}
+
+/* ===============================
+   PROJECTS GRID
+   =============================== */
 
 .projects-grid {
   display: grid;
@@ -281,6 +334,9 @@ html {
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  /* Reset animation for project cards */
+  opacity: 1;
+  animation: none;
 }
 
 .project-card:hover .project-card-image img {
@@ -453,7 +509,6 @@ html {
   letter-spacing: 0.15em !important;
 }
 
-/* Modal Images */
 .modal-images {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -499,7 +554,6 @@ html {
   padding: 0 clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 4vw, 2.5rem);
 }
 
-/* Goal Section */
 .modal-goal {
   text-align: center;
   margin-bottom: clamp(1.5rem, 3vw, 2rem);
@@ -539,7 +593,6 @@ html {
   margin: 0 auto clamp(2rem, 4vw, 2.5rem) auto !important;
 }
 
-/* Details Grid */
 .modal-details {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -576,7 +629,6 @@ html {
   letter-spacing: 0.03em;
 }
 
-/* Additional Sections */
 .modal-sections {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -610,13 +662,26 @@ html {
 }
 
 /* ===============================
-   RESPONSIVE - GRAPHIC DESIGN PAGE
+   RESPONSIVE
    =============================== */
 
 @media (max-width: 900px) {
   .graphic-content {
     padding: 0 clamp(2rem, 6vw, 5rem);
   }
+
+  .sketch-collage {
+    height: clamp(400px, 65vw, 550px);
+  }
+
+  .sketch-1 { width: 30%; top: 0; left: 0; }
+  .sketch-2 { width: 26%; top: 3%; left: 25%; }
+  .sketch-3 { width: 32%; top: -3%; right: 0; }
+  .sketch-4 { width: 24%; top: 38%; left: -3%; }
+  .sketch-5 { width: 28%; top: 32%; left: 35%; }
+  .sketch-6 { width: 22%; top: 28%; right: -2%; }
+  .sketch-7 { width: 27%; bottom: -3%; left: 8%; }
+  .sketch-8 { width: 25%; bottom: 0; right: 10%; }
 }
 
 @media (max-width: 768px) {
@@ -628,9 +693,19 @@ html {
     padding: clamp(5rem, 10vh, 8rem) 0;
   }
 
-  .graphic-container .intro-section {
-    padding-top: clamp(4rem, 8vh, 6rem);
+  .sketch-collage {
+    height: clamp(500px, 130vw, 700px);
   }
+
+  /* Stack more vertically on mobile */
+  .sketch-1 { width: 45%; top: 0; left: 5%; z-index: 4; }
+  .sketch-2 { width: 42%; top: 2%; right: 5%; left: auto; z-index: 3; }
+  .sketch-3 { width: 48%; top: 15%; left: 25%; right: auto; z-index: 5; }
+  .sketch-4 { width: 40%; top: 32%; left: 0; z-index: 2; }
+  .sketch-5 { width: 44%; top: 35%; right: 0; left: auto; z-index: 6; }
+  .sketch-6 { width: 46%; top: 52%; left: 15%; right: auto; z-index: 7; }
+  .sketch-7 { width: 42%; bottom: 8%; left: 0; z-index: 1; }
+  .sketch-8 { width: 44%; bottom: 0; right: 0; left: auto; z-index: 8; }
 
   .projects-grid {
     grid-template-columns: 1fr;
@@ -655,8 +730,8 @@ html {
     padding: 0 clamp(1.25rem, 4vw, 2rem);
   }
 
-  .graphic-container .intro-section {
-    padding-top: clamp(3rem, 6vh, 5rem);
+  .sketch-collage {
+    height: clamp(350px, 120vw, 500px);
   }
 
   .projects-grid {
@@ -683,18 +758,24 @@ html {
    =============================== */
 
 @media (prefers-reduced-motion: reduce) {
+  .sketch-item img {
+    animation: none;
+    opacity: 1;
+  }
+
+  .sketch-item:hover {
+    transform: none !important;
+  }
+
   .project-card:hover,
   .project-card-icon {
     transform: none;
   }
 
-  .project-card-image img,
-  .modal-image-item img {
-    transition: none;
-  }
-
   .modal-overlay,
-  .modal {
+  .modal,
+  .illustration-modal-overlay,
+  .illustration-modal {
     animation: none;
   }
 }

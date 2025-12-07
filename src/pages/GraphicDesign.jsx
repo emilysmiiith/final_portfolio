@@ -9,25 +9,21 @@ import boxImage from '../assets/images/box.png';
 import flatImage from '../assets/images/flat.png';
 import badImage from '../assets/images/bad.png';
 import graphicImage from '../assets/images/graphic.png';
-import kelp from '../assets/images/kelp.png';
-import graphicassets from '../assets/images/graphicassets.png';
-import tat from '../assets/images/tat.png';
-import logo from '../assets/images/logo.png';
-import tree from '../assets/images/tree.png';
-import up from '../assets/images/up.png';
-import reneigh from '../assets/images/reneigh.png';
-import selina from '../assets/images/selina.png';
-import monk from '../assets/images/monk.png';
-import kid from '../assets/images/kid.png';
 
+// Import SVG illustrations
+import sketch1 from '../assets/images/Untitled-4-01.svg';
+import sketch2 from '../assets/images/Untitled-4-02.svg';
+import sketch3 from '../assets/images/Untitled-4-03.svg';
+import sketch5 from '../assets/images/Untitled-4-05.svg';
+import sketch6 from '../assets/images/Untitled-4-06.svg';
+import sketch7 from '../assets/images/Untitled-4-07.svg';
+import sketch8 from '../assets/images/Untitled-4-08.svg';
+import sketch9 from '../assets/images/Untitled-4-09.svg';
 
 const GraphicDesign = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [activeIllustration, setActiveIllustration] = useState(null);
 
-  // ============================
-  // PAGE-SPECIFIC SEO METADATA
-  // ============================
   useEffect(() => {
     const title = "Graphic Design – Emily Rianna Smith | Brand, Print & Packaging";
     const desc = "Explore the graphic design work of Emily Rianna Smith — packaging design, brand identity, print graphics, motion-enhanced visuals, and thoughtful visual storytelling.";
@@ -68,18 +64,19 @@ const GraphicDesign = () => {
     ogImage.setAttribute("content", image);
   }, []);
 
-  // Close modal on escape key
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === 'Escape') setActiveProject(null);
+      if (e.key === 'Escape') {
+        setActiveProject(null);
+        setActiveIllustration(null);
+      }
     };
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
   }, []);
 
-  // Prevent body scroll when modal is open
   useEffect(() => {
-    if (activeProject) {
+    if (activeProject || activeIllustration) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -87,7 +84,18 @@ const GraphicDesign = () => {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [activeProject]);
+  }, [activeProject, activeIllustration]);
+
+  const illustrations = [
+    { src: sketch1, alt: 'Floral sketch' },
+    { src: sketch2, alt: 'Nature sketch' },
+    { src: sketch3, alt: 'Portrait sketch' },
+    { src: sketch5, alt: 'Figure sketch' },
+    { src: sketch6, alt: 'Couple sketch' },
+    { src: sketch7, alt: 'Botanical sketch' },
+    { src: sketch8, alt: 'Character sketch' },
+    { src: sketch9, alt: 'Line art' },
+  ];
 
   const projects = [
     {
@@ -151,46 +159,52 @@ const GraphicDesign = () => {
       <div className="graphic-container">
         <div className="graphic-content">
 
-<div className="illustration-collection">
-  <h3 className="illustration-title">illustration style • procreate linework</h3>
+          {/* Illustration Collage */}
+          <div className="illustration-collage-section">
+            <div className="section-header">
+              <h1>illustration style</h1>
+              <h2>hand-drawn linework</h2>
+            </div>
 
-  <div className="illustration-grid">
-    {[kelp, graphicassets, tat, logo, tree, up, reneigh, selina, monk, kid].map((img, index) => (
-      <div 
-        key={index} 
-        className="illustration-item"
-        onClick={() => setActiveIllustration(img)}
-      >
-        <img src={img} alt={`line illustration ${index + 1}`} />
-      </div>
-    ))}
-  </div>
-</div>
+            <div className="sketch-collage">
+              {illustrations.map((item, index) => (
+                <div
+                  key={index}
+                  className={`sketch-item sketch-${index + 1}`}
+                  onClick={() => setActiveIllustration(item.src)}
+                >
+                  <img src={item.src} alt={item.alt} />
+                </div>
+              ))}
+            </div>
+          </div>
 
-{activeIllustration && (
-  <div 
-    className="illustration-modal-overlay"
-    onClick={() => setActiveIllustration(null)}
-  >
-    <div 
-      className="illustration-modal"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <button 
-        className="illustration-modal-close"
-        onClick={() => setActiveIllustration(null)}
-      >
-        ×
-      </button>
+          {/* Illustration Modal */}
+          {activeIllustration && (
+            <div 
+              className="illustration-modal-overlay"
+              onClick={() => setActiveIllustration(null)}
+            >
+              <div 
+                className="illustration-modal"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button 
+                  className="illustration-modal-close"
+                  onClick={() => setActiveIllustration(null)}
+                >
+                  ×
+                </button>
+                <img 
+                  src={activeIllustration} 
+                  className="illustration-modal-image" 
+                  alt="Illustration" 
+                />
+              </div>
+            </div>
+          )}
 
-      <img src={activeIllustration} className="illustration-modal-image" />
-    </div>
-  </div>
-)}
-
-
-
-          {/* Projects Grid Section - At Top */}
+          {/* Projects Grid Section */}
           <section className="section intro-section">
             <div className="section-content">
               <div className="section-header">
@@ -277,7 +291,6 @@ const GraphicDesign = () => {
                 <p className="modal-subtitle">{activeProject.subtitle}</p>
               </div>
 
-              {/* Project Images */}
               <div className="modal-images">
                 {activeProject.images.map((image, index) => (
                   <div key={index} className="modal-image-item">
@@ -288,16 +301,13 @@ const GraphicDesign = () => {
               </div>
 
               <div className="modal-body">
-                {/* Goal */}
                 <div className="modal-goal">
                   <h3>Project Goal</h3>
                   <p>{activeProject.goal}</p>
                 </div>
 
-                {/* Description */}
                 <p className="modal-description">{activeProject.description}</p>
                 
-                {/* Details Grid */}
                 <div className="modal-details">
                   {Object.entries(activeProject.details).map(([key, value]) => (
                     <div key={key} className="modal-detail-item">
@@ -307,7 +317,6 @@ const GraphicDesign = () => {
                   ))}
                 </div>
 
-                {/* Additional Sections */}
                 <div className="modal-sections">
                   {activeProject.sections.map((section, index) => (
                     <div key={index} className="modal-section-item">

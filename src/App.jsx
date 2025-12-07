@@ -4,6 +4,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import ProjectNavbar from "./components/ProjectNavbar";
+import PenCursor from "./components/PenCursor";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -30,12 +31,24 @@ function App() {
     "/about"
   ];
 
+  // Pages with dark backgrounds that need light pen
+  const darkPages = [
+    "/projects",
+    "/media",
+    "/graphic-design",
+    "/ux-ui-design"
+  ];
+
   // ---- Determine which navbar to show ----
   const useProjectNavbar = projectPages.includes(pathname);
   const useRegularNavbar = regularPages.includes(pathname);
+  const useLightPen = darkPages.includes(pathname);
 
   return (
     <>
+      {/* Pen Cursor - light version on dark pages */}
+      <PenCursor light={useLightPen} />
+
       {/* Correct Navbar Rendering */}
       {useProjectNavbar && <ProjectNavbar />}
       {useRegularNavbar && <Navbar />}
