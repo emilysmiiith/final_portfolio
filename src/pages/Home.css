@@ -145,6 +145,43 @@
    GRADIENT ORBS - HOME PAGE
    =============================== */
 
+.home-line1-decoration {
+  position: absolute;
+  top: 80px;
+  right: 10%;
+  width: auto;
+  height: auto;
+  max-width: 100vw;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.home-line2-decoration {
+  position: absolute;
+  top: 60%;
+  left: -10%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  max-width: 120vw;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.home-line3-decoration {
+  position: absolute;
+  top: 70%;
+  right: 0%;
+  width: auto;
+  height: auto;
+  max-width: 100vw;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
 .home-gradient-orb {
   position: absolute;
   border-radius: 50%;

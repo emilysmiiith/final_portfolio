@@ -10,6 +10,8 @@ import littleMe2Image from '../assets/images/littleme2.png';
 import littleMeImage from '../assets/images/littleme.png';
 import travelImage from '../assets/images/travel.png';
 import repeatingBackgroundImage from '../assets/images/background1.png';
+import line1Image from '../assets/images/line1.png';
+import line2Image from '../assets/images/line2.png';
 
 
 
@@ -160,6 +162,9 @@ const Home = () => {
               />
             ))}
           </div>
+          <img src={line1Image} alt="" className="home-line1-decoration" />
+          <img src={line2Image} alt="" className="home-line2-decoration" />
+          <img src={line1Image} alt="" className="home-line3-decoration" />
           <div className="home-gradient-orb home-orb-1"></div>
           <div className="home-gradient-orb home-orb-2"></div>
           <div className="home-gradient-orb home-orb-3"></div>

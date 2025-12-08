@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Projects.css';
 
@@ -10,41 +10,14 @@ import '../styles/global.css';
 import mediaImage from '../assets/images/media.png';
 import uxuiImage from '../assets/images/uxui.png';
 import graphicImage from '../assets/images/graphic.png';
+import line1Image from '../assets/images/line1.png';
+import line2Image from '../assets/images/line2.png';
 
 // Import the repeating background image (same as Home page)
 import repeatingBackgroundImage from '../assets/images/background1.png';
 
 const Projects = () => {
   const base = import.meta.env.BASE_URL;
-  const [spinItems, setSpinItems] = useState([]);
-
-  // ============================
-  // GENERATE SPINNING BACKGROUND ITEMS
-  // ============================
-  useEffect(() => {
-    const generateItems = () => {
-      const pageHeight = Math.max(
-        document.documentElement.scrollHeight,
-        document.body.scrollHeight,
-        5000
-      );
-      const pageWidth = window.innerWidth || 1400;
-      
-      const cellSize = 490; // 470px cell + 20px gap
-      const cols = Math.ceil(pageWidth / cellSize) + 2;
-      const rows = Math.ceil(pageHeight / cellSize) + 2;
-      const total = cols * rows;
-      
-      const items = Array.from({ length: total }, (_, i) => ({ id: i }));
-      setSpinItems(items);
-    };
-
-    generateItems();
-    
-    // Regenerate on resize
-    window.addEventListener('resize', generateItems);
-    return () => window.removeEventListener('resize', generateItems);
-  }, []);
 
   // ============================
   // PAGE-SPECIFIC METADATA
@@ -156,17 +129,10 @@ const Projects = () => {
 
       <div className="projects-container">
 
-        {/* 🎨 Background Effects - Spinning images, no orbs */}
+        {/* 🎨 Background Effects - Line decoration only */}
         <div className="projects-background-effects" aria-hidden="true">
-          <div className="projects-repeating-background">
-            {spinItems.map((item) => (
-              <div
-                key={item.id}
-                className="projects-spin-image"
-                style={{ backgroundImage: `url(${repeatingBackgroundImage})` }}
-              />
-            ))}
-          </div>
+          <img src={line1Image} alt="" className="projects-line1-decoration" />
+          <img src={line2Image} alt="" className="projects-line2-decoration" />
         </div>
 
         <div className="projects-content">

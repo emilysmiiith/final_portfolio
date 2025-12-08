@@ -88,6 +88,31 @@
    GRADIENT ORBS
    =============================== */
 
+.about-line1-decoration {
+  position: absolute;
+  top: 80px;
+  right: 10%;
+  width: auto;
+  height: auto;
+  max-width: 100vw;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.about-line2-decoration {
+  position: absolute;
+  top: 60%;
+  left: -10%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  max-width: 120vw;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
 .gradient-orb {
   position: absolute;
   border-radius: 50%;

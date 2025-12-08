@@ -8,6 +8,8 @@ import meImage from '../assets/images/me.png';
 import littleMeImage from '../assets/images/littleme.png';
 import travelImage from '../assets/images/travel.png';
 import repeatingBackgroundImage from '../assets/images/background1.png';
+import line1Image from '../assets/images/line1.png';
+import line2Image from '../assets/images/line2.png';
 import me1 from '../assets/images/me1.png';
 import me2 from '../assets/images/me2.png';
 import me3 from '../assets/images/me3.png';
@@ -101,6 +103,8 @@ const personalMedia = [
             className="repeating-background-layer"
             style={{ backgroundImage: `url(${repeatingBackgroundImage})` }}
           ></div>
+          <img src={line1Image} alt="" className="about-line1-decoration" />
+          <img src={line2Image} alt="" className="about-line2-decoration" />
           <div className="gradient-orb orb-1"></div>
           <div className="gradient-orb orb-2"></div>
           <div className="gradient-orb orb-3"></div>
