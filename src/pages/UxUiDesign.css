@@ -21,6 +21,50 @@ html {
 }
 
 /* ===============================
+   BACKGROUND EFFECTS - UX/UI PAGE
+   =============================== */
+
+.uxui-background-effects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ===============================
+   LINE DECORATION - UX/UI PAGE
+   =============================== */
+
+.uxui-line1-decoration {
+  position: absolute;
+  top: 80px;
+  right: -14%;
+  width: auto;
+  height: auto;
+  max-width: 100vw;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.8;
+  transform: scaleX(-1);
+}
+
+.uxui-line2-decoration {
+  position: absolute;
+  top: 65%;
+  left: -14%;
+  width: auto;
+  height: auto;
+  max-width: 100vw;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* ===============================
    TYPOGRAPHY - UX/UI PAGE
    =============================== */
 

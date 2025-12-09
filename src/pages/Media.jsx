@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Media.css';
 import ProjectNavbar from '../components/ProjectNavbar';
 import Footer from '../components/ProjectFooter';
+import line2Image from '../assets/images/line2.png';
 
 const Media = () => {
   const [activeProject, setActiveProject] = useState(null);
@@ -171,6 +172,13 @@ const Media = () => {
       <ProjectNavbar />
 
       <div className="media-container">
+
+        {/* Background Effects - Line decorations */}
+        <div className="media-background-effects" aria-hidden="true">
+          <img src={line2Image} alt="" className="media-line1-decoration" />
+          <img src={line2Image} alt="" className="media-line2-decoration" />
+        </div>
+
         <div className="media-content">
 
           {/* Projects Grid - At Top */}

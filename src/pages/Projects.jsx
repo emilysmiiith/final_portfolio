@@ -137,6 +137,16 @@ const Projects = () => {
 
         <div className="projects-content">
 
+          {/* Section Header Above */}
+          <section className="section intro-header-section">
+            <div className="section-content">
+              <div className="section-header">
+                <h1>creative focus</h1>
+                <h2>why these disciplines?</h2>
+              </div>
+            </div>
+          </section>
+
           {/* Disciplines Grid - All in One */}
           <section className="section disciplines-section">
             <div className="section-content section-content-wide">
@@ -159,13 +169,9 @@ const Projects = () => {
             </div>
           </section>
 
-          {/* Why These Disciplines */}
-          <section className="section intro-section">
+          {/* Paragraph Below */}
+          <section className="section intro-text-section">
             <div className="section-content">
-              <div className="section-header">
-                <h1>creative focus</h1>
-                <h2>why these disciplines?</h2>
-              </div>
               <div className="section-body">
                 <p>
                   Graphic design, UX/UI, and media all share a common relation to me which allows me to dive deeply into a clients goals and create something meaningful.

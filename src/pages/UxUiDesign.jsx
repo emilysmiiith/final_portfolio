@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './UxUiDesign.css';
 import Footer from '../components/ProjectFooter';
 import ProjectNavbar from '../components/ProjectNavbar';
+import line2Image from '../assets/images/line2.png';
 
 const UxUiDesign = () => {
   const [activeProject, setActiveProject] = useState(null);
@@ -162,8 +163,8 @@ const UxUiDesign = () => {
   "Logo exploration showing multiple concepts and evolution toward the final PinPal map-pin symbol.",
   "User persona: Olivia Rose—her background, goals, and pain points as an outdoor adventure traveler.",
   "User persona: Ethan James—his background, goals, and pain points related to sustainability-focused travel.",
-  "User scenario describing Olivia’s experience using PinPal before, during, and after her backpacking trip.",
-  "Empathy map summarizing Olivia’s feelings, thoughts, actions, and statements as she uses the app.",
+  "User scenario describing Olivia's experience using PinPal before, during, and after her backpacking trip.",
+  "Empathy map summarizing Olivia's feelings, thoughts, actions, and statements as she uses the app.",
   "User journey map outlining the stages of preparation, engagement, and reflection with emotional states and opportunities.",
   "High-level user flow chart detailing signup, home screen navigation, chat interactions, and search behavior.",
   "Low-fidelity sketches representing early concept wireframes for onboarding, profile setup, home feed, chat, and search.",
@@ -183,6 +184,13 @@ const UxUiDesign = () => {
       <ProjectNavbar />
 
       <div className="uxui-container">
+
+        {/* Background Effects - Line decorations */}
+        <div className="uxui-background-effects" aria-hidden="true">
+          <img src={line2Image} alt="" className="uxui-line1-decoration" />
+          <img src={line2Image} alt="" className="uxui-line2-decoration" />
+        </div>
+
         <div className="uxui-content">
 
           {/* Projects Grid - At Top */}

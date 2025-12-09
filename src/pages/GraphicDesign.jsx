@@ -3,6 +3,7 @@ import './GraphicDesign.css';
 import '../styles/global.css';
 import ProjectNavbar from '../components/ProjectNavbar';
 import Footer from '../components/ProjectFooter';
+import line2Image from '../assets/images/line2.png';
 
 import logoboxImage from '../assets/images/logobox.png';
 import boxImage from '../assets/images/box.png';
@@ -157,6 +158,13 @@ const GraphicDesign = () => {
       <ProjectNavbar />
 
       <div className="graphic-container">
+
+        {/* Background Effects - Line decorations */}
+        <div className="graphic-background-effects" aria-hidden="true">
+          <img src={line2Image} alt="" className="graphic-line1-decoration" />
+          <img src={line2Image} alt="" className="graphic-line2-decoration" />
+        </div>
+
         <div className="graphic-content">
 
           {/* Illustration Collage */}
