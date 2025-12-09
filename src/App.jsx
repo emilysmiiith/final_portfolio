@@ -4,7 +4,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import ProjectNavbar from "./components/ProjectNavbar";
-import PenCursor from "./components/PenCursor";
+import PenCursor from "./components/Pencursor";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -47,7 +47,7 @@ function App() {
   return (
     <>
       {/* Pen Cursor - light version on dark pages */}
-      <PenCursor light={useLightPen} />
+      <Pencursor light={useLightPen} />
 
       {/* Correct Navbar Rendering */}
       {useProjectNavbar && <ProjectNavbar />}
