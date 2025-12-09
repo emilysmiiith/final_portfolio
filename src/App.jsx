@@ -1,10 +1,9 @@
-// src/App.jsx
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import ProjectNavbar from "./components/ProjectNavbar";
-import PenCursor from "./components/Pencursor";
+import Pencursor from "./components/Pencursor";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -17,47 +16,20 @@ function App() {
   const location = useLocation();
   const pathname = location.pathname.toLowerCase();
 
-  // Pages that use the project-style navbar
-  const projectPages = [
-    "/projects",
-    "/media",
-    "/graphic-design",
-    "/ux-ui-design"
-  ];
-
-  // Pages that use the regular navbar
-  const regularPages = [
-    "/",
-    "/about"
-  ];
-
-  // Pages with dark backgrounds that need light pen
-  const darkPages = [
-    "/projects",
-    "/media",
-    "/graphic-design",
-    "/ux-ui-design"
-  ];
-
-  // ---- Determine which navbar to show ----
-  const useProjectNavbar = projectPages.includes(pathname);
-  const useRegularNavbar = regularPages.includes(pathname);
-  const useLightPen = darkPages.includes(pathname);
+  const projectPages = ["/projects", "/media", "/graphic-design", "/ux-ui-design"];
+  const regularPages = ["/", "/about"];
+  const darkPages = ["/projects", "/media", "/graphic-design", "/ux-ui-design"];
 
   return (
     <>
-      {/* Pen Cursor - light version on dark pages */}
-      <Pencursor light={useLightPen} />
+      <Pencursor light={darkPages.includes(pathname)} />
 
-      {/* Correct Navbar Rendering */}
-      {useProjectNavbar && <ProjectNavbar />}
-      {useRegularNavbar && <Navbar />}
+      {projectPages.includes(pathname) && <ProjectNavbar />}
+      {regularPages.includes(pathname) && <Navbar />}
 
-      {/* App Routing */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-
         <Route path="/projects" element={<Projects />} />
         <Route path="/media" element={<Media />} />
         <Route path="/graphic-design" element={<GraphicDesign />} />
