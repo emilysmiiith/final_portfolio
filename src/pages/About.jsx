@@ -105,6 +105,7 @@ const personalMedia = [
           ></div>
           <img src={line1Image} alt="" className="about-line1-decoration" />
           <img src={line2Image} alt="" className="about-line2-decoration" />
+          <img src={line1Image} alt="" className="about-line3-decoration" />
           <div className="gradient-orb orb-1"></div>
           <div className="gradient-orb orb-2"></div>
           <div className="gradient-orb orb-3"></div>
@@ -208,6 +209,17 @@ const personalMedia = [
                   I love to express myself with singing, spending time with people closest to me, and exploring 
                   the world with just me and my backpack.
                 </p>
+                <div className="audio-link">
+                  <a 
+                    href="https://www.youtube.com/watch?v=UhAZkQsE914&t=1186s" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="audio-button"
+                  >
+                    <span className="audio-icon">♪</span>
+                    <span className="audio-text">listen to me sing</span>
+                  </a>
+                </div>
               </div>
             </div>
           </section>

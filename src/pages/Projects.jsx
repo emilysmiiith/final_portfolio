@@ -129,28 +129,13 @@ const Projects = () => {
 
       <div className="projects-container">
 
-        {/* 🎨 Background Effects - Line decoration only */}
+        {/* 🎨 Background Effects - Line decorations */}
         <div className="projects-background-effects" aria-hidden="true">
-          <img src={line1Image} alt="" className="projects-line1-decoration" />
+          <img src={line2Image} alt="" className="projects-line1-decoration" />
           <img src={line2Image} alt="" className="projects-line2-decoration" />
         </div>
 
         <div className="projects-content">
-
-          {/* Why These Disciplines */}
-          <section className="section intro-section">
-            <div className="section-content">
-              <div className="section-header">
-                <h1>creative focus</h1>
-                <h2>why these disciplines?</h2>
-              </div>
-              <div className="section-body">
-                <p>
-                  Graphic design, UX/UI, and media all share a common relation to me which allows me to dive deeply into a clients goals and create something meaningful.
-                </p>
-              </div>
-            </div>
-          </section>
 
           {/* Disciplines Grid - All in One */}
           <section className="section disciplines-section">
@@ -170,6 +155,21 @@ const Projects = () => {
                     </div>
                   </Link>
                 ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Why These Disciplines */}
+          <section className="section intro-section">
+            <div className="section-content">
+              <div className="section-header">
+                <h1>creative focus</h1>
+                <h2>why these disciplines?</h2>
+              </div>
+              <div className="section-body">
+                <p>
+                  Graphic design, UX/UI, and media all share a common relation to me which allows me to dive deeply into a clients goals and create something meaningful.
+                </p>
               </div>
             </div>
           </section>
