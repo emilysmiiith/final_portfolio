@@ -79,9 +79,9 @@
 .home-hero-section h2 {
   font-family: 'Liu Jian Mao Cao', cursive;
   font-weight: 900;
-  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  font-size: clamp(1.8rem, 5vw, 3rem);
   color: #442B12;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.1rem 0;
   line-height: 1.15;
 }
 
@@ -267,7 +267,7 @@
    =============================== */
 
 .home-hero-section {
- padding-top: clamp(12rem, 23vh, 22rem);
+ padding-top: clamp(15rem, 28vh, 26rem);
   padding-bottom: clamp(8rem, 15vh, 12rem);
   min-height: auto;
   align-items: center;
@@ -853,5 +853,288 @@
   .home-collage-img,
   .home-about-image {
     transition: none;
+  }
+}
+
+/* Add this to your Home.css file */
+
+.home-hero-scroll-prompt {
+  position: relative;
+  /* your existing styles here */
+}
+
+.home-hero-scroll-prompt::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; /* Adjust spacing from text */
+  left: 0;
+  right: 0;
+  width: 100%; /* Full width of the text container */
+  height: 2px;
+  background-color: rgba(162, 177, 186, 0.9);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Optional: Make it slightly thicker on hover */
+.home-hero-scroll-prompt:hover::after {
+  height: 3px;
+  background-color: rgba(162, 177, 186, 1);
+}
+
+/* ===============================
+   ADD BLUE UNDERLINES TO H1 HEADERS
+   Add this to your Home.css file
+   =============================== */
+
+/* Update the h1 styles to include position and display properties */
+.home-main-content h1,
+.home-section h1,
+.home-hero-section h1,
+.home-features-section h1,
+.home-about-section h1,
+.home-resume-section h1 {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+  color: #442B12 !important;
+  line-height: 1.2 !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  letter-spacing: 0.17em !important;
+  padding: 0;
+  position: relative;
+  display: inline-block;
+}
+
+/* ===============================
+   ADD BLUE UNDERLINES TO H1 HEADERS
+   Add this to your Home.css file
+   =============================== */
+
+/* Update the h1 styles to include position and display properties */
+.home-main-content h1,
+.home-section h1,
+.home-hero-section h1,
+.home-features-section h1,
+.home-about-section h1,
+.home-resume-section h1 {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+  color: #442B12 !important;
+  line-height: 1.2 !important;
+  opacity: 1 !important;
+  margin: 0 0 1.5rem 0 !important;
+  letter-spacing: 0.17em !important;
+  padding: 0;
+  position: relative;
+  display: inline-block;
+}
+
+/* Blue underline for h1 headers - features, a bit about me, download my resume */
+.home-main-content h1::after,
+.home-section h1::after,
+.home-features-section h1::after,
+.home-about-section h1::after,
+.home-resume-section h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(162, 177, 186, 0.9);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Optional: Make underline slightly thicker on hover */
+.home-main-content h1:hover::after,
+.home-section h1:hover::after,
+.home-features-section h1:hover::after,
+.home-about-section h1:hover::after,
+.home-resume-section h1:hover::after {
+  height: 3px;
+  background-color: rgba(162, 177, 186, 1);
+}
+
+/* Make sure the section headers have proper spacing for the underline */
+.home-section-header h1 {
+  margin-bottom: 0.75rem !important;
+}
+
+/* Add this to your Home.css file */
+
+.home-hero-scroll-prompt {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.home-hero-scroll-prompt::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(162, 177, 186, 0.9);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Optional: Make it slightly thicker on hover */
+.home-hero-scroll-prompt:hover::after {
+  height: 3px;
+  background-color: rgba(162, 177, 186, 1);
+}
+
+/* ===============================
+   VIDEO STROKE WITH SPACING
+   Add this to your Home.css file
+   =============================== */
+
+.home-video-container {
+  max-width: 750px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  padding: 12px; /* Creates space between video and border */
+}
+
+/* ===============================
+   VIDEO STROKE WITH SPACING
+   Add this to your Home.css file
+   =============================== */
+
+.home-video-container {
+  max-width: 750px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  padding: 12px; /* Creates space between video and border */
+}
+
+/* Add the stroke as a border on the container */
+.home-video-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid rgba(162, 177, 186, 0.9);
+  border-radius: clamp(16px, 3vw, 24px); /* Slightly larger than video border-radius */
+  pointer-events: none;
+  z-index: 1;
+}
+
+.home-video {
+  width: 100%;
+  height: clamp(260px, 42vw, 420px);
+  border-radius: clamp(12px, 2.5vw, 20px);
+  object-fit: cover;
+ 
+  display: block;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===============================
+   BLUE STROKE AROUND ALL IMAGES - HOME PAGE
+   Add this to your Home.css file
+   =============================== */
+
+/* Features Section Images */
+.home-feature-image {
+  position: absolute;
+  border-radius: clamp(12px, 2.5vw, 20px);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 8px 30px rgba(68, 43, 18, 0.08);
+  cursor: pointer;
+  border: 2px solid rgba(162, 177, 186, 0.9);
+  padding: 12px;
+  background: transparent;
+}
+
+.home-collage-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: clamp(8px, 2vw, 16px);
+}
+
+.home-feature-image:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 16px 50px rgba(68, 43, 18, 0.12);
+  z-index: 10;
+}
+
+.home-feature-image:hover .home-collage-img {
+  transform: scale(1.03);
+}
+
+/* About Section Images */
+.home-about-image-wrapper {
+  position: absolute;
+  border-radius: clamp(12px, 2.5vw, 20px);
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(68, 43, 18, 0.08);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  border: 2px solid rgba(162, 177, 186, 0.9);
+  padding: 12px;
+  background: transparent;
+}
+
+.home-about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: clamp(8px, 2vw, 16px);
+}
+
+.home-about-image-wrapper:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 16px 50px rgba(68, 43, 18, 0.12);
+  z-index: 10;
+}
+
+.home-about-image-wrapper:hover .home-about-image {
+  transform: scale(1.03);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .home-feature-image,
+  .home-about-image-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    animation: none !important;
+    aspect-ratio: 4/3;
+    border: 2px solid rgba(162, 177, 186, 0.9);
+    padding: 12px;
+    background: transparent;
+  }
+
+  .home-collage-img,
+  .home-about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: clamp(8px, 1.5vw, 12px);
   }
 }

@@ -557,3 +557,196 @@ html {
     padding: 1.25rem;
   }
 }
+
+/* ===============================
+   BLUE UNDERLINES FOR MEDIA PAGE HEADERS
+   Add this to your Media.css file
+   =============================== */
+
+/* Update h1 to support underlines */
+.media-container h1 {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+  color: #FFFDF1 !important;
+  letter-spacing: 0.17em !important;
+  margin: 0 0 2.5rem 0 !important;
+  position: relative;
+  display: inline-block;
+}
+
+/* ===============================
+   BLUE UNDERLINES FOR MEDIA PAGE HEADERS
+   Add this to your Media.css file
+   =============================== */
+
+/* Update h1 to support underlines */
+.media-container h1 {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+  color: #FFFDF1 !important;
+  letter-spacing: 0.17em !important;
+  margin: 0 0 2.5rem 0 !important;
+  position: relative;
+  display: inline-block;
+}
+
+/* ===============================
+   BLUE UNDERLINES - SPECIFIC SECTIONS ONLY
+   =============================== */
+
+/* "media & film" section (intro) */
+.intro-section .section-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(162, 177, 186, 0.9);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-section .section-header h1:hover::after {
+  height: 3px;
+  background-color: rgba(162, 177, 186, 1);
+}
+
+/* "adventure photography" section */
+.media-content .section:nth-of-type(2) .section-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(162, 177, 186, 0.9);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.media-content .section:nth-of-type(2) .section-header h1:hover::after {
+  height: 3px;
+  background-color: rgba(162, 177, 186, 1);
+}
+
+/* "visual storytelling" section */
+.media-content .section:nth-of-type(3) .section-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(162, 177, 186, 0.9);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.media-content .section:nth-of-type(3) .section-header h1:hover::after {
+  height: 3px;
+  background-color: rgba(162, 177, 186, 1);
+}
+
+/* "creative philosophy" section */
+.media-content .section:nth-of-type(4) .section-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(162, 177, 186, 0.9);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.media-content .section:nth-of-type(4) .section-header h1:hover::after {
+  height: 3px;
+  background-color: rgba(162, 177, 186, 1);
+}
+
+/* ===============================
+   SECTION SPACING ADJUSTMENTS
+   =============================== */
+
+/* Add more space after intro section (media & film projects) */
+.media-container .intro-section {
+  padding-bottom: clamp(8rem, 14vh, 12rem) !important;
+}
+
+/* Add more space after photography section */
+.media-content .section:nth-of-type(2) {
+  padding-bottom: clamp(8rem, 14vh, 12rem) !important;
+}
+
+/* Add more space after visual storytelling section */
+.media-content .section:nth-of-type(3) {
+  padding-bottom: clamp(8rem, 14vh, 12rem) !important;
+}
+
+/* ===============================
+   BLUE BORDERS FOR IMAGES AND VIDEOS
+   =============================== */
+
+/* Project card videos */
+.project-card-video {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid rgba(162, 177, 186, 0.9);
+  padding: 12px;
+  background: transparent;
+  border-radius: clamp(12px, 2.5vw, 20px);
+}
+
+.project-card-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: clamp(8px, 2vw, 16px);
+}
+
+/* Scattered gallery photos */
+.scattered-photo {
+  position: absolute;
+  z-index: 1;
+  transition: 0.5s ease;
+  cursor: pointer;
+  border: 2px solid rgba(162, 177, 186, 0.9);
+  padding: 12px;
+  background: transparent;
+  border-radius: clamp(12px, 2vw, 20px);
+}
+
+.scattered-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: clamp(8px, 1.5vw, 14px);
+}
+
+.scattered-photo:hover {
+  z-index: 10;
+  transform: scale(1.08) rotate(0deg) !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .scattered-photo {
+    position: relative !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border: 2px solid rgba(162, 177, 186, 0.9);
+    padding: 12px;
+    background: transparent;
+  }
+}

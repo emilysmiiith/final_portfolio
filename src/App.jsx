@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -19,6 +19,11 @@ function App() {
   const projectPages = ["/projects", "/media", "/graphic-design", "/ux-ui-design"];
   const regularPages = ["/", "/about"];
   const darkPages = ["/projects", "/media", "/graphic-design", "/ux-ui-design"];
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <>
