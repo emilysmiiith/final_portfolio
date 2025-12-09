@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './PenCursor.css';
+import './Pencursor.css';
 import penIcon from '../assets/images/pen.svg';
 import penLightIcon from '../assets/images/penlight.svg';
 
