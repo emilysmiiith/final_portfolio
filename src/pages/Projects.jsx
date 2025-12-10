@@ -12,7 +12,8 @@ import uxuiImage from '../assets/images/uxui.png';
 import graphicImage from '../assets/images/graphic.png';
 import line1Image from '../assets/images/line1.png';
 import line2Image from '../assets/images/line2.png';
-
+import class1Image from '../assets/images/class1.jpeg';
+import class2Image from '../assets/images/class2.jpeg';
 // Import the repeating background image (same as Home page)
 import repeatingBackgroundImage from '../assets/images/background1.png';
 
@@ -225,6 +226,30 @@ const Projects = () => {
 
         </div>
       </div>
+
+      {/* Collaboration Section */}
+          <section className="section collaboration-section">
+            <div className="section-content">
+              <div className="section-header">
+                <h1>collaboration and inspiration</h1>
+                <h2>my time at BCIT</h2>
+              </div>
+              <div className="section-body">
+                <p>
+                  Having the opportunity to get to know so many people from different backgrounds with totally different design styles and aspirations has taught me so much and inspired me in so many ways. Collaboration and community have been some of the most memorable parts of my journey at BCIT, shaping not just my work but how I see design itself.
+                </p>
+                
+                <div className="collaboration-images">
+                  <div className="collaboration-image">
+                    <img src={class1Image} alt="BCIT classmates collaboration" />
+                  </div>
+                  <div className="collaboration-image">
+                    <img src={class2Image} alt="BCIT design community" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
       <ProjectFooter />
     </>

@@ -172,15 +172,15 @@ const personalMedia = [
                 </div>
 
                 <p>
-                  I moved to the mainland for design school at BCIT, which gave me the technical
+                  I moved to the mainland for design school at BCIT, where I am currently studying New Media Design and Web Development, which gave me the technical
                   foundation to bring those stories to life - blending empathy,
-                  storytelling, and visual expression into my crafts.
+                  storytelling, and visual expression into my crafts. 
                 </p>
                 
                 <p>
                   During my gap years, I traveled solo to 14 countries, immersing myself in new cultures 
                   and perspectives. These experiences taught me to see the world through different lenses 
-                  and deepened my appreciation for authentic human connection - something that continues 
+                  and deepened my appreciation for authentic human connection, something that continues 
                   to influence my design work today.
                 </p>
               </div> 
@@ -240,7 +240,7 @@ const personalMedia = [
               </div>
 
               <p>
-                Empathy, authenticity, and curiosity — these three guide my design process.
+                Empathy, authenticity, and curiosity, these three guide my design process.
                 They remind me to listen deeply, to create with intention, and to approach
                 design as a conversation, not just a visual.
               </p>
@@ -285,7 +285,7 @@ const personalMedia = [
               </div>
 
               <p>
-                I'm inspired by human stories and emotional design - always striving to
+                I'm inspired by human stories and emotional design, always striving to
                 create something that resonates deeply with others. Let's make something
                 meaningful together.
               </p>
