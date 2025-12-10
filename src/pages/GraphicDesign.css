@@ -75,9 +75,11 @@ html {
   color: #FFFDF1 !important;
   line-height: 1.2 !important;
   opacity: 1 !important;
-  margin: 0 !important;
+  margin: 0 0 2.5rem 0 !important;
   letter-spacing: 0.17em !important;
   padding: 0;
+  position: relative;
+  display: inline-block;
 }
 
 .graphic-container h2 {
@@ -99,6 +101,86 @@ html {
   margin: 0 !important;
   letter-spacing: 0.17em;
   padding: 0;
+}
+
+/* ===============================
+   BLUE UNDERLINES - SPECIFIC SECTIONS ONLY
+   =============================== */
+
+/* "illustration style" section */
+.illustration-collage-section .section-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(162, 177, 186, 0.9);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.illustration-collage-section .section-header h1:hover::after {
+  height: 3px;
+  background-color: rgba(162, 177, 186, 1);
+}
+
+/* "graphic design" section (intro) */
+.intro-section .section-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(162, 177, 186, 0.9);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-section .section-header h1:hover::after {
+  height: 3px;
+  background-color: rgba(162, 177, 186, 1);
+}
+
+/* "visual storytelling" section */
+.graphic-content .section:nth-of-type(2) .section-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(162, 177, 186, 0.9);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.graphic-content .section:nth-of-type(2) .section-header h1:hover::after {
+  height: 3px;
+  background-color: rgba(162, 177, 186, 1);
+}
+
+/* "design philosophy" section */
+.graphic-content .section:nth-of-type(3) .section-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(162, 177, 186, 0.9);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.graphic-content .section:nth-of-type(3) .section-header h1:hover::after {
+  height: 3px;
+  background-color: rgba(162, 177, 186, 1);
 }
 
 /* ===============================
@@ -133,7 +215,11 @@ html {
 
 .graphic-container .intro-section {
   padding-top: clamp(6rem, 12vh, 10rem);
-  padding-bottom: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(8rem, 14vh, 12rem) !important;
+}
+
+.graphic-content .section:nth-of-type(2) {
+  padding-bottom: clamp(8rem, 14vh, 12rem) !important;
 }
 
 .graphic-container .section-content {
@@ -316,7 +402,6 @@ html {
   max-height: 80vh;
   object-fit: contain;
   border-radius: 8px;
-  /* Reset animation for modal */
   opacity: 1;
   animation: none;
 }
@@ -386,7 +471,6 @@ html {
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  /* Reset animation for project cards */
   opacity: 1;
   animation: none;
 }
@@ -749,7 +833,6 @@ html {
     height: clamp(500px, 130vw, 700px);
   }
 
-  /* Stack more vertically on mobile */
   .sketch-1 { width: 45%; top: 0; left: 5%; z-index: 4; }
   .sketch-2 { width: 42%; top: 2%; right: 5%; left: auto; z-index: 3; }
   .sketch-3 { width: 48%; top: 15%; left: 25%; right: auto; z-index: 5; }
@@ -829,272 +912,5 @@ html {
   .illustration-modal-overlay,
   .illustration-modal {
     animation: none;
-  }
-}
-
-/* ===============================
-   BLUE UNDERLINES FOR GRAPHIC DESIGN PAGE HEADERS
-   Add this to your GraphicDesign.css file
-   =============================== */
-
-/* Update h1 to support underlines */
-.graphic-container h1 {
-  font-family: 'Roboto', sans-serif !important;
-  font-weight: 300 !important;
-  font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
-  color: #FFFDF1 !important;
-  line-height: 1.2 !important;
-  opacity: 1 !important;
-  margin: 0 0 2.5rem 0 !important;
-  letter-spacing: 0.17em !important;
-  padding: 0;
-  position: relative;
-  display: inline-block;
-}
-
-/* ===============================
-   BLUE UNDERLINES - SPECIFIC SECTIONS ONLY
-   =============================== */
-
-/* "illustration style" section */
-.illustration-collage-section .section-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(162, 177, 186, 0.9);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.illustration-collage-section .section-header h1:hover::after {
-  height: 3px;
-  background-color: rgba(162, 177, 186, 1);
-}
-
-/* "graphic design" section (intro) */
-.intro-section .section-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(162, 177, 186, 0.9);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.intro-section .section-header h1:hover::after {
-  height: 3px;
-  background-color: rgba(162, 177, 186, 1);
-}
-
-/* "visual storytelling" section */
-.graphic-content .section:nth-of-type(2) .section-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(162, 177, 186, 0.9);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.graphic-content .section:nth-of-type(2) .section-header h1:hover::after {
-  height: 3px;
-  background-color: rgba(162, 177, 186, 1);
-}
-
-/* "design philosophy" section */
-.graphic-content .section:nth-of-type(3) .section-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(162, 177, 186, 0.9);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.graphic-content .section:nth-of-type(3) .section-header h1:hover::after {
-  height: 3px;
-  background-color: rgba(162, 177, 186, 1);
-}
-
-/* ===============================
-   BLUE UNDERLINES FOR GRAPHIC DESIGN PAGE HEADERS
-   Add this to your GraphicDesign.css file
-   =============================== */
-
-/* Update h1 to support underlines */
-.graphic-container h1 {
-  margin: 0 0 2.5rem 0 !important;
-  position: relative;
-  display: inline-block;
-}
-
-/* ===============================
-   BLUE UNDERLINES - SPECIFIC SECTIONS ONLY
-   =============================== */
-
-/* "illustration style" section */
-.illustration-collage-section .section-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(162, 177, 186, 0.9);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.illustration-collage-section .section-header h1:hover::after {
-  height: 3px;
-  background-color: rgba(162, 177, 186, 1);
-}
-
-/* "graphic design" section (intro) */
-.intro-section .section-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(162, 177, 186, 0.9);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.intro-section .section-header h1:hover::after {
-  height: 3px;
-  background-color: rgba(162, 177, 186, 1);
-}
-
-/* "visual storytelling" section */
-.graphic-content .section:nth-of-type(2) .section-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(162, 177, 186, 0.9);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.graphic-content .section:nth-of-type(2) .section-header h1:hover::after {
-  height: 3px;
-  background-color: rgba(162, 177, 186, 1);
-}
-
-/* "design philosophy" section */
-.graphic-content .section:nth-of-type(3) .section-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(162, 177, 186, 0.9);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.graphic-content .section:nth-of-type(3) .section-header h1:hover::after {
-  height: 3px;
-  background-color: rgba(162, 177, 186, 1);
-}
-
-/* ===============================
-   SECTION SPACING ADJUSTMENTS
-   =============================== */
-
-/* Add more space after intro section (graphic design projects) */
-.graphic-container .intro-section {
-  padding-bottom: clamp(8rem, 14vh, 12rem) !important;
-}
-
-/* Add more space after visual storytelling section */
-.graphic-content .section:nth-of-type(2) {
-  padding-bottom: clamp(8rem, 14vh, 12rem) !important;
-}
-
-/* ===============================
-   BLUE BORDERS FOR IMAGES
-   =============================== */
-
-/* Discipline cards - change overflow to visible */
-.graphic-container .discipline-card {
-  overflow: visible !important;
-}
-
-/* Blue borders on discipline card images (graphic, illustration, branding cards) */
-.graphic-container .discipline-image {
-  border: 2px solid rgba(162, 177, 186, 0.9);
-  padding: 12px;
-  background: transparent;
-  border-radius: clamp(12px, 2.5vw, 20px);
-}
-
-.graphic-container .discipline-image img {
-  border-radius: clamp(8px, 2vw, 16px);
-}
-
-/* Project card images - also add blue borders */
-.graphic-container .project-card {
-  overflow: visible !important;
-}
-
-.graphic-container .project-card-image {
-  border: 2px solid rgba(162, 177, 186, 0.9);
-  padding: 12px;
-  background: transparent;
-}
-
-.graphic-container .project-card-image img {
-  border-radius: clamp(8px, 2vw, 16px);
-}
-
-/* Responsive adjustments for discipline images */
-@media (max-width: 900px) {
-  .graphic-container .discipline-image {
-    border: 2px solid rgba(162, 177, 186, 0.9);
-    padding: 12px;
-    background: transparent;
-  }
-}
-
-@media (max-width: 768px) {
-  .graphic-container .discipline-image {
-    border: 2px solid rgba(162, 177, 186, 0.9);
-    padding: 12px;
-    background: transparent;
-  }
-}
-
-@media (max-width: 480px) {
-  .graphic-container .discipline-image {
-    border: 2px solid rgba(162, 177, 186, 0.9);
-    padding: 12px;
-    background: transparent;
   }
 }
