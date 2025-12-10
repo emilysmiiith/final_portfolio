@@ -140,7 +140,7 @@ const personalMedia = [
             </div>
           </section>
 
-          {/* STORY SECTION */}
+         {/* STORY SECTION */}
           <section className="section story-section" aria-labelledby="story-heading">
             <div className="section-content">
               <div className="section-header">
@@ -175,6 +175,13 @@ const personalMedia = [
                   I moved to the mainland for design school at BCIT, which gave me the technical
                   foundation to bring those stories to life - blending empathy,
                   storytelling, and visual expression into my crafts.
+                </p>
+                
+                <p>
+                  During my gap years, I traveled solo to 14 countries, immersing myself in new cultures 
+                  and perspectives. These experiences taught me to see the world through different lenses 
+                  and deepened my appreciation for authentic human connection - something that continues 
+                  to influence my design work today.
                 </p>
               </div> 
             </div>

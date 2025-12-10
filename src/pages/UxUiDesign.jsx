@@ -7,6 +7,7 @@ import line2Image from '../assets/images/line2.png';
 const UxUiDesign = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [activeTab, setActiveTab] = useState('video'); // 'video' or 'prototype'
+  const [fullscreenSlide, setFullscreenSlide] = useState(null);
 
   // Page-specific metadata
   useEffect(() => {
@@ -49,18 +50,24 @@ const UxUiDesign = () => {
     ogImage.setAttribute("content", image);
   }, []);
 
-  // Close modal on escape key
+  // Close modal/fullscreen on escape key
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === 'Escape') setActiveProject(null);
+      if (e.key === 'Escape') {
+        if (fullscreenSlide !== null) {
+          setFullscreenSlide(null);
+        } else {
+          setActiveProject(null);
+        }
+      }
     };
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
-  }, []);
+  }, [fullscreenSlide]);
 
-  // Prevent body scroll when modal is open
+  // Prevent body scroll when modal or fullscreen is open
   useEffect(() => {
-    if (activeProject) {
+    if (activeProject || fullscreenSlide !== null) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -68,7 +75,7 @@ const UxUiDesign = () => {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [activeProject]);
+  }, [activeProject, fullscreenSlide]);
 
   // Reset tab when opening a new project
   useEffect(() => {
@@ -99,37 +106,37 @@ const UxUiDesign = () => {
       videoPath: '/videos/insighttimer.mp4',
       figmaUrl: 'https://www.figma.com/proto/mhYxBQhJ77XyMgKgXgc60T/uxui?node-id=201-4172&t=2aE8ZSIici3dE2AZ-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=18%3A277&show-proto-sidebar=1',
       slideNotes: [
-  "Introduces the project: a UX/UI redesign of Insight Timer, including the student's name and project code, setting the tone with the app's theme and imagery.",
-  "Shows the week-by-week project timeline outlining research, design, iteration, prototyping, and presentation stages.",
-  "Explains what Insight Timer is, its purpose, and the meaning behind its Tibetan bowl logo to ground the redesign context.",
-  "Analyzes the current Insight Timer app layout, highlighting usability problems like long onboarding, excessive options, and overwhelming filters.",
-  "Shows the current website layout and notes branding and UX inconsistencies between web and app versions.",
-  "Summarizes survey findings about meditation app usage, preferences, and the importance of clear navigation.",
-  "Presents additional survey data on search behaviors, desired profile features, and frustrations like overwhelming choice and poor navigation.",
-  "Displays the interview questions used to gather qualitative user insights about motivations, habits, and frustrations.",
-  "Summarizes Interview 1: a 35-year-old developer focused on sleep support, emphasizing the need for simplicity and clarity.",
-  "Summarizes Interview 2: a 24-year-old student focused on daily meditation and growth, highlighting needs for personalization and better content organization.",
-  "Summarizes user testing on the current app, noting issues with onboarding, navigation, content organization, and clarity.",
-  "Introduces Jeremy Dawson, the user persona representing typical users, detailing his needs, motivations, goals, and pain points.",
-  "Narrative of Jeremy's experience with the app, showing frustration with category overload and how a guided flow could help.",
-  "Presents the empathy map showing what Jeremy thinks, feels, says, and does while navigating meditation apps.",
-  "Displays the user journey map across discover, explore, engage, and reflect, with emotions and UX opportunities for each phase.",
-  "Recaps main pain points: cognitive overload, chaotic search, fragmented content, unclear teacher sections, and a confusing home screen.",
-  "Visualizes Phase 1 onboarding flow, showing steps for login, intent selection, preferences, and reminders.",
-  "Visualizes Phase 2 navigation flow, outlining how users move through home, intentions, browsing, and the library.",
-  "Illustrates the search and profile flow, including filters by intention, experience level, time, and access to saved content.",
-  "Presents the finalized visual design system: colors, typography, shapes, and reasoning behind the app's new calming aesthetic.",
-  "Shows simplified low-fidelity onboarding wireframes demonstrating a streamlined, guided setup experience.",
-  "Displays low-fidelity wireframes for navigation, search, and meditation selection to test early structure and filtering.",
-  "Lists the specific usability testing tasks: onboarding, intention-setting, search, saving, playlist creation, and profile review.",
-  "Summarizes beginner user feedback noting confusion around onboarding and category choices with suggestions for added guidance.",
-  "Presents intermediate and advanced user feedback regarding unclear filters, lack of visual feedback, and insufficient progress insights.",
-  "Highlights feedback about difficulty finding saved content and recommends reorganizing the library with clearer sub-categories.",
-  "Explains improvements applied after testing, such as clearer CTAs, improved icon contrast, and increased guidance.",
-  "Shows high-fidelity onboarding screens that apply the final visual system with a calming, intuitive setup experience.",
-  "Displays high-fidelity home and library screens with updated cards, imagery, and a more structured navigation system.",
-  "Shows refined high-fidelity search and meditation screens and summarizes positive final testing results.",
-  "Concludes the project with lessons learned about user-centered design, iterative testing, simplifying flows, and reducing cognitive overload."
+        "Introduces the project: a UX/UI redesign of Insight Timer, including the student's name and project code, setting the tone with the app's theme and imagery.",
+        "Shows the week-by-week project timeline outlining research, design, iteration, prototyping, and presentation stages.",
+        "Explains what Insight Timer is, its purpose, and the meaning behind its Tibetan bowl logo to ground the redesign context.",
+        "Analyzes the current Insight Timer app layout, highlighting usability problems like long onboarding, excessive options, and overwhelming filters.",
+        "Shows the current website layout and notes branding and UX inconsistencies between web and app versions.",
+        "Summarizes survey findings about meditation app usage, preferences, and the importance of clear navigation.",
+        "Presents additional survey data on search behaviors, desired profile features, and frustrations like overwhelming choice and poor navigation.",
+        "Displays the interview questions used to gather qualitative user insights about motivations, habits, and frustrations.",
+        "Summarizes Interview 1: a 35-year-old developer focused on sleep support, emphasizing the need for simplicity and clarity.",
+        "Summarizes Interview 2: a 24-year-old student focused on daily meditation and growth, highlighting needs for personalization and better content organization.",
+        "Summarizes user testing on the current app, noting issues with onboarding, navigation, content organization, and clarity.",
+        "Introduces Jeremy Dawson, the user persona representing typical users, detailing his needs, motivations, goals, and pain points.",
+        "Narrative of Jeremy's experience with the app, showing frustration with category overload and how a guided flow could help.",
+        "Presents the empathy map showing what Jeremy thinks, feels, says, and does while navigating meditation apps.",
+        "Displays the user journey map across discover, explore, engage, and reflect, with emotions and UX opportunities for each phase.",
+        "Recaps main pain points: cognitive overload, chaotic search, fragmented content, unclear teacher sections, and a confusing home screen.",
+        "Visualizes Phase 1 onboarding flow, showing steps for login, intent selection, preferences, and reminders.",
+        "Visualizes Phase 2 navigation flow, outlining how users move through home, intentions, browsing, and the library.",
+        "Illustrates the search and profile flow, including filters by intention, experience level, time, and access to saved content.",
+        "Presents the finalized visual design system: colors, typography, shapes, and reasoning behind the app's new calming aesthetic.",
+        "Shows simplified low-fidelity onboarding wireframes demonstrating a streamlined, guided setup experience.",
+        "Displays low-fidelity wireframes for navigation, search, and meditation selection to test early structure and filtering.",
+        "Lists the specific usability testing tasks: onboarding, intention-setting, search, saving, playlist creation, and profile review.",
+        "Summarizes beginner user feedback noting confusion around onboarding and category choices with suggestions for added guidance.",
+        "Presents intermediate and advanced user feedback regarding unclear filters, lack of visual feedback, and insufficient progress insights.",
+        "Highlights feedback about difficulty finding saved content and recommends reorganizing the library with clearer sub-categories.",
+        "Explains improvements applied after testing, such as clearer CTAs, improved icon contrast, and increased guidance.",
+        "Shows high-fidelity onboarding screens that apply the final visual system with a calming, intuitive setup experience.",
+        "Displays high-fidelity home and library screens with updated cards, imagery, and a more structured navigation system.",
+        "Shows refined high-fidelity search and meditation screens and summarizes positive final testing results.",
+        "Concludes the project with lessons learned about user-centered design, iterative testing, simplifying flows, and reducing cognitive overload."
       ]
     },
     {
@@ -152,25 +159,24 @@ const UxUiDesign = () => {
       pdfPath: '/files/pinpal.pdf',
       videoPath: '/videos/pinpal.mp4',
       figmaUrl: 'https://www.figma.com/proto/gEPemxSab58gccyBhdDZSL/pinpal--Copy-?node-id=1-3&t=9clDEhNDfGgw0jUN-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A3',
-   slideNotes: [
-  "Title slide introducing PinPal, its UX/UI strategy, tagline, and concept of connecting travelers worldwide.",
-  "Overview of the PinPal app and its purpose, including target audience demographics and travel types.",
-  "Summary of user interview insights highlighting needs for safety, spontaneity, and authentic travel connections.",
-  "Survey results showing demographic breakdown and the importance users place on making friends while traveling.",
-  "Problem statement outlining challenges travelers face in forming meaningful, safe social connections.",
-  "Solution overview describing core pillars: trust and safety, personalized event discovery, pre-event interaction, and community features.",
-  "Design moodboard including color palette, typography, and visual direction emphasizing a vibrant, earthy aesthetic.",
-  "Logo exploration showing multiple concepts and evolution toward the final PinPal map-pin symbol.",
-  "User persona: Olivia Rose—her background, goals, and pain points as an outdoor adventure traveler.",
-  "User persona: Ethan James—his background, goals, and pain points related to sustainability-focused travel.",
-  "User scenario describing Olivia's experience using PinPal before, during, and after her backpacking trip.",
-  "Empathy map summarizing Olivia's feelings, thoughts, actions, and statements as she uses the app.",
-  "User journey map outlining the stages of preparation, engagement, and reflection with emotional states and opportunities.",
-  "High-level user flow chart detailing signup, home screen navigation, chat interactions, and search behavior.",
-  "Low-fidelity sketches representing early concept wireframes for onboarding, profile setup, home feed, chat, and search.",
-  "Mid-fidelity wireframes showing refined layouts for onboarding, profile creation, activity discovery, chat, and profile pages."
-]
-
+      slideNotes: [
+        "Title slide introducing PinPal, its UX/UI strategy, tagline, and concept of connecting travelers worldwide.",
+        "Overview of the PinPal app and its purpose, including target audience demographics and travel types.",
+        "Summary of user interview insights highlighting needs for safety, spontaneity, and authentic travel connections.",
+        "Survey results showing demographic breakdown and the importance users place on making friends while traveling.",
+        "Problem statement outlining challenges travelers face in forming meaningful, safe social connections.",
+        "Solution overview describing core pillars: trust and safety, personalized event discovery, pre-event interaction, and community features.",
+        "Design moodboard including color palette, typography, and visual direction emphasizing a vibrant, earthy aesthetic.",
+        "Logo exploration showing multiple concepts and evolution toward the final PinPal map-pin symbol.",
+        "User persona: Olivia Rose—her background, goals, and pain points as an outdoor adventure traveler.",
+        "User persona: Ethan James—his background, goals, and pain points related to sustainability-focused travel.",
+        "User scenario describing Olivia's experience using PinPal before, during, and after her backpacking trip.",
+        "Empathy map summarizing Olivia's feelings, thoughts, actions, and statements as she uses the app.",
+        "User journey map outlining the stages of preparation, engagement, and reflection with emotional states and opportunities.",
+        "High-level user flow chart detailing signup, home screen navigation, chat interactions, and search behavior.",
+        "Low-fidelity sketches representing early concept wireframes for onboarding, profile setup, home feed, chat, and search.",
+        "Mid-fidelity wireframes showing refined layouts for onboarding, profile creation, activity discovery, chat, and profile pages."
+      ]
     }
   ];
 
@@ -328,8 +334,11 @@ const UxUiDesign = () => {
                   {activeTab === 'video' && activeProject.videoPath && (
                     <div className="prototype-video-container">
                       <video 
-                        controls 
+                        autoPlay
+                        muted
+                        loop
                         playsInline
+                        controls
                         poster={activeProject.thumbnail}
                         className="prototype-video"
                       >
@@ -372,8 +381,11 @@ const UxUiDesign = () => {
                   {activeProject.videoPath && !activeProject.figmaUrl && activeTab === 'video' && (
                     <div className="prototype-video-container">
                       <video 
-                        controls 
+                        autoPlay
+                        muted
+                        loop
                         playsInline
+                        controls
                         poster={activeProject.thumbnail}
                         className="prototype-video"
                       >
@@ -424,13 +436,20 @@ const UxUiDesign = () => {
                 <div className="slides-vertical-list">
                   {Array.from({ length: activeProject.slideCount }, (_, i) => (
                     <div key={i} className="slide-row">
-                      <div className="slide-image-large">
+                      <div 
+                        className="slide-image-large"
+                        onClick={() => setFullscreenSlide(i)}
+                        style={{ cursor: 'pointer' }}
+                      >
                         <img 
                           src={`${activeProject.slidePath}slide-${i + 1}.png`} 
                           alt={`${activeProject.title} slide ${i + 1}`}
                           loading="lazy"
                         />
                         <span className="slide-number">{i + 1}</span>
+                        <div className="slide-fullscreen-hint">
+                          <span>🔍</span>
+                        </div>
                       </div>
                       <div className="slide-note">
                         <span className="slide-note-label">Slide {i + 1}</span>
@@ -452,6 +471,54 @@ const UxUiDesign = () => {
                   download full case study →
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Fullscreen Slide Viewer */}
+      {fullscreenSlide !== null && activeProject && (
+        <div 
+          className="fullscreen-slide-overlay"
+          onClick={() => setFullscreenSlide(null)}
+        >
+          <button 
+            className="fullscreen-close"
+            onClick={() => setFullscreenSlide(null)}
+            aria-label="Close fullscreen"
+          >
+            ×
+          </button>
+          <div className="fullscreen-slide-container">
+            <img 
+              src={`${activeProject.slidePath}slide-${fullscreenSlide + 1}.png`}
+              alt={`${activeProject.title} slide ${fullscreenSlide + 1} - fullscreen`}
+              onClick={(e) => e.stopPropagation()}
+            />
+            <div className="fullscreen-slide-nav">
+              <button
+                className="fullscreen-nav-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setFullscreenSlide(Math.max(0, fullscreenSlide - 1));
+                }}
+                disabled={fullscreenSlide === 0}
+              >
+                ← Previous
+              </button>
+              <span className="fullscreen-slide-counter">
+                {fullscreenSlide + 1} / {activeProject.slideCount}
+              </span>
+              <button
+                className="fullscreen-nav-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setFullscreenSlide(Math.min(activeProject.slideCount - 1, fullscreenSlide + 1));
+                }}
+                disabled={fullscreenSlide === activeProject.slideCount - 1}
+              >
+                Next →
+              </button>
             </div>
           </div>
         </div>

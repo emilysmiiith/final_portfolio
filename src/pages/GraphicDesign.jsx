@@ -10,6 +10,10 @@ import boxImage from '../assets/images/box.png';
 import flatImage from '../assets/images/flat.png';
 import badImage from '../assets/images/bad.png';
 import graphicImage from '../assets/images/graphic.png';
+import reneighImage from '../assets/images/reneigh.png';
+
+// Import PDF
+import hibiskiPDF from '/slides/StyleGuideHibiski.pdf';
 
 // Import SVG illustrations
 import sketch1 from '../assets/images/Untitled-4-01.svg';
@@ -150,6 +154,54 @@ const GraphicDesign = () => {
         { title: "Design Approach", content: "Used warm tones and typographic contrast to strengthen focus and hierarchy." },
         { title: "Takeaways", content: "Showed me how color psychology and layout decisions significantly improve visual clarity." }
       ]
+    },
+    {
+      id: 3,
+      title: "Reneigh Logo",
+      subtitle: "Brand Identity & Logo Design",
+      thumbnail: reneighImage,
+      images: [
+        { src: reneighImage, label: "Final Logo Design" }
+      ],
+      description: "Created a distinctive logo for Reneigh, focusing on modern elegance and memorable brand identity. The design process involved exploring various concepts to capture the essence of the brand while ensuring versatility across different applications.",
+      goal: "Design a unique and versatile logo that effectively represents the Reneigh brand identity and works across multiple platforms and media.",
+      details: {
+        type: "Logo Design",
+        year: "2024",
+        duration: "15 hours",
+        timeline: "Oct 2024",
+        role: "Designer",
+        tools: "Adobe Illustrator"
+      },
+      sections: [
+        { title: "Objective", content: "Create a memorable logo that captures the brand's personality while maintaining simplicity and scalability." },
+        { title: "Design Approach", content: "Explored multiple concepts, focusing on clean lines, balanced composition, and timeless appeal that works in both color and monochrome." },
+        { title: "Takeaways", content: "This project reinforced the importance of iterative design and how subtle refinements can significantly impact a logo's effectiveness." }
+      ]
+    },
+    {
+      id: 4,
+      title: "Hibiski Style Guide",
+      subtitle: "Brand Identity & Guidelines",
+      thumbnail: hibiskiPDF,
+      isPDF: true,
+      pdfSrc: hibiskiPDF,
+      usePDFPreview: true,
+      description: "A comprehensive brand style guide for Hibiski, featuring logo usage, color palette, typography, and brand guidelines to ensure consistent visual identity across all touchpoints.",
+      goal: "Create a complete brand style guide that establishes clear visual standards and usage guidelines.",
+      details: {
+        type: "Brand Identity",
+        year: "2024",
+        duration: "20 hours",
+        timeline: "Oct - Nov 2024",
+        role: "Designer",
+        tools: "Adobe Illustrator, InDesign"
+      },
+      sections: [
+        { title: "Objective", content: "Develop a cohesive brand identity system with clear guidelines for logo usage, color, and typography." },
+        { title: "Design Approach", content: "Created a structured style guide that balances flexibility with consistency, ensuring the brand maintains its identity across various applications." },
+        { title: "Takeaways", content: "This project deepened my understanding of brand systems and the importance of clear documentation in maintaining visual consistency." }
+      ]
     }
   ];
 
@@ -229,7 +281,15 @@ const GraphicDesign = () => {
                       onClick={() => setActiveProject(project)}
                     >
                       <div className="project-card-image">
-                        <img src={project.thumbnail} alt={project.title} />
+                        {project.usePDFPreview ? (
+                          <iframe 
+                            src={`${project.thumbnail}#page=1`}
+                            title={`${project.title} preview`}
+                            className="pdf-preview-thumbnail"
+                          />
+                        ) : (
+                          <img src={project.thumbnail} alt={project.title} />
+                        )}
                         <div className="project-card-overlay">
                           <span className="project-card-icon">↗</span>
                         </div>
@@ -299,14 +359,25 @@ const GraphicDesign = () => {
                 <p className="modal-subtitle">{activeProject.subtitle}</p>
               </div>
 
-              <div className="modal-images">
-                {activeProject.images.map((image, index) => (
-                  <div key={index} className="modal-image-item">
-                    <img src={image.src} alt={image.label} />
-                    <span className="modal-image-label">{image.label}</span>
-                  </div>
-                ))}
-              </div>
+              {/* PDF Viewer or Images */}
+              {activeProject.isPDF ? (
+                <div className="modal-pdf-viewer">
+                  <iframe 
+                    src={activeProject.pdfSrc} 
+                    title={activeProject.title}
+                    className="pdf-iframe"
+                  />
+                </div>
+              ) : (
+                <div className="modal-images">
+                  {activeProject.images.map((image, index) => (
+                    <div key={index} className="modal-image-item">
+                      <img src={image.src} alt={image.label} />
+                      <span className="modal-image-label">{image.label}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               <div className="modal-body">
                 <div className="modal-goal">

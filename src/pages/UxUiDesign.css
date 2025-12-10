@@ -539,7 +539,7 @@ html {
 
 .prototype-video {
   width: 100%;
-  max-width: 100%;
+  max-width: 320px;
   border-radius: 12px;
   background: #000;
   box-shadow: 0 8px 30px rgba(68, 43, 18, 0.15);
@@ -566,7 +566,7 @@ html {
 .figma-embed-wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 75%; /* 4:3 aspect ratio - good for mobile prototypes */
+  padding-bottom: 75%;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(68, 43, 18, 0.15);
@@ -759,6 +759,228 @@ html {
 }
 
 /* ===============================
+   FULLSCREEN SLIDE HINT
+   =============================== */
+
+.slide-fullscreen-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(68, 43, 18, 0.85);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.slide-fullscreen-hint span {
+  font-size: 1.5rem;
+}
+
+.slide-image-large:hover .slide-fullscreen-hint {
+  opacity: 1;
+}
+
+/* ===============================
+   FULLSCREEN SLIDE VIEWER
+   =============================== */
+
+.fullscreen-slide-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.fullscreen-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #FFFDF1;
+  background: rgba(68, 43, 18, 0.9);
+  color: #FFFDF1;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 2001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  line-height: 1;
+  padding-bottom: 3px;
+}
+
+.fullscreen-close:hover {
+  background: #FFFDF1;
+  color: #442B12;
+  border-color: #FFFDF1;
+  transform: scale(1.1);
+}
+
+.fullscreen-slide-container {
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.fullscreen-slide-container img {
+  max-width: 100%;
+  max-height: calc(85vh - 80px);
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.fullscreen-slide-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  background: rgba(68, 43, 18, 0.9);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 253, 241, 0.2);
+}
+
+.fullscreen-nav-btn {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid rgba(255, 253, 241, 0.3);
+  border-radius: 30px;
+  background: transparent;
+  color: #FFFDF1;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fullscreen-nav-btn:hover:not(:disabled) {
+  background: #FFFDF1;
+  color: #442B12;
+  border-color: #FFFDF1;
+}
+
+.fullscreen-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.fullscreen-slide-counter {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: #FFFDF1;
+  letter-spacing: 0.08em;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* ===============================
+   BLUE UNDERLINES FOR UX/UI PAGE HEADERS
+   =============================== */
+
+.uxui-container h1 {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+  color: #FFFDF1 !important;
+  line-height: 1.2 !important;
+  opacity: 1 !important;
+  margin: 0 0 2.5rem 0 !important;
+  letter-spacing: 0.17em !important;
+  padding: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.intro-section .section-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(162, 177, 186, 0.9);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-section .section-header h1:hover::after {
+  height: 3px;
+  background-color: rgba(162, 177, 186, 1);
+}
+
+.uxui-content .section:nth-of-type(2) .section-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(162, 177, 186, 0.9);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.uxui-content .section:nth-of-type(2) .section-header h1:hover::after {
+  height: 3px;
+  background-color: rgba(162, 177, 186, 1);
+}
+
+.uxui-content .section:nth-of-type(3) .section-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(162, 177, 186, 0.9);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.uxui-content .section:nth-of-type(3) .section-header h1:hover::after {
+  height: 3px;
+  background-color: rgba(162, 177, 186, 1);
+}
+
+.uxui-container .section:last-of-type {
+  padding-bottom: clamp(10rem, 18vh, 14rem) !important;
+}
+
+.uxui-container .intro-section {
+  padding-bottom: clamp(8rem, 14vh, 12rem) !important;
+}
+
+.uxui-content .section:nth-of-type(2) {
+  padding-bottom: clamp(8rem, 14vh, 12rem) !important;
+}
+
+/* ===============================
    RESPONSIVE
    =============================== */
 
@@ -782,6 +1004,35 @@ html {
   }
 }
 
+@media (max-width: 768px) {
+  .fullscreen-close {
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.8rem;
+  }
+
+  .fullscreen-slide-container {
+    max-width: 95vw;
+  }
+
+  .fullscreen-slide-nav {
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .fullscreen-nav-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .fullscreen-slide-counter {
+    font-size: 0.8rem;
+    min-width: 60px;
+  }
+}
+
 @media (max-width: 700px) {
   .modal-overlay {
     padding: 0;
@@ -793,7 +1044,6 @@ html {
     min-height: 100vh;
   }
 
-  /* Stack vertically on mobile */
   .slide-row {
     flex-direction: column;
     align-items: center;
@@ -815,7 +1065,6 @@ html {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Prototype section mobile */
   .prototype-tabs {
     flex-direction: column;
     border-radius: 12px;
@@ -832,6 +1081,10 @@ html {
 
   .figma-embed-wrapper {
     padding-bottom: 100%;
+  }
+
+  .prototype-video {
+    max-width: 100%;
   }
 }
 
@@ -888,6 +1141,24 @@ html {
   .figma-embed-wrapper {
     padding-bottom: 120%;
   }
+
+  .prototype-video {
+    max-width: 100%;
+  }
+
+  .fullscreen-slide-overlay {
+    padding: 1rem;
+  }
+
+  .fullscreen-nav-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .fullscreen-slide-nav {
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+  }
 }
 
 /* ===============================
@@ -909,105 +1180,4 @@ html {
   .modal {
     animation: none;
   }
-}
-
-/* ===============================
-   BLUE UNDERLINES FOR UX/UI PAGE HEADERS
-   Add this to your UxUiDesign.css file
-   =============================== */
-
-/* Update h1 to support underlines */
-.uxui-container h1 {
-  font-family: 'Roboto', sans-serif !important;
-  font-weight: 300 !important;
-  font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
-  color: #FFFDF1 !important;
-  line-height: 1.2 !important;
-  opacity: 1 !important;
-  margin: 0 0 2.5rem 0 !important;
-  letter-spacing: 0.17em !important;
-  padding: 0;
-  position: relative;
-  display: inline-block;
-}
-
-/* ===============================
-   BLUE UNDERLINES - SPECIFIC SECTIONS ONLY
-   =============================== */
-
-/* "ux/ui design" section (intro) */
-.intro-section .section-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(162, 177, 186, 0.9);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.intro-section .section-header h1:hover::after {
-  height: 3px;
-  background-color: rgba(162, 177, 186, 1);
-}
-
-/* "human-centered design" section */
-.uxui-content .section:nth-of-type(2) .section-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(162, 177, 186, 0.9);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.uxui-content .section:nth-of-type(2) .section-header h1:hover::after {
-  height: 3px;
-  background-color: rgba(162, 177, 186, 1);
-}
-
-/* "design philosophy" section */
-.uxui-content .section:nth-of-type(3) .section-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(162, 177, 186, 0.9);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.uxui-content .section:nth-of-type(3) .section-header h1:hover::after {
-  height: 3px;
-  background-color: rgba(162, 177, 186, 1);
-}
-
-/* ===============================
-   ADD EXTRA PADDING TO BOTTOM OF UX/UI PAGE
-   Add this to your UxUiDesign.css file
-   =============================== */
-
-/* Add extra padding to the last section */
-.uxui-container .section:last-of-type {
-  padding-bottom: clamp(10rem, 18vh, 14rem) !important;
-}
-
-/* Add more space between projects section and human-centered design section */
-.uxui-container .intro-section {
-  padding-bottom: clamp(8rem, 14vh, 12rem) !important;
-}
-
-/* Add more space between human-centered design and design philosophy sections */
-.uxui-content .section:nth-of-type(2) {
-  padding-bottom: clamp(8rem, 14vh, 12rem) !important;
 }

@@ -135,7 +135,7 @@ body.projects-page {
 }
 
 /* Process section header underline */
-.section:nth-child(4) .section-header h1::after {
+.section:nth-child(6) .section-header h1::after {
   content: '';
   position: absolute;
   bottom: -8px;
@@ -148,13 +148,13 @@ body.projects-page {
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.section:nth-child(4) .section-header h1:hover::after {
+.section:nth-child(6) .section-header h1:hover::after {
   height: 3px;
   background-color: rgba(162, 177, 186, 1);
 }
 
 /* AI section header underline */
-.section:nth-child(5) .section-header h1::after {
+.section:nth-child(7) .section-header h1::after {
   content: '';
   position: absolute;
   bottom: -8px;
@@ -167,7 +167,7 @@ body.projects-page {
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.section:nth-child(5) .section-header h1:hover::after {
+.section:nth-child(7) .section-header h1:hover::after {
   height: 3px;
   background-color: rgba(162, 177, 186, 1);
 }
@@ -221,8 +221,13 @@ body.projects-page {
   padding-bottom: clamp(1rem, 2vh, 1.5rem);
 }
 
+.projects-container .why-disciplines-section {
+  padding-top: clamp(3rem, 6vh, 5rem);
+  padding-bottom: clamp(0.5rem, 1vh, 0.75rem);
+}
+
 .projects-container .intro-text-section {
-  padding-top: clamp(2rem, 4vh, 3rem);
+  padding-top: clamp(0.5rem, 1vh, 0.75rem);
   padding-bottom: clamp(4rem, 8vh, 6rem);
 }
 
@@ -266,8 +271,8 @@ body.projects-page {
    =============================== */
 
 .disciplines-section {
-  padding-top: clamp(2rem, 4vh, 3rem) !important;
-  padding-bottom: clamp(6rem, 12vh, 10rem) !important;
+  padding-top: clamp(1rem, 2vh, 1.5rem) !important;
+  padding-bottom: clamp(2rem, 4vh, 3rem) !important;
 }
 
 .section-content-wide {

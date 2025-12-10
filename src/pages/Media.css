@@ -445,10 +445,13 @@ html {
 
 .modal-media {
   padding: 0 2rem 1rem 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .modal-media video {
   width: 100%;
+  max-width: 320px;
   border-radius: 12px;
   background: #000;
   box-shadow: 0 8px 30px rgba(68, 43, 18, 0.15);
@@ -530,6 +533,10 @@ html {
   .modal-details {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .modal-media video {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -555,6 +562,10 @@ html {
 
   .modal-body {
     padding: 1.25rem;
+  }
+
+  .modal-media video {
+    max-width: 100%;
   }
 }
 
@@ -691,39 +702,32 @@ html {
   padding-bottom: clamp(8rem, 14vh, 12rem) !important;
 }
 
+/* Replace the "BLUE BORDERS FOR IMAGES AND VIDEOS" section in your Media.css with this */
+
 /* ===============================
-   BLUE BORDERS FOR IMAGES AND VIDEOS
+   NO BORDERS ON IMAGES AND VIDEOS
    =============================== */
 
-/* Project card videos */
+/* Project card videos - NO BORDERS */
 .project-card-video {
   width: 100%;
   aspect-ratio: 16/9;
   overflow: hidden;
   position: relative;
-  border: 2px solid rgba(162, 177, 186, 0.9);
-  padding: 12px;
-  background: transparent;
-  border-radius: clamp(12px, 2.5vw, 20px);
 }
 
 .project-card-video video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: clamp(8px, 2vw, 16px);
 }
 
-/* Scattered gallery photos */
+/* Scattered gallery photos - NO BORDERS */
 .scattered-photo {
   position: absolute;
   z-index: 1;
   transition: 0.5s ease;
   cursor: pointer;
-  border: 2px solid rgba(162, 177, 186, 0.9);
-  padding: 12px;
-  background: transparent;
-  border-radius: clamp(12px, 2vw, 20px);
 }
 
 .scattered-photo img {
@@ -738,15 +742,102 @@ html {
   transform: scale(1.08) rotate(0deg) !important;
 }
 
-/* Mobile responsive adjustments */
+/* Photo frames - NO BORDERS */
+.photo-frame {
+  background: #FFFDF1;
+  padding: clamp(6px, 1vw, 10px);
+  border-radius: clamp(12px, 2vw, 20px);
+  overflow: hidden;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: clamp(8px, 1.5vw, 14px);
+}
+
+/* Mobile responsive adjustments - NO BORDERS */
 @media (max-width: 768px) {
   .scattered-photo {
     position: relative !important;
     transform: none !important;
     width: 100% !important;
     max-width: 100% !important;
-    border: 2px solid rgba(162, 177, 186, 0.9);
-    padding: 12px;
-    background: transparent;
   }
+}
+
+/* ===============================
+   MODAL BEHIND THE SCENES & STORYBOARD
+   =============================== */
+
+.modal-section-title {
+  font-family: 'Liu Jian Mao Cao', cursive;
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: #442B12;
+  text-align: center;
+  margin: 2rem 0 1rem 0;
+}
+
+.modal-bts-section {
+  padding: 0 2rem 1.5rem 2rem;
+  border-bottom: 1px solid rgba(68, 43, 18, 0.08);
+}
+
+.modal-bts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.modal-bts-photo img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(68, 43, 18, 0.1);
+}
+
+.modal-storyboard-section {
+  padding: 0 2rem 1.5rem 2rem;
+  border-bottom: 1px solid rgba(68, 43, 18, 0.08);
+}
+
+.modal-storyboard img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(68, 43, 18, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.modal-storyboard img:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 480px) {
+  .modal-bts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Rotate portrait images to correct orientation */
+.modal-bts-photo img {
+  transform: rotate(90deg);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Adjust container to accommodate rotated images */
+.modal-bts-photo {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  aspect-ratio: 4/3; /* Since portrait becomes landscape when rotated */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.modal-bts-photo:hover {
+  transform: scale(1.02);
 }

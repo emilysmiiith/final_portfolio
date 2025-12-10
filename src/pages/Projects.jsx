@@ -110,7 +110,7 @@ const Projects = () => {
       description: 'Every project starts with understanding. I take time to hear your goals, your vision, and what success looks like for you. The best work comes from truly listening.' 
     },
     { 
-      title: 'pre planning', 
+      title: 'pre-plan', 
       description: 'With your vision in mind, I map out the direction — gathering inspiration, exploring ideas, and building a roadmap that keeps your goals at the center.' 
     },
     { 
@@ -137,12 +137,11 @@ const Projects = () => {
 
         <div className="projects-content">
 
-          {/* Section Header Above */}
+          {/* Section Header Above - Just the h1 */}
           <section className="section intro-header-section">
             <div className="section-content">
               <div className="section-header">
                 <h1>creative focus</h1>
-                <h2>why these disciplines?</h2>
               </div>
             </div>
           </section>
@@ -165,6 +164,15 @@ const Projects = () => {
                     </div>
                   </Link>
                 ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Why These Disciplines Section - After the grid */}
+          <section className="section why-disciplines-section">
+            <div className="section-content">
+              <div className="section-header">
+                <h2>why these disciplines?</h2>
               </div>
             </div>
           </section>
