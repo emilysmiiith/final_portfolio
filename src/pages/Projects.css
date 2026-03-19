@@ -29,7 +29,7 @@ body.projects-page {
 }
 
 /* ===============================
-   BACKGROUND EFFECTS - PROJECTS PAGE
+   BACKGROUND EFFECTS
    =============================== */
 
 .projects-background-effects {
@@ -42,10 +42,6 @@ body.projects-page {
   z-index: 1;
   pointer-events: none;
 }
-
-/* ===============================
-   LINE DECORATION - PROJECTS PAGE
-   =============================== */
 
 .projects-line1-decoration {
   position: absolute;
@@ -73,7 +69,7 @@ body.projects-page {
 }
 
 /* ===============================
-   TYPOGRAPHY - PROJECTS PAGE
+   TYPOGRAPHY
    =============================== */
 
 .projects-container h1 {
@@ -112,67 +108,12 @@ body.projects-page {
 }
 
 /* ===============================
-   BLUE UNDERLINES - SPECIFIC SECTIONS ONLY
+   BLUE UNDERLINES
    =============================== */
 
-/* "creative focus" header */
-.intro-header-section .section-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(162, 177, 186, 0.9);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.intro-header-section .section-header h1:hover::after {
-  height: 3px;
-  background-color: rgba(162, 177, 186, 1);
-}
-
-/* "my approach to every project" section */
-.projects-content > .section:nth-child(6) .section-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(162, 177, 186, 0.9);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.projects-content > .section:nth-child(6) .section-header h1:hover::after {
-  height: 3px;
-  background-color: rgba(162, 177, 186, 1);
-}
-
-/* "working with AI in design" section */
-.projects-content > .section:nth-child(7) .section-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(162, 177, 186, 0.9);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.projects-content > .section:nth-child(7) .section-header h1:hover::after {
-  height: 3px;
-  background-color: rgba(162, 177, 186, 1);
-}
-
-/* "collaboration and inspiration" section */
+.intro-header-section .section-header h1::after,
+.projects-content > .section:nth-child(6) .section-header h1::after,
+.projects-content > .section:nth-child(7) .section-header h1::after,
 .collaboration-section .section-header h1::after {
   content: '';
   position: absolute;
@@ -186,12 +127,14 @@ body.projects-page {
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.intro-header-section .section-header h1:hover::after,
+.projects-content > .section:nth-child(6) .section-header h1:hover::after,
+.projects-content > .section:nth-child(7) .section-header h1:hover::after,
 .collaboration-section .section-header h1:hover::after {
   height: 3px;
   background-color: rgba(162, 177, 186, 1);
 }
 
-/* Process step h1s do NOT get underlines */
 .process-step h1 {
   margin: 0 0 0.75rem 0 !important;
 }
@@ -201,7 +144,7 @@ body.projects-page {
 }
 
 /* ===============================
-   LAYOUT - PROJECTS PAGE
+   LAYOUT
    =============================== */
 
 .projects-content {
@@ -214,7 +157,7 @@ body.projects-page {
 }
 
 /* ===============================
-   SECTIONS - PROJECTS PAGE
+   SECTIONS
    =============================== */
 
 .projects-container .section {
@@ -282,7 +225,7 @@ body.projects-page {
 }
 
 /* ===============================
-   DISCIPLINES GRID - SIDE BY SIDE
+   DISCIPLINES GRID
    =============================== */
 
 .disciplines-section {
@@ -344,12 +287,7 @@ body.projects-page {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    transparent 50%,
-    rgba(68, 43, 18, 0.6) 100%
-  );
+  background: linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(68, 43, 18, 0.6) 100%);
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -638,32 +576,23 @@ body.projects-page {
 }
 
 /* ===============================
-   RESPONSIVE - PROJECTS PAGE
+   RESPONSIVE - TABLET (max 900px)
    =============================== */
 
-@media (max-width: 1024px) {
-  .process-content {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    text-align: center;
-  }
-
-  .disciplines-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(1rem, 2vw, 1.5rem);
-  }
-}
-
 @media (max-width: 900px) {
-  .projects-content {
-    padding: 0 clamp(2rem, 6vw, 5rem);
+  .projects-container {
+    padding-top: 140px;
   }
 
+  .projects-content {
+    padding: 0 clamp(2rem, 5vw, 4rem);
+  }
+
+  /* Disciplines: horizontal card layout */
   .disciplines-grid {
     grid-template-columns: 1fr;
-    max-width: 450px;
+    max-width: 500px;
     margin: 0 auto;
-    gap: clamp(1.5rem, 3vw, 2rem);
   }
 
   .discipline-card {
@@ -673,8 +602,9 @@ body.projects-page {
 
   .discipline-image {
     width: 40%;
-    aspect-ratio: auto;
-    min-height: 100%;
+    aspect-ratio: unset;
+    min-height: 140px;
+    flex-shrink: 0;
   }
 
   .discipline-info {
@@ -683,68 +613,47 @@ body.projects-page {
   }
 
   .collaboration-section .section-content {
-    padding: 0 clamp(2rem, 6vw, 5rem);
+    padding: 0 clamp(2rem, 5vw, 4rem);
   }
 }
 
-@media (max-width: 768px) {
+/* ===============================
+   RESPONSIVE - MOBILE (max 600px)
+   =============================== */
+
+@media (max-width: 600px) {
+  .projects-container {
+    padding-top: 110px;
+  }
+
   .projects-content {
-    padding: 0 clamp(1.5rem, 5vw, 3rem);
+    padding: 0 1.25rem;
   }
 
   .projects-container .section {
-    padding: clamp(5rem, 10vh, 8rem) 0;
+    padding: clamp(3.5rem, 8vh, 6rem) 0;
   }
 
+  .projects-container .intro-header-section {
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .projects-container .why-disciplines-section {
+    padding-top: 2rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .projects-container .intro-text-section {
+    padding-top: 0.25rem;
+    padding-bottom: 2.5rem;
+  }
+
+  /* Disciplines: stack vertically, image on top */
   .disciplines-grid {
-    max-width: 400px;
-  }
-
-  .discipline-card {
-    flex-direction: row;
-  }
-
-  .discipline-image {
-    width: 35%;
-  }
-
-  .discipline-info {
-    width: 65%;
-    padding: clamp(1rem, 2vw, 1.25rem);
-  }
-
-  .projects-container .intro-section {
-    padding-top: clamp(2rem, 4vh, 3rem);
-  }
-
-  .projects-grid a {
-    max-width: 400px;
-  }
-
-  .process-step {
-    padding: clamp(1.25rem, 3vw, 1.75rem);
-  }
-
-  .collaboration-section .section-content {
-    padding: 0 clamp(1.5rem, 5vw, 3rem);
-  }
-
-  .collaboration-images {
-    gap: clamp(1.25rem, 2.5vw, 2rem);
-  }
-}
-
-@media (max-width: 480px) {
-  .projects-content {
-    padding: 0 clamp(1.25rem, 4vw, 2rem);
-  }
-
-  .projects-container .intro-section {
-    padding-top: clamp(2rem, 4vh, 3rem);
-  }
-
-  .disciplines-grid {
-    max-width: 280px;
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 1rem;
   }
 
   .discipline-card {
@@ -753,33 +662,44 @@ body.projects-page {
 
   .discipline-image {
     width: 100%;
-    aspect-ratio: 16/10;
+    aspect-ratio: 16/9;
+    min-height: unset;
   }
 
   .discipline-info {
     width: 100%;
+    padding: 1rem 1.25rem 1.25rem;
   }
 
-  .projects-grid a {
-    max-width: 300px;
+  .discipline-info h3 {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
   }
 
-  .check-more-btn {
-    padding: 0.75rem 1.75rem;
+  /* Process: single column */
+  .process-content {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    text-align: center;
   }
 
-  .process-step {
-    padding: clamp(1rem, 2.5vw, 1.5rem);
+  /* Collaboration: single column */
+  .collaboration-images {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 1rem;
   }
 
   .collaboration-section .section-content {
-    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    padding: 0 1.25rem;
   }
 
-  .collaboration-images {
-    grid-template-columns: 1fr;
-    gap: clamp(1.5rem, 3vw, 2rem);
-    max-width: 300px;
+  .collaboration-section {
+    padding-bottom: clamp(5rem, 10vh, 8rem) !important;
+  }
+
+  /* h2 sizing */
+  .projects-container h2 {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
   }
 }
 

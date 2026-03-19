@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './About.css';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -19,10 +19,18 @@ import me6 from '../assets/images/me6.png';
 
 const About = () => {
   const base = import.meta.env.BASE_URL;
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
 
-  /* -----------------------------------------
-      PAGE-SPECIFIC METADATA
-     ----------------------------------------- */
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   useEffect(() => {
     const title = "About – Emily Rianna Smith | Creative Designer & Storyteller";
     const desc = "Learn more about Emily Rianna Smith — a creative designer focused on emotional storytelling, UX/UI, media, and graphic design. From island beginnings to a passion-driven career.";
@@ -76,28 +84,39 @@ const About = () => {
     },
   ];
 
-  // Personal life media - update these paths to your actual images/videos
-const personalMedia = [
-  { type: 'image', src: me1, alt: 'Emily photo 1' },
-  { type: 'image', src: me2, alt: 'Emily photo 2' },
-  { type: 'image', src: me6, alt: 'Emily photo 6' },
-  { type: 'image', src: me4, alt: 'Emily photo 4' },
-  { type: 'image', src: me5, alt: 'Emily photo 5' },
-  { type: 'video', src: '/videos/pov.mp4', alt: 'POV video' },
-];
+  const personalMedia = [
+    { type: 'image', src: me1, alt: 'Emily photo 1' },
+    { type: 'image', src: me2, alt: 'Emily photo 2' },
+    { type: 'image', src: me6, alt: 'Emily photo 6' },
+    { type: 'image', src: me4, alt: 'Emily photo 4' },
+    { type: 'image', src: me5, alt: 'Emily photo 5' },
+    { type: 'video', src: '/videos/pov.mp4', alt: 'POV video' },
+  ];
 
+  const prevSlide = () => setCurrentSlide(i => (i === 0 ? personalMedia.length - 1 : i - 1));
+  const nextSlide = () => setCurrentSlide(i => (i === personalMedia.length - 1 ? 0 : i + 1));
+
+  const handleTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
+  const handleTouchMove = (e) => { touchEndX.current = e.touches[0].clientX; };
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) > 40) {
+      diff > 0 ? nextSlide() : prevSlide();
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
 
   return (
     <>
       <div className="about-container">
         <Navbar />
 
-        {/* Top Banner */}
         <div className="about-banner-wrapper" aria-hidden="true">
           <div className="about-banner-image-container"></div>
         </div>
 
-        {/* Background Effects */}
         <div className="background-effects" aria-hidden="true">
           <div
             className="repeating-background-layer"
@@ -112,7 +131,7 @@ const personalMedia = [
         </div>
 
         <main className="main-content">
-          
+
           {/* HERO SECTION */}
           <section className="section hero-section" aria-labelledby="hero-heading">
             <div className="section-content">
@@ -126,7 +145,6 @@ const personalMedia = [
                     </p>
                   </div>
                 </div>
-
                 <div className="hero-right-column">
                   <div className="hero-image-container">
                     <img
@@ -140,7 +158,7 @@ const personalMedia = [
             </div>
           </section>
 
-         {/* STORY SECTION */}
+          {/* STORY SECTION */}
           <section className="section story-section" aria-labelledby="story-heading">
             <div className="section-content">
               <div className="section-header">
@@ -153,11 +171,7 @@ const personalMedia = [
                   was part of everyday life. I have always been drawn to creating things that resonate with people.
                   It means a lot to me when I can make something that tells a story or sparks an emotion.
                 </p>
-                <div
-                  className="about-collage"
-                  role="group"
-                  aria-label="Images from Emily's journey"
-                >
+                <div className="about-collage" role="group" aria-label="Images from Emily's journey">
                   {aboutImages.map((image, index) => (
                     <div key={index} className={`about-image-wrapper about-${index + 1}`}>
                       <img
@@ -170,20 +184,18 @@ const personalMedia = [
                     </div>
                   ))}
                 </div>
-
                 <p>
                   I moved to the mainland for design school at BCIT, where I am currently studying New Media Design and Web Development, which gave me the technical
                   foundation to bring those stories to life - blending empathy,
-                  storytelling, and visual expression into my crafts. 
+                  storytelling, and visual expression into my crafts.
                 </p>
-                
                 <p>
-                  During my gap years, I traveled solo to 14 countries, immersing myself in new cultures 
-                  and perspectives. These experiences taught me to see the world through different lenses 
-                  and deepened my appreciation for authentic human connection, something that continues 
+                  During my gap years, I traveled solo to 14 countries, immersing myself in new cultures
+                  and perspectives. These experiences taught me to see the world through different lenses
+                  and deepened my appreciation for authentic human connection, something that continues
                   to influence my design work today.
                 </p>
-              </div> 
+              </div>
             </div>
           </section>
 
@@ -195,31 +207,87 @@ const personalMedia = [
                 <h2>life outside the screen</h2>
               </div>
 
-              <div className="scattered-gallery">
-                {personalMedia.map((item, index) => (
-                  <div key={index} className={`scattered-photo photo-${index + 1}`}>
-                    <div className="photo-frame">
-                      {item.type === 'video' ? (
-                        <video autoPlay muted loop playsInline>
-                          <source src={item.src} type="video/mp4" />
-                        </video>
-                      ) : (
-                        <img src={item.src} alt={item.alt} />
-                      )}
+              {/* DESKTOP: scattered gallery */}
+              {!isMobile && (
+                <div className="scattered-gallery">
+                  {personalMedia.map((item, index) => (
+                    <div key={index} className={`scattered-photo photo-${index + 1}`}>
+                      <div className="photo-frame">
+                        {item.type === 'video' ? (
+                          <video autoPlay muted loop playsInline>
+                            <source src={item.src} type="video/mp4" />
+                          </video>
+                        ) : (
+                          <img src={item.src} alt={item.alt} />
+                        )}
+                      </div>
                     </div>
+                  ))}
+                </div>
+              )}
+
+              {/* MOBILE: carousel */}
+              {isMobile && (
+                <div
+                  className="mobile-carousel"
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                  onClick={nextSlide}
+                >
+                  <div className="carousel-stack">
+                    {personalMedia.map((item, i) => {
+                      const total = personalMedia.length;
+                      // position relative to current: 0=current, 1=next, -1=prev, etc.
+                      const offset = ((i - currentSlide) % total + total) % total;
+                      const isCurrent = offset === 0;
+                      const isNext = offset === 1;
+                      const isPrev = offset === total - 1;
+                      const isVisible = isCurrent || isNext || isPrev;
+
+                      if (!isVisible) return null;
+
+                      let className = 'carousel-card';
+                      if (isCurrent) className += ' card-current';
+                      else if (isNext) className += ' card-next';
+                      else if (isPrev) className += ' card-prev';
+
+                      return (
+                        <div key={i} className={className}>
+                          {item.type === 'video' ? (
+                            <video autoPlay muted loop playsInline>
+                              <source src={item.src} type="video/mp4" />
+                            </video>
+                          ) : (
+                            <img src={item.src} alt={item.alt} />
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
-                ))}
-              </div>
+
+                  <div className="carousel-dots">
+                    {personalMedia.map((_, i) => (
+                      <button
+                        key={i}
+                        className={`carousel-dot ${i === currentSlide ? 'active' : ''}`}
+                        onClick={(e) => { e.stopPropagation(); setCurrentSlide(i); }}
+                        aria-label={`Go to slide ${i + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="personal-text">
                 <p>
-                  I love to express myself with singing, spending time with people closest to me, and exploring 
+                  I love to express myself with singing, spending time with people closest to me, and exploring
                   the world with just me and my backpack.
                 </p>
                 <div className="audio-link">
-                  <a 
-                    href="https://www.youtube.com/watch?v=UhAZkQsE914&t=1186s" 
-                    target="_blank" 
+                  <a
+                    href="https://www.youtube.com/watch?v=UhAZkQsE914&t=1186s"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="audio-button"
                   >
@@ -238,7 +306,6 @@ const personalMedia = [
                 <h1 id="values-heading">values</h1>
                 <h2>what drives my creative work</h2>
               </div>
-
               <p>
                 Empathy, authenticity, and curiosity, these three guide my design process.
                 They remind me to listen deeply, to create with intention, and to approach
@@ -254,7 +321,6 @@ const personalMedia = [
                 <h1 id="skills-heading">skills</h1>
                 <h2>tools that bring stories to life</h2>
               </div>
-
               <div className="skills-grid">
                 <div className="skills-column">
                   <h1>creative tools</h1>
@@ -264,7 +330,6 @@ const personalMedia = [
                   <p>Adobe Premiere Pro</p>
                   <p>Figma</p>
                 </div>
-
                 <div className="skills-column">
                   <h1>core strengths</h1>
                   <p>Creative problem-solving</p>
@@ -283,16 +348,12 @@ const personalMedia = [
                 <h1 id="forward-heading">looking ahead</h1>
                 <h2>continuing the journey</h2>
               </div>
-
               <p>
                 I'm inspired by human stories and emotional design, always striving to
                 create something that resonates deeply with others. Let's make something
                 meaningful together.
               </p>
-
-              <div className="cta-buttons">
-        
-              </div>
+              <div className="cta-buttons"></div>
             </div>
           </section>
 
